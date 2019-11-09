@@ -1,25 +1,19 @@
 import React from 'react';
+import { StyleProp, ViewStyle } from 'react-native';
 import StyledButton from './styled/button';
 import StyledText from './styled/text';
+import { ButtonVariant } from '../types';
 
-export interface Props {
+export interface ButtonProps {
     onPress?: (event?: any) => void;
     label?: any;
     disabled?: boolean;
     loading?: boolean;
-    variant?:
-    | 'base'
-    | 'neutral'
-    | 'brand'
-    | 'outline-brand'
-    | 'destructive'
-    | 'success'
-    | 'inverse'
-    | 'border-inverse';
-    style: object;
+    variant?: ButtonVariant;
+    style?: StyleProp<ViewStyle>;
 }
 
-const Button: React.FC<Props> = (props) => {
+const Button: React.FC<ButtonProps> = props => {
     const { onPress, label, variant, style } = props;
 
     return (
@@ -29,7 +23,7 @@ const Button: React.FC<Props> = (props) => {
             </StyledText>
         </StyledButton>
     );
-}
+};
 
 Button.defaultProps = {
     label: undefined,

@@ -6,8 +6,13 @@ import {
     COLOR_ERROR,
     COLOR_SUCCESS,
 } from '../../../styles/colors';
+import { ButtonVariant } from '../../types';
 
-const StyledButton = styled.TouchableOpacity`
+interface Props {
+    variant?: ButtonVariant;
+}
+
+const StyledButton = styled.TouchableOpacity<Props>`
     align-items: center;
     display: flex;
     justify-content: center;
