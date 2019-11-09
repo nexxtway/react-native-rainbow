@@ -1,14 +1,44 @@
 {
   "name": "react-native-rainbow",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.0.3",
+  "description": "React Native Rainbow Components",
+  "keywords": [
+    "react",
+    "native",
+    "ios",
+    "android",
+    "components",
+    "library",
+    "rainbow",
+    "building-blocks",
+    "examples"
+  ],
+  "main": "dist/components/index.js",
+  "types": "dist/components/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nexxtway/react-native-rainbow.git"
+  },
+  "authors": [
+    "Reinier Guerra",
+    "Leandro Torres"
+  ],
+  "license": "MIT",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint .",
-    "storybook": "start-storybook -p 7007"
+    "lint": "eslint --ext '.js,.ts,.tsx' src",
+    "storybook": "start-storybook -p 7007",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\"",
+    "copy-d.ts-files": "node ./scripts/copy-files.js",
+    "build": "yarn build:js && yarn copy-d.ts-files",
+    "clean": "rm -Rf dist",
+    "prepublishOnly": "yarn clean && yarn build"
   },
   "dependencies": {
     "react": "16.9.0",
@@ -16,7 +46,9 @@
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.0",
     "@babel/core": "^7.6.2",
+    "@babel/preset-typescript": "^7.7.2",
     "@babel/runtime": "^7.6.2",
     "@react-native-community/eslint-config": "^0.0.5",
     "@storybook/addon-actions": "^5.2.5",
@@ -24,13 +56,15 @@
     "@storybook/addons": "^5.2.5",
     "@storybook/react-native": "^5.2.5",
     "@storybook/react-native-server": "^5.2.5",
+    "@types/styled-components": "^4.1.22",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "eslint": "^6.5.1",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.0",
     "react-dom": "16.9.0",
-    "react-test-renderer": "16.9.0"
+    "react-test-renderer": "16.9.0",
+    "typescript": "^3.7.2"
   },
   "jest": {
     "preset": "react-native"
