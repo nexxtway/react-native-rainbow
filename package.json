@@ -31,7 +31,7 @@
         "android": "react-native run-android",
         "ios": "react-native run-ios",
         "start": "react-native start",
-        "test": "jest ./src --verbose --watch",
+        "test": "jest ./src --verbose",
         "lint:ts": "eslint --ext '.js,.ts,.tsx' src",
         "lint:styles": "stylelint src",
         "lint": "yarn lint:ts && yarn lint:styles",
