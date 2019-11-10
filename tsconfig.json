@@ -26,8 +26,9 @@
         "checkJs": false
     },
     "exclude": [
-        "**/*.test.ts",
-        "**/*.test.tsx",
+        "**/*.spec.js",
+        "**/*.spec.ts",
+        "**/*.spec.tsx",
         "node_modules",
         "**/node_modules/*",
         "android",
