@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
+import PropTypes from 'prop-types';
 import StyledButton from './styled/button';
 import StyledText from './styled/text';
 import { ButtonVariant } from '../types';
@@ -25,9 +26,29 @@ const Button: React.FC<ButtonProps> = props => {
     );
 };
 
+Button.propTypes = {
+    onPress: PropTypes.func,
+    label: PropTypes.node,
+    disabled: PropTypes.bool,
+    loading: PropTypes.bool,
+    variant: PropTypes.oneOf([
+        'base',
+        'neutral',
+        'brand',
+        'outline-brand',
+        'destructive',
+        'success',
+        'inverse',
+        'border-inverse',
+    ]),
+    style: undefined,
+};
+
 Button.defaultProps = {
-    label: undefined,
     onPress: () => {},
+    label: undefined,
+    disabled: false,
+    loading: false,
     variant: 'neutral',
     style: undefined,
 };
