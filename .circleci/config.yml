@@ -1,0 +1,70 @@
+version: 2
+
+defaults: &defaults
+    working_directory: ~/repo
+    docker:
+        - image: circleci/node:11.8.0-stretch-browsers
+
+jobs:
+    build_and_test:
+        <<: *defaults
+
+        steps:
+            - checkout
+
+            # Download and cache dependencies
+            - restore_cache:
+                  keys:
+                      - v1-dependencies-{{ checksum "yarn.lock" }}
+                      # fallback to using the latest cache if no exact match is found
+                      - v1-dependencies-
+
+            - run: yarn install
+
+            - save_cache:
+                  paths:
+                      - node_modules
+                  key: v1-dependencies-{{ checksum "yarn.lock" }}
+
+            - run: yarn lint
+
+            - run:
+                  name: run test
+                  command: |
+                      if [ -n "$COVERALLS_REPO_TOKEN" ]; then
+                          yarn test --ci --maxWorkers=2 --coverage --coverageReporters=text-lcov | ./node_modules/coveralls/bin/coveralls.js
+                      else
+                          yarn test --ci --maxWorkers=2
+                      fi
+
+    publish_canary:
+        <<: *defaults
+
+        steps:
+            - checkout
+            # Download and cache dependencies
+            - restore_cache:
+                  keys:
+                      - v1-dependencies-{{ checksum "yarn.lock" }}
+                      # fallback to using the latest cache if no exact match is found
+                      - v1-dependencies-
+            - run: git config --global user.email "admin@nexxtway.com"
+            - run: git config --global user.name "TheAdmin"
+            - run: yarn install
+            - run:
+                  name: Auth with registry
+                  command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+            - run: yarn prepare:canary
+            - run: yarn publish --tag next
+
+workflows:
+    version: 2
+    build_and_test:
+        jobs:
+            - build_and_test
+            - publish_canary:
+                  requires:
+                      - build_and_test
+                  filters:
+                      branches:
+                          only: master
