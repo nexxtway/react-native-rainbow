@@ -7,7 +7,6 @@
         "esModuleInterop": true,
         "jsx": "react-native",
         "declaration": true,
-        "emitDeclarationOnly": true,
         "outDir": "dist",
         "allowSyntheticDefaultImports": true,
         "preserveConstEnums": true,
