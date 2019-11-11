@@ -31,16 +31,17 @@
         "android": "react-native run-android",
         "ios": "react-native run-ios",
         "start": "react-native start",
+        "storybook": "start-storybook -p 7007",
         "test": "jest ./src --verbose",
         "lint:ts": "eslint --ext '.js,.ts,.tsx' src",
         "lint:styles": "stylelint src",
         "lint": "yarn lint:ts && yarn lint:styles",
-        "storybook": "start-storybook -p 7007",
         "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\"",
         "copy-d.ts-files": "node ./scripts/copy-files.js",
         "build": "yarn build:js && tsc && yarn copy-d.ts-files",
         "clean": "rm -Rf dist",
-        "prepublishOnly": "yarn clean && yarn build"
+        "prepublishOnly": "yarn clean && yarn build",
+        "prepare:canary": "node scripts/prepare-canary.js"
     },
     "dependencies": {
         "react": "16.9.0",
