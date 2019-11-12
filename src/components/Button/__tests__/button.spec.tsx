@@ -2,7 +2,6 @@ import 'react-native';
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import Button from '../index';
-import StyledText from '../styled/text';
 
 describe('<Button />', () => {
     it('should render the label passed', () => {
