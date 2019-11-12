@@ -41,7 +41,7 @@ Button.propTypes = {
         'inverse',
         'border-inverse',
     ]),
-    style: undefined,
+    style: PropTypes.object,
 };
 
 Button.defaultProps = {
