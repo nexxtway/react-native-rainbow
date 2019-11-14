@@ -1,22 +1,55 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import PropTypes, { string } from 'prop-types';
+import React, { ReactNode } from 'react';
+import { StyleProp, ViewStyle } from 'react-native';
+import PropTypes from 'prop-types';
+import Header from './header';
+import Body from './body';
+import StyledViewContainer from './styled/container';
+import StyledViewFooter from './styled/footer';
+import RenderIf from '../RenderIf';
 
-export interface CardProps {
-    title?: string;
-    footer: React.ReactNode;
+interface Props {
+    title?: ReactNode;
+    icon?: ReactNode;
+    actions?: ReactNode;
+    footer?: ReactNode;
+    isLoading?: boolean;
+    children?: ReactNode;
+    style?: StyleProp<ViewStyle>;
 }
 
-const Card: React.FC<CardProps> = props => {
+const Card: React.FC<Props> = props => {
+    const { title, icon, actions, footer, isLoading, children, style } = props;
+    const showFooter = !!(footer && !isLoading);
+
     return (
-        <View>
-            <Text>{props.title}</Text>
-        </View>
+        <StyledViewContainer style={style}>
+            <Header title={title} icon={icon} actions={actions} />
+            <Body isLoading={isLoading}>{children}</Body>
+            <RenderIf isTrue={showFooter}>
+                <StyledViewFooter>{footer}</StyledViewFooter>
+            </RenderIf>
+        </StyledViewContainer>
     );
 };
 
-Card.propTypes = {};
+Card.propTypes = {
+    title: PropTypes.node,
+    icon: PropTypes.node,
+    actions: PropTypes.node,
+    footer: PropTypes.node,
+    isLoading: PropTypes.bool,
+    children: PropTypes.node,
+    style: PropTypes.object,
+};
 
-Card.defaultProps = {};
+Card.defaultProps = {
+    title: null,
+    icon: null,
+    actions: null,
+    footer: null,
+    isLoading: false,
+    children: null,
+    style: undefined,
+};
 
 export default Card;
