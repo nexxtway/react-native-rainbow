@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 import PropTypes from 'prop-types';
 import StyledButton from './styled/button';
 import StyledText from './styled/text';
 import { ButtonVariant } from '../types';
 
-export interface ButtonProps {
+interface Props {
     onPress?: (event?: any) => void;
-    label?: any;
+    label?: ReactNode;
     disabled?: boolean;
     loading?: boolean;
     variant?: ButtonVariant;
     style?: StyleProp<ViewStyle>;
 }
 
-const Button: React.FC<ButtonProps> = props => {
+const Button: React.FC<Props> = props => {
     const { onPress, label, variant, style } = props;
 
     return (

@@ -60,3 +60,5 @@ buck-out/
 
 /dist
 /coverage
+
+/storybook/load-stories.js
