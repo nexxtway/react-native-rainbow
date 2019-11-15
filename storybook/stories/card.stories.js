@@ -15,7 +15,7 @@ const textStyles = {
 
 storiesOf('Card', module)
     .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
-    .add('Basic', () => (
+    .add('basic', () => (
         <>
             <Card
                 style={styles}

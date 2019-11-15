@@ -4,6 +4,4 @@ export type ButtonVariant =
     | 'brand'
     | 'outline-brand'
     | 'destructive'
-    | 'success'
-    | 'inverse'
-    | 'border-inverse';
+    | 'success';
