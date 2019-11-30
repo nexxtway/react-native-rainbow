@@ -5,3 +5,12 @@ export type ButtonVariant =
     | 'outline-brand'
     | 'destructive'
     | 'success';
+
+export type ButtonIconVariant = 'base' | 'brand' | 'success';
+
+export type ButtonIconSize =
+    | 'xx-small'
+    | 'x-small'
+    | 'small'
+    | 'medium'
+    | 'large';
