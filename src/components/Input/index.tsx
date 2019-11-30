@@ -1,8 +1,10 @@
 import React, { ReactNode, useState } from 'react';
-import { StyleProp, ViewStyle, View, Text } from 'react-native';
+import { StyleProp, ViewStyle, View } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
 import StyledInput from './styled/input';
+import StyledLabel from './styled/label';
+import StyledError from './styled/error';
 
 interface Props {
     label?: ReactNode;
@@ -31,7 +33,7 @@ const Input: React.FC<Props> = props => {
     return (
         <View style={style}>
             <RenderIf isTrue={!!label}>
-                <Text>{label}</Text>
+                <StyledLabel>{label}</StyledLabel>
             </RenderIf>
             <StyledInput
                 onChangeText={onChange}
@@ -43,9 +45,10 @@ const Input: React.FC<Props> = props => {
                 isFocused={isFocused}
                 onBlur={() => setFocusState(false)}
                 onFocus={() => setFocusState(true)}
+                disabled={disabled}
             />
             <RenderIf isTrue={!!error}>
-                <Text>{error}</Text>
+                <StyledError>{error}</StyledError>
             </RenderIf>
         </View>
     );
