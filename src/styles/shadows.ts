@@ -6,9 +6,9 @@ import {
     COLOR_GRAY_1,
 } from './colors';
 
-export const SHADOW_OUTLINE = `0 0 2px ${COLOR_BRAND}`;
+export const SHADOW_OUTLINE = `0 0 1px ${COLOR_BRAND}`;
 export const SHADOW_OUTLINE_2 = `0 0 8px ${COLOR_BRAND}`;
-export const SHADOW_ERROR = `0 0 2px ${COLOR_ERROR}`;
+export const SHADOW_ERROR = `0 0 1px ${COLOR_ERROR}`;
 export const SHADOW_1 = `0 0 2px ${COLOR_GRAY_3}`;
 export const SHADOW_2 = `0 2px 4px ${COLOR_GRAY_2}`;
 export const SHADOW_3 = `0 0 1px ${COLOR_GRAY_3}`;
