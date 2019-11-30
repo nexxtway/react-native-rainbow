@@ -46,6 +46,7 @@
     "dependencies": {
         "react": "16.9.0",
         "react-native": "0.61.4",
+        "react-native-svg": "^9.13.3",
         "styled-components": "^4.4.1"
     },
     "devDependencies": {

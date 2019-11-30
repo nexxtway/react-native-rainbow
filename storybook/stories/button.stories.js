@@ -1,7 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
+import { View, Text } from 'react-native';
 import CenterView from './CenterView';
 import Button from '../../src/components/Button';
+import ArrowRight from '../../src/components/Icons/arrowRight';
 
 const styles = {
     marginBottom: 16,
@@ -24,7 +26,16 @@ storiesOf('Button', module)
                 label="Button Outline Brand"
                 variant="outline-brand"
             />
-            <Button style={styles} label="Button Brand" variant="brand" />
+            <Button
+                style={styles}
+                label={
+                    <View>
+                        <Text>Button Brand</Text>
+                        <ArrowRight />
+                    </View>
+                }
+                variant="brand"
+            />
             <Button style={styles} label="Button Success" variant="success" />
             <Button
                 style={styles}
