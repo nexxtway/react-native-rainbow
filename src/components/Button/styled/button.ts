@@ -27,7 +27,7 @@ const StyledButton = styled.TouchableOpacity<Props>`
     text-decoration: none;
     padding-vertical: 0;
     padding-horizontal: 16;
-    height: 44;
+    height: 48;
     position: relative;
 
     ${props =>
