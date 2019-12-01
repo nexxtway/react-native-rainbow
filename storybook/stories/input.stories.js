@@ -17,7 +17,6 @@ storiesOf('Input', module)
                 style={styles}
                 label="Disabled Input"
                 disabled
-                value="rtrt"
             />
             <Input
                 style={styles}
