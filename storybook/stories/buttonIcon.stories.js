@@ -3,13 +3,28 @@ import { storiesOf } from '@storybook/react-native';
 import CenterView from './CenterView';
 import ButtonIcon from '../../src/components/ButtonIcon';
 import ArrowRight from '../../src/components/Icons/arrowRight';
+import ArrowLeft from '../../src/components/Icons/arrowLeft';
 
 const styles = {
     marginBottom: 16,
 };
 
+const iconBaseStyles = {
+    color: '#01b6f5',
+    width: 16,
+    height: 16,
+};
+
 const iconStyles = {
-    fill: 'purple',
+    color: 'white',
+    width: '50%',
+    height: '50%',
+};
+
+const iconDisabledStyles = {
+    color: 'rgba(82, 95, 127, 0.3)',
+    width: '50%',
+    height: '50%',
 };
 
 storiesOf('ButtonIcon', module)
@@ -18,38 +33,33 @@ storiesOf('ButtonIcon', module)
         <>
             <ButtonIcon
                 style={styles}
-                icon={<ArrowRight style={iconStyles} />}
+                icon={<ArrowLeft style={iconBaseStyles} />}
                 variant="base"
+                size="xx-small"
                 // eslint-disable-next-line no-alert
                 onPress={() => alert('button clicked')}
             />
             <ButtonIcon
                 style={styles}
-                icon={<ArrowRight />}
-                variant="brand"
-                size="xx-small"
-            />
-            <ButtonIcon
-                style={styles}
-                icon={<ArrowRight />}
+                icon={<ArrowRight style={iconStyles} />}
                 variant="success"
                 size="x-small"
             />
             <ButtonIcon
                 style={styles}
-                icon={<ArrowRight />}
+                icon={<ArrowRight style={iconStyles} />}
                 variant="brand"
                 size="small"
             />
             <ButtonIcon
                 style={styles}
-                icon={<ArrowRight />}
+                icon={<ArrowRight style={iconStyles} />}
                 variant="success"
                 size="medium"
             />
             <ButtonIcon
                 style={styles}
-                icon={<ArrowRight />}
+                icon={<ArrowRight style={iconStyles} />}
                 variant="brand"
                 size="large"
             />
@@ -60,21 +70,19 @@ storiesOf('ButtonIcon', module)
             <ButtonIcon
                 disabled
                 style={styles}
-                icon={<ArrowRight />}
+                icon={<ArrowRight style={iconDisabledStyles} />}
                 variant="base"
-                // eslint-disable-next-line no-alert
-                onPress={() => alert('button clicked')}
             />
             <ButtonIcon
                 disabled
                 style={styles}
-                icon={<ArrowRight />}
+                icon={<ArrowRight style={iconDisabledStyles} />}
                 variant="brand"
             />
             <ButtonIcon
                 disabled
                 style={styles}
-                icon={<ArrowRight />}
+                icon={<ArrowRight style={iconDisabledStyles} />}
                 variant="success"
             />
         </>

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { StyleProp, ViewStyle, View } from 'react-native';
+import { StyleProp, ViewStyle } from 'react-native';
 import PropTypes from 'prop-types';
 import StyledButton from './styled/button';
 import { ButtonIconVariant, ButtonIconSize } from '../types';
@@ -24,7 +24,7 @@ const ButtonIcon: React.FC<Props> = props => {
             size={size}
             style={style}
         >
-            <View>{icon}</View>
+            {icon}
         </StyledButton>
     );
 };
