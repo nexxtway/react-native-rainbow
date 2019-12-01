@@ -3,7 +3,7 @@ import { StyleProp, ViewStyle, View, TextInput } from 'react-native';
 import PropTypes from 'prop-types';
 import StyledContainer from './styled/container';
 import RenderIf from '../RenderIf';
-import StyledLabel from '../Input/styled/label';
+import StyledLabel from './styled/label';
 import StyledError from '../Input/styled/error';
 import StyledInput from './styled/input';
 import getNextIndex from './helpers/getNextIndex';
