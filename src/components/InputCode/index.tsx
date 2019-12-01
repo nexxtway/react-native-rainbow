@@ -17,8 +17,8 @@ interface Props {
     style?: StyleProp<ViewStyle>;
 }
 
-const Input: React.FC<Props> = props => {
-    const { digits = 6, label, onChange, error, style } = props;
+const InputCode: React.FC<Props> = props => {
+    const { digits = 6, label, onChange = () => {}, error, style } = props;
 
     const [inputIndexFocused, setFocusInputIndex] = useState(-1);
     const [values, setValues] = useState<string[]>([]);
@@ -30,7 +30,7 @@ const Input: React.FC<Props> = props => {
         }
     }, [inputIndexFocused]);
 
-    const handleChange = (value?: string) => {
+    const handleChange = (value: string) => {
         if (value) {
             const nextInputIndex = getNextIndex({
                 currentIndex: inputIndexFocused,
@@ -60,7 +60,7 @@ const Input: React.FC<Props> = props => {
             <StyledContainer style={style}>
                 {Array(digits)
                     .fill(0)
-                    .map((input, index) => {
+                    .map((_input, index) => {
                         const key = `input-${index}`;
                         const isLastInput = index === digits - 1;
                         const isFocused = index === inputIndexFocused;
@@ -93,7 +93,7 @@ const Input: React.FC<Props> = props => {
     );
 };
 
-Input.propTypes = {
+InputCode.propTypes = {
     digits: PropTypes.number,
     label: PropTypes.node,
     onChange: PropTypes.func,
@@ -101,7 +101,7 @@ Input.propTypes = {
     style: PropTypes.object,
 };
 
-Input.defaultProps = {
+InputCode.defaultProps = {
     digits: 6,
     label: undefined,
     onChange: () => {},
@@ -109,4 +109,4 @@ Input.defaultProps = {
     style: undefined,
 };
 
-export default Input;
+export default InputCode;
