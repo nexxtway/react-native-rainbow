@@ -8,7 +8,7 @@ import StyledError from './styled/error';
 
 interface Props {
     label?: ReactNode;
-    onChange?: (event?: any) => void;
+    onChange?: (value?: string) => void;
     value?: string;
     placeholder?: string;
     disabled?: boolean;
