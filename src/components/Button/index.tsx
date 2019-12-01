@@ -1,19 +1,17 @@
 import React, { ReactNode } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
 import PropTypes from 'prop-types';
 import StyledButton from './styled/button';
 import StyledText from './styled/text';
 import StyledIcon from './styled/icon';
 import RenderIf from '../RenderIf';
-import { ButtonVariant, ButtonIconPosition } from '../types';
+import { BaseProps, ButtonVariant, ButtonIconPosition } from '../types';
 
-interface Props {
+interface Props extends BaseProps {
     onPress?: (event?: any) => void;
     label?: ReactNode;
     disabled?: boolean;
     isLoading?: boolean;
     variant?: ButtonVariant;
-    style?: StyleProp<ViewStyle>;
     icon?: ReactNode;
     iconPosition?: ButtonIconPosition;
 }

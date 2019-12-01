@@ -1,19 +1,19 @@
 import React, { ReactNode, useState } from 'react';
-import { StyleProp, ViewStyle, View } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
 import StyledInput from './styled/input';
 import StyledLabel from './styled/label';
 import StyledError from './styled/error';
+import { BaseProps } from '../types';
 
-interface Props {
+interface Props extends BaseProps {
     label?: ReactNode;
-    onChange?: (value?: string) => void;
+    onChange?: (value: string) => void;
     value?: string;
     placeholder?: string;
     disabled?: boolean;
     error?: ReactNode;
-    style?: StyleProp<ViewStyle>;
 }
 
 const Input: React.FC<Props> = props => {

@@ -1,3 +1,9 @@
+import { StyleProp, ViewStyle } from 'react-native';
+
+export interface BaseProps {
+    style?: StyleProp<ViewStyle>;
+}
+
 export type ButtonVariant =
     | 'base'
     | 'neutral'

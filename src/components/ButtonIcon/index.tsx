@@ -1,16 +1,14 @@
 import React, { ReactNode } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
 import PropTypes from 'prop-types';
 import StyledButton from './styled/button';
-import { ButtonIconVariant, ButtonIconSize } from '../types';
+import { BaseProps, ButtonIconVariant, ButtonIconSize } from '../types';
 
-interface Props {
+export interface Props extends BaseProps {
     onPress?: (event?: any) => void;
     icon?: ReactNode;
     disabled?: boolean;
     variant?: ButtonIconVariant;
     size?: ButtonIconSize;
-    style?: StyleProp<ViewStyle>;
 }
 
 const ButtonIcon: React.FC<Props> = props => {

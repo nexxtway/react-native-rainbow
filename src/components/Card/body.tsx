@@ -9,6 +9,7 @@ interface Props {
     children?: any;
 }
 
+// TODO: remove this and use Spinner when created
 const SpinnerView = styled.View`
     position: absolute;
     top: 25%;

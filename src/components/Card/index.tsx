@@ -1,20 +1,19 @@
 import React, { ReactNode } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
 import PropTypes from 'prop-types';
 import Header from './header';
 import Body from './body';
 import StyledViewContainer from './styled/container';
 import StyledViewFooter from './styled/footer';
 import RenderIf from '../RenderIf';
+import { BaseProps } from '../types';
 
-interface Props {
+interface Props extends BaseProps {
     title?: ReactNode;
     icon?: ReactNode;
     actions?: ReactNode;
     footer?: ReactNode;
     isLoading?: boolean;
     children?: ReactNode;
-    style?: StyleProp<ViewStyle>;
 }
 
 const Card: React.FC<Props> = props => {

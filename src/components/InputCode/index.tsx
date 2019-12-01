@@ -1,5 +1,5 @@
 import React, { ReactNode, useState, useRef, useEffect } from 'react';
-import { StyleProp, ViewStyle, View, TextInput } from 'react-native';
+import { View, TextInput } from 'react-native';
 import PropTypes from 'prop-types';
 import StyledContainer from './styled/container';
 import RenderIf from '../RenderIf';
@@ -8,13 +8,13 @@ import StyledError from '../Input/styled/error';
 import StyledInput from './styled/input';
 import getNextIndex from './helpers/getNextIndex';
 import getPrevIndex from './helpers/getPrevIndex';
+import { BaseProps } from '../types';
 
-interface Props {
+interface Props extends BaseProps {
     digits?: number;
     label?: ReactNode;
     onChange?: (value: string) => void;
     error?: ReactNode;
-    style?: StyleProp<ViewStyle>;
 }
 
 const InputCode: React.FC<Props> = props => {
