@@ -13,7 +13,12 @@ storiesOf('Input', module)
         <>
             <Input style={styles} />
             <Input style={styles} label="Label" placeholder="Type here" />
-            <Input style={styles} label="Disabled Input" disabled />
+            <Input
+                style={styles}
+                label="Disabled Input"
+                disabled
+                value="rtrt"
+            />
             <Input
                 style={styles}
                 label="Label"

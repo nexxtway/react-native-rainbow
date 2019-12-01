@@ -6,7 +6,8 @@ import {
     COLOR_DARK_1,
     COLOR_BRAND,
     COLOR_ERROR,
-    COLOR_GRAY_TRANSPARENT_1,
+    COLOR_GRAY_TRANSPARENT_2,
+    COLOR_GRAY_3,
 } from '../../../styles/colors';
 import { BORDER_RADIUS_2 } from '../../../styles/borderRadius';
 import { FONT_SIZE_TEXT_LARGE } from '../../../styles/fontSizes';
@@ -54,8 +55,8 @@ const Input = styled.TextInput<Props>`
     ${props =>
         props.disabled &&
         `
-        background-color: ${COLOR_GRAY_TRANSPARENT_1};
-        color: ${COLOR_GRAY_2};
+        background-color: ${COLOR_GRAY_TRANSPARENT_2};
+        color: ${COLOR_GRAY_3};
     `}
 `;
 

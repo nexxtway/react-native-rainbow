@@ -7,6 +7,7 @@ export type ButtonVariant =
     | 'success';
 
 export type ButtonIconVariant = 'base' | 'brand' | 'success';
+export type ButtonIconPosition = 'left' | 'right';
 
 export type ButtonIconSize =
     | 'xx-small'
