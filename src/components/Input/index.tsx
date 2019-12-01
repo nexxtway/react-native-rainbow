@@ -1,5 +1,5 @@
 import React, { ReactNode, useState } from 'react';
-import { View } from 'react-native';
+import { View, KeyboardTypeOptions } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
 import StyledInput from './styled/input';
@@ -14,6 +14,7 @@ interface Props extends BaseProps {
     placeholder?: string;
     disabled?: boolean;
     error?: ReactNode;
+    keyboardType?: KeyboardTypeOptions;
 }
 
 const Input: React.FC<Props> = props => {
@@ -24,6 +25,7 @@ const Input: React.FC<Props> = props => {
         placeholder,
         disabled,
         error,
+        keyboardType,
         style,
     } = props;
     const isEnabled = !disabled;
@@ -46,6 +48,7 @@ const Input: React.FC<Props> = props => {
                 onBlur={() => setFocusState(false)}
                 onFocus={() => setFocusState(true)}
                 disabled={disabled}
+                keyboardType={keyboardType}
             />
             <RenderIf isTrue={!!error}>
                 <StyledError>{error}</StyledError>
@@ -61,6 +64,21 @@ Input.propTypes = {
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
     error: PropTypes.node,
+    keyboardType: PropTypes.oneOf([
+        'default',
+        'number-pad',
+        'decimal-pad',
+        'numeric',
+        'email-address',
+        'phone-pad',
+        'ascii-capable',
+        'numbers-and-punctuation',
+        'url',
+        'name-phone-pad',
+        'twitter',
+        'web-search',
+        'visible-password',
+    ]),
     style: PropTypes.object,
 };
 
@@ -71,6 +89,7 @@ Input.defaultProps = {
     placeholder: undefined,
     disabled: false,
     error: undefined,
+    keyboardType: 'default',
     style: undefined,
 };
 
