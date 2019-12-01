@@ -12,7 +12,6 @@ import { ButtonVariant } from '../../types';
 interface Props {
     variant?: ButtonVariant;
     disabled?: boolean;
-    icon?: ReactNode;
     hasRightIcon?: boolean;
     hasLeftIcon?: boolean;
 }
