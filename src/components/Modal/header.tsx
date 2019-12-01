@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text } from 'react-native';
+import StyledTitle from './styled/title';
 
 interface Props {
     title?: any;
@@ -8,8 +8,7 @@ interface Props {
 
 const Header: React.FC<Props> = ({ title }) => {
     if (typeof title === 'string') {
-        // TODO: make this styled title
-        return <Text>{title}</Text>;
+        return <StyledTitle>{title}</StyledTitle>;
     }
     return title;
 };
