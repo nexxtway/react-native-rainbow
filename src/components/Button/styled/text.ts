@@ -1,5 +1,9 @@
 import styled from 'styled-components/native';
-import { COLOR_WHITE, COLOR_BRAND, COLOR_GRAY_2 } from '../../../styles/colors';
+import {
+    COLOR_WHITE,
+    COLOR_BRAND,
+    COLOR_GRAY_TRANSPARENT_3,
+} from '../../../styles/colors';
 import { FONT_SIZE_HEADING_SMALL } from '../../../styles/fontSizes';
 import { ButtonVariant } from '../../types';
 
@@ -20,7 +24,7 @@ const StyledText = styled.Text<Props>`
             props.variant === 'success') &&
         `color: ${COLOR_WHITE};`};
 
-    ${props => props.disabled && `color: ${COLOR_GRAY_2};`}
+    ${props => props.disabled && `color: ${COLOR_GRAY_TRANSPARENT_3};`}
 `;
 
 export default StyledText;
