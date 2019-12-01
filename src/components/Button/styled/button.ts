@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import styled from 'styled-components/native';
 import {
     COLOR_WHITE,
