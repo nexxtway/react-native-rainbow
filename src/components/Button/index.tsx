@@ -15,7 +15,7 @@ interface Props {
     variant?: ButtonVariant;
     style?: StyleProp<ViewStyle>;
     icon?: ReactNode;
-    iconPosition: ButtonIconPosition;
+    iconPosition?: ButtonIconPosition;
 }
 
 const Button: React.FC<Props> = props => {
