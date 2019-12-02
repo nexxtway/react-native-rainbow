@@ -35,13 +35,13 @@ const Modal: React.FC<Props> = props => {
         >
             <StyledContainer style={style}>
                 <View>
+                    <Header title={title} />
                     <RenderIf isTrue={!hideCloseButton}>
                         <StyledCloseButton
                             icon={<StyledCloseIcon />}
                             onPress={onRequestClose}
                         />
                     </RenderIf>
-                    <Header title={title} />
                     {children}
                 </View>
             </StyledContainer>
