@@ -6,7 +6,7 @@
 2. cd nalamapp
 3. yarn install
 4. cd ios && pod install
-5. open ios project in Xcode
+5. open ios project in Xcode (open ReactNativeRainbow.xcworkspace file)
 6. build and run
 
 ## Linting on VS Code
