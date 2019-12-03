@@ -2,8 +2,8 @@
 
 ## ⌨️ Running in iOS simulator
 
-1. git clone https://github.com/sararu-nalam/nalamapp.git
-2. cd nalamapp
+1. git clone https://github.com/nexxtway/react-native-rainbow.git
+2. cd react-native-rainbow
 3. yarn install
 4. cd ios && pod install
 5. open ios project in Xcode (open ReactNativeRainbow.xcworkspace file)
