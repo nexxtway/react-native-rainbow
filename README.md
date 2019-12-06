@@ -6,6 +6,13 @@
 React Native Rainbow is a collection of components that will reliably help you build your IOS and ANDROID application in a snap. Give it a hack and let us know what you think.
 </p>
 
+<div align="center">
+ 
+[![CircleCI](https://circleci.com/gh/nexxtway/react-rainbow/tree/master.svg?style=svg)](https://circleci.com/gh/nexxtway/react-rainbow/tree/master)
+[![npm version](https://badge.fury.io/js/react-rainbow-components.svg)](https://badge.fury.io/js/react-rainbow-components)
+
+</div>
+
 ## ⌨️ Running in iOS simulator
 
 1. git clone https://github.com/nexxtway/react-native-rainbow.git
