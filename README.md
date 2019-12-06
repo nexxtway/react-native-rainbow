@@ -1,4 +1,6 @@
-# react-native-rainbow
+<h2 align="center">
+    React Native Rainbow
+</h2>
 
 ## ⌨️ Running in iOS simulator
 
