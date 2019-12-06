@@ -1,6 +1,6 @@
-<h2 align="center">
+<h1 align="center">
     React Native Rainbow
-</h2>
+</h1>
 
 ## ⌨️ Running in iOS simulator
 
