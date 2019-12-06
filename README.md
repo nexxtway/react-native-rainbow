@@ -13,6 +13,13 @@ React Native Rainbow is a collection of components that will reliably help you b
 
 </div>
 
+### ✨ Features
+
+-   Components built on top of react-native.
+-   Accessibility is part of our definition of done.
+
+<br/>
+
 ## ⌨️ Running in iOS simulator
 
 1. git clone https://github.com/nexxtway/react-native-rainbow.git
