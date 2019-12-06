@@ -2,6 +2,10 @@
     React Native Rainbow
 </h1>
 
+<p align="center">
+React Native Rainbow is a collection of components that will reliably help you build your IOS and ANDROID application in a snap. Give it a hack and let us know what you think.
+</p>
+
 ## ⌨️ Running in iOS simulator
 
 1. git clone https://github.com/nexxtway/react-native-rainbow.git
