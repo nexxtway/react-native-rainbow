@@ -19,7 +19,7 @@ import { BaseProps } from '../types';
 
 interface Value {
     countryCode?: string;
-    prefixCode?: string;
+    isoCode?: string;
     phone?: string;
 }
 
@@ -35,9 +35,9 @@ interface Props extends BaseProps {
 
 const defaultCountry = {
     flagIcon: <Image source={require('./flagImages/united-states.png')} />,
-    prefixCode: '+1',
+    isoCode: 'us',
     country: 'United States',
-    countryCode: 'us',
+    countryCode: '+1',
 };
 
 const InputPhone: React.FC<Props> = props => {
@@ -52,12 +52,12 @@ const InputPhone: React.FC<Props> = props => {
         style,
     } = props;
     const isEnabled = !disabled;
-    const { countryCode = '', phone = '' } = value;
+    const { isoCode = '', phone = '' } = value;
 
     const [isFocused, setFocusState] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [selectedCountry, setCountry] = useState<CountryType>(
-        () => getCountryFromValue(countryCode) || defaultCountry,
+        () => getCountryFromValue(isoCode) || defaultCountry,
     );
 
     const selectCountry = (country: CountryType) => {
@@ -68,7 +68,7 @@ const InputPhone: React.FC<Props> = props => {
     const handleChange = (phoneValue: string) => {
         onChange({
             countryCode: selectedCountry.countryCode,
-            prefixCode: selectedCountry.prefixCode,
+            isoCode: selectedCountry.isoCode,
             phone: phoneValue,
         });
     };
@@ -99,7 +99,7 @@ const InputPhone: React.FC<Props> = props => {
                         <ArrowDownIcon />
                     </ButtonContent>
                     <Divider />
-                    <PrefixCode>{selectedCountry.prefixCode}</PrefixCode>
+                    <PrefixCode>{selectedCountry.countryCode}</PrefixCode>
                 </LeftElement>
             </InputContainer>
             <RenderIf isTrue={!!error}>
@@ -119,7 +119,7 @@ InputPhone.propTypes = {
     onChange: PropTypes.func,
     value: PropTypes.shape({
         countryCode: PropTypes.string,
-        prefixCode: PropTypes.string,
+        isoCode: PropTypes.string,
         phone: PropTypes.string,
     }),
     placeholder: PropTypes.string,

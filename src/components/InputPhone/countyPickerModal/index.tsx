@@ -9,18 +9,16 @@ import filterCollection from '../../../libs/utils/filterCollection';
 
 export const CountryPropTypes = {
     flagIcon: PropTypes.node.isRequired,
-    prefixCode: PropTypes.string.isRequired,
+    countryCode: PropTypes.string.isRequired,
     country: PropTypes.string.isRequired,
-    // TODO: set as required when add all
-    countryCode: PropTypes.string,
+    isoCode: PropTypes.string.isRequired,
 };
 
 export interface CountryType {
     flagIcon: ReactNode;
-    prefixCode: string;
+    countryCode: string;
     country: string;
-    // TODO: set as required when add all
-    countryCode?: string;
+    isoCode: string;
 }
 
 interface Props {

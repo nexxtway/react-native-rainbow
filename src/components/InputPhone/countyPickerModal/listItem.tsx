@@ -10,7 +10,7 @@ interface Props {
 
 const ListItem: React.FC<Props> = props => {
     const { item, onPress = () => {} } = props;
-    const { flagIcon, country, prefixCode } = item;
+    const { flagIcon, country, countryCode } = item;
 
     return (
         <ListItemContainer onPress={() => onPress(item)}>
@@ -18,7 +18,7 @@ const ListItem: React.FC<Props> = props => {
                 {flagIcon}
                 <Title>{country}</Title>
             </RightContent>
-            <Prefix>{prefixCode}</Prefix>
+            <Prefix>{countryCode}</Prefix>
         </ListItemContainer>
     );
 };
