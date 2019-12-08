@@ -19,6 +19,7 @@ import { BaseProps } from '../types';
 
 interface Value {
     countryCode?: string;
+    prefixCode?: string;
     phone?: string;
 }
 
@@ -67,6 +68,7 @@ const InputPhone: React.FC<Props> = props => {
     const handleChange = (phoneValue: string) => {
         onChange({
             countryCode: selectedCountry.countryCode,
+            prefixCode: selectedCountry.prefixCode,
             phone: phoneValue,
         });
     };
@@ -117,6 +119,7 @@ InputPhone.propTypes = {
     onChange: PropTypes.func,
     value: PropTypes.shape({
         countryCode: PropTypes.string,
+        prefixCode: PropTypes.string,
         phone: PropTypes.string,
     }),
     placeholder: PropTypes.string,
