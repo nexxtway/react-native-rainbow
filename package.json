@@ -34,7 +34,7 @@
         "start": "react-native start",
         "storybook": "yarn loadStories && start-storybook -p 7007",
         "test": "jest ./src --verbose",
-        "lint:ts": "eslint --ext '.js,.ts,.tsx' src",
+        "lint:ts": "tsc --noEmit && eslint --ext '.js,.ts,.tsx' src",
         "lint:styles": "stylelint src",
         "lint": "yarn lint:ts && yarn lint:styles",
         "copy-d.ts-files": "node ./scripts/copy-files.js",
