@@ -1,11 +1,18 @@
 import React, { ReactNode, useState } from 'react';
-import { View, TouchableOpacity, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
-import StyledInput from '../Input/styled/input';
 import StyledLabel from '../Input/styled/label';
 import StyledError from '../Input/styled/error';
-import { LeftElement, InputContainer, PrefixCode } from './styled';
+import {
+    LeftElement,
+    InputContainer,
+    PrefixCode,
+    StyledInput,
+    Divider,
+    ArrowDownIcon,
+    ButtonContent,
+} from './styled';
 import CountryPickerModal, { CountryType } from './countyPickerModal';
 import getCountryFromValue from './helpers/getCountryFromValue';
 import { BaseProps } from '../types';
@@ -69,10 +76,6 @@ const InputPhone: React.FC<Props> = props => {
             </RenderIf>
             <InputContainer>
                 <StyledInput
-                    // TODO: make this styled component
-                    style={{
-                        paddingLeft: 95,
-                    }}
                     onChangeText={handleChange}
                     value={phone}
                     placeholder={placeholder}
@@ -86,9 +89,11 @@ const InputPhone: React.FC<Props> = props => {
                     keyboardType="number-pad"
                 />
                 <LeftElement>
-                    <TouchableOpacity onPress={() => setIsOpen(true)}>
+                    <ButtonContent onPress={() => setIsOpen(true)}>
                         {selectedCountry.flagIcon}
-                    </TouchableOpacity>
+                        <ArrowDownIcon />
+                    </ButtonContent>
+                    <Divider />
                     <PrefixCode>{selectedCountry.prefixCode}</PrefixCode>
                 </LeftElement>
             </InputContainer>

@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 import { CountryType, CountryPropTypes } from './index';
 import ListItem from './listItem';
+import { Divider } from './styled';
 
 interface Props {
     data?: CountryType[];
@@ -20,19 +21,10 @@ const List: React.FC<Props> = props => {
             )}
             keyExtractor={item => item.country}
             // TODO: make a separator styled component
-            ItemSeparatorComponent={() => (
-                <View
-                    style={{
-                        backgroundColor: '#ccc',
-                        height: 1,
-                        width: '80%',
-                        alignSelf: 'flex-end',
-                    }}
-                    // TODO: add optimizations
-                    // initialNumToRender={20}
-                    // initialScrollIndex={findCountryIndex(countries, selectedCountry.country)}
-                />
-            )}
+            ItemSeparatorComponent={() => <Divider />}
+            // TODO: add optimizations
+            // initialNumToRender={20}
+            // initialScrollIndex={findCountryIndex(countries, selectedCountry.country)}
         />
     );
 };
