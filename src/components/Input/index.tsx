@@ -7,7 +7,7 @@ import StyledLabel from './styled/label';
 import StyledError from './styled/error';
 import { BaseProps } from '../types';
 
-interface Props extends BaseProps {
+export interface Props extends BaseProps {
     label?: ReactNode;
     onChange?: (value: string) => void;
     value?: string;
