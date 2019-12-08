@@ -29,6 +29,7 @@ interface Props extends BaseProps {
     placeholder?: string;
     disabled?: boolean;
     error?: ReactNode;
+    autoFocus?: boolean;
 }
 
 const defaultCountry = {
@@ -46,6 +47,7 @@ const InputPhone: React.FC<Props> = props => {
         placeholder,
         disabled,
         error,
+        autoFocus,
         style,
     } = props;
     const isEnabled = !disabled;
@@ -87,6 +89,7 @@ const InputPhone: React.FC<Props> = props => {
                     onFocus={() => setFocusState(true)}
                     disabled={disabled}
                     keyboardType="number-pad"
+                    autoFocus={autoFocus}
                 />
                 <LeftElement>
                     <ButtonContent onPress={() => setIsOpen(true)}>
@@ -119,6 +122,7 @@ InputPhone.propTypes = {
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
     error: PropTypes.node,
+    autoFocus: PropTypes.bool,
     style: PropTypes.object,
 };
 
@@ -129,6 +133,7 @@ InputPhone.defaultProps = {
     placeholder: undefined,
     disabled: false,
     error: undefined,
+    autoFocus: false,
     style: undefined,
 };
 

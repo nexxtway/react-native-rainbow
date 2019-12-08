@@ -1,4 +1,28 @@
-# react-native-rainbow
+<p align="center">
+  <img width="15%" src="https://raw.githubusercontent.com/nexxtway/react-native-rainbow/master/docs/assets/images/rainbow-logo.svg?sanitize=true" alt="React Native Rainbow logo">
+</p>
+
+<h1 align="center">
+    React Native Rainbow
+</h1>
+
+<p align="center">
+React Native Rainbow is a collection of components that will reliably help you build your IOS and ANDROID application in a snap. Give it a hack and let us know what you think.
+</p>
+
+<div align="center">
+ 
+[![CircleCI](https://circleci.com/gh/nexxtway/react-native-rainbow/tree/master.svg?style=svg)](https://circleci.com/gh/nexxtway/react-native-rainbow/tree/master)
+[![npm version](https://badge.fury.io/js/react-native-rainbow.svg)](https://badge.fury.io/js/react-native-rainbow)
+
+</div>
+
+### ✨ Features
+
+-   Components built on top of react-native.
+-   Accessibility is part of our definition of done.
+
+<br/>
 
 ## ⌨️ Running in iOS simulator
 

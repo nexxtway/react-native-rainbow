@@ -15,10 +15,18 @@ interface Props extends BaseProps {
     label?: ReactNode;
     onChange?: (value: string) => void;
     error?: ReactNode;
+    autoFocus?: boolean;
 }
 
 const InputCode: React.FC<Props> = props => {
-    const { digits = 6, label, onChange = () => {}, error, style } = props;
+    const {
+        digits = 6,
+        label,
+        onChange = () => {},
+        error,
+        autoFocus,
+        style,
+    } = props;
 
     const [inputIndexFocused, setFocusInputIndex] = useState(-1);
     const [values, setValues] = useState<string[]>([]);
@@ -62,6 +70,7 @@ const InputCode: React.FC<Props> = props => {
                     .fill(0)
                     .map((_input, index) => {
                         const key = `input-${index}`;
+                        const autoFocusFirstInput = autoFocus && index === 0;
                         const isLastInput = index === digits - 1;
                         const isFocused = index === inputIndexFocused;
                         const hasValue = !!values[index];
@@ -82,6 +91,7 @@ const InputCode: React.FC<Props> = props => {
                                 isLastInput={isLastInput}
                                 error={error}
                                 ref={ref}
+                                autoFocus={autoFocusFirstInput}
                             />
                         );
                     })}
@@ -98,6 +108,7 @@ InputCode.propTypes = {
     label: PropTypes.node,
     onChange: PropTypes.func,
     error: PropTypes.node,
+    autoFocus: PropTypes.bool,
     style: PropTypes.object,
 };
 
@@ -106,6 +117,7 @@ InputCode.defaultProps = {
     label: undefined,
     onChange: () => {},
     error: undefined,
+    autoFocus: false,
     style: undefined,
 };
 
