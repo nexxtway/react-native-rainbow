@@ -8,7 +8,7 @@ type badgeVariant = 'default' | 'lightest' | 'outline-brand' | 'brand';
 
 interface Props extends BaseProps {
     label?: ReactNode;
-    variant: badgeVariant;
+    variant?: badgeVariant;
     style?: object;
 }
 
@@ -25,12 +25,7 @@ const Badge: React.FC<Props> = props => {
 
 Badge.propTypes = {
     label: PropTypes.node.isRequired,
-    variant: PropTypes.oneOf([
-        'default',
-        'lightest',
-        'outline-brand',
-        'brand`',
-    ]),
+    variant: PropTypes.oneOf(['default', 'lightest', 'outline-brand', 'brand']),
     style: PropTypes.object,
 };
 
