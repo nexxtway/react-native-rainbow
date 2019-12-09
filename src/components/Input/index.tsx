@@ -7,7 +7,7 @@ import StyledLabel from './styled/label';
 import StyledError from './styled/error';
 import { BaseProps } from '../types';
 
-interface Props extends BaseProps {
+export interface Props extends BaseProps {
     label?: ReactNode;
     onChange?: (value: string) => void;
     value?: string;
@@ -15,6 +15,7 @@ interface Props extends BaseProps {
     disabled?: boolean;
     error?: ReactNode;
     keyboardType?: KeyboardTypeOptions;
+    autoFocus?: boolean;
 }
 
 const Input: React.FC<Props> = props => {
@@ -26,6 +27,7 @@ const Input: React.FC<Props> = props => {
         disabled,
         error,
         keyboardType,
+        autoFocus,
         style,
     } = props;
     const isEnabled = !disabled;
@@ -49,6 +51,7 @@ const Input: React.FC<Props> = props => {
                 onFocus={() => setFocusState(true)}
                 disabled={disabled}
                 keyboardType={keyboardType}
+                autoFocus={autoFocus}
             />
             <RenderIf isTrue={!!error}>
                 <StyledError>{error}</StyledError>
@@ -79,6 +82,7 @@ Input.propTypes = {
         'web-search',
         'visible-password',
     ]),
+    autoFocus: PropTypes.bool,
     style: PropTypes.object,
 };
 
@@ -90,6 +94,7 @@ Input.defaultProps = {
     disabled: false,
     error: undefined,
     keyboardType: 'default',
+    autoFocus: false,
     style: undefined,
 };
 

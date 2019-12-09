@@ -1,5 +1,5 @@
 import COUNTRIES from '../countyPickerModal/countries';
 
-export default function getCountryFromValue(countryCode?: string) {
-    return COUNTRIES.find(country => country.countryCode === countryCode);
+export default function getCountryFromValue(isoCode?: string) {
+    return COUNTRIES.find(country => country.isoCode === isoCode);
 }

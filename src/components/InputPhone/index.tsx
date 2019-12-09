@@ -1,17 +1,25 @@
 import React, { ReactNode, useState } from 'react';
-import { View, TouchableOpacity, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
-import StyledInput from '../Input/styled/input';
 import StyledLabel from '../Input/styled/label';
 import StyledError from '../Input/styled/error';
-import { LeftElement, InputContainer, PrefixCode } from './styled';
+import {
+    LeftElement,
+    InputContainer,
+    PrefixCode,
+    StyledInput,
+    Divider,
+    ArrowDownIcon,
+    ButtonContent,
+} from './styled';
 import CountryPickerModal, { CountryType } from './countyPickerModal';
 import getCountryFromValue from './helpers/getCountryFromValue';
 import { BaseProps } from '../types';
 
 interface Value {
     countryCode?: string;
+    isoCode?: string;
     phone?: string;
 }
 
@@ -22,13 +30,14 @@ interface Props extends BaseProps {
     placeholder?: string;
     disabled?: boolean;
     error?: ReactNode;
+    autoFocus?: boolean;
 }
 
 const defaultCountry = {
     flagIcon: <Image source={require('./flagImages/united-states.png')} />,
-    prefixCode: '+1',
+    isoCode: 'us',
     country: 'United States',
-    countryCode: 'us',
+    countryCode: '+1',
 };
 
 const InputPhone: React.FC<Props> = props => {
@@ -39,15 +48,16 @@ const InputPhone: React.FC<Props> = props => {
         placeholder,
         disabled,
         error,
+        autoFocus,
         style,
     } = props;
     const isEnabled = !disabled;
-    const { countryCode = '', phone = '' } = value;
+    const { isoCode = '', phone = '' } = value;
 
     const [isFocused, setFocusState] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [selectedCountry, setCountry] = useState<CountryType>(
-        () => getCountryFromValue(countryCode) || defaultCountry,
+        () => getCountryFromValue(isoCode) || defaultCountry,
     );
 
     const selectCountry = (country: CountryType) => {
@@ -58,6 +68,7 @@ const InputPhone: React.FC<Props> = props => {
     const handleChange = (phoneValue: string) => {
         onChange({
             countryCode: selectedCountry.countryCode,
+            isoCode: selectedCountry.isoCode,
             phone: phoneValue,
         });
     };
@@ -69,10 +80,6 @@ const InputPhone: React.FC<Props> = props => {
             </RenderIf>
             <InputContainer>
                 <StyledInput
-                    // TODO: make this styled component
-                    style={{
-                        paddingLeft: 95,
-                    }}
                     onChangeText={handleChange}
                     value={phone}
                     placeholder={placeholder}
@@ -84,12 +91,15 @@ const InputPhone: React.FC<Props> = props => {
                     onFocus={() => setFocusState(true)}
                     disabled={disabled}
                     keyboardType="number-pad"
+                    autoFocus={autoFocus}
                 />
                 <LeftElement>
-                    <TouchableOpacity onPress={() => setIsOpen(true)}>
+                    <ButtonContent onPress={() => setIsOpen(true)}>
                         {selectedCountry.flagIcon}
-                    </TouchableOpacity>
-                    <PrefixCode>{selectedCountry.prefixCode}</PrefixCode>
+                        <ArrowDownIcon />
+                    </ButtonContent>
+                    <Divider />
+                    <PrefixCode>{selectedCountry.countryCode}</PrefixCode>
                 </LeftElement>
             </InputContainer>
             <RenderIf isTrue={!!error}>
@@ -109,11 +119,13 @@ InputPhone.propTypes = {
     onChange: PropTypes.func,
     value: PropTypes.shape({
         countryCode: PropTypes.string,
+        isoCode: PropTypes.string,
         phone: PropTypes.string,
     }),
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
     error: PropTypes.node,
+    autoFocus: PropTypes.bool,
     style: PropTypes.object,
 };
 
@@ -124,6 +136,7 @@ InputPhone.defaultProps = {
     placeholder: undefined,
     disabled: false,
     error: undefined,
+    autoFocus: false,
     style: undefined,
 };
 

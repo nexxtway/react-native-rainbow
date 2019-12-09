@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, Text } from 'react-native';
 import { CountryType, CountryPropTypes } from './index';
+import { ListItemContainer, RightContent, Title, Prefix } from './styled';
 
 interface Props {
     item: CountryType;
@@ -10,18 +10,16 @@ interface Props {
 
 const ListItem: React.FC<Props> = props => {
     const { item, onPress = () => {} } = props;
-    const { flagIcon, country, prefixCode } = item;
+    const { flagIcon, country, countryCode } = item;
 
     return (
-        <TouchableOpacity
-            onPress={() => onPress(item)}
-            // TODO: make this styled component
-            style={{ flexDirection: 'row' }}
-        >
-            {flagIcon}
-            <Text>{country}</Text>
-            <Text>{prefixCode}</Text>
-        </TouchableOpacity>
+        <ListItemContainer onPress={() => onPress(item)}>
+            <RightContent>
+                {flagIcon}
+                <Title>{country}</Title>
+            </RightContent>
+            <Prefix>{countryCode}</Prefix>
+        </ListItemContainer>
     );
 };
 

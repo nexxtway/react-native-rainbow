@@ -13,7 +13,7 @@ React Native Rainbow is a collection of components that will reliably help you b
 <div align="center">
  
 [![CircleCI](https://circleci.com/gh/nexxtway/react-native-rainbow/tree/master.svg?style=svg)](https://circleci.com/gh/nexxtway/react-native-rainbow/tree/master)
-[![npm version](https://badge.fury.io/js/react-rainbow-components.svg)](https://badge.fury.io/js/react-native-rainbow)
+[![npm version](https://badge.fury.io/js/react-native-rainbow.svg)](https://badge.fury.io/js/react-native-rainbow)
 
 </div>
 
