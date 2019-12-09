@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import StyledAvatar from './styled/avatar';
+import StyledImage from './styled/image';
 import StyledText from './styled/text';
 import StyledIcon from './styled/icon';
 import RenderIf from '../RenderIf';
@@ -18,15 +19,19 @@ interface Props extends BaseProps {
 
 const Avatar: React.FC<Props> = props => {
     const { icon, initial, src, size, style } = props;
+    const isImage = !!src;
     const isIcon = !!(icon !== null && src === '');
     const isInitial = !!(typeof initial !== undefined && src === '');
     return (
-        <StyledAvatar size={size} style={style} src={src}>
+        <StyledAvatar size={size} style={style}>
+            <RenderIf isTrue={isImage}>
+                <StyledImage source={{ uri: src }} size={size} />
+            </RenderIf>
             <RenderIf isTrue={isIcon}>
-                <StyledIcon>{icon}</StyledIcon>
+                <StyledIcon size={size}>{icon}</StyledIcon>
             </RenderIf>
             <RenderIf isTrue={isInitial}>
-                <StyledText>{initial}</StyledText>
+                <StyledText size={size}>{initial}</StyledText>
             </RenderIf>
         </StyledAvatar>
     );

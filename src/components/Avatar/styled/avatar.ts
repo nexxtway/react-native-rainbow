@@ -3,7 +3,6 @@ import { BaseProps } from '../../types';
 import { COLOR_BRAND, COLOR_WHITE } from '../../../styles/colors';
 
 interface Props extends BaseProps {
-    src?: string;
     size?: string;
     style?: object;
 }
@@ -14,45 +13,36 @@ const StyledAvatar = styled.View<Props>`
     align-items: center;
     justify-content: center;
     color: ${COLOR_WHITE};
-    background-color: ${COLOR_BRAND};
+    background: ${COLOR_BRAND};
     border: none;
     border-radius: 24px;
     text-decoration: none;
     text-transform: uppercase;
+    overflow: hidden;
 
     ${props =>
         props.size === 'large' &&
         `
-            heigth: 48px;
-            width: 48px;
-            font-size: 24px;
+            height: 48;
+            width: 48;
         `};
     ${props =>
         props.size === 'medium' &&
         `
-            heigth: 32px;
-            width: 32px;
-            font-size: 16px;
+            height: 32;
+            width: 32;
         `};
     ${props =>
         props.size === 'small' &&
         `
-            heigth: 24px;
-            width: 24px;
-            font-size: 12px;
+            height: 24;
+            width: 24;
         `};
     ${props =>
         props.size === 'x-small' &&
         `
-            heigth: 20px;
-            width: 20px;
-            font-size: 10px;
-        `};
-    ${props =>
-        props.src !== '' &&
-        `
-            background-image: url(${props.src}) center center;
-            background-size: cover;
+            height: 20;
+            width: 20;
         `};
 `;
 

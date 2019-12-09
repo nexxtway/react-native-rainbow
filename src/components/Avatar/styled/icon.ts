@@ -5,30 +5,31 @@ interface Props {
 }
 
 const StyledIcon = styled.View<Props>`
-    position: relative;
+    position: absolute;
+
     ${props =>
         props.size === 'large' &&
         `
-            heigth: 24px;
-            width: 24px;
+            height: 24;
+            width: 24;
         `};
     ${props =>
         props.size === 'medium' &&
         `
-            heigth: 16px;
-            width: 16px;
+            height: 16;
+            width: 16;
         `};
     ${props =>
         props.size === 'small' &&
         `
-            heigth: 12px;
-            width: 12px;
+            height: 12;
+            width: 12;
         `};
     ${props =>
         props.size === 'x-small' &&
         `
-            heigth: 10px;
-            width: 10px;
+            height: 10;
+            width: 10;
         `};
 `;
 

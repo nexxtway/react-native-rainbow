@@ -1,36 +1,43 @@
 import styled from 'styled-components/native';
 import { BaseProps } from '../../types';
-import { COLOR_WHITE } from '../../../styles/colors';
 
 interface Props extends BaseProps {
+    src?: string;
     size?: string;
-    style?: object;
 }
 
-const StyledText = styled.Text<Props>`
-    color: ${COLOR_WHITE};
-    text-align: center;
+const StyledImage = styled.ImageBackground<Props>`
+    position: absolute;
+    border: none;
+    border-radius: 24px;
 
     ${props =>
         props.size === 'large' &&
         `
-            font-size: 24px
+            height: 48;
+            width: 48;
         `};
     ${props =>
         props.size === 'medium' &&
         `
-            font-size: 16px
+            height: 32;
+            width: 32;
+            
         `};
     ${props =>
         props.size === 'small' &&
         `
-            font-size: 12px
+            height: 24;
+            width: 24;
+            
         `};
     ${props =>
         props.size === 'x-small' &&
         `
-            font-size: 10px
+            height: 20;
+            width: 20;
+            
         `};
 `;
 
-export default StyledText;
+export default StyledImage;
