@@ -9,16 +9,13 @@ type badgeVariant = 'default' | 'lightest' | 'outline-brand' | 'brand';
 interface Props extends BaseProps {
     label?: ReactNode;
     variant?: badgeVariant;
-    style?: object;
 }
 
 const Badge: React.FC<Props> = props => {
-    const { label, variant, style } = props;
+    const { label, variant } = props;
     return (
         <StyledBadgeContainer>
-            <StyledBadge style={style} variant={variant}>
-                {label}
-            </StyledBadge>
+            <StyledBadge variant={variant}>{label}</StyledBadge>
         </StyledBadgeContainer>
     );
 };
@@ -26,7 +23,6 @@ const Badge: React.FC<Props> = props => {
 Badge.propTypes = {
     label: PropTypes.node.isRequired,
     variant: PropTypes.oneOf(['default', 'lightest', 'outline-brand', 'brand']),
-    style: PropTypes.object,
 };
 
 Badge.defaultProps = {
