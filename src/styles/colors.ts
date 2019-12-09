@@ -17,6 +17,7 @@ export const COLOR_ERROR = '#fe4849';
 export const COLOR_ERROR_ACTIVE = '#ea4243';
 
 // gray colors
+export const COLOR_GRAY = 'rgb(227,229,237)';
 export const COLOR_GRAY_1 = 'rgb(252, 253, 253)';
 export const COLOR_GRAY_2 = 'rgb(212, 214, 220)';
 export const COLOR_GRAY_3 = 'rgb(164, 167, 181)';
@@ -27,6 +28,7 @@ export const COLOR_GRAY_TRANSPARENT_3 = 'rgba(82, 95, 127, 0.3)';
 
 // text colors
 export const COLOR_DARK_1 = 'rgb(8, 28, 63)';
+export const COLOR_DARK_2 = 'rgb(87,101,116)';
 
 // yellow colors
 export const COLOR_YELLOW_1 = '#fc0';
