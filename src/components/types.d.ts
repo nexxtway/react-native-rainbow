@@ -21,3 +21,5 @@ export type ButtonIconSize =
     | 'small'
     | 'medium'
     | 'large';
+
+export type BadgeVariant = 'default' | 'lightest' | 'outline-brand' | 'brand';
