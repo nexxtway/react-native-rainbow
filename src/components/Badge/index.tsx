@@ -1,13 +1,12 @@
 import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
-import { BaseProps } from '../types';
+import { BaseProps, BadgeVariant } from '../types';
 import { StyledBadge, StyledBadgeContainer, StyledTextBadge } from './styled';
-
-type badgeVariant = 'default' | 'lightest' | 'outline-brand' | 'brand';
+import BadgetContent from './BadgeContent';
 
 interface Props extends BaseProps {
     label?: ReactNode;
-    variant?: badgeVariant;
+    variant?: BadgeVariant;
 }
 
 /**
@@ -20,19 +19,20 @@ const Badge: React.FC<Props> = props => {
     return (
         <StyledBadgeContainer style={style}>
             <StyledBadge variant={variant}>
-                {label && typeof label === 'string' ? (
-                    <StyledTextBadge variant={variant}>{label}</StyledTextBadge>
-                ) : (
-                    label
-                )}
+                <BadgetContent>{label}</BadgetContent>
             </StyledBadge>
         </StyledBadgeContainer>
     );
 };
 
 Badge.propTypes = {
+    /** The text to be displayed inside the badge. */
     label: PropTypes.node,
+    /** The variant changes the appearance of the badge.
+     * Accepted variants include default, lightest, brand and outline-brand.
+     * This value defaults to default. */
     variant: PropTypes.oneOf(['default', 'lightest', 'outline-brand', 'brand']),
+    /** An object with custom style applied to the outer element. */
     style: PropTypes.object,
 };
 
