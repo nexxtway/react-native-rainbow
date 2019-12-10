@@ -4,7 +4,6 @@ import { COLOR_BRAND, COLOR_WHITE } from '../../../styles/colors';
 
 interface Props extends BaseProps {
     size?: string;
-    style?: object;
 }
 
 const StyledAvatar = styled.View<Props>`

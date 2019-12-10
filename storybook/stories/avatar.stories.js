@@ -1,11 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import CenterView from './CenterView';
+import RowView from './RowView';
 import Avatar from '../../src/components/Avatar';
 import ArrowRight from '../../src/components/Icons/arrowRight';
 
-const photo = 'https://source.unsplash.com/mEZ3PoFGs_k/50x50';
+const PHOTO = 'https://source.unsplash.com/mEZ3PoFGs_k/50x50';
 
 const iconStyles = {
     color: 'white',
@@ -13,43 +13,33 @@ const iconStyles = {
     height: '100%',
 };
 
-const viewStyle = {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-};
-
-const viewSingleStyle = {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-};
-
 storiesOf('Avatar', module)
-    .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
+    .addDecorator(getStory => <RowView>{getStory()}</RowView>)
     .add('Image', () => (
-        <View style={viewStyle}>
-            <Avatar size="large" src={photo} />
-            <Avatar src={photo} />
-            <Avatar size="small" src={photo} />
-            <Avatar size="x-small" src={photo} />
-        </View>
+        <>
+            <Avatar
+                size="large"
+                src={PHOTO}
+                icon={<ArrowRight style={iconStyles} />}
+            />
+            <Avatar src={PHOTO} />
+            <Avatar size="small" src={PHOTO} />
+            <Avatar size="x-small" src={PHOTO} />
+        </>
+    ))
+    .add('Initials', () => (
+        <>
+            <Avatar size="large" initials="AB" />
+            <Avatar initials="AB" />
+            <Avatar size="small" initials="AB" />
+            <Avatar size="x-small" initials="AB" />
+        </>
     ))
     .add('Icon', () => (
-        <View style={viewStyle}>
+        <>
             <Avatar size="large" icon={<ArrowRight style={iconStyles} />} />
             <Avatar icon={<ArrowRight style={iconStyles} />} />
             <Avatar size="small" icon={<ArrowRight style={iconStyles} />} />
             <Avatar size="x-small" icon={<ArrowRight style={iconStyles} />} />
-        </View>
-    ))
-    .add('Initials', () => (
-        <View style={viewStyle}>
-            <Avatar size="large" initial="AB" />
-            <Avatar initial="AB" />
-            <Avatar size="small" initial="AB" />
-            <Avatar size="x-small" initial="AB" />
-        </View>
+        </>
     ));

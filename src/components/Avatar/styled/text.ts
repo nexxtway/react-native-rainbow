@@ -4,12 +4,12 @@ import { COLOR_WHITE } from '../../../styles/colors';
 
 interface Props extends BaseProps {
     size?: string;
-    style?: object;
 }
 
 const StyledText = styled.Text<Props>`
     color: ${COLOR_WHITE};
     text-align: center;
+    text-transform: uppercase;
 
     ${props =>
         props.size === 'large' &&
