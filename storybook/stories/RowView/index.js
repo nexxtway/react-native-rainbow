@@ -1,22 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
 import styled from 'styled-components/native';
 
-const ViewContainer = styled.ScrollView`
-    background-color: #f5fcff;
-    padding: 100px 40px;
+const ViewContainer = styled.View`
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding-left: 50;
+    padding-right: 50;
+    justify-content: space-around;
 `;
 
-const viewStyle = {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-};
-export default function RowView({ children }) {
+export default function RowView({ children, spaceTop = 0 }) {
     return (
-        <ViewContainer contentContainerStyle={viewStyle}>
+        <ViewContainer style={{ paddingTop: spaceTop }}>
             {children}
         </ViewContainer>
     );

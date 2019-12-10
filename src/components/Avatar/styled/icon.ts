@@ -5,8 +5,6 @@ interface Props {
 }
 
 const StyledIcon = styled.View<Props>`
-    position: absolute;
-
     ${props =>
         props.size === 'large' &&
         `

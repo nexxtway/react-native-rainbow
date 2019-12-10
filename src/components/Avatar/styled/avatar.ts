@@ -7,7 +7,6 @@ interface Props extends BaseProps {
 }
 
 const StyledAvatar = styled.View<Props>`
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
