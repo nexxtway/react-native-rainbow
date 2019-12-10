@@ -37,9 +37,9 @@ Badge.propTypes = {
 };
 
 Badge.defaultProps = {
-    label: '',
+    label: null,
     variant: 'default',
-    style: {},
+    style: undefined,
 };
 
 export default Badge;
