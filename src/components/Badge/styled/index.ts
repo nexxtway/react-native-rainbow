@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { BaseProps } from '../../types';
 import {
-    COLOR_GRAY,
+    COLOR_GRAY_TRANSPARENT_4,
     COLOR_DARK_2,
     COLOR_BRAND,
     COLOR_WHITE,
@@ -9,7 +9,6 @@ import {
 
 interface Props extends BaseProps {
     variant?: string;
-    style?: object;
 }
 
 export const StyledBadgeContainer = styled.View`
@@ -25,16 +24,16 @@ export const StyledBadge = styled.Text<Props>`
     ${props =>
         props.variant === 'default' &&
         `
-        background: ${COLOR_GRAY}
+        background: ${COLOR_GRAY_TRANSPARENT_4}
         color: ${COLOR_DARK_2}
-        border-color: ${COLOR_GRAY}
+        border-color: ${COLOR_GRAY_TRANSPARENT_4}
     `};
 
     ${props =>
         props.variant === 'lightest' &&
         `
-        background: transparent;
-        border-color: ${COLOR_GRAY}
+        background: ${COLOR_WHITE};
+        border-color: ${COLOR_GRAY_TRANSPARENT_4}
         color: ${COLOR_DARK_2}
     `}
 

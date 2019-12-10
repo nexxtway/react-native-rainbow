@@ -1,9 +1,8 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-
 import CenterView from './CenterView';
 import Badge from '../../src/components/Badge';
-import { Text } from 'react-native';
 
 const BadgeNode = () => <Text>Hi</Text>;
 
