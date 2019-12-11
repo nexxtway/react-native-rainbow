@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
-import { COLOR_GRAY_3, COLOR_GRAY_2 } from '../../styles/colors';
-import Input from '../Input/styled/input';
-import ArrowDown from '../../components/Icons/arrowDown';
+import { COLOR_GRAY_3, COLOR_GRAY_2 } from '../../../styles/colors';
+import Input from '../../Input/styled/input';
+import ArrowDown from '../../Icons/arrowDown';
 
 export const InputContainer = styled.View`
     display: flex;

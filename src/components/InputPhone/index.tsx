@@ -2,8 +2,7 @@ import React, { ReactNode, useState } from 'react';
 import { View, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
-import StyledLabel from '../Input/styled/label';
-import StyledError from '../Input/styled/error';
+import { Label, Error } from '../Input/styled/index';
 import {
     LeftElement,
     InputContainer,
@@ -76,7 +75,7 @@ const InputPhone: React.FC<Props> = props => {
     return (
         <View style={style}>
             <RenderIf isTrue={!!label}>
-                <StyledLabel>{label}</StyledLabel>
+                <Label>{label}</Label>
             </RenderIf>
             <InputContainer>
                 <StyledInput
@@ -103,7 +102,7 @@ const InputPhone: React.FC<Props> = props => {
                 </LeftElement>
             </InputContainer>
             <RenderIf isTrue={!!error}>
-                <StyledError>{error}</StyledError>
+                <Error>{error}</Error>
             </RenderIf>
             <CountryPickerModal
                 isOpen={isOpen}
