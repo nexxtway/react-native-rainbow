@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
-import StyledTitle from '../../Modal/styled/title';
+import StyledTitle from '../../Modal/styled';
 import { InputSearch } from './styled';
 
 interface Props {

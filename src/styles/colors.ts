@@ -24,11 +24,9 @@ export const COLOR_GRAY_4 = 'rgb(87,101,116)';
 export const COLOR_GRAY_TRANSPARENT_1 = 'rgba(244, 246, 249, 0.4)';
 export const COLOR_GRAY_TRANSPARENT_2 = 'rgba(82, 95, 127, 0.1)';
 export const COLOR_GRAY_TRANSPARENT_3 = 'rgba(82, 95, 127, 0.3)';
-export const COLOR_GRAY_TRANSPARENT_4 = 'rgb(227,229,237)';
 
 // text colors
 export const COLOR_DARK_1 = 'rgb(8, 28, 63)';
-export const COLOR_DARK_2 = 'rgb(87,101,116)';
 
 // yellow colors
 export const COLOR_YELLOW_1 = '#fc0';

@@ -18,10 +18,10 @@ interface Props {
 const Input = styled.TextInput<Props>`
     border-bottom-color: ${COLOR_GRAY_2};
     border-bottom-width: 1;
-    width: 50;
+    width: 44;
     padding: 0;
     color: ${COLOR_DARK_1};
-    font-size: 54;
+    font-size: 40;
     text-align: center;
 
     ${props =>

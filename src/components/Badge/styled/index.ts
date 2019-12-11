@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 import { BaseProps } from '../../types';
 import {
-    COLOR_GRAY_TRANSPARENT_4,
-    COLOR_DARK_2,
+    COLOR_GRAY_TRANSPARENT_2,
+    COLOR_GRAY_4,
     COLOR_BRAND,
     COLOR_WHITE,
 } from '../../../styles/colors';
@@ -16,7 +16,6 @@ export const StyledBadgeContainer = styled.View`
 `;
 
 export const StyledBadge = styled.View<Props>`
-    
     border-width: 1px;
     padding: 2px 10px;
     text-align: center;
@@ -25,30 +24,30 @@ export const StyledBadge = styled.View<Props>`
     ${props =>
         props.variant === 'default' &&
         `
-        background: ${COLOR_GRAY_TRANSPARENT_4}
-        border-color: ${COLOR_GRAY_TRANSPARENT_4}
+        background-color: ${COLOR_GRAY_TRANSPARENT_2};
+        border-color: transparent;
     `};
 
     ${props =>
         props.variant === 'lightest' &&
         `
-        background: ${COLOR_WHITE};
-        border-color: ${COLOR_GRAY_TRANSPARENT_4}
+        background-color: ${COLOR_WHITE};
+        border-color: ${COLOR_GRAY_TRANSPARENT_2};
     `}
 
     ${props =>
         props.variant === 'outline-brand' &&
         `
-        color: ${COLOR_BRAND}
-        border-color: ${COLOR_BRAND}
+        color: ${COLOR_BRAND};
+        border-color: ${COLOR_BRAND};
     `}
 
     ${props =>
         props.variant === 'brand' &&
         `
-        color: ${COLOR_WHITE}
-        background: ${COLOR_BRAND}
-        border-color: ${COLOR_BRAND}
+        color: ${COLOR_WHITE};
+        background-color: ${COLOR_BRAND};
+        border-color: ${COLOR_BRAND};
     `}
 `;
 
@@ -56,21 +55,21 @@ export const StyledTextBadge = styled.Text<Props>`
     ${props =>
         props.variant === 'default' &&
         `
-        color: ${COLOR_DARK_2}
+        color: ${COLOR_GRAY_4};
     `}
     ${props =>
         props.variant === 'lightest' &&
         `
-        color: ${COLOR_DARK_2}
+        color: ${COLOR_GRAY_4};
     `}
     ${props =>
         props.variant === 'outline-brand' &&
         `
-        color: ${COLOR_BRAND}
+        color: ${COLOR_BRAND};
     `}
     ${props =>
         props.variant === 'brand' &&
         `
-        color: ${COLOR_WHITE}
+        color: ${COLOR_WHITE};
     `}
 `;

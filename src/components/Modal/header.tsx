@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StyledTitle from './styled/title';
+import StyledTitle from './styled';
 
 interface Props {
     title?: any;

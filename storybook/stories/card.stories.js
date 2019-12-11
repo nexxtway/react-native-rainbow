@@ -1,16 +1,35 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Image } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import CenterView from './CenterView';
 import Card from '../../src/components/Card';
-import Button from '../../src/components/Button';
+import ButtonIcon from '../../src/components/ButtonIcon';
+import Heart from '../../src/components/Icons/heart';
+import Share from '../../src/components/Icons/share';
 
 const styles = {
     marginBottom: 16,
 };
-const textStyles = {
-    textAlign: 'center',
-    padding: 16,
+
+const iconStyles = {
+    color: 'red',
+    width: 20,
+    height: 20,
+};
+
+const iconGrayStyles = {
+    color: 'gray',
+    width: 20,
+    height: 20,
+};
+
+const imageStyles = {
+    width: '100%',
+    height: 200,
+};
+
+const footerStyles = {
+    flexDirection: 'row',
 };
 
 storiesOf('Card', module)
@@ -20,21 +39,36 @@ storiesOf('Card', module)
             <Card
                 style={styles}
                 // add icon here
-                title="Contact Details"
-                actions={<Button label="New" variant="outline-brand" />}
+                title="Favorite"
+                actions={
+                    <ButtonIcon
+                        icon={<Heart style={iconStyles} />}
+                        size="xx-small"
+                    />
+                }
             />
             <Card style={styles} title="Contacts" isLoading />
             <Card
                 style={styles}
-                title="Task"
-                actions={<Button variant="brand" label="Add" />}
                 footer={
-                    <View>
-                        <Button label="Clear All" variant="destructive" />
+                    <View style={footerStyles}>
+                        <ButtonIcon
+                            icon={<Heart style={iconGrayStyles} />}
+                            size="x-small"
+                        />
+                        <ButtonIcon
+                            icon={<Share style={iconGrayStyles} />}
+                            size="x-small"
+                        />
                     </View>
                 }
             >
-                <Text style={textStyles}>No new tasks</Text>
+                <View>
+                    <Image
+                        style={imageStyles}
+                        source={require('../assets/images/colorfull-paper.jpg')}
+                    />
+                </View>
             </Card>
         </>
     ));
