@@ -45,6 +45,7 @@ storiesOf('Button', module)
                 label="Button with RightIcon"
                 variant="success"
                 icon={<ArrowRight style={iconStyles} />}
+                iconPosition="right"
             />
         </>
     ))

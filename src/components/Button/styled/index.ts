@@ -1,18 +1,36 @@
 import styled from 'styled-components/native';
+import { ButtonIconPosition, ButtonVariant } from '../../types';
 import {
     COLOR_WHITE,
     COLOR_BRAND,
     COLOR_GRAY_TRANSPARENT_3,
 } from '../../../styles/colors';
 import { FONT_SIZE_HEADING_SMALL } from '../../../styles/fontSizes';
-import { ButtonVariant } from '../../types';
 
 interface Props {
+    iconPosition?: ButtonIconPosition;
     variant?: ButtonVariant;
     disabled?: boolean;
 }
 
-const StyledText = styled.Text<Props>`
+export const StyledIcon = styled.View<Props>`
+    position: absolute;
+    ${props =>
+        props.iconPosition === 'right' &&
+        `
+            margin-left: 16;
+            right: 16;
+
+        `};
+    ${props =>
+        props.iconPosition === 'left' &&
+        `
+            margin-right: 16;
+            left: 16;
+        `};
+`;
+
+export const StyledText = styled.Text<Props>`
     color: ${COLOR_BRAND};
     font-size: ${FONT_SIZE_HEADING_SMALL};
     line-height: 46;
@@ -26,5 +44,3 @@ const StyledText = styled.Text<Props>`
 
     ${props => props.disabled && `color: ${COLOR_GRAY_TRANSPARENT_3};`}
 `;
-
-export default StyledText;

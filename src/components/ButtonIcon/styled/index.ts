@@ -12,7 +12,7 @@ interface Props {
     size?: ButtonIconSize;
 }
 
-const StyledButton = styled.TouchableOpacity<Props>`
+export const Button = styled.TouchableOpacity<Props>`
     background: transparent;
     border: 0;
     border-radius: 100;
@@ -74,5 +74,3 @@ const StyledButton = styled.TouchableOpacity<Props>`
             height: 64;
         `};
 `;
-
-export default StyledButton;
