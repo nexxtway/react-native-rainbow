@@ -1,10 +1,9 @@
 import React, { ReactNode, useState, useRef, useEffect } from 'react';
 import { View, TextInput } from 'react-native';
 import PropTypes from 'prop-types';
-import StyledContainer from './styled/container';
 import RenderIf from '../RenderIf';
-import StyledLabel from './styled/label';
-import StyledError from '../Input/styled/error';
+import { Container, StyledLabel } from './styled/index';
+import { Error } from '../Input/styled/index';
 import StyledInput from './styled/input';
 import getNextIndex from './helpers/getNextIndex';
 import getPrevIndex from './helpers/getPrevIndex';
@@ -65,7 +64,7 @@ const InputCode: React.FC<Props> = props => {
             <RenderIf isTrue={!!label}>
                 <StyledLabel>{label}</StyledLabel>
             </RenderIf>
-            <StyledContainer style={style}>
+            <Container style={style}>
                 {Array(digits)
                     .fill(0)
                     .map((_input, index) => {
@@ -95,9 +94,9 @@ const InputCode: React.FC<Props> = props => {
                             />
                         );
                     })}
-            </StyledContainer>
+            </Container>
             <RenderIf isTrue={!!error}>
-                <StyledError>{error}</StyledError>
+                <Error>{error}</Error>
             </RenderIf>
         </View>
     );

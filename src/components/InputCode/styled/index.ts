@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
+import { Label } from '../../Input/styled/index';
 
-const Container = styled.View<{}>`
+export const Container = styled.View<{}>`
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -8,4 +9,6 @@ const Container = styled.View<{}>`
     flex-shrink: 0;
 `;
 
-export default Container;
+export const StyledLabel = styled(Label)`
+    margin-bottom: 8px;
+`;
