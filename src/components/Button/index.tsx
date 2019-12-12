@@ -1,9 +1,10 @@
 import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import StyledButton from './styled/button';
-import { StyledText, StyledIcon } from './styled/index';
+import { StyledIcon } from './styled/index';
 import RenderIf from '../RenderIf';
 import { BaseProps, ButtonVariant, ButtonIconPosition } from '../types';
+import ButtonContent from './buttonContent';
 
 interface Props extends BaseProps {
     onPress?: (event?: any) => void;
@@ -42,13 +43,9 @@ const Button: React.FC<Props> = props => {
             <RenderIf isTrue={hasLeftIcon}>
                 <StyledIcon iconPosition={iconPosition}>{icon}</StyledIcon>
             </RenderIf>
-            <StyledText
-                variant={variant}
-                disabled={isDisabled}
-                numberOfLines={1}
-            >
+            <ButtonContent variant={variant} disabled={isDisabled}>
                 {label}
-            </StyledText>
+            </ButtonContent>
             <RenderIf isTrue={hasRightIcon}>
                 <StyledIcon iconPosition={iconPosition}>{icon}</StyledIcon>
             </RenderIf>
