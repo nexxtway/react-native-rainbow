@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StyledTitle from './styled';
+import { Title } from './styled';
 
 interface Props {
     title?: any;
@@ -8,7 +8,7 @@ interface Props {
 
 const Header: React.FC<Props> = ({ title }) => {
     if (typeof title === 'string') {
-        return <StyledTitle>{title}</StyledTitle>;
+        return <Title>{title}</Title>;
     }
     return title;
 };
