@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { StyledText } from './styled';
 import { BaseProps, ButtonVariant } from '../types';
 
-interface Props extends BaseProps {
+interface Props {
     variant?: ButtonVariant;
     disabled?: boolean;
     children?: any;
