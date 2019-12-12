@@ -11,7 +11,7 @@ interface Props extends BaseProps {
 /**
  * Here we handle the content of the badges.
  */
-const BadgetContent: React.FC<Props> = props => {
+const badgeContent: React.FC<Props> = props => {
     const { variant, children } = props;
     if (typeof children === 'string' || typeof children === 'number') {
         return <StyledTextBadge variant={variant}>{children}</StyledTextBadge>;
@@ -19,7 +19,7 @@ const BadgetContent: React.FC<Props> = props => {
     return children;
 };
 
-BadgetContent.propTypes = {
+badgeContent.propTypes = {
     /* The text or component to be displayed on the badge. */
     children: PropTypes.node,
     /** The variant changes the appearance of the badge.
@@ -28,9 +28,9 @@ BadgetContent.propTypes = {
     variant: PropTypes.oneOf(['default', 'lightest', 'outline-brand', 'brand']),
 };
 
-BadgetContent.defaultProps = {
+badgeContent.defaultProps = {
     children: null,
     variant: 'default',
 };
 
-export default BadgetContent;
+export default badgeContent;

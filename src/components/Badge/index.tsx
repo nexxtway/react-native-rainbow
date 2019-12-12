@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import { BaseProps, BadgeVariant } from '../types';
 import { StyledBadge, StyledBadgeContainer } from './styled';
-import BadgetContent from './BadgeContent';
+import BadgeContent from './badgeContent';
 
 interface Props extends BaseProps {
     label?: ReactNode;
@@ -19,7 +19,7 @@ const Badge: React.FC<Props> = props => {
     return (
         <StyledBadgeContainer style={style}>
             <StyledBadge variant={variant}>
-                <BadgetContent variant={variant}>{label}</BadgetContent>
+                <BadgeContent variant={variant}>{label}</BadgeContent>
             </StyledBadge>
         </StyledBadgeContainer>
     );
