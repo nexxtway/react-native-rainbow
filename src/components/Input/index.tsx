@@ -3,8 +3,7 @@ import { View, KeyboardTypeOptions } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
 import StyledInput from './styled/input';
-import StyledLabel from './styled/label';
-import StyledError from './styled/error';
+import { Label, Error } from './styled/index';
 import { BaseProps } from '../types';
 
 export interface Props extends BaseProps {
@@ -37,7 +36,7 @@ const Input: React.FC<Props> = props => {
     return (
         <View style={style}>
             <RenderIf isTrue={!!label}>
-                <StyledLabel>{label}</StyledLabel>
+                <Label>{label}</Label>
             </RenderIf>
             <StyledInput
                 onChangeText={onChange}
@@ -54,7 +53,7 @@ const Input: React.FC<Props> = props => {
                 autoFocus={autoFocus}
             />
             <RenderIf isTrue={!!error}>
-                <StyledError>{error}</StyledError>
+                <Error>{error}</Error>
             </RenderIf>
         </View>
     );

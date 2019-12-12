@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
-import StyledButton from './styled/button';
+import { Button } from './styled/index';
 import { BaseProps, ButtonIconVariant, ButtonIconSize } from '../types';
 
 export interface Props extends BaseProps {
@@ -15,7 +15,7 @@ const ButtonIcon: React.FC<Props> = props => {
     const { onPress, icon, disabled, variant, size, style } = props;
 
     return (
-        <StyledButton
+        <Button
             onPress={onPress}
             disabled={disabled}
             variant={variant}
@@ -23,7 +23,7 @@ const ButtonIcon: React.FC<Props> = props => {
             style={style}
         >
             {icon}
-        </StyledButton>
+        </Button>
     );
 };
 

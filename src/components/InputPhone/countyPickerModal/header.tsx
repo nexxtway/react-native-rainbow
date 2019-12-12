@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
-import StyledTitle from '../../Modal/styled/title';
+import { Title } from '../../Modal/styled';
 import { InputSearch } from './styled';
 
 interface Props {
@@ -14,7 +14,7 @@ const Header: React.FC<Props> = props => {
 
     return (
         <View>
-            <StyledTitle>What’s your country?</StyledTitle>
+            <Title>What’s your country?</Title>
             <InputSearch value={query} onChange={onSearch} />
         </View>
     );

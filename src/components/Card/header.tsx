@@ -2,9 +2,7 @@ import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
 import Title from './title';
-import StyledViewHeader from './styled/header';
-import StyledViewTitle from './styled/title';
-import StyledViewIcon from './styled/icon';
+import { HeaderContainer, TitleContent, Icon } from './styled';
 
 interface Props {
     title?: ReactNode;
@@ -18,15 +16,15 @@ const Header: React.FC<Props> = props => {
 
     return (
         <RenderIf isTrue={isShowed}>
-            <StyledViewHeader>
-                <StyledViewTitle>
+            <HeaderContainer>
+                <TitleContent>
                     <RenderIf isTrue={!!icon}>
-                        <StyledViewIcon>{icon}</StyledViewIcon>
+                        <Icon>{icon}</Icon>
                     </RenderIf>
                     <Title>{title}</Title>
-                </StyledViewTitle>
+                </TitleContent>
                 {actions}
-            </StyledViewHeader>
+            </HeaderContainer>
         </RenderIf>
     );
 };

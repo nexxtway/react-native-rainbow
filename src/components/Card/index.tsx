@@ -2,10 +2,9 @@ import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import Header from './header';
 import Body from './body';
-import StyledViewContainer from './styled/container';
-import StyledViewFooter from './styled/footer';
 import RenderIf from '../RenderIf';
 import { BaseProps } from '../types';
+import { Container, Footer } from './styled';
 
 interface Props extends BaseProps {
     title?: ReactNode;
@@ -21,13 +20,13 @@ const Card: React.FC<Props> = props => {
     const showFooter = !!(footer && !isLoading);
 
     return (
-        <StyledViewContainer style={style}>
+        <Container style={style}>
             <Header title={title} icon={icon} actions={actions} />
             <Body isLoading={isLoading}>{children}</Body>
             <RenderIf isTrue={showFooter}>
-                <StyledViewFooter>{footer}</StyledViewFooter>
+                <Footer>{footer}</Footer>
             </RenderIf>
-        </StyledViewContainer>
+        </Container>
     );
 };
 

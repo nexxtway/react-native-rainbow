@@ -19,7 +19,7 @@ const Badge: React.FC<Props> = props => {
     return (
         <StyledBadgeContainer style={style}>
             <StyledBadge variant={variant}>
-                <BadgetContent>{label}</BadgetContent>
+                <BadgetContent variant={variant}>{label}</BadgetContent>
             </StyledBadge>
         </StyledBadgeContainer>
     );

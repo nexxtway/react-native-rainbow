@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import StyledButton from './styled/button';
-import StyledText from './styled/text';
-import StyledIcon from './styled/icon';
+import { StyledText, StyledIcon } from './styled/index';
 import RenderIf from '../RenderIf';
 import { BaseProps, ButtonVariant, ButtonIconPosition } from '../types';
 
@@ -79,7 +78,7 @@ Button.defaultProps = {
     onPress: () => {},
     label: undefined,
     icon: undefined,
-    iconPosition: 'right',
+    iconPosition: 'left',
     disabled: false,
     isLoading: false,
     variant: 'neutral',
