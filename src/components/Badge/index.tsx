@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import { BaseProps, BadgeVariant } from '../types';
 import { StyledBadge, StyledBadgeContainer } from './styled';
-import BadgeContent from './badgeContent';
+import BadgeContent from './BadgeContent';
 
 interface Props extends BaseProps {
     label?: ReactNode;
