@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledText } from './styled';
-import { BaseProps, ButtonVariant } from '../types';
+import { ButtonVariant } from '../types';
 
 interface Props {
     variant?: ButtonVariant;
