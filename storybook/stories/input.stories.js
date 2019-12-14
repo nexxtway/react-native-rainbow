@@ -4,13 +4,14 @@ import CenterView from './CenterView';
 import Input from '../../src/components/Input';
 import User from '../../src/components/Icons/user';
 import Heart from '../../src/components/Icons/heart';
+import { COLOR_GRAY_2 } from '../../src/styles/colors';
 
 const styles = {
     marginBottom: 24,
 };
 
 const iconStyles = {
-    color: 'black',
+    color: COLOR_GRAY_2,
     width: '100%',
     height: '100%',
 };

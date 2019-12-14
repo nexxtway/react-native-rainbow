@@ -1,5 +1,9 @@
 import styled from 'styled-components/native';
-import { COLOR_GRAY_3, COLOR_ERROR } from '../../../styles/colors';
+import {
+    COLOR_GRAY_2,
+    COLOR_GRAY_3,
+    COLOR_ERROR,
+} from '../../../styles/colors';
 
 type InputIconPostions = 'left' | 'right';
 
@@ -24,10 +28,12 @@ export const Error = styled.Text`
 
 export const Icon = styled.View<Props>`
     position: absolute;
-    top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 20px;
-    height: 20px;
-    color: ${COLOR_GRAY_3};
+    height: 100%;
+    color: ${COLOR_GRAY_2};
 
     ${props =>
         props.iconPosition === 'left' &&
