@@ -4,11 +4,10 @@ import {
     COLOR_GRAY_3,
     COLOR_ERROR,
 } from '../../../styles/colors';
-
-type InputIconPostions = 'left' | 'right';
+import { IconPosition } from '../../../components/types';
 
 export interface Props {
-    iconPosition?: InputIconPostions;
+    iconPosition?: IconPosition;
 }
 
 export const Label = styled.Text`
