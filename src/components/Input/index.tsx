@@ -3,8 +3,8 @@ import { View, KeyboardTypeOptions } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
 import StyledInput from './styled/input';
-import { Label, Error } from './styled/index';
-import { BaseProps } from '../types';
+import { Label, Error, Icon } from './styled/index';
+import { BaseProps, IconPosition } from '../types';
 
 export interface Props extends BaseProps {
     label?: ReactNode;
@@ -15,6 +15,8 @@ export interface Props extends BaseProps {
     error?: ReactNode;
     keyboardType?: KeyboardTypeOptions;
     autoFocus?: boolean;
+    icon?: ReactNode;
+    iconPosition?: IconPosition;
 }
 
 const Input: React.FC<Props> = props => {
@@ -28,6 +30,8 @@ const Input: React.FC<Props> = props => {
         keyboardType,
         autoFocus,
         style,
+        icon,
+        iconPosition,
     } = props;
     const isEnabled = !disabled;
 
@@ -38,20 +42,27 @@ const Input: React.FC<Props> = props => {
             <RenderIf isTrue={!!label}>
                 <Label>{label}</Label>
             </RenderIf>
-            <StyledInput
-                onChangeText={onChange}
-                value={value}
-                placeholder={placeholder}
-                editable={isEnabled}
-                selectTextOnFocus={isEnabled}
-                error={error}
-                isFocused={isFocused}
-                onBlur={() => setFocusState(false)}
-                onFocus={() => setFocusState(true)}
-                disabled={disabled}
-                keyboardType={keyboardType}
-                autoFocus={autoFocus}
-            />
+            <View>
+                <StyledInput
+                    onChangeText={onChange}
+                    value={value}
+                    placeholder={placeholder}
+                    editable={isEnabled}
+                    selectTextOnFocus={isEnabled}
+                    error={error}
+                    isFocused={isFocused}
+                    onBlur={() => setFocusState(false)}
+                    onFocus={() => setFocusState(true)}
+                    disabled={disabled}
+                    keyboardType={keyboardType}
+                    autoFocus={autoFocus}
+                    hasIcon={!!icon}
+                    iconPosition={iconPosition}
+                />
+                <RenderIf isTrue={!!icon}>
+                    <Icon iconPosition={iconPosition}>{icon}</Icon>
+                </RenderIf>
+            </View>
             <RenderIf isTrue={!!error}>
                 <Error>{error}</Error>
             </RenderIf>
@@ -83,6 +94,8 @@ Input.propTypes = {
     ]),
     autoFocus: PropTypes.bool,
     style: PropTypes.object,
+    icon: PropTypes.node,
+    iconPosition: PropTypes.oneOf(['left', 'right']),
 };
 
 Input.defaultProps = {
@@ -95,6 +108,8 @@ Input.defaultProps = {
     keyboardType: 'default',
     autoFocus: false,
     style: undefined,
+    icon: null,
+    iconPosition: 'left',
 };
 
 export default Input;
