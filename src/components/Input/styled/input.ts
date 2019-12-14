@@ -12,15 +12,14 @@ import {
 import { BORDER_RADIUS_2 } from '../../../styles/borderRadius';
 import { FONT_SIZE_TEXT_LARGE } from '../../../styles/fontSizes';
 import { SHADOW_OUTLINE, SHADOW_ERROR } from '../../../styles/shadows';
-
-type InputIconPostions = 'left' | 'right';
+import { IconPosition } from '../../../components/types';
 
 export interface Props {
     isFocused?: boolean;
     error?: ReactNode;
     disabled?: boolean;
-    icon?: boolean;
-    iconPosition?: InputIconPostions;
+    hasIcon?: boolean;
+    iconPosition?: IconPosition;
 }
 
 const Input = styled.TextInput<Props>`
@@ -63,13 +62,13 @@ const Input = styled.TextInput<Props>`
         color: ${COLOR_GRAY_3};
     `}
     ${props =>
-        props.icon &&
+        props.hasIcon &&
         props.iconPosition === 'left' &&
         `
         padding-left: 45px;
     `}
     ${props =>
-        props.icon &&
+        props.hasIcon &&
         props.iconPosition === 'right' &&
         `
         padding-right: 45px;

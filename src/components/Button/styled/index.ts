@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { ButtonIconPosition, ButtonVariant } from '../../types';
+import { IconPosition, ButtonVariant } from '../../types';
 import {
     COLOR_WHITE,
     COLOR_BRAND,
@@ -8,7 +8,7 @@ import {
 import { FONT_SIZE_HEADING_SMALL } from '../../../styles/fontSizes';
 
 interface Props {
-    iconPosition?: ButtonIconPosition;
+    iconPosition?: IconPosition;
     variant?: ButtonVariant;
     disabled?: boolean;
 }

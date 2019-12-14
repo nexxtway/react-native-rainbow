@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import StyledButton from './styled/button';
 import { StyledIcon } from './styled/index';
 import RenderIf from '../RenderIf';
-import { BaseProps, ButtonVariant, ButtonIconPosition } from '../types';
+import { BaseProps, ButtonVariant, IconPosition } from '../types';
 import ButtonContent from './buttonContent';
 
 interface Props extends BaseProps {
@@ -13,7 +13,7 @@ interface Props extends BaseProps {
     isLoading?: boolean;
     variant?: ButtonVariant;
     icon?: ReactNode;
-    iconPosition?: ButtonIconPosition;
+    iconPosition?: IconPosition;
 }
 
 const Button: React.FC<Props> = props => {

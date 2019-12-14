@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
 import StyledInput from './styled/input';
 import { Label, Error, Icon } from './styled/index';
-import { BaseProps } from '../types';
-
-type InputIconPostions = 'left' | 'right';
+import { BaseProps, IconPosition } from '../types';
 
 export interface Props extends BaseProps {
     label?: ReactNode;
@@ -18,7 +16,7 @@ export interface Props extends BaseProps {
     keyboardType?: KeyboardTypeOptions;
     autoFocus?: boolean;
     icon?: ReactNode;
-    iconPosition?: InputIconPostions;
+    iconPosition?: IconPosition;
 }
 
 const Input: React.FC<Props> = props => {
@@ -58,7 +56,7 @@ const Input: React.FC<Props> = props => {
                     disabled={disabled}
                     keyboardType={keyboardType}
                     autoFocus={autoFocus}
-                    icon={!!icon}
+                    hasIcon={!!icon}
                     iconPosition={iconPosition}
                 />
                 <RenderIf isTrue={!!icon}>
