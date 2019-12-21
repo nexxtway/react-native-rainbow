@@ -1,5 +1,5 @@
 import React, { ReactNode, useState, useRef, useEffect } from 'react';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, Clipboard } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
 import { Container, StyledLabel } from './styled/index';
@@ -37,23 +37,50 @@ const InputCode: React.FC<Props> = props => {
         }
     }, [inputIndexFocused]);
 
-    const handleChange = (value: string) => {
-        if (value) {
-            const nextInputIndex = getNextIndex({
-                currentIndex: inputIndexFocused,
-                length: digits,
-            });
-            setFocusInputIndex(nextInputIndex);
-        } else {
-            const prevInputIndex = getPrevIndex({
-                currentIndex: inputIndexFocused,
-            });
-            setFocusInputIndex(prevInputIndex);
+    const handlePasteCode = (pasteValue: string): string => {
+        const regx = new RegExp(`\\d{${digits}}`);
+        const match = regx.exec(pasteValue);
+        if (!match) {
+            return '';
         }
-        const newValues = [...values];
-        newValues[inputIndexFocused] = value;
-        setValues(newValues);
 
+        const codeFromClipboard = match[0];
+
+        return codeFromClipboard;
+    };
+
+    const handleChange = async (value: string) => {
+        const clipboardContent = await Clipboard.getString();
+        const codeFromClipboard = handlePasteCode(clipboardContent);
+        await Clipboard.setString('');
+        const newValues = [...values];
+        if (codeFromClipboard.length === digits) {
+            const codeValues = codeFromClipboard.split('');
+            setValues(codeValues);
+            codeValues.map((text, index) => {
+                setFocusInputIndex(index);
+                if (inputEl && inputEl.current) {
+                    inputEl.current.setNativeProps({ text });
+                }
+            });
+            onChange(codeFromClipboard);
+        } else {
+            if (value) {
+                const nextInputIndex = getNextIndex({
+                    currentIndex: inputIndexFocused,
+                    length: digits,
+                });
+                setFocusInputIndex(nextInputIndex);
+            } else {
+                const prevInputIndex = getPrevIndex({
+                    currentIndex: inputIndexFocused,
+                });
+                setFocusInputIndex(prevInputIndex);
+            }
+
+            newValues[inputIndexFocused] = value;
+            setValues(newValues);
+        }
         if (newValues.length === digits && newValues.every(item => !!item)) {
             onChange(newValues.join(''));
         }
