@@ -12,6 +12,9 @@ export const COLOR_SUCCESS = '#1de9b6';
 export const COLOR_SUCCESS_ACTIVE = '#1ad1a3';
 export const COLOR_SUCCESS_LIGHT = 'rgba(29, 233, 182, 0.2)';
 
+// warning colors
+export const COLOR_WARNING = 'rgb(255,204, 0)';
+
 // error colors
 export const COLOR_ERROR = '#fe4849';
 export const COLOR_ERROR_ACTIVE = '#ea4243';
