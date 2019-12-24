@@ -2,7 +2,7 @@ import React from 'react';
 import Svg, { Path, Circle } from 'react-native-svg';
 import { BaseProps } from '../types';
 
-const Rute: React.FC<BaseProps> = ({ style }) => {
+const Route: React.FC<BaseProps> = ({ style }) => {
     return (
         <Svg viewBox="0 0 57 60" fill="none" style={style}>
             <Path
@@ -32,4 +32,4 @@ const Rute: React.FC<BaseProps> = ({ style }) => {
     );
 };
 
-export default Rute;
+export default Route;

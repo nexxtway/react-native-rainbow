@@ -4,7 +4,7 @@ import RowView from './RowView';
 import ProgressCircular from '../../src/components/ProgressCircular';
 import Shoe from '../../src/components/Icons/shoe';
 import Fire from '../../src/components/Icons/fire';
-import Rute from '../../src/components/Icons/rute';
+import Route from '../../src/components/Icons/route';
 import Person from '../../src/components/Icons/person';
 
 const iconStyles = {
@@ -28,7 +28,7 @@ storiesOf('Progress Circular', module).add('Basic', () => (
             <ProgressCircular
                 size="small"
                 variant="error"
-                icon={<Rute style={iconStyles} />}
+                icon={<Route style={iconStyles} />}
             />
         </RowView>
         <RowView spaceTop={50}>
@@ -46,7 +46,7 @@ storiesOf('Progress Circular', module).add('Basic', () => (
             <ProgressCircular
                 variant="error"
                 value={50}
-                icon={<Rute style={iconStyles} />}
+                icon={<Route style={iconStyles} />}
             />
         </RowView>
     </>
