@@ -9,6 +9,7 @@ import {
     COLOR_GRAY_TRANSPARENT_2,
 } from '../../styles/colors';
 import { BaseProps } from '../types';
+import { Variants } from './index';
 
 const colors = {
     brand: COLOR_BRAND,
@@ -17,19 +18,14 @@ const colors = {
     error: COLOR_ERROR,
 };
 
-type Variants = 'brand' | 'success' | 'warning' | 'error';
-
 interface Props extends BaseProps {
     variant?: Variants;
     value?: number;
 }
 
-/**
- * A profress circular svg component represents an object or entity
- */
-
 const ProgressCircularSVG: React.FC<Props> = props => {
     const { variant = 'brand', value = 0 } = props;
+    let strokeDash = `${(value / 100) * 300} 300`;
     return (
         <Svg viewBox="0 0 100 100" height="100%" width="100%">
             <Path
@@ -45,7 +41,7 @@ const ProgressCircularSVG: React.FC<Props> = props => {
                 strokeLinecap="round"
                 strokeWidth="4"
                 fillOpacity="0"
-                strokeDasharray={`${(value / 100) * 300} 300`}
+                strokeDasharray={strokeDash}
             />
             <Path
                 d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"
@@ -60,13 +56,7 @@ const ProgressCircularSVG: React.FC<Props> = props => {
 };
 
 ProgressCircularSVG.propTypes = {
-    /**Variant defines the colors of the progress circular it could be one of 'brand' | 'success' | 'warning' | 'error'
-     * default value is brand
-     */
     variant: PropTypes.oneOf(['brand', 'success', 'warning', 'error']),
-    /**the value percentage of the progress circular
-     * default 0
-     */
     value: PropTypes.number,
 };
 

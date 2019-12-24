@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 import { BaseProps } from '../../types';
-
-type Sizes = 'large' | 'medium' | 'small';
+import { Sizes } from '../index';
 
 interface Props extends BaseProps {
     size?: Sizes;
@@ -41,7 +40,6 @@ const StyledIconContainer = styled.View<{}>`
 `;
 
 const StyledIcon = styled.View<{}>`
-    /* position: relative; */
     height: 40%;
     width: 40%;
 `;

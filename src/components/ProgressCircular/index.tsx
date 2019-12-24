@@ -9,8 +9,8 @@ import RenderIf from '../RenderIf';
 import ProgressCircularSVG from './ProgressCircularSVG';
 import { BaseProps } from '../types';
 
-type Sizes = 'large' | 'medium' | 'small';
-type Variants = 'brand' | 'success' | 'warning' | 'error';
+export type Sizes = 'large' | 'medium' | 'small';
+export type Variants = 'brand' | 'success' | 'warning' | 'error';
 
 interface Props extends BaseProps {
     variant?: Variants;
@@ -20,7 +20,7 @@ interface Props extends BaseProps {
 }
 
 /**
- * A profress circular component represents an object or entity
+ * ProgressCircular component communicates to the user the progress of a particular process.
  */
 
 const ProgressCircular: React.FC<Props> = props => {
@@ -54,7 +54,7 @@ ProgressCircular.propTypes = {
     /** The size of the progress circular. One of small, medium, and large.
      * This value defaults to medium. */
     size: PropTypes.oneOf(['large', 'medium', 'small']),
-    /**the value percentage of the progress circular
+    /**The percentage value of the progress circular. It must be between 0 and 100.
      * default 0
      */
     value: PropTypes.number,
