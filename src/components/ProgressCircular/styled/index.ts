@@ -12,20 +12,20 @@ const StyledProgressCircular = styled.View<Props>`
     ${props =>
         props.size === 'large' &&
         `
-            height: 100;
-            width: 100;
+            height: 86;
+            width: 86;
         `};
     ${props =>
         props.size === 'medium' &&
         `
-            height: 78;
-            width: 78;
+            height: 56;
+            width: 56;
         `};
     ${props =>
         props.size === 'small' &&
         `
-            height: 56;
-            width: 56;
+            height: 40;
+            width: 40;
         `};
 `;
 

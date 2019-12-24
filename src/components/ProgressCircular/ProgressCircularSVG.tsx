@@ -6,6 +6,7 @@ import {
     COLOR_SUCCESS,
     COLOR_ERROR,
     COLOR_WARNING,
+    COLOR_GRAY_TRANSPARENT_2,
 } from '../../styles/colors';
 import { BaseProps } from '../types';
 
@@ -30,21 +31,29 @@ interface Props extends BaseProps {
 const ProgressCircularSVG: React.FC<Props> = props => {
     const { variant = 'brand', value = 0 } = props;
     return (
-        <Svg viewBox="0 0 100 100" style={{ height: '100%', width: '100%' }}>
+        <Svg viewBox="0 0 100 100" height="100%" width="100%">
             <Path
                 d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"
-                stroke="#ccc"
+                stroke={COLOR_GRAY_TRANSPARENT_2}
                 strokeLinecap="round"
-                strokeWidth={1}
-                fillOpacity={0}
+                strokeWidth="2"
+                fillOpacity="0"
             />
             <Path
                 d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"
                 stroke={colors[variant]}
                 strokeLinecap="round"
-                strokeWidth={6}
-                fillOpacity={0}
+                strokeWidth="4"
+                fillOpacity="0"
                 strokeDasharray={`${(value / 100) * 300} 300`}
+            />
+            <Path
+                d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"
+                stroke="rgba(0,0,0,0.16)"
+                strokeLinecap="round"
+                strokeWidth="2"
+                fillOpacity="0"
+                strokeDasharray="0 300"
             />
         </Svg>
     );
