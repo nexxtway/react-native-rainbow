@@ -6,8 +6,8 @@ const ViewContainer = styled.View`
     display: flex;
     align-items: center;
     flex-direction: row;
-    padding-left: 50;
-    padding-right: 50;
+    padding-left: 10;
+    padding-right: 10;
     justify-content: space-around;
 `;
 
