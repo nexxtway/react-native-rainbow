@@ -1,10 +1,6 @@
 import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
-import {
-    StyledProgressCircular,
-    StyledIconContainer,
-    StyledIcon,
-} from './styled';
+import { StyledProgressCircular, StyledIconContainer } from './styled';
 import RenderIf from '../RenderIf';
 import ProgressCircularSVG from './ProgressCircularSVG';
 import { BaseProps } from '../types';
