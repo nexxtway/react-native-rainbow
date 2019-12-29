@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 import StyledAvatar from './styled/avatar';
 import StyledImage from './styled/image';
@@ -22,10 +23,13 @@ interface Props extends BaseProps {
 
 const Avatar: React.FC<Props> = props => {
     const { src, initials, icon, size, style } = props;
-    const checkImage = !!(src && typeof src === 'string');
-    const [isImage, setIsImage] = React.useState(checkImage);
+    const [isImage, setIsImage] = React.useState(false);
     const isInitials = !!(initials && typeof initials === 'string' && !isImage);
     const isIcon = !!(icon !== null && !initials && !isImage);
+
+    React.useEffect(() => {
+        setIsImage(!!(src && typeof src === 'string'));
+    }, [src]);
 
     return (
         <StyledAvatar size={size} style={style}>
