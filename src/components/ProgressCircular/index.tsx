@@ -29,9 +29,7 @@ const ProgressCircular: React.FC<Props> = props => {
     return (
         <StyledProgressCircular size={size} style={style}>
             <RenderIf isTrue={!!icon}>
-                <StyledIconContainer>
-                    <StyledIcon>{icon}</StyledIcon>
-                </StyledIconContainer>
+                <StyledIconContainer>{icon}</StyledIconContainer>
             </RenderIf>
             <ProgressCircularSVG variant={variant} value={value} />
         </StyledProgressCircular>

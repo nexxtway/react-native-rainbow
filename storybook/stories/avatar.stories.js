@@ -8,8 +8,8 @@ const PHOTO = 'https://source.unsplash.com/mEZ3PoFGs_k/50x50';
 
 const iconStyles = {
     color: 'white',
-    width: '100%',
-    height: '100%',
+    width: '60%',
+    height: '60%',
 };
 
 storiesOf('Avatar', module).add('Basic', () => (

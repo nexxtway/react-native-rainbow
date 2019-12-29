@@ -1,9 +1,6 @@
 import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
-import StyledAvatar from './styled/avatar';
-import StyledImage from './styled/image';
-import StyledText from './styled/text';
-import StyledIcon from './styled/icon';
+import { StyledAvatar, StyledImage, StyledText } from './styled';
 import RenderIf from '../RenderIf';
 import { BaseProps } from '../types';
 
@@ -38,9 +35,7 @@ const Avatar: React.FC<Props> = props => {
             <RenderIf isTrue={isInitials}>
                 <StyledText size={size}>{initials}</StyledText>
             </RenderIf>
-            <RenderIf isTrue={isIcon}>
-                <StyledIcon size={size}>{icon}</StyledIcon>
-            </RenderIf>
+            <RenderIf isTrue={isIcon}>{icon}</RenderIf>
         </StyledAvatar>
     );
 };
