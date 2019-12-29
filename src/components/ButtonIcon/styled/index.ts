@@ -3,6 +3,7 @@ import {
     COLOR_BRAND,
     COLOR_SUCCESS,
     COLOR_GRAY_TRANSPARENT_2,
+    COLOR_WHITE,
 } from '../../../styles/colors';
 import { ButtonIconVariant, ButtonIconSize } from '../../types';
 
@@ -25,6 +26,12 @@ export const Button = styled.TouchableOpacity<Props>`
     overflow: visible;
     text-transform: none;
 
+    ${props =>
+        props.variant === 'neutral' &&
+        `
+            background-color: ${COLOR_WHITE};
+            border: 1px solid ${COLOR_GRAY_TRANSPARENT_2};
+        `};
     ${props =>
         props.variant === 'brand' &&
         `
