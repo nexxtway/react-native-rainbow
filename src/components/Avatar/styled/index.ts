@@ -6,7 +6,7 @@ interface Props extends BaseProps {
     size?: string;
 }
 
-const StyledAvatar = styled.View<Props>`
+export const StyledAvatar = styled.View<Props>`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,4 +44,36 @@ const StyledAvatar = styled.View<Props>`
         `};
 `;
 
-export default StyledAvatar;
+export const StyledImage = styled.Image<{}>`
+    border: none;
+    border-radius: 24px;
+    height: 100%;
+    width: 100%;
+`;
+
+export const StyledText = styled.Text<Props>`
+    color: ${COLOR_WHITE};
+    text-align: center;
+    text-transform: uppercase;
+
+    ${props =>
+        props.size === 'large' &&
+        `
+            font-size: 24px
+        `};
+    ${props =>
+        props.size === 'medium' &&
+        `
+            font-size: 16px
+        `};
+    ${props =>
+        props.size === 'small' &&
+        `
+            font-size: 12px
+        `};
+    ${props =>
+        props.size === 'x-small' &&
+        `
+            font-size: 10px
+        `};
+`;
