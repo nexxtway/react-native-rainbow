@@ -8,8 +8,8 @@ import Route from '../../src/components/Icons/route';
 import Person from '../../src/components/Icons/person';
 
 const iconStyles = {
-    width: '100%',
-    height: '100%',
+    width: '40%',
+    height: '40%',
 };
 
 storiesOf('Progress Circular', module).add('Basic', () => (

@@ -1,10 +1,6 @@
 import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
-import {
-    StyledProgressCircular,
-    StyledIconContainer,
-    StyledIcon,
-} from './styled';
+import { StyledProgressCircular, StyledIconContainer } from './styled';
 import RenderIf from '../RenderIf';
 import ProgressCircularSVG from './ProgressCircularSVG';
 import { BaseProps } from '../types';
@@ -29,9 +25,7 @@ const ProgressCircular: React.FC<Props> = props => {
     return (
         <StyledProgressCircular size={size} style={style}>
             <RenderIf isTrue={!!icon}>
-                <StyledIconContainer>
-                    <StyledIcon>{icon}</StyledIcon>
-                </StyledIconContainer>
+                <StyledIconContainer>{icon}</StyledIconContainer>
             </RenderIf>
             <ProgressCircularSVG variant={variant} value={value} />
         </StyledProgressCircular>

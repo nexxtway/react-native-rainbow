@@ -6,7 +6,7 @@ interface Props extends BaseProps {
     size?: Sizes;
 }
 
-const StyledProgressCircular = styled.View<Props>`
+export const StyledProgressCircular = styled.View<Props>`
     position: relative;
     ${props =>
         props.size === 'large' &&
@@ -28,7 +28,7 @@ const StyledProgressCircular = styled.View<Props>`
         `};
 `;
 
-const StyledIconContainer = styled.View<{}>`
+export const StyledIconContainer = styled.View<{}>`
     position: absolute;
     display: flex;
     align-items: center;
@@ -38,10 +38,3 @@ const StyledIconContainer = styled.View<{}>`
     height: 100%;
     width: 100%;
 `;
-
-const StyledIcon = styled.View<{}>`
-    height: 40%;
-    width: 40%;
-`;
-
-export { StyledProgressCircular, StyledIconContainer, StyledIcon };
