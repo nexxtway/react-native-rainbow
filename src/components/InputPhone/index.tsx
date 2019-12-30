@@ -65,12 +65,12 @@ const InputPhone: React.FC<Props> = props => {
         setIsOpen(false);
     };
 
-    const handleChange = (phoneValue: string = '') => {
-        setPhoneValue(phoneValue);
+    const handleChange = (phoneNumberValue: string = '') => {
+        setPhoneValue(phoneNumberValue);
         onChange({
             countryCode: selectedCountry.countryCode,
             isoCode: selectedCountry.isoCode,
-            phone: phoneValue,
+            phone: phoneNumberValue,
         });
     };
 
@@ -84,7 +84,6 @@ const InputPhone: React.FC<Props> = props => {
 
     return (
         <View style={style}>
-            <Label>{JSON.stringify(value)}</Label>
             <RenderIf isTrue={!!label}>
                 <Label>{label}</Label>
             </RenderIf>
