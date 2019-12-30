@@ -76,7 +76,7 @@ const InputPhone: React.FC<Props> = props => {
 
     React.useEffect(() => {
         handleChange(phoneValue);
-    }, [selectedCountry]);
+    }, [selectedCountry, phoneValue]);
 
     return (
         <View style={style}>
