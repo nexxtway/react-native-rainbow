@@ -75,11 +75,16 @@ const InputPhone: React.FC<Props> = props => {
     };
 
     React.useEffect(() => {
-        handleChange(phoneValue);
+        onChange({
+            countryCode: selectedCountry.countryCode,
+            isoCode: selectedCountry.isoCode,
+            phone: phoneValue,
+        });
     }, [selectedCountry, phoneValue]);
 
     return (
         <View style={style}>
+            <Label>{JSON.stringify(value)}</Label>
             <RenderIf isTrue={!!label}>
                 <Label>{label}</Label>
             </RenderIf>
