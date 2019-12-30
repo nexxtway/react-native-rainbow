@@ -80,7 +80,7 @@ const InputPhone: React.FC<Props> = props => {
             isoCode: selectedCountry.isoCode,
             phone: phoneValue,
         });
-    }, [selectedCountry, phoneValue]);
+    }, [selectedCountry, phoneValue, onChange]);
 
     return (
         <View style={style}>
