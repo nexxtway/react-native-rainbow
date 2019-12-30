@@ -31,7 +31,7 @@ ButtonIcon.propTypes = {
     onPress: PropTypes.func,
     icon: PropTypes.node,
     disabled: PropTypes.bool,
-    variant: PropTypes.oneOf(['base', 'brand', 'success']),
+    variant: PropTypes.oneOf(['base', 'brand', 'success', 'neutral']),
     size: PropTypes.oneOf(['xx-small', 'x-small', 'small', 'medium', 'large']),
     style: PropTypes.object,
 };

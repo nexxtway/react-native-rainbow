@@ -33,7 +33,6 @@ export const StyledIcon = styled.View<Props>`
 export const StyledText = styled.Text<Props>`
     color: ${COLOR_BRAND};
     font-size: ${FONT_SIZE_HEADING_SMALL};
-    line-height: 46;
     text-align: center;
 
     ${props =>

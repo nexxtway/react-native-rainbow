@@ -41,6 +41,12 @@ storiesOf('ButtonIcon', module)
             />
             <ButtonIcon
                 style={styles}
+                icon={<ArrowLeft style={iconBaseStyles} />}
+                variant="neutral"
+                size="x-small"
+            />
+            <ButtonIcon
+                style={styles}
                 icon={<ArrowRight style={iconStyles} />}
                 variant="success"
                 size="x-small"
