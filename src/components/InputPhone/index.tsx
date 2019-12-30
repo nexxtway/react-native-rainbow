@@ -53,6 +53,7 @@ const InputPhone: React.FC<Props> = props => {
     const isEnabled = !disabled;
     const { isoCode = '', phone = '' } = value;
 
+    const [phoneValue, setPhoneValue] = React.useState(phone);
     const [isFocused, setFocusState] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [selectedCountry, setCountry] = useState<CountryType>(
@@ -64,13 +65,18 @@ const InputPhone: React.FC<Props> = props => {
         setIsOpen(false);
     };
 
-    const handleChange = (phoneValue: string) => {
+    const handleChange = (phoneValue: string = '') => {
+        setPhoneValue(phoneValue);
         onChange({
             countryCode: selectedCountry.countryCode,
             isoCode: selectedCountry.isoCode,
             phone: phoneValue,
         });
     };
+
+    React.useEffect(() => {
+        handleChange(phoneValue);
+    }, [selectedCountry]);
 
     return (
         <View style={style}>
