@@ -75,7 +75,6 @@ const InputPhone: React.FC<Props> = props => {
 
     return (
         <View style={style}>
-            <Label>{JSON.stringify(value)}</Label>
             <RenderIf isTrue={!!label}>
                 <Label>{label}</Label>
             </RenderIf>
