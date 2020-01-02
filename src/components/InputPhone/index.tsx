@@ -63,6 +63,11 @@ const InputPhone: React.FC<Props> = props => {
     const selectCountry = (country: CountryType) => {
         setCountry(country);
         setIsOpen(false);
+        onChange({
+            countryCode: selectedCountry.countryCode,
+            isoCode: selectedCountry.isoCode,
+            phone: phoneValue,
+        });
     };
 
     const handleChange = (phoneNumberValue: string = '') => {
@@ -73,14 +78,6 @@ const InputPhone: React.FC<Props> = props => {
             phone: phoneNumberValue,
         });
     };
-
-    React.useEffect(() => {
-        onChange({
-            countryCode: selectedCountry.countryCode,
-            isoCode: selectedCountry.isoCode,
-            phone: phoneValue,
-        });
-    }, [selectedCountry, phoneValue]);
 
     return (
         <View style={style}>
