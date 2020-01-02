@@ -80,10 +80,11 @@ const InputPhone: React.FC<Props> = props => {
             isoCode: selectedCountry.isoCode,
             phone: phoneValue,
         });
-    }, [selectedCountry, phoneValue, onChange]);
+    }, [selectedCountry, phoneValue]);
 
     return (
         <View style={style}>
+            <Label>{JSON.stringify(value)}</Label>
             <RenderIf isTrue={!!label}>
                 <Label>{label}</Label>
             </RenderIf>
