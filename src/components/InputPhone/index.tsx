@@ -62,13 +62,14 @@ const InputPhone: React.FC<Props> = props => {
     const selectCountry = (country: CountryType) => {
         setCountry(country);
         setIsOpen(false);
+        handleChange(phone);
     };
 
-    const handleChange = (phoneValue: string) => {
+    const handleChange = (phoneNumberValue: string = '') => {
         onChange({
             countryCode: selectedCountry.countryCode,
             isoCode: selectedCountry.isoCode,
-            phone: phoneValue,
+            phone: phoneNumberValue,
         });
     };
 
