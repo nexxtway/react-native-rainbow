@@ -49,10 +49,9 @@ const InputCode: React.FC<Props> = props => {
 
     const handleChange = async (value: string) => {
         const clipboardContent = await Clipboard.getString();
-        const newValues = values;
+        const newValues = [...values];
         newValues[inputIndexFocused] = value;
         setValues(newValues);
-        console.log(JSON.stringify(newValues, null, 2));
         const codeIsPasted = handlePasteCode(clipboardContent);
 
         if (
