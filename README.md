@@ -14,6 +14,7 @@ React Native Rainbow is a collection of components that will reliably help you b
  
 [![CircleCI](https://circleci.com/gh/nexxtway/react-native-rainbow/tree/master.svg?style=svg)](https://circleci.com/gh/nexxtway/react-native-rainbow/tree/master)
 [![npm version](https://badge.fury.io/js/react-native-rainbow.svg)](https://badge.fury.io/js/react-native-rainbow)
+<a href="https://cla-assistant.io/nexxtway/react-native-rainbow"><img src="https://cla-assistant.io/readme/badge/nexxtway/react-native-rainbow" alt="CLA assistant" /></a>
 
 </div>
 
