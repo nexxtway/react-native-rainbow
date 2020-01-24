@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="15%" src="https://raw.githubusercontent.com/nexxtway/react-native-rainbow/master/docs/assets/images/rainbow-logo.svg?sanitize=true" alt="React Native Rainbow logo">
+  <img width="10%" src="https://raw.githubusercontent.com/nexxtway/react-native-rainbow/master/docs/assets/images/rainbow-logo.svg?sanitize=true" alt="React Native Rainbow logo">
 </p>
 
 <h1 align="center">
