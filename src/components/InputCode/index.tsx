@@ -8,6 +8,7 @@ import StyledInput from './styled/input';
 import getNextIndex from './helpers/getNextIndex';
 import getPrevIndex from './helpers/getPrevIndex';
 import { BaseProps } from '../types';
+import handlePasteCode from './helpers/getCodeFromClipboard';
 
 interface Props extends BaseProps {
     digits?: number;
@@ -37,22 +38,12 @@ const InputCode: React.FC<Props> = props => {
         }
     }, [inputIndexFocused]);
 
-    const handlePasteCode = (pasteValue: string): string => {
-        const regex = new RegExp(`\\d{${digits}}`);
-        const match = regex.exec(pasteValue);
-        if (!match) {
-            return '';
-        }
-        const [matchCode] = match;
-        return matchCode;
-    };
-
     const handleChange = async (value: string) => {
         const clipboardContent = await Clipboard.getString();
         const newValues = [...values];
         newValues[inputIndexFocused] = value;
         setValues(newValues);
-        const codeIsPasted = handlePasteCode(clipboardContent);
+        const codeIsPasted = handlePasteCode(digits, clipboardContent);
 
         if (
             codeIsPasted.length === digits &&
