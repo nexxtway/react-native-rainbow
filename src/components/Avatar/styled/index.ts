@@ -59,7 +59,7 @@ export const StyledText = styled.Text<Props>`
     ${props =>
         props.size === 'large' &&
         `
-            font-size: 24px
+            font-size: 20px
         `};
     ${props =>
         props.size === 'medium' &&

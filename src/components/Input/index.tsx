@@ -5,6 +5,7 @@ import RenderIf from '../RenderIf';
 import StyledInput from './styled/input';
 import { Label, Error, Icon } from './styled/index';
 import { BaseProps, IconPosition } from '../types';
+import withReduxForm from '../../hocs/withReduxForm';
 
 export interface Props extends BaseProps {
     label?: ReactNode;
@@ -112,4 +113,4 @@ Input.defaultProps = {
     iconPosition: 'left',
 };
 
-export default Input;
+export default withReduxForm(Input);
