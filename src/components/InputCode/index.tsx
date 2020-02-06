@@ -8,7 +8,7 @@ import StyledInput from './styled/input';
 import getNextIndex from './helpers/getNextIndex';
 import getPrevIndex from './helpers/getPrevIndex';
 import { BaseProps } from '../types';
-import handlePasteCode from './helpers/getCodeFromClipboard';
+import getCodeFromClipboard from './helpers/getCodeFromClipboard';
 
 interface Props extends BaseProps {
     digits?: number;
@@ -43,13 +43,10 @@ const InputCode: React.FC<Props> = props => {
         const newValues = [...values];
         newValues[inputIndexFocused] = value;
         setValues(newValues);
-        const codeIsPasted = handlePasteCode(digits, clipboardContent);
+        const code = getCodeFromClipboard(digits, clipboardContent);
 
-        if (
-            codeIsPasted.length === digits &&
-            value === clipboardContent.charAt(0)
-        ) {
-            setValues(codeIsPasted.split(''));
+        if (code.length === digits && value === clipboardContent.charAt(0)) {
+            setValues(code.split(''));
             return;
         }
 

@@ -1,8 +1,8 @@
 import 'react-native';
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import InputCode from '../index';
-import handlePasteCode from '../helpers/getCodeFromClipboard';
+import InputCode from '../../index';
+import handlePasteCode from '../getCodeFromClipboard';
 
 describe('<InputCode/>', () => {
     const numberOfDigits = 6;
@@ -16,21 +16,23 @@ describe('<InputCode/>', () => {
         );
     });
 
+    const match = '131016';
+
     it('should recognize code in a string', () => {
         const text = 'your awesome code is 131016';
         const sanitizeText = handlePasteCode(numberOfDigits, text);
-        expect(sanitizeText.length).toEqual(numberOfDigits);
+        expect(sanitizeText).toBe(match);
     });
 
     it('should recognize code in a string with spaces', () => {
         const text = 'your awesome code is 13 10 16';
         const sanitizeText = handlePasteCode(numberOfDigits, text);
-        expect(sanitizeText.length).toEqual(numberOfDigits);
+        expect(sanitizeText).toBe(match);
     });
 
     it('should recognize code in a string with special characters', () => {
         const text = 'your awesome code is 13-10-16';
         const sanitizeText = handlePasteCode(numberOfDigits, text);
-        expect(sanitizeText.length).toEqual(numberOfDigits);
+        expect(sanitizeText).toBe(match);
     });
 });
