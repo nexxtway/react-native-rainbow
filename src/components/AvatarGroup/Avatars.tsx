@@ -16,7 +16,7 @@ const Avatars: React.FC<AvatarProps> = ({
     maxAvatars,
     size,
 }: AvatarProps) => {
-    const items = avatars?.slice(0, maxAvatars).map((avatar, idx) => {
+    const items = avatars.slice(0, maxAvatars).map((avatar, idx) => {
         const { src } = avatar;
         const key = `avatar-${idx}`;
         const zIndex = `${maxAvatars - idx}`;
