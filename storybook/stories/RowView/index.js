@@ -5,15 +5,26 @@ import styled from 'styled-components/native';
 const ViewContainer = styled.View`
     display: flex;
     align-items: center;
-    flex-direction: row;
+    ${props =>
+        props.flexDirection &&
+        `
+            flex-direction:  ${props.flexDirection}
+    `}
     padding-left: 10;
     padding-right: 10;
     justify-content: space-around;
 `;
 
-export default function RowView({ children, spaceTop = 0 }) {
+export default function RowView({
+    children,
+    spaceTop = 0,
+    flexDirection = 'row',
+}) {
     return (
-        <ViewContainer style={{ paddingTop: spaceTop }}>
+        <ViewContainer
+            flexDirection={flexDirection}
+            style={{ paddingTop: spaceTop }}
+        >
             {children}
         </ViewContainer>
     );

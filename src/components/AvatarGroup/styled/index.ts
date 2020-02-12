@@ -6,7 +6,10 @@ interface ContainerProps extends BaseProps {
     size?: string;
 }
 
-export const StyledContainer = styled.View<ContainerProps>``;
+export const StyledContainer = styled.View<ContainerProps>`
+    display: flex;
+    flex-direction: row;
+`;
 
 export const StyledAvatarContainer = styled.View<ContainerProps>`
     display: flex;
@@ -28,7 +31,7 @@ const sizes = {
     large: 56,
     medium: 48,
     small: 40,
-    xSmall: 32,
+    ['x-small']: 32,
 };
 
 export const StyledAvatar = styled.View<Props>`
@@ -46,63 +49,21 @@ export const StyledAvatar = styled.View<Props>`
         `
         z-index: ${props.zIndex};
         `}
-        
+
     ${props =>
-        props.size === 'large' &&
-        !props.firstChild &&
+        props.size &&
         `
-        margin-left: -${sizes.large / 2.3};
+        margin-left: -${sizes[props.size] / 2.3} 
+        height: ${sizes[props.size]} ;
+        width: ${sizes[props.size]} ;
+        border-radius: ${sizes[props.size] / 2};
     `}
 
     ${props =>
-        props.size === 'medium' &&
-        !props.firstChild &&
+        props.firstChild &&
         `
-        margin-left: -${sizes.medium / 2.3};
+        margin-left: 0;
     `}
-
-    ${props =>
-        props.size === 'small' &&
-        !props.firstChild &&
-        `
-        margin-left: -${sizes.small / 2.3};
-    `}
-
-    ${props =>
-        props.size === 'x-small' &&
-        !props.firstChild &&
-        `
-        margin-left: -${sizes.xSmall / 2.3};
-    `}
-
-    ${props =>
-        props.size === 'large' &&
-        `
-            height: ${sizes.large} ;
-            width: ${sizes.large} ;
-            border-radius: ${sizes.large / 2};
-        `};
-    ${props =>
-        props.size === 'medium' &&
-        `
-            height: ${sizes.medium} ;
-            width: ${sizes.medium} ;
-            border-radius: ${sizes.medium / 2};
-        `};
-    ${props =>
-        props.size === 'small' &&
-        `
-            height: ${sizes.small} ;
-            width: ${sizes.small} ;
-            border-radius: ${sizes.small / 2};
-        `};
-    ${props =>
-        props.size === 'x-small' &&
-        `
-            height: ${sizes.xSmall};
-            width: ${sizes.xSmall};
-            border-radius: ${sizes.xSmall / 2};
-        `};
 `;
 
 export const StyledImage = styled.Image<ImageProps>`
@@ -110,4 +71,44 @@ export const StyledImage = styled.Image<ImageProps>`
     border-radius: 24px;
     height: 100%;
     width: 100%;
+`;
+
+interface sizeProps {
+    size?: string;
+}
+
+export const StyledInitialsText = styled.Text<sizeProps>`
+    color: ${COLOR_WHITE};
+    ${props =>
+        props.size &&
+        `
+        font-size: ${sizes[props.size] / 2.3};
+    `};
+`;
+
+export const StyledCounter = styled.View<sizeProps>`
+    background: ${COLOR_BRAND};
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: solid 1px ${COLOR_WHITE};
+    ${props =>
+        props.size &&
+        `
+        height: ${sizes[props.size]};
+        width: ${sizes[props.size]};
+        border-radius: ${sizes[props.size] / 2};
+        margin-right: -${sizes[props.size] / 2.1};
+    `};
+`;
+
+export const StyledTextCounter = styled.Text<sizeProps>`
+    color: ${COLOR_WHITE};
+    ${props =>
+        props.size &&
+        `
+         font-size: ${sizes[props.size] / 2.2}
+    `}
 `;
