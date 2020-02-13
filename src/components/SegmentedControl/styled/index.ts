@@ -41,7 +41,7 @@ export const StyledSegmentedControlOptionsWrapper = styled.View<Props>`
     background: ${COLOR_GRAY_TRANSPARENT_2};
     justify-content: center;
     border: solid 1px ${COLOR_GRAY_TRANSPARENT_2};
-    /* opacity: ${props => (props.isDisabled ? '.4' : '1')}; */
+    opacity: ${props => (props.isDisabled ? '.4' : '1')};
 `;
 
 export const StyledOption = styled.TouchableOpacity<Props>`
@@ -64,12 +64,15 @@ export const StyledOption = styled.TouchableOpacity<Props>`
 export const StyledOptionText = styled.Text<Props>`
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     font-size: 15px;
+    line-height: 15px;
     color: ${COLOR_GRAY_TRANSPARENT_3};
     ${props =>
         !props.isDisabled &&
         props.isActive &&
         `
         color: ${props.variant === 'brand' ? 'white' : COLOR_DARK_1}
-    `}
+    `};
 `;

@@ -4,10 +4,8 @@ import RowView from './RowView';
 import { Text, View } from 'react-native';
 import { COLOR_GRAY_3 } from '../../src/styles/colors';
 import SegmentedControl from '../../src/components/SegmentedControl';
-import Shoe from '../../src/components/Icons/shoe';
-import Fire from '../../src/components/Icons/fire';
-import Route from '../../src/components/Icons/route';
 import Person from '../../src/components/Icons/person';
+import Shoe from '../../src/components/Icons/shoe';
 
 const Box = ({ children, is }) => (
     <View style={{ width: '100%', alignItems: 'center' }}>
@@ -26,9 +24,16 @@ const Box = ({ children, is }) => (
 );
 
 const iconStyles = {
-    width: '40%',
-    height: '40%',
+    width: 15,
+    height: 15,
+    lineHeight: 0,
 };
+
+const OptionsWithIcons = [
+    { label: 'Off', value: 'off', icon: <Person style={iconStyles} /> },
+    { label: 'Auto', value: 'auto' },
+    { label: 'On', value: 'on', icon: <Shoe style={iconStyles} /> },
+];
 
 const Options = [
     { label: 'Off', value: 'off' },
@@ -51,8 +56,8 @@ storiesOf('Segmented Control', module).add('Basic', () => (
             <Box is="Default">
                 <SegmentedControl
                     label="Label"
-                    options={Options}
-                    variant="default"
+                    options={OptionsWithIcons}
+                    variant="brand"
                     value="auto"
                 />
             </Box>
@@ -62,7 +67,6 @@ storiesOf('Segmented Control', module).add('Basic', () => (
                 <SegmentedControl
                     label="Label"
                     options={Options}
-                    variant="default"
                     value="auto"
                     isDisabled={true}
                 />

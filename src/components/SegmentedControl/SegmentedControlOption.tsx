@@ -5,9 +5,9 @@ import { BaseProps } from '../types';
 import { StyledOption, StyledOptionText } from './styled';
 
 interface Props extends BaseProps {
-    label: ReactNode;
-    value: string;
-    icon: ReactNode;
+    label?: ReactNode;
+    value?: string | undefined;
+    icon?: ReactNode;
     handleSelect: (event: any) => void;
     isDisabled?: boolean;
     isActive: boolean;
@@ -38,11 +38,22 @@ const SegmentedControlOption: React.FC<Props> = props => {
                 isActive={isActive}
                 isDisabled={isDisabled}
             >
-                <RenderIf isTrue={hasIcon}>{icon}</RenderIf>
+                <RenderIf isTrue={hasIcon}>{icon} </RenderIf>
                 {label}
             </StyledOptionText>
         </StyledOption>
     );
+};
+
+SegmentedControlOption.propTypes = {
+    /** The icon at the left side of each option on the segmentedControl component.
+     * default value is null
+     */
+    icon: PropTypes.node,
+};
+
+SegmentedControlOption.defaultProps = {
+    icon: null,
 };
 
 export default SegmentedControlOption;
