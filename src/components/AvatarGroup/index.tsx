@@ -48,7 +48,7 @@ AvatarGroup.propTypes = {
             src: PropTypes.string,
             initials: PropTypes.string,
             icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-        }),
+        }).isRequired,
     ),
     /** Specify how many Avatars will render. */
     maxAvatars: PropTypes.number,
