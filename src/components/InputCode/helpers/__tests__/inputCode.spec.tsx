@@ -35,4 +35,11 @@ describe('<InputCode/>', () => {
         const sanitizeText = handlePasteCode(numberOfDigits, text);
         expect(sanitizeText).toBe(match);
     });
+
+    it('I should recognize the code regardless of the location in the string.', () => {
+        const text =
+            'Your code starts with 13 in the middle has 10 and in the end 16. thanks for using our service.';
+        const sanitizeText = handlePasteCode(numberOfDigits, text);
+        expect(sanitizeText).toBe(match);
+    });
 });

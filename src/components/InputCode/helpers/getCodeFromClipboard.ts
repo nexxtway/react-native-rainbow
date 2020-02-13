@@ -1,5 +1,5 @@
 const sanitize = (str: string): string => {
-    const regex = /[^A-Z0-9]/gi;
+    const regex = /[^0-9]/gi;
     return str.replace(regex, '');
 };
 
