@@ -11,7 +11,9 @@ const avatars = Array.from({ length: 5 }).fill({
 
 describe('<Avatars />', () => {
     it('should render all avatar groups', () => {
-        const testRenderer = TestRenderer.create(<Avatars avatars={avatars} />);
+        const testRenderer = TestRenderer.create(
+            <Avatars maxAvatars={5} avatars={avatars} />,
+        );
         const testInstance = testRenderer.root;
         expect(testInstance.findAllByType('View').length).toEqual(5);
     });
