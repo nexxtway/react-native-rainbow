@@ -3,7 +3,6 @@ import { BaseProps } from '../../types';
 import {
     COLOR_BRAND,
     COLOR_GRAY_3,
-    COLOR_GRAY_TRANSPARENT_1,
     COLOR_GRAY_TRANSPARENT_2,
     COLOR_GRAY_TRANSPARENT_3,
     COLOR_DARK_1,
