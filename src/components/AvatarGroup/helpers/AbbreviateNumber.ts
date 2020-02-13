@@ -1,4 +1,4 @@
-export default function abbreviateNumber(number: number | string) {
+function abbreviateNumber(number: number | string) {
     if (!number || number < 0 || typeof number === 'string') {
         return '';
     }
@@ -18,3 +18,5 @@ export default function abbreviateNumber(number: number | string) {
     }
     return formatted + postfix;
 }
+
+export default abbreviateNumber;

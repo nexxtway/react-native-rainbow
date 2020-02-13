@@ -1,4 +1,4 @@
-import abbreviateNumber from '../abbreviateNumber';
+import abbreviateNumber from '../AbbreviateNumber';
 
 describe('abbreviateNumber', () => {
     const lessThan1k = [
