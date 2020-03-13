@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledAvatar, StyledImage, StyledInitialsText } from './styled';
-import { Avatar } from './types';
-import RenderIf from '../RenderIf';
+import { StyledAvatar } from './styled';
+import { AvatarProps, AvatarSizes } from './types';
+import { Avatar } from '..';
 
 interface Props {
     maxAvatars?: number;
-    size?: string;
-    avatars?: Avatar[];
+    size?: AvatarSizes;
+    avatars?: AvatarProps[];
 }
 
 const Avatars: React.FC<Props> = props => {
@@ -25,15 +25,7 @@ const Avatars: React.FC<Props> = props => {
                 firstChild={idx === 0}
                 size={size}
             >
-                <RenderIf isTrue={!!src}>
-                    <StyledImage source={{ uri: src }} />
-                </RenderIf>
-                <RenderIf isTrue={!!initials}>
-                    <StyledInitialsText size={size}>
-                        {initials}
-                    </StyledInitialsText>
-                </RenderIf>
-                <RenderIf isTrue={!!icon}>{icon}</RenderIf>
+                <Avatar src={src} initials={initials} icon={icon} />
             </StyledAvatar>
         );
     });

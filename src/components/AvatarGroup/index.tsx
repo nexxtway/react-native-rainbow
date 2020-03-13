@@ -6,11 +6,11 @@ import { StyledContainer, StyledAvatarContainer } from './styled';
 import RenderIf from '../RenderIf';
 import Avatars from './Avatars';
 import Counter from './Counter';
-import { AvatarSizes, Avatar } from './types';
+import { AvatarSizes, AvatarProps } from './types';
 
 interface AvatarGroupProps extends BaseProps {
     size?: AvatarSizes;
-    avatars?: Avatar[];
+    avatars?: Array<AvatarProps> | any;
     maxAvatars?: number;
     showCounter?: boolean;
 }
@@ -21,9 +21,9 @@ interface AvatarGroupProps extends BaseProps {
  */
 
 const AvatarGroup: React.FC<AvatarGroupProps> = props => {
-    const { size, avatars, maxAvatars, showCounter } = props;
+    const { size, avatars, maxAvatars, showCounter, style } = props;
     return (
-        <StyledContainer size={size}>
+        <StyledContainer style={style}>
             <RenderIf isTrue={showCounter}>
                 <Counter size={size} avatars={avatars} />
             </RenderIf>
@@ -47,21 +47,23 @@ AvatarGroup.propTypes = {
         PropTypes.shape({
             src: PropTypes.string,
             initials: PropTypes.string,
-            icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-        }).isRequired,
+            icon: PropTypes.node,
+        }),
     ),
     /** Specify how many Avatars will render. */
     maxAvatars: PropTypes.number,
     /** This shows a counter with the total value of the number of avatars.
      * It is independent of the number of avatars displayed in the component. */
     showCounter: PropTypes.bool,
+    style: PropTypes.object,
 };
 
 AvatarGroup.defaultProps = {
     size: 'medium',
-    avatars: [],
+    avatars: [{ src: undefined, initials: undefined, icon: undefined }],
     maxAvatars: 3,
     showCounter: false,
+    style: undefined,
 };
 
 export default AvatarGroup;
