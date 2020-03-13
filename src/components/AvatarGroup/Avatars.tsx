@@ -11,9 +11,9 @@ interface Props {
     avatars?: AvatarProps[];
 }
 
-const Avatars: React.FC<Props> = props => {
+const Avatars: React.FC<Props> = (props): any => {
     const { avatars = [], maxAvatars = 3, size } = props;
-    const items = avatars.slice(0, maxAvatars).map((avatar, idx) => {
+    return avatars.slice(0, maxAvatars).map((avatar, idx) => {
         const { src, initials, icon } = avatar;
 
         const key = `avatar-${idx}`;
@@ -30,8 +30,6 @@ const Avatars: React.FC<Props> = props => {
             </StyledAvatar>
         );
     });
-
-    return <>{items}</>;
 };
 
 Avatars.propTypes = {
