@@ -18,11 +18,12 @@ const Avatars: React.FC<Props> = props => {
 
         const key = `avatar-${idx}`;
         const zIndex = maxAvatars - idx;
+        const isFirstChild = idx === 0;
         return (
             <StyledAvatar
                 key={key}
                 zIndex={zIndex}
-                firstChild={idx === 0}
+                firstChild={isFirstChild}
                 size={size}
             >
                 <Avatar src={src} initials={initials} icon={icon} />
