@@ -72,7 +72,7 @@ describe('abbreviateNumber', () => {
 
     it('should return the same number passed when it is less than 1000', () => {
         lessThan1k.forEach(number => {
-            expect(abbreviateNumber(number.value)).toBe(number.result);
+            expect(abbreviateNumber(number.value)).toBe(`${number.result}`);
         });
     });
     it('should attach k suffix when it is greater than 1000 and less than 1 Million', () => {
