@@ -49,6 +49,7 @@ AvatarGroup.propTypes = {
     /** This shows a counter with the total value of the number of avatars.
      * It is independent of the number of avatars displayed in the component. */
     showCounter: PropTypes.bool,
+    /** An object with custom style applied to the outer element. */
     style: PropTypes.object,
 };
 
