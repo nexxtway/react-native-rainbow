@@ -48,11 +48,11 @@ export const StyledAvatar = styled.View<Props>`
     `};
 `;
 
-interface sizeProps {
+interface SizeProps {
     size?: AvatarSizes;
 }
 
-export const StyledCounter = styled.View<sizeProps>`
+export const StyledCounter = styled.View<SizeProps>`
     border: solid 2px ${COLOR_WHITE};
     z-index: 10;
     ${props =>
