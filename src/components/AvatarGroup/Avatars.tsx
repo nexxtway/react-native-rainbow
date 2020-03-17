@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledAvatar } from './styled';
+import { StyledAvatar, StyledAvatarContainer } from './styled';
 import { AvatarProps, AvatarSizes } from './types';
 import { Avatar } from '..';
 
@@ -11,25 +11,35 @@ interface Props {
     avatars?: AvatarProps[];
 }
 
-const Avatars: React.FC<Props> = (props): any => {
+const Avatars: React.FC<Props> = props => {
     const { avatars = [], maxAvatars = 3, size } = props;
-    return avatars.slice(0, maxAvatars).map((avatar, idx) => {
-        const { src, initials, icon } = avatar;
 
-        const key = `avatar-${idx}`;
-        const zIndex = maxAvatars - idx;
-        const isFirstChild = idx === 0;
-        return (
-            <StyledAvatar
-                key={key}
-                zIndex={zIndex}
-                firstChild={isFirstChild}
-                size={size}
-            >
-                <Avatar src={src} initials={initials} icon={icon} />
-            </StyledAvatar>
-        );
-    });
+    return (
+        <StyledAvatarContainer>
+            {avatars.slice(0, maxAvatars).map((avatar, idx) => {
+                const { src, initials, icon } = avatar;
+
+                const key = `avatar-${idx}`;
+                const zIndex = maxAvatars - idx;
+                const isFirstChild = idx === 0;
+                return (
+                    <StyledAvatar
+                        key={key}
+                        zIndex={zIndex}
+                        firstChild={isFirstChild}
+                        size={size}
+                    >
+                        <Avatar
+                            src={src}
+                            initials={initials}
+                            size={size}
+                            icon={icon}
+                        />
+                    </StyledAvatar>
+                );
+            })}
+        </StyledAvatarContainer>
+    );
 };
 
 Avatars.propTypes = {

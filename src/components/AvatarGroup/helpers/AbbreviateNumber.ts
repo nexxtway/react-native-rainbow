@@ -1,4 +1,4 @@
-function abbreviateNumber(number: number | string) {
+function abbreviateNumber(number: number | string): string {
     if (!number || number < 0 || typeof number === 'string') {
         return '';
     }
@@ -6,7 +6,7 @@ function abbreviateNumber(number: number | string) {
     // eslint-disable-next-line no-bitwise
     const tier = (Math.log10(Math.abs(number)) / 3) | 0;
     if (tier === 0) {
-        return number;
+        return `${number}`;
     }
     const postfix = SI_POSTFIXES[tier];
 
@@ -16,7 +16,7 @@ function abbreviateNumber(number: number | string) {
     if (/\.0$/.test(formatted)) {
         formatted = formatted.substr(0, formatted.length - 2);
     }
-    return formatted + postfix;
+    return `${formatted}${postfix}`;
 }
 
 export default abbreviateNumber;

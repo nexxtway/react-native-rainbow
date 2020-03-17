@@ -5,13 +5,13 @@ import styled from 'styled-components/native';
 const ViewContainer = styled.View`
     display: flex;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     padding-left: 10;
     padding-right: 10;
     justify-content: space-around;
 `;
 
-export default function RowView({ children, spaceTop = 0 }) {
+export default function ColView({ children, spaceTop = 0 }) {
     return (
         <ViewContainer style={{ paddingTop: spaceTop }}>
             {children}
@@ -19,10 +19,10 @@ export default function RowView({ children, spaceTop = 0 }) {
     );
 }
 
-RowView.propTypes = {
+ColView.propTypes = {
     children: PropTypes.node,
 };
 
-RowView.defaultProps = {
+ColView.defaultProps = {
     children: null,
 };

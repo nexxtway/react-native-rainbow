@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import { BaseProps } from '../../types';
-import { COLOR_WHITE, COLOR_BRAND } from '../../../styles/colors';
+import { COLOR_WHITE } from '../../../styles/colors';
+import { AvatarSizes } from '../types';
 
 export const StyledContainer = styled.View<BaseProps>`
     display: flex;
@@ -13,91 +14,51 @@ export const StyledAvatarContainer = styled.View`
 `;
 
 interface Props extends BaseProps {
-    size?: string;
+    size?: AvatarSizes;
     firstChild: boolean;
     zIndex: number;
 }
 
 const sizes = {
-    large: 56,
-    medium: 48,
-    small: 40,
-    'x-small': 32,
+    large: 48,
+    medium: 32,
+    small: 24,
+    'x-small': 20,
 };
 
 export const StyledAvatar = styled.View<Props>`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: ${COLOR_WHITE}  solid 2px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
+    border: solid ${COLOR_WHITE} 2px;
     ${props =>
         props.zIndex &&
         `
         z-index: ${props.zIndex};
-        `}
+    `}
 
     ${props =>
         props.size &&
         `
-        margin-left: -${sizes[props.size] / 2} 
-        height: ${sizes[props.size]} ;
-        width: ${sizes[props.size]} ;
-        border-radius: ${sizes[props.size] / 2};
+        margin-left: -${sizes[props.size] / 1.8}
+        border-radius: ${sizes[props.size] / 1.8};
     `}
 
     ${props =>
         props.firstChild &&
         `
         margin-left: 0;
-    `}
-`;
-
-export const StyledImage = styled.Image`
-    border: none;
-    border-radius: 24px;
-    height: 100%;
-    width: 100%;
+    `};
 `;
 
 interface sizeProps {
-    size?: string;
+    size?: AvatarSizes;
 }
 
-export const StyledInitialsText = styled.Text<sizeProps>`
-    color: ${COLOR_WHITE};
-    ${props =>
-        props.size &&
-        `
-        font-size: ${sizes[props.size] / 2.3};
-    `};
-`;
-
 export const StyledCounter = styled.View<sizeProps>`
-    background: ${COLOR_BRAND};
-    z-index: 20;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    border: solid 1px ${COLOR_WHITE};
+    border: solid 2px ${COLOR_WHITE};
+    z-index: 10;
     ${props =>
         props.size &&
         `
-        height: ${sizes[props.size]};
-        width: ${sizes[props.size]};
-        border-radius: ${sizes[props.size] / 2};
-        margin-right: -${sizes[props.size] / 2.1};
+        border-radius: ${sizes[props.size] / 1.8};
+        margin-right: -${sizes[props.size] / 1.8}
     `};
-`;
-
-export const StyledTextCounter = styled.Text<sizeProps>`
-    color: ${COLOR_WHITE};
-    ${props =>
-        props.size &&
-        `
-         font-size: ${sizes[props.size] / 2.2}
-    `}
 `;

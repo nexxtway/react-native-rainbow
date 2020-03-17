@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 
-import RowView from './RowView';
+import ColView from './ColView';
+
 import AvatarGroup from '../../src/components/AvatarGroup';
 import { Text } from 'react-native';
 import User from '../../src/components/Icons/user';
@@ -20,7 +21,7 @@ storiesOf('AvatarGroup', module)
     .add('Basic', () => {
         return (
             <React.Fragment>
-                <RowView spaceTop={100} flexDirection={'column'}>
+                <ColView spaceTop={100}>
                     <AvatarGroup
                         size="large"
                         avatars={avatars}
@@ -28,8 +29,8 @@ storiesOf('AvatarGroup', module)
                         showCounter={false}
                     />
                     <Text>Large</Text>
-                </RowView>
-                <RowView spaceTop={30} flexDirection={'column'}>
+                </ColView>
+                <ColView spaceTop={30}>
                     <AvatarGroup
                         size="medium"
                         avatars={avatars}
@@ -37,8 +38,8 @@ storiesOf('AvatarGroup', module)
                         showCounter={false}
                     />
                     <Text>Medium</Text>
-                </RowView>
-                <RowView spaceTop={30} flexDirection={'column'}>
+                </ColView>
+                <ColView spaceTop={30}>
                     <AvatarGroup
                         size="small"
                         avatars={avatars}
@@ -46,8 +47,8 @@ storiesOf('AvatarGroup', module)
                         showCounter={false}
                     />
                     <Text>Small</Text>
-                </RowView>
-                <RowView spaceTop={30} flexDirection={'column'}>
+                </ColView>
+                <ColView spaceTop={30}>
                     <AvatarGroup
                         size="x-small"
                         avatars={avatars}
@@ -55,14 +56,14 @@ storiesOf('AvatarGroup', module)
                         showCounter={false}
                     />
                     <Text>x small</Text>
-                </RowView>
+                </ColView>
             </React.Fragment>
         );
     })
     .add('Basic with counter', () => {
         return (
             <React.Fragment>
-                <RowView flexDirection={'column'} spaceTop={120}>
+                <ColView spaceTop={120}>
                     <AvatarGroup
                         size="large"
                         avatars={avatarsCounter}
@@ -70,8 +71,8 @@ storiesOf('AvatarGroup', module)
                         showCounter={true}
                     />
                     <Text>AvatarGroup Large with counter</Text>
-                </RowView>
-                <RowView flexDirection={'column'} spaceTop={30}>
+                </ColView>
+                <ColView spaceTop={30}>
                     <AvatarGroup
                         size="medium"
                         avatars={avatarsCounter}
@@ -79,8 +80,8 @@ storiesOf('AvatarGroup', module)
                         showCounter={true}
                     />
                     <Text>AvatarGroup medium with counter</Text>
-                </RowView>
-                <RowView flexDirection={'column'} spaceTop={30}>
+                </ColView>
+                <ColView spaceTop={30}>
                     <AvatarGroup
                         size="small"
                         avatars={avatarsCounter}
@@ -88,8 +89,8 @@ storiesOf('AvatarGroup', module)
                         showCounter={true}
                     />
                     <Text>AvatarGroup small with counter</Text>
-                </RowView>
-                <RowView flexDirection={'column'} spaceTop={30}>
+                </ColView>
+                <ColView spaceTop={30}>
                     <AvatarGroup
                         size="x-small"
                         avatars={avatarsCounter}
@@ -97,7 +98,7 @@ storiesOf('AvatarGroup', module)
                         showCounter={true}
                     />
                     <Text>AvatarGroup x-small with counter</Text>
-                </RowView>
+                </ColView>
             </React.Fragment>
         );
     })
@@ -112,7 +113,7 @@ storiesOf('AvatarGroup', module)
 
         return (
             <React.Fragment>
-                <RowView flexDirection={'column'} spaceTop={120}>
+                <ColView spaceTop={120}>
                     <AvatarGroup
                         size="large"
                         avatars={avatarsInitials}
@@ -120,8 +121,8 @@ storiesOf('AvatarGroup', module)
                         showCounter={false}
                     />
                     <Text>AvatarGroup Large with Initials</Text>
-                </RowView>
-                <RowView flexDirection={'column'} spaceTop={30}>
+                </ColView>
+                <ColView spaceTop={30}>
                     <AvatarGroup
                         size="medium"
                         avatars={avatarsInitials}
@@ -129,8 +130,8 @@ storiesOf('AvatarGroup', module)
                         showCounter={false}
                     />
                     <Text>AvatarGroup Medium with Initials</Text>
-                </RowView>
-                <RowView flexDirection={'column'} spaceTop={30}>
+                </ColView>
+                <ColView spaceTop={30}>
                     <AvatarGroup
                         size="small"
                         avatars={avatarsInitials}
@@ -138,8 +139,8 @@ storiesOf('AvatarGroup', module)
                         showCounter={false}
                     />
                     <Text>AvatarGroup Small with Initials</Text>
-                </RowView>
-                <RowView flexDirection={'column'} spaceTop={30}>
+                </ColView>
+                <ColView spaceTop={30}>
                     <AvatarGroup
                         size="x-small"
                         avatars={avatarsInitials}
@@ -147,7 +148,7 @@ storiesOf('AvatarGroup', module)
                         showCounter={false}
                     />
                     <Text>AvatarGroup X-small with Initials</Text>
-                </RowView>
+                </ColView>
             </React.Fragment>
         );
     })
@@ -171,7 +172,7 @@ storiesOf('AvatarGroup', module)
 
         return (
             <React.Fragment>
-                <RowView flexDirection={'column'} spaceTop={120}>
+                <ColView spaceTop={120}>
                     <AvatarGroup
                         size="large"
                         avatars={avatarsIcons}
@@ -179,8 +180,8 @@ storiesOf('AvatarGroup', module)
                         showCounter={false}
                     />
                     <Text>AvatarGroup Large with Initials</Text>
-                </RowView>
-                <RowView flexDirection={'column'} spaceTop={30}>
+                </ColView>
+                <ColView spaceTop={30}>
                     <AvatarGroup
                         size="medium"
                         avatars={avatarsIcons}
@@ -188,8 +189,8 @@ storiesOf('AvatarGroup', module)
                         showCounter={false}
                     />
                     <Text>AvatarGroup Medium with Initials</Text>
-                </RowView>
-                <RowView flexDirection={'column'} spaceTop={30}>
+                </ColView>
+                <ColView spaceTop={30}>
                     <AvatarGroup
                         size="small"
                         avatars={avatarsIcons}
@@ -197,8 +198,8 @@ storiesOf('AvatarGroup', module)
                         showCounter={false}
                     />
                     <Text>AvatarGroup Small with Initials</Text>
-                </RowView>
-                <RowView flexDirection={'column'} spaceTop={30}>
+                </ColView>
+                <ColView spaceTop={30}>
                     <AvatarGroup
                         size="x-small"
                         avatars={avatarsIcons}
@@ -206,7 +207,7 @@ storiesOf('AvatarGroup', module)
                         showCounter={false}
                     />
                     <Text>AvatarGroup Medium with Initials</Text>
-                </RowView>
+                </ColView>
             </React.Fragment>
         );
     });
