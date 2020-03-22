@@ -39,7 +39,7 @@ const ProgressCircularSVG: React.FC<Props> = props => {
                 d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"
                 stroke={colors[variant]}
                 strokeLinecap="round"
-                strokeWidth="4"
+                strokeWidth="6"
                 fillOpacity="0"
                 strokeDasharray={strokeDash}
             />
@@ -47,7 +47,7 @@ const ProgressCircularSVG: React.FC<Props> = props => {
                 d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"
                 stroke="rgba(0,0,0,0.2)"
                 strokeLinecap="round"
-                strokeWidth="2"
+                strokeWidth="4"
                 fillOpacity="0"
                 strokeDasharray="0 300"
             />
