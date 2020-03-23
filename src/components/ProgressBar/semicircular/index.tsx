@@ -10,7 +10,7 @@ import {
     COLOR_GRAY_2,
 } from '../../../styles/colors';
 import { BaseProps } from '../../types';
-import { StyledValue } from '../styled';
+import { StyledValue, Footer, FooterText, ValueContainer } from '../styled';
 
 function clamp(value: number) {
     return Math.min(100, Math.max(0, value));
@@ -161,18 +161,13 @@ const CircularProgress: React.FC<Props> = props => {
                     />
                 </G>
             </Svg>
-            <View
-                style={{
-                    position: 'absolute',
-                    top: 10,
-                    width: '100%',
-                    height: '100%',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}
-            >
+            <ValueContainer>
                 <StyledValue size={size}>{value}</StyledValue>
-            </View>
+            </ValueContainer>
+            <Footer>
+                <FooterText>{min}</FooterText>
+                <FooterText>{max}</FooterText>
+            </Footer>
         </View>
     );
 };

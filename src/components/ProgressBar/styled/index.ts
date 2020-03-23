@@ -5,6 +5,7 @@ import {
     COLOR_SUCCESS,
     COLOR_WARNING,
     COLOR_GRAY_TRANSPARENT_2,
+    COLOR_GRAY_3,
 } from '../../../styles/colors';
 
 export type Variants = 'brand' | 'success' | 'warning' | 'error';
@@ -56,7 +57,7 @@ interface ValueProps {
 
 export const StyledValue = styled.Text<ValueProps>`
     font-size: ${props => props.size / 4};
-    font-weight: 800;
+    font-weight: 600;
     text-align: center;
     color: #434464;
 `;
@@ -70,4 +71,25 @@ export const StyledIconContainer = styled.View`
     left: 0;
     height: 100%;
     width: 100%;
+`;
+
+export const ValueContainer = styled.View`
+    position: absolute;
+    top: 10;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const Footer = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+`;
+
+export const FooterText = styled.Text`
+    font-size: 14px;
+    color: ${COLOR_GRAY_3};
+    font-weight: 700;
+    margin-right: -4px;
 `;

@@ -13,8 +13,8 @@ const styles = {
 };
 
 const viewStyles = {
-    paddingLeft: 40,
-    paddingRight: 40,
+    paddingLeft: 80,
+    paddingRight: 80,
 };
 
 const iconStyles = {
