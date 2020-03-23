@@ -15,7 +15,7 @@ interface Props extends BaseProps {
     max?: number;
 }
 
-function getNormalizedValue(value, max, min) {
+function getNormalizedValue(value: number, max: number, min: number) {
     return Math.min(max, Math.max(min, value));
 }
 
@@ -23,7 +23,14 @@ function getNormalizedValue(value, max, min) {
  * ProgressBar component communicates to the user the progress of a particular process.
  */
 const ProgressBar: React.FC<Props> = props => {
-    const { style, variant, shape = 'linear', value, min, max } = props;
+    const {
+        style,
+        variant,
+        shape = 'linear',
+        value = 0,
+        min = 0,
+        max = 100,
+    } = props;
     const normalizedValue = useMemo(() => getNormalizedValue(value, max, min), [
         max,
         min,
