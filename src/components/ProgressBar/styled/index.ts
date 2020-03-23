@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { BaseProps } from '../../types';
 import {
     COLOR_BRAND,
     COLOR_ERROR,
@@ -10,7 +9,7 @@ import {
 
 export type Variants = 'brand' | 'success' | 'warning' | 'error';
 
-interface Props extends BaseProps {
+interface Props {
     variant?: Variants;
     value?: number;
 }
@@ -49,4 +48,26 @@ export const StyledBar = styled.View<Props>`
         `
             background-color: ${COLOR_ERROR};
         `};
+`;
+
+interface ValueProps {
+    size: number;
+}
+
+export const StyledValue = styled.Text<ValueProps>`
+    font-size: ${props => props.size / 4};
+    font-weight: 800;
+    text-align: center;
+    color: #434464;
+`;
+
+export const StyledIconContainer = styled.View`
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 `;
