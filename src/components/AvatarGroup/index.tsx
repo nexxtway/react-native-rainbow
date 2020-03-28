@@ -43,7 +43,13 @@ AvatarGroup.propTypes = {
      * This value defaults to medium. */
     size: PropTypes.oneOf(['large', 'medium', 'small', 'x-small']),
     /** An array with the Avatars data. */
-    avatars: PropTypes.array,
+    avatars: PropTypes.arrayOf(
+        PropTypes.shape({
+            src: PropTypes.string,
+            initials: PropTypes.string,
+            icon: PropTypes.node,
+        }).isRequired,
+    ),
     /** Specify how many Avatars will render. */
     maxAvatars: PropTypes.number,
     /** This shows a counter with the total value of the number of avatars.
