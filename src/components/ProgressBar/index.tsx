@@ -51,7 +51,7 @@ const ProgressBar: React.FC<Props> = props => {
 
     return (
         <StyledContainer style={style}>
-            <StyledBar value={normalizedValue} variant={variant} />
+            <StyledBar value={normalizedValue} max={max} variant={variant} />
         </StyledContainer>
     );
 };

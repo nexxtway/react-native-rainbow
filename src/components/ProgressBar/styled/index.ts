@@ -12,7 +12,8 @@ export type Variants = 'brand' | 'success' | 'warning' | 'error';
 
 interface Props {
     variant?: Variants;
-    value?: number;
+    value: number;
+    max: number;
 }
 
 export const StyledContainer = styled.View`
@@ -29,7 +30,7 @@ export const StyledBar = styled.View<Props>`
     left: 0;
     background-color: ${COLOR_BRAND};
     height: 100%;
-    width: ${props => props.value}%;
+    width: ${props => (props.value / props.max) * 100}%;
     border-radius: 100px;
 
     ${props =>
