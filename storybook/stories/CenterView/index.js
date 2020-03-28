@@ -12,9 +12,9 @@ const contentContainerStyle = {
     justifyContent: 'center',
 };
 
-export default function CenterView({ children }) {
+export default function CenterView({ children, style }) {
     return (
-        <ViewContainer contentContainerStyle={contentContainerStyle}>
+        <ViewContainer contentContainerStyle={[contentContainerStyle, style]}>
             {children}
         </ViewContainer>
     );
@@ -22,8 +22,10 @@ export default function CenterView({ children }) {
 
 CenterView.propTypes = {
     children: PropTypes.node,
+    style: PropTypes.object,
 };
 
 CenterView.defaultProps = {
     children: null,
+    style: undefined,
 };
