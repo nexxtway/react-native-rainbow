@@ -14,6 +14,10 @@ export const Container = styled.SafeAreaView<{}>`
     flex: 1;
 `;
 
+export const Content = styled.View`
+    flex: 1;
+`;
+
 export const StyledCloseIcon = styled(CloseIcon)<{}>`
     color: ${COLOR_GRAY_3};
     height: 16;
