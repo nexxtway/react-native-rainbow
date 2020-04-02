@@ -13,7 +13,6 @@ interface AvatarGroupProps extends BaseProps {
     avatars?: AvatarProps[];
     maxAvatars?: number;
     showCounter?: boolean;
-    style?: object;
 }
 
 /**
