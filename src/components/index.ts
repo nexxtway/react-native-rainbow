@@ -9,3 +9,4 @@ export { default as Badge } from './Badge';
 export { default as ProgressCircular } from './ProgressCircular';
 export { default as ProgressBar } from './ProgressBar';
 export { default as Modal } from './Modal';
+export { default as AvatarGroup } from './AvatarGroup';
