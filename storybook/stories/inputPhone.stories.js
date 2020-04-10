@@ -10,8 +10,8 @@ const styles = {
 function BasicUsage() {
     const [firstValue, setFirstValue] = useState();
     const [secondValue, setSecondValue] = useState({
-        countryCode: 'mx',
         phone: '12345678',
+        isoCode: 'mx',
     });
 
     return (
