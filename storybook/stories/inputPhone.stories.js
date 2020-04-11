@@ -14,6 +14,10 @@ function BasicUsage() {
         isoCode: 'mx',
     });
 
+    const [thirdValue, setThirdValue] = useState({
+        isoCode: 'invalid',
+    });
+
     return (
         <>
             <InputPhone
@@ -23,10 +27,17 @@ function BasicUsage() {
                 value={firstValue}
                 onChange={setFirstValue}
             />
+
             <InputPhone
                 label="Label"
                 value={secondValue}
                 onChange={setSecondValue}
+            />
+
+            <InputPhone
+                label="Label"
+                value={thirdValue}
+                onChange={setThirdValue}
             />
         </>
     );

@@ -1,13 +1,23 @@
-import * as RNLocalize from 'react-native-localize';
+import { NativeModules, Platform } from 'react-native';
+
 import COUNTRIES from '../countyPickerModal/countries';
 
+const deviceLocale =
+    Platform.OS === 'ios'
+        ? NativeModules.SettingsManager.settings.AppleLocale ||
+          NativeModules.SettingsManager.settings.AppleLanguages[0]
+        : NativeModules.I18nManager.localeIdentifier;
+
+const defaultLocale = deviceLocale.split('_')[1];
+
 export default function getCountryFromValue(isoCode?: string) {
-    if (isoCode === '') {
-        const currentCountry = RNLocalize.getCountry();
-        return COUNTRIES.find(
-            country => country.isoCode === currentCountry.toLowerCase(),
-        );
+    const userCountry = COUNTRIES.find(country => country.isoCode === isoCode);
+
+    if (userCountry) {
+        return userCountry;
     }
 
-    return COUNTRIES.find(country => country.isoCode === isoCode);
+    return COUNTRIES.find(
+        country => country.isoCode === defaultLocale.toLowerCase(),
+    );
 }
