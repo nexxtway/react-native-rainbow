@@ -1,13 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
 import { BaseProps } from '../types';
 import {
     IconContainer,
-    LikeButtonContainer,
     LableContainer,
     StatesContainer,
     ButtonIconContainer,
+    ButtonContainer,
 } from './styled';
 import Angry from '../Icons/angry';
 import Haha from '../Icons/haha';
@@ -20,11 +21,19 @@ import RenderIf from '../RenderIf';
 
 type Value = 'like' | 'love' | 'haha' | 'wow' | 'sad' | 'angry';
 
+export type Variant = 'shaded' | 'base';
+
 interface Props extends BaseProps {
     value?: Value;
     showLabel?: boolean;
     onChange?: (state?: any) => void;
+    variant?: Variant;
 }
+
+const modalStyles = {
+    justifyContent: 'center',
+    alignItems: 'center',
+};
 
 const iconStyles = {
     width: '35',
@@ -63,115 +72,98 @@ const stateMap = {
     },
 };
 
-const getLabel = (state?: Value) => {
-    if (state) {
-        return stateMap[state].label;
+const getLabel = (value?: Value) => {
+    if (value) {
+        return stateMap[value].label;
     }
     return '';
 };
 
-const getIcon = (state?: Value) => {
-    if (state) {
-        return stateMap[state].icon;
+const getIcon = (value?: Value) => {
+    if (value) {
+        return stateMap[value].icon;
     }
     return <Like style={iconStyles} />;
 };
 
 const LikeButton: React.FC<Props> = props => {
-    const { value, showLabel, onChange = () => {}, style } = props;
-    const [position, setPosition] = useState({});
-    const [modalVisible, setModalVisible] = useState(false);
-    const statesContainerStyle = { marginTop: (position.y || 0) + 25 };
+    const {
+        value,
+        showLabel,
+        onChange = () => {},
+        variant = 'base',
+        style,
+    } = props;
+    const [isModalVisible, setModalVisible] = useState(false);
 
-    const ref = useRef();
-    useEffect(() => {
-        ref.current.measure((x, y, width, height, pageX, pageY) => {
-            setPosition({ x: pageX, y: pageY });
-        });
-    }, []);
+    const handlePressButton = () => {
+        if (value) {
+            onChange(undefined);
+        } else {
+            onChange('like');
+        }
+    };
+
+    const openModal = () => {
+        setModalVisible(true);
+    };
+
+    const closeModal = () => {
+        setModalVisible(false);
+    };
+
+    const selectValue = (newValue: Value) => {
+        setModalVisible(false);
+        onChange(newValue);
+    };
 
     return (
-        <LikeButtonContainer
+        <TouchableOpacity
             style={style}
-            ref={ref}
-            onPress={() => {
-                if (value) {
-                    onChange(undefined);
-                } else {
-                    onChange('like');
-                }
-            }}
-            onLongPress={() => {
-                setModalVisible(true);
-            }}
+            onPress={handlePressButton}
+            onLongPress={openModal}
         >
-            <IconContainer shadow>{getIcon(value)}</IconContainer>
-            <RenderIf isTrue={showLabel && !!value}>
-                <LableContainer>{getLabel(value)}</LableContainer>
-            </RenderIf>
+            <ButtonContainer
+                variant={variant}
+                hasValue={!!value}
+                isModalVisible={isModalVisible}
+                showLabel={showLabel}
+            >
+                <IconContainer>{getIcon(value)}</IconContainer>
+                <RenderIf isTrue={showLabel && !!value}>
+                    <LableContainer>{getLabel(value)}</LableContainer>
+                </RenderIf>
+            </ButtonContainer>
             <Modal
-                isVisible={modalVisible}
+                isVisible={isModalVisible}
                 backdropColor="transparent"
+                style={modalStyles as any}
                 animationIn="fadeIn"
                 animationOut="fadeOut"
-                style={{ display: 'flex', justifyContent: 'flex-start' }}
-                onBackdropPress={() => {
-                    setModalVisible(false);
-                }}
+                onBackdropPress={closeModal}
             >
-                <StatesContainer style={statesContainerStyle}>
-                    <ButtonIconContainer
-                        onPress={() => {
-                            setModalVisible(false);
-                            onChange('like');
-                        }}
-                    >
+                <StatesContainer>
+                    <ButtonIconContainer onPress={() => selectValue('like')}>
                         <LikeFilled style={modalIconStyle} />
                     </ButtonIconContainer>
-                    <ButtonIconContainer
-                        onPress={() => {
-                            setModalVisible(false);
-                            onChange('love');
-                        }}
-                    >
+                    <ButtonIconContainer onPress={() => selectValue('love')}>
                         <Love style={modalIconStyle} />
                     </ButtonIconContainer>
-                    <ButtonIconContainer
-                        onPress={() => {
-                            setModalVisible(false);
-                            onChange('haha');
-                        }}
-                    >
+                    <ButtonIconContainer onPress={() => selectValue('haha')}>
                         <Haha style={modalIconStyle} />
                     </ButtonIconContainer>
-
-                    <ButtonIconContainer
-                        onPress={() => {
-                            setModalVisible(false);
-                            onChange('wow');
-                        }}
-                    >
+                    <ButtonIconContainer onPress={() => selectValue('wow')}>
                         <Wow style={modalIconStyle} />
                     </ButtonIconContainer>
-                    <ButtonIconContainer
-                        onPress={() => {
-                            setModalVisible(false);
-                            onChange('sad');
-                        }}
-                    >
+                    <ButtonIconContainer onPress={() => selectValue('sad')}>
                         <Sad style={modalIconStyle} />
                     </ButtonIconContainer>
-                    <ButtonIconContainer
-                        onPress={() => {
-                            setModalVisible(false);
-                            onChange('angry');
-                        }}
-                    >
+                    <ButtonIconContainer onPress={() => selectValue('angry')}>
                         <Angry style={modalIconStyle} />
                     </ButtonIconContainer>
                 </StatesContainer>
             </Modal>
-        </LikeButtonContainer>
+        </TouchableOpacity>
     );
 };
 
@@ -179,12 +171,14 @@ LikeButton.propTypes = {
     value: PropTypes.oneOf(['like', 'love', 'haha', 'wow', 'sad', 'angry']),
     showLabel: PropTypes.bool,
     onChange: PropTypes.func,
+    variant: PropTypes.oneOf(['shaded', 'base']),
 };
 
 LikeButton.defaultProps = {
     value: undefined,
     showLabel: false,
     onChange: () => {},
+    variant: 'base',
 };
 
 export default LikeButton;

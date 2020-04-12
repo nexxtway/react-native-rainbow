@@ -9,8 +9,9 @@ import {
     COLOR_GRAY_4,
 } from '../../../styles/colors';
 import { FONT_SIZE_HEADING_SMALL } from '../../../styles/fontSizes';
+import { BaseProps } from '../../types';
 
-export const Container = styled.View`
+export const Container = styled.View<BaseProps>`
     position: relative;
     background-color: ${COLOR_WHITE};
     border: 1px solid ${COLOR_GRAY_TRANSPARENT_2};

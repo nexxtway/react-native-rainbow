@@ -123,10 +123,11 @@ const CircularProgress: React.FC<Props> = props => {
         radius,
         angleInDegrees: currentFillAngle,
     });
+    const containerStyles = { width: '100%', height: size / 2 + 10 };
 
     return (
         <View
-            style={[{ width: '100%', height: size / 2 + 10 }, style]}
+            style={[containerStyles, style]}
             onLayout={event => setSize(event.nativeEvent.layout.width)}
         >
             <Svg width="100%" height="100%">

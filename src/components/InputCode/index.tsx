@@ -2,8 +2,8 @@ import React, { ReactNode, useState, useRef, useEffect } from 'react';
 import { View, TextInput, Clipboard } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
-import { Container, StyledLabel } from './styled/index';
-import { Error } from '../Input/styled/index';
+import { Container, StyledLabel } from './styled';
+import { Error } from '../Input/styled';
 import StyledInput from './styled/input';
 import getNextIndex from './helpers/getNextIndex';
 import getPrevIndex from './helpers/getPrevIndex';
@@ -97,7 +97,7 @@ const InputCode: React.FC<Props> = props => {
                                 hasValue={hasValue}
                                 isLastInput={isLastInput}
                                 error={error}
-                                ref={ref}
+                                ref={ref as any}
                                 autoFocus={autoFocusFirstInput}
                                 value={values[index]}
                                 maxLength={1}

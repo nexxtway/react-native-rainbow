@@ -11,7 +11,7 @@ interface Props extends BaseProps {
     variant?: string;
 }
 
-export const StyledBadgeContainer = styled.View`
+export const StyledBadgeContainer = styled.View<BaseProps>`
     align-self: center;
 `;
 
