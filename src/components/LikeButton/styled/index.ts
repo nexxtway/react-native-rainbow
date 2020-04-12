@@ -38,7 +38,6 @@ export const StatesContainer = styled.View`
     border-radius: 24px;
     text-transform: uppercase;
     box-shadow: ${SHADOW_1};
-    margin-top: 50px;
 `;
 
 export const ButtonIconContainer = styled.TouchableOpacity``;

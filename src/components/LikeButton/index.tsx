@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Modal from 'react-native-modal';
 import { BaseProps } from '../types';
 import {
     IconContainer,
@@ -15,13 +16,14 @@ import LikeFilled from '../Icons/likeFilled';
 import Love from '../Icons/love';
 import Sad from '../Icons/sad';
 import Wow from '../Icons/wow';
-import RenderIf from '../RenderIf/index';
-import { Modal } from 'react-native';
+import RenderIf from '../RenderIf';
+
+type Value = 'like' | 'love' | 'haha' | 'wow' | 'sad' | 'angry';
 
 interface Props extends BaseProps {
-    value?: 'like' | 'love' | 'haha' | 'wow' | 'sad' | 'angry';
-    labelEnabled?: boolean;
-    onChange?: (state: any) => void;
+    value?: Value;
+    showLabel?: boolean;
+    onChange?: (state?: any) => void;
 }
 
 const iconStyles = {
@@ -61,18 +63,14 @@ const stateMap = {
     },
 };
 
-const getLabel = (
-    state?: 'like' | 'love' | 'haha' | 'wow' | 'sad' | 'angry',
-) => {
+const getLabel = (state?: Value) => {
     if (state) {
         return stateMap[state].label;
     }
     return '';
 };
 
-const getIcon = (
-    state?: 'like' | 'love' | 'haha' | 'wow' | 'sad' | 'angry',
-) => {
+const getIcon = (state?: Value) => {
     if (state) {
         return stateMap[state].icon;
     }
@@ -80,20 +78,26 @@ const getIcon = (
 };
 
 const LikeButton: React.FC<Props> = props => {
-    const { value, labelEnabled, onChange: onChangeProp, style } = props;
-    const onChange = onChangeProp as (s: any) => {};
-    const [state, setState] = useState(value);
+    const { value, showLabel, onChange = () => {}, style } = props;
+    const [position, setPosition] = useState({});
     const [modalVisible, setModalVisible] = useState(false);
+    const statesContainerStyle = { marginTop: (position.y || 0) + 25 };
+
+    const ref = useRef();
+    useEffect(() => {
+        ref.current.measure((x, y, width, height, pageX, pageY) => {
+            setPosition({ x: pageX, y: pageY });
+        });
+    }, []);
 
     return (
         <LikeButtonContainer
             style={style}
+            ref={ref}
             onPress={() => {
-                if (state) {
-                    setState(undefined);
+                if (value) {
                     onChange(undefined);
                 } else {
-                    setState('like');
                     onChange('like');
                 }
             }}
@@ -101,23 +105,24 @@ const LikeButton: React.FC<Props> = props => {
                 setModalVisible(true);
             }}
         >
-            <IconContainer shadow>{getIcon(state)}</IconContainer>
-            <RenderIf isTrue={labelEnabled && !!state}>
-                <LableContainer>{getLabel(state)}</LableContainer>
+            <IconContainer shadow>{getIcon(value)}</IconContainer>
+            <RenderIf isTrue={showLabel && !!value}>
+                <LableContainer>{getLabel(value)}</LableContainer>
             </RenderIf>
             <Modal
-                animationType="slide"
-                visible={modalVisible}
-                transparent={true}
-                onRequestClose={() => {
+                isVisible={modalVisible}
+                backdropColor="transparent"
+                animationIn="fadeIn"
+                animationOut="fadeOut"
+                style={{ display: 'flex', justifyContent: 'flex-start' }}
+                onBackdropPress={() => {
                     setModalVisible(false);
                 }}
             >
-                <StatesContainer>
+                <StatesContainer style={statesContainerStyle}>
                     <ButtonIconContainer
                         onPress={() => {
                             setModalVisible(false);
-                            setState('like');
                             onChange('like');
                         }}
                     >
@@ -126,7 +131,6 @@ const LikeButton: React.FC<Props> = props => {
                     <ButtonIconContainer
                         onPress={() => {
                             setModalVisible(false);
-                            setState('love');
                             onChange('love');
                         }}
                     >
@@ -135,7 +139,6 @@ const LikeButton: React.FC<Props> = props => {
                     <ButtonIconContainer
                         onPress={() => {
                             setModalVisible(false);
-                            setState('haha');
                             onChange('haha');
                         }}
                     >
@@ -145,7 +148,6 @@ const LikeButton: React.FC<Props> = props => {
                     <ButtonIconContainer
                         onPress={() => {
                             setModalVisible(false);
-                            setState('wow');
                             onChange('wow');
                         }}
                     >
@@ -154,7 +156,6 @@ const LikeButton: React.FC<Props> = props => {
                     <ButtonIconContainer
                         onPress={() => {
                             setModalVisible(false);
-                            setState('sad');
                             onChange('sad');
                         }}
                     >
@@ -163,7 +164,6 @@ const LikeButton: React.FC<Props> = props => {
                     <ButtonIconContainer
                         onPress={() => {
                             setModalVisible(false);
-                            setState('angry');
                             onChange('angry');
                         }}
                     >
@@ -177,13 +177,14 @@ const LikeButton: React.FC<Props> = props => {
 
 LikeButton.propTypes = {
     value: PropTypes.oneOf(['like', 'love', 'haha', 'wow', 'sad', 'angry']),
-    labelEnabled: PropTypes.bool,
+    showLabel: PropTypes.bool,
     onChange: PropTypes.func,
 };
 
 LikeButton.defaultProps = {
     value: undefined,
-    labelEnabled: false,
+    showLabel: false,
     onChange: () => {},
 };
+
 export default LikeButton;
