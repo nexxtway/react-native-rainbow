@@ -7,6 +7,7 @@ import {
     COLOR_GRAY_TRANSPARENT_2,
     COLOR_GRAY_3,
 } from '../../../styles/colors';
+import { BaseProps } from '../../types';
 
 export type Variants = 'brand' | 'success' | 'warning' | 'error';
 
@@ -16,7 +17,7 @@ interface Props {
     max: number;
 }
 
-export const StyledContainer = styled.View`
+export const StyledContainer = styled.View<BaseProps>`
     position: relative;
     height: 4px;
     border-radius: 100px;
