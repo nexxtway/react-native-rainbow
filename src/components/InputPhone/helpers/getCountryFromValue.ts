@@ -17,6 +17,10 @@ export default function getCountryFromValue(isoCode?: string) {
         return userCountry;
     }
 
+    if (!defaultLocale) {
+        return COUNTRIES.find[0];
+    }
+
     return COUNTRIES.find(
         country => country.isoCode === defaultLocale.toLowerCase(),
     );
