@@ -21,6 +21,8 @@ import RenderIf from '../RenderIf';
 
 type Value = 'like' | 'love' | 'haha' | 'wow' | 'sad' | 'angry';
 
+export type Size = 'x-small' | 'small' | 'medium' | 'large';
+
 export type Variant = 'shaded' | 'base';
 
 interface Props extends BaseProps {
@@ -28,6 +30,8 @@ interface Props extends BaseProps {
     showLabel?: boolean;
     onChange?: (state?: any) => void;
     variant?: Variant;
+    readOnly?: boolean;
+    size?: Size;
 }
 
 const modalStyles = {
@@ -36,8 +40,8 @@ const modalStyles = {
 };
 
 const iconStyles = {
-    width: '35',
-    height: '35',
+    width: '100%',
+    height: '100%',
 };
 
 const modalIconStyle = {
@@ -93,6 +97,8 @@ const LikeButton: React.FC<Props> = props => {
         onChange = () => {},
         variant = 'base',
         style,
+        readOnly = false,
+        size,
     } = props;
     const [isModalVisible, setModalVisible] = useState(false);
 
@@ -122,6 +128,7 @@ const LikeButton: React.FC<Props> = props => {
             style={style}
             onPress={handlePressButton}
             onLongPress={openModal}
+            disabled={readOnly}
         >
             <ButtonContainer
                 variant={variant}
@@ -129,9 +136,11 @@ const LikeButton: React.FC<Props> = props => {
                 isModalVisible={isModalVisible}
                 showLabel={showLabel}
             >
-                <IconContainer>{getIcon(value)}</IconContainer>
+                <IconContainer size={size}>{getIcon(value)}</IconContainer>
                 <RenderIf isTrue={showLabel && !!value}>
-                    <LableContainer>{getLabel(value)}</LableContainer>
+                    <LableContainer size={size}>
+                        {getLabel(value)}
+                    </LableContainer>
                 </RenderIf>
             </ButtonContainer>
             <Modal
@@ -172,6 +181,8 @@ LikeButton.propTypes = {
     showLabel: PropTypes.bool,
     onChange: PropTypes.func,
     variant: PropTypes.oneOf(['shaded', 'base']),
+    readOnly: PropTypes.bool,
+    size: PropTypes.oneOf(['x-small', 'small', 'medium', 'large']),
 };
 
 LikeButton.defaultProps = {
@@ -179,6 +190,8 @@ LikeButton.defaultProps = {
     showLabel: false,
     onChange: () => {},
     variant: 'base',
+    readOnly: false,
+    size: 'medium',
 };
 
 export default LikeButton;
