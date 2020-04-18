@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { BaseProps } from '../../types';
 import { SHADOW_1 } from '../../../styles/shadows';
 import { COLOR_WHITE, COLOR_GRAY_3 } from '../../../styles/colors';
-import { Variant, Size } from '../';
+import { Variant, Size, Value } from '../';
 
 interface Props extends BaseProps {
     variant?: Variant;
@@ -11,31 +11,39 @@ interface Props extends BaseProps {
     isModalVisible?: boolean;
 }
 
+interface ButtonProps extends BaseProps {
+    size?: Size;
+    value?: Value;
+}
+
+export const Container = styled.TouchableOpacity<Props>`
+    background-color: transparent;
+    padding: 4px;
+`;
+
 export const ButtonContainer = styled.View<Props>`
     flex-direction: row;
     justify-content: center;
     align-content: center;
     align-items: center;
     border-radius: 50px;
+    background-color: transparent;
     opacity: 1;
-    ${props => props.hasValue && props.showLabel && 'padding: 2px;'}
     ${props =>
-        props.variant === 'shaded' && `background-color: ${COLOR_WHITE}`};
-    ${props => props.variant === 'shaded' && `box-shadow: ${SHADOW_1};`};
+        props.variant === 'shaded' &&
+        `
+            background-color: ${COLOR_WHITE};
+            box-shadow: ${SHADOW_1};
+            padding: 4px;
+        `};
     ${props => props.isModalVisible && 'opacity: 0'}
 `;
-
-interface ButtonProps extends BaseProps {
-    size?: Size;
-}
 
 export const IconContainer = styled.View<ButtonProps>`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${COLOR_WHITE};
-    border-radius: 24px;
-    text-transform: uppercase;
+    background-color: transparent;
     ${props =>
         props.size === 'x-small' &&
         `
@@ -45,20 +53,20 @@ export const IconContainer = styled.View<ButtonProps>`
     ${props =>
         props.size === 'small' &&
         `
-            width: 30;
-            height: 30;
+            width: 24;
+            height: 24;
         `};
     ${props =>
         props.size === 'medium' &&
         `
-            width: 35;
-            height: 35;
+            width: 28;
+            height: 28;
         `};
     ${props =>
         props.size === 'large' &&
         `
-            width: 40;
-            height: 40;
+            width: 32;
+            height: 32;
         `};
 `;
 
@@ -70,28 +78,53 @@ export const LableContainer = styled.Text<ButtonProps>`
     ${props =>
         props.size === 'x-small' &&
         `
-            font-size: 10px;
+            font-size: 14px;
             margin-left: 4px;
-            margin-right: 1px;
         `};
     ${props =>
         props.size === 'small' &&
         `
-            font-size: 18px;
-            margin-left: 6px;
-            margin-right: 3px;
+            font-size: 16px;
+            margin-left: 4px;
         `};
     ${props =>
         props.size === 'medium' &&
         `
-            font-size: 25px;
+            font-size: 18px;
+            margin-left: 4px;
         `};
     ${props =>
         props.size === 'large' &&
         `
-            font-size: 30px;
-            margin-left: 8px;
+            font-size: 20px;
+            margin-left: 4px;
             margin-right: 4px;
+        `};
+    ${props =>
+        props.value === 'like' &&
+        `
+            color: #44A4EC;
+            font-weight: 700;
+        `};
+    ${props =>
+        props.value === 'love' &&
+        `
+            color: #FE3D5F;
+            font-weight: 700;
+        `};
+    ${props =>
+        props.value === 'haha' &&
+        'wow' &&
+        'sad' &&
+        `
+            color: #F3D05C;
+            font-weight: 700;
+        `};
+    ${props =>
+        props.value === 'angry' &&
+        `
+            color: #FD7458;
+            font-weight: 700;
         `};
 `;
 
@@ -104,7 +137,7 @@ export const StatesContainer = styled.View`
     text-transform: uppercase;
     box-shadow: ${SHADOW_1};
     flex-shrink: 0;
-    padding: 4px;
+    padding: 6px;
 `;
 
 export const ButtonIconContainer = styled.TouchableOpacity`

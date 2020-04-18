@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity } from 'react-native';
-import Modal from 'react-native-modal';
 import { BaseProps } from '../types';
+import Modal from 'react-native-modal';
 import {
     IconContainer,
     LableContainer,
     StatesContainer,
     ButtonIconContainer,
     ButtonContainer,
+    Container,
 } from './styled';
 import Angry from '../Icons/angry';
 import Haha from '../Icons/haha';
@@ -19,7 +19,7 @@ import Sad from '../Icons/sad';
 import Wow from '../Icons/wow';
 import RenderIf from '../RenderIf';
 
-type Value = 'like' | 'love' | 'haha' | 'wow' | 'sad' | 'angry';
+export type Value = 'like' | 'love' | 'haha' | 'wow' | 'sad' | 'angry';
 
 export type Size = 'x-small' | 'small' | 'medium' | 'large';
 
@@ -80,7 +80,7 @@ const getLabel = (value?: Value) => {
     if (value) {
         return stateMap[value].label;
     }
-    return '';
+    return 'Like';
 };
 
 const getIcon = (value?: Value) => {
@@ -124,7 +124,7 @@ const LikeButton: React.FC<Props> = props => {
     };
 
     return (
-        <TouchableOpacity
+        <Container
             style={style}
             onPress={handlePressButton}
             onLongPress={openModal}
@@ -137,19 +137,19 @@ const LikeButton: React.FC<Props> = props => {
                 showLabel={showLabel}
             >
                 <IconContainer size={size}>{getIcon(value)}</IconContainer>
-                <RenderIf isTrue={showLabel && !!value}>
-                    <LableContainer size={size}>
+                <RenderIf isTrue={showLabel}>
+                    <LableContainer size={size} value={value}>
                         {getLabel(value)}
                     </LableContainer>
                 </RenderIf>
             </ButtonContainer>
             <Modal
                 isVisible={isModalVisible}
-                backdropColor="transparent"
-                style={modalStyles as any}
+                backdropColor="rgba(82, 95, 127, 0.3)"
                 animationIn="fadeIn"
                 animationOut="fadeOut"
                 onBackdropPress={closeModal}
+                style={modalStyles as any}
             >
                 <StatesContainer>
                     <ButtonIconContainer onPress={() => selectValue('like')}>
@@ -172,7 +172,7 @@ const LikeButton: React.FC<Props> = props => {
                     </ButtonIconContainer>
                 </StatesContainer>
             </Modal>
-        </TouchableOpacity>
+        </Container>
     );
 };
 
