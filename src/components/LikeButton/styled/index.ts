@@ -113,13 +113,14 @@ export const LableContainer = styled.Text<ButtonProps>`
             font-weight: 700;
         `};
     ${props =>
-        props.value === 'haha' &&
-        'wow' &&
-        'sad' &&
+        (props.value === 'haha' ||
+            props.value === 'wow' ||
+            props.value === 'sad') &&
         `
             color: #F3D05C;
             font-weight: 700;
         `};
+
     ${props =>
         props.value === 'angry' &&
         `
