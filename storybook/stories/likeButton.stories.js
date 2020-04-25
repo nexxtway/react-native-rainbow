@@ -4,7 +4,7 @@ import RowView from './RowView';
 import CenterView from './CenterView';
 import LikeButton from '../../src/components/LikeButton';
 
-const BasicUse = function({ showLabel, variant, disabled }) {
+const BasicUse = function({ showLabel, variant }) {
     const [value, setValue] = useState();
     return (
         <RowView spaceTop={50}>
@@ -13,7 +13,6 @@ const BasicUse = function({ showLabel, variant, disabled }) {
                 value={value}
                 onChange={setValue}
                 variant={variant}
-                readOnly={disabled}
             />
         </RowView>
     );
@@ -33,22 +32,23 @@ const DisabledUse = function({ showLabel, variant, value }) {
 };
 
 const SizeUse = function({ size }) {
+    const [value, setValue] = useState();
     return (
         <RowView spaceTop={50}>
             <LikeButton
                 showLabel={true}
-                value={'like'}
                 disabled={true}
                 size={size}
-                readOnly={true}
+                value={value}
+                onChange={setValue}
             />
             <LikeButton
                 showLabel={true}
-                value={'like'}
                 variant="shaded"
                 disabled={true}
                 size={size}
-                readOnly={true}
+                value={value}
+                onChange={setValue}
             />
         </RowView>
     );
@@ -65,14 +65,12 @@ storiesOf('Like Button', module)
                 <BasicUse showLabel variant="shaded" />
                 <DisabledUse showLabel variant="shaded" value="like" />
                 <DisabledUse showLabel value="love" />
-                <DisabledUse value="like" />
             </>
         );
     })
     .add('Size', () => {
         return (
             <>
-                <SizeUse />
                 <SizeUse size={'x-small'} />
                 <SizeUse size={'small'} />
                 <SizeUse size={'medium'} />
