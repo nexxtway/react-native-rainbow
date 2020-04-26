@@ -27,7 +27,7 @@ storiesOf('Switch', module).add('Basic', () => {
                 <BasicSwitch defaultValue={false} />
             </RowView>
             <RowView spaceTop={50}>
-                <Switch disabled={true} label="Switch Toggle disabled" />
+                <Switch disabled={true} />
             </RowView>
         </>
     );

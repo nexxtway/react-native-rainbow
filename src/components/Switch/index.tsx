@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
 import { BaseProps } from '../types';
 import { SwitchWrapper, StyledSwitch, SwitchText } from './styled';
 import { COLOR_BRAND, COLOR_GRAY_2 } from '../../styles/colors';
+import RenderIf from '../RenderIf';
 
 interface Props extends BaseProps {
-    label?: string;
-    onChange?: () => void;
+    label?: string | ReactNode;
+    onChange?: (value: boolean) => void;
     disabled?: boolean;
     value?: boolean;
 }
@@ -22,22 +23,25 @@ const SwitchComponent: React.FC<Props> = ({
     disabled,
     value,
 }) => {
+    const trackColor = { false: COLOR_GRAY_2, true: COLOR_BRAND };
     return (
         <SwitchWrapper>
             <StyledSwitch
                 onValueChange={onChange}
                 value={value}
-                trackColor={{ false: COLOR_GRAY_2, true: COLOR_BRAND }}
+                trackColor={trackColor}
                 disabled={disabled}
             />
-            {!!label && <SwitchText>{label}</SwitchText>}
+            <RenderIf isTrue={!!label}>
+                <SwitchText>{label}</SwitchText>
+            </RenderIf>
         </SwitchWrapper>
     );
 };
 
 SwitchComponent.propTypes = {
     /** Text label for the Switch toggle. */
-    label: PropTypes.string,
+    label: PropTypes.oneOf([PropTypes.string, PropTypes.element]),
     /** The action triggered when a value attribute changes. */
     onChange: PropTypes.func,
     /** Specifies that the element should be disabled. This value defaults to false. */
@@ -47,7 +51,7 @@ SwitchComponent.propTypes = {
 };
 
 SwitchComponent.defaultProps = {
-    label: '',
+    label: undefined,
     onChange: () => {},
     disabled: false,
     value: false,
