@@ -7,7 +7,7 @@ import { COLOR_BRAND, COLOR_GRAY_2 } from '../../styles/colors';
 import RenderIf from '../RenderIf';
 
 interface Props extends BaseProps {
-    label?: string | ReactNode;
+    label?: ReactNode;
     onChange?: (value: boolean) => void;
     disabled?: boolean;
     value?: boolean;
