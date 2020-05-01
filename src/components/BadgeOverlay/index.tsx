@@ -27,9 +27,9 @@ interface Props extends BaseProps {
 const BadgeOverlay: React.FC<Props> = ({
     children,
     isHidden,
-    position,
+    position = 'top-right',
     value,
-    variant,
+    variant = 'error',
 }) => {
     const valueIsString = typeof value === 'string';
     return (
@@ -37,10 +37,16 @@ const BadgeOverlay: React.FC<Props> = ({
             {children}
             <RenderIf isTrue={!isHidden}>
                 <StyledBadge positionOverlay={position} variant={variant}>
-                    <RenderIf isTrue={valueIsString}>
-                        <StyledBadgeOverlayText>{value}</StyledBadgeOverlayText>
+                    <RenderIf isTrue={!!value}>
+                        <React.Fragment>
+                            <RenderIf isTrue={valueIsString}>
+                                <StyledBadgeOverlayText>
+                                    {value}
+                                </StyledBadgeOverlayText>
+                            </RenderIf>
+                            <RenderIf isTrue={!valueIsString}>{value}</RenderIf>
+                        </React.Fragment>
                     </RenderIf>
-                    <RenderIf isTrue={!valueIsString}>{value}</RenderIf>
                 </StyledBadge>
             </RenderIf>
         </StyledOverlayContainer>
