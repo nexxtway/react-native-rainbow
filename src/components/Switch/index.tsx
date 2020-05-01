@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { BaseProps } from '../types';
 import { SwitchWrapper, StyledSwitch, SwitchText } from './styled';
-import { COLOR_BRAND, COLOR_GRAY_2 } from '../../styles/colors';
+import { COLOR_BRAND, COLOR_GRAY_2, COLOR_WHITE } from '../../styles/colors';
 import RenderIf from '../RenderIf';
 
 interface Props extends BaseProps {
@@ -31,6 +31,7 @@ const SwitchComponent: React.FC<Props> = ({
                 value={value}
                 trackColor={trackColor}
                 disabled={disabled}
+                thumbColor={COLOR_WHITE}
             />
             <RenderIf isTrue={!!label}>
                 <SwitchText>{label}</SwitchText>
