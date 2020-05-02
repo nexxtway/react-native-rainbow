@@ -27,7 +27,7 @@ interface Props extends BaseProps {
 
 const BadgeOverlay: React.FC<Props> = ({
     children,
-    isHidden,
+    isHidden = false,
     position = 'top-right',
     value,
     variant = 'error',
