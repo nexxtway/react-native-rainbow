@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 import { BaseProps } from '../../types';
-import { variantOverlay, positionOverlay } from '../types';
+import { variantOverlay, positionOverlay, overlapOverlay } from '../types';
 import {
     COLOR_ERROR,
     COLOR_WHITE,
@@ -17,23 +17,48 @@ const variants = {
     success: COLOR_SUCCESS,
 };
 
-const positions = {
-    'top-right': 'top: -10px; right: 0;',
-    'top-left': 'top: -10px; left:0',
-    'bottom-left': 'bottom: -2px; left: -5px',
-    'bottom-right': 'bottom: -2px; right: -5px',
+const positionsRectangle = {
+    'top-left': 'top:0;left:0;transform: scale(1) translate(-10px,-10px)',
+    'top-right': 'top:0;right:0;transform: scale(1) translate(10px,-10px)',
+    'bottom-left': 'bottom:0;left:0;transform: scale(1) translate(-10px,10px)',
+    'bottom-right': 'bottom:0;right:0;transform: scale(1) translate(10px,10px)',
 };
+
+const positionsCircle = {
+    'top-left': 'top:11;left:11;transform: scale(1) translate(-10px,-10px)',
+    'top-right': 'top:11;right:11;transform: scale(1) translate(10px,-10px)',
+    'bottom-left':
+        'bottom:11;left:11;transform: scale(1) translate(-10px,10px)',
+    'bottom-right':
+        'bottom:11;right:11;transform: scale(1) translate(10px,10px)',
+};
+
+const positions = {
+    rectangle: positionsRectangle,
+    circle: positionsCircle,
+};
+
+const overlap = {
+    rectangle: 'border-radius: 0',
+    circle: 'border-radius: 999',
+};
+
+interface IOverlay extends BaseProps {
+    overlap: overlapOverlay;
+}
+
+export const StyledOverlayContainer = styled.View<IOverlay>`
+    position: relative;
+    width: 33px;
+    ${props => overlap[props.overlap]}
+`;
 
 interface Props {
     variant: variantOverlay;
     positionOverlay: positionOverlay;
+    overlap: overlapOverlay;
+    isHidden: boolean;
 }
-
-export const StyledOverlayContainer = styled.View<BaseProps>`
-    position: relative;
-    width: 33px;
-`;
-
 export const StyledBadge = styled.View<Props>`
     min-width: 18px;
     height: 19px;
@@ -42,7 +67,8 @@ export const StyledBadge = styled.View<Props>`
     position: absolute;
     padding: 0 3px;
     background-color: ${props => variants[props.variant] || `${COLOR_ERROR}`};
-    ${props => positions[props.positionOverlay]}
+    ${props => positions[props.overlap][props.positionOverlay]}
+    ${props => props.isHidden && 'transform: scale(0)'}
 `;
 
 export const StyledBadgeOverlayText = styled.Text`

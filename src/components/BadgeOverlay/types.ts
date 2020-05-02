@@ -1,3 +1,5 @@
+export type overlapOverlay = 'rectangle' | 'circle';
+
 export type positionOverlay =
     | 'top-left'
     | 'top-right'

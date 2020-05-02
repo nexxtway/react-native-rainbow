@@ -12,17 +12,38 @@ const iconStyles = {
     height: '30px',
 };
 
-const BadgeNode = () => (
-    // eslint-disable-next-line react-native/no-inline-styles
-    <Text style={{ color: 'white', textAlign: 'center' }}>1</Text>
-);
-
 storiesOf('BadgeOverlay', module)
     .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
     .add('Basic', () => {
         return (
             <>
                 <RowView spaceTop={0}>
+                    <BadgeOverlay
+                        overlap="circle"
+                        position="top-left"
+                        value="1"
+                    >
+                        <Bell style={iconStyles} />
+                    </BadgeOverlay>
+                    <BadgeOverlay overlap="circle" value="1">
+                        <Bell style={iconStyles} />
+                    </BadgeOverlay>
+                    <BadgeOverlay
+                        overlap="circle"
+                        position="bottom-left"
+                        value="1"
+                    >
+                        <Bell style={iconStyles} />
+                    </BadgeOverlay>
+                    <BadgeOverlay
+                        overlap="circle"
+                        position="bottom-right"
+                        value="1"
+                    >
+                        <Bell style={iconStyles} />
+                    </BadgeOverlay>
+                </RowView>
+                <RowView spaceTop={50}>
                     <BadgeOverlay value="1">
                         <Bell style={iconStyles} />
                     </BadgeOverlay>
@@ -65,7 +86,7 @@ storiesOf('BadgeOverlay', module)
                     </BadgeOverlay>
                 </RowView>
                 <RowView spaceTop={50}>
-                    <BadgeOverlay value={<BadgeNode />}>
+                    <BadgeOverlay value={1}>
                         <Bell style={iconStyles} />
                     </BadgeOverlay>
                     <BadgeOverlay value="1">
@@ -74,6 +95,9 @@ storiesOf('BadgeOverlay', module)
                 </RowView>
                 <RowView spaceTop={50}>
                     <BadgeOverlay>
+                        <Bell style={iconStyles} />
+                    </BadgeOverlay>
+                    <BadgeOverlay isHidden={true}>
                         <Bell style={iconStyles} />
                     </BadgeOverlay>
                 </RowView>
