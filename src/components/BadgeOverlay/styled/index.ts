@@ -49,7 +49,6 @@ interface IOverlay extends BaseProps {
 
 export const StyledOverlayContainer = styled.View<IOverlay>`
     position: relative;
-    width: 33px;
     ${props => overlap[props.overlap]}
 `;
 
