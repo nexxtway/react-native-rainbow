@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
+import abbreviateNumber from '../AvatarGroup/helpers/AbbreviateNumber';
 import { BaseProps } from '../types';
 import { positionOverlay, variantOverlay, overlapOverlay } from './types';
 import {
@@ -29,10 +30,11 @@ const BadgeOverlay: React.FC<Props> = ({
     children,
     isHidden = false,
     position = 'top-right',
-    value,
+    value = '',
     variant = 'error',
     overlap = 'rectangle',
 }) => {
+    const total = abbreviateNumber(value);
     return (
         <StyledOverlayContainer overlap={overlap}>
             {children}
@@ -43,7 +45,7 @@ const BadgeOverlay: React.FC<Props> = ({
                 isHidden={isHidden}
             >
                 <RenderIf isTrue={!!value}>
-                    <StyledBadgeOverlayText>{value}</StyledBadgeOverlayText>
+                    <StyledBadgeOverlayText>{total}</StyledBadgeOverlayText>
                 </RenderIf>
             </StyledBadge>
         </StyledOverlayContainer>
