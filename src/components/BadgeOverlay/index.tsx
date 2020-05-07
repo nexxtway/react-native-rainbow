@@ -34,8 +34,13 @@ const BadgeOverlay: React.FC<Props> = ({
     variant = 'error',
     overlap = 'rectangle',
 }) => {
-    const total = abbreviateNumber(value);
-    console.log(total, typeof value);
+    const total =
+        typeof value === 'string'
+            ? isNaN(parseInt(value, 10))
+                ? value
+                : abbreviateNumber(parseInt(value, 10))
+            : value;
+
     return (
         <StyledOverlayContainer overlap={overlap}>
             {children}
