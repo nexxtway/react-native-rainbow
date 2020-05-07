@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
 import { Label } from '../../Input/styled/index';
+import { BaseProps } from '../../types';
 
-export const Container = styled.View<{}>`
+export const Container = styled.View<BaseProps>`
     display: flex;
     flex-direction: row;
     justify-content: center;

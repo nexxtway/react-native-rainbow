@@ -6,9 +6,9 @@ import {
     COLOR_SUCCESS,
     COLOR_GRAY_TRANSPARENT_2,
 } from '../../../styles/colors';
-import { ButtonVariant } from '../../types';
+import { ButtonVariant, BaseProps } from '../../types';
 
-interface Props {
+interface Props extends BaseProps {
     variant?: ButtonVariant;
     disabled?: boolean;
     hasRightIcon?: boolean;

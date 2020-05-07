@@ -10,8 +10,12 @@ const styles = {
 function BasicUsage() {
     const [firstValue, setFirstValue] = useState();
     const [secondValue, setSecondValue] = useState({
-        countryCode: 'mx',
         phone: '12345678',
+        isoCode: 'mx',
+    });
+
+    const [thirdValue, setThirdValue] = useState({
+        isoCode: 'invalid',
     });
 
     return (
@@ -23,10 +27,17 @@ function BasicUsage() {
                 value={firstValue}
                 onChange={setFirstValue}
             />
+
             <InputPhone
                 label="Label"
                 value={secondValue}
                 onChange={setSecondValue}
+            />
+
+            <InputPhone
+                label="Label"
+                value={thirdValue}
+                onChange={setThirdValue}
             />
         </>
     );

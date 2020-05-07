@@ -1,9 +1,14 @@
 import React, { ReactNode } from 'react';
-import { Modal as NativeModal, View } from 'react-native';
+import { Modal as NativeModal } from 'react-native';
 import PropTypes from 'prop-types';
 import { BaseProps } from '../types';
 import RenderIf from '../RenderIf';
-import { Container, CloseButton, StyledCloseIcon } from './styled/index';
+import {
+    Container,
+    CloseButton,
+    StyledCloseIcon,
+    Content,
+} from './styled/index';
 import Header from './header';
 
 interface Props extends BaseProps {
@@ -32,7 +37,7 @@ const Modal: React.FC<Props> = props => {
             onRequestClose={onRequestClose}
         >
             <Container style={style}>
-                <View>
+                <Content>
                     <Header title={title} />
                     <RenderIf isTrue={!hideCloseButton}>
                         <CloseButton
@@ -41,7 +46,7 @@ const Modal: React.FC<Props> = props => {
                         />
                     </RenderIf>
                     {children}
-                </View>
+                </Content>
             </Container>
         </NativeModal>
     );

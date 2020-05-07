@@ -1,13 +1,14 @@
 import React, { ReactNode, useState, useRef, useEffect } from 'react';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, Clipboard } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
-import { Container, StyledLabel } from './styled/index';
-import { Error } from '../Input/styled/index';
+import { Container, StyledLabel } from './styled';
+import { Error } from '../Input/styled';
 import StyledInput from './styled/input';
 import getNextIndex from './helpers/getNextIndex';
 import getPrevIndex from './helpers/getPrevIndex';
 import { BaseProps } from '../types';
+import getCodeFromClipboard from './helpers/getCodeFromClipboard';
 
 interface Props extends BaseProps {
     digits?: number;
@@ -37,7 +38,18 @@ const InputCode: React.FC<Props> = props => {
         }
     }, [inputIndexFocused]);
 
-    const handleChange = (value: string) => {
+    const handleChange = async (value: string) => {
+        const clipboardContent = await Clipboard.getString();
+        const newValues = [...values];
+        newValues[inputIndexFocused] = value;
+        setValues(newValues);
+        const code = getCodeFromClipboard(digits, clipboardContent);
+
+        if (code.length === digits && value === clipboardContent.charAt(0)) {
+            setValues(code.split(''));
+            return;
+        }
+
         if (value) {
             const nextInputIndex = getNextIndex({
                 currentIndex: inputIndexFocused,
@@ -50,9 +62,6 @@ const InputCode: React.FC<Props> = props => {
             });
             setFocusInputIndex(prevInputIndex);
         }
-        const newValues = [...values];
-        newValues[inputIndexFocused] = value;
-        setValues(newValues);
 
         if (newValues.length === digits && newValues.every(item => !!item)) {
             onChange(newValues.join(''));
@@ -80,17 +89,18 @@ const InputCode: React.FC<Props> = props => {
                                 key={key}
                                 selectionColor="transparent"
                                 keyboardType="number-pad"
-                                maxLength={1}
                                 blurOnSubmit={false}
-                                onChangeText={handleChange}
                                 onBlur={() => setFocusInputIndex(-1)}
                                 onFocus={() => setFocusInputIndex(index)}
+                                onChangeText={handleChange}
                                 isFocused={isFocused}
                                 hasValue={hasValue}
                                 isLastInput={isLastInput}
                                 error={error}
-                                ref={ref}
+                                ref={ref as any}
                                 autoFocus={autoFocusFirstInput}
+                                value={values[index]}
+                                maxLength={1}
                             />
                         );
                     })}

@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 import { COLOR_DARK_1, COLOR_GRAY_3 } from '../../../styles/colors';
 import CloseIcon from '../../Icons/close';
 import ButtonIcon from '../../ButtonIcon';
+import { BaseProps } from '../../types';
 
 export const Title = styled.Text<{}>`
     font-size: 18;
@@ -10,7 +11,11 @@ export const Title = styled.Text<{}>`
     text-align: center;
 `;
 
-export const Container = styled.SafeAreaView<{}>`
+export const Container = styled.SafeAreaView<BaseProps>`
+    flex: 1;
+`;
+
+export const Content = styled.View`
     flex: 1;
 `;
 
