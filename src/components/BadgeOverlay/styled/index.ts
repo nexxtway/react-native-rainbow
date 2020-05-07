@@ -49,7 +49,7 @@ interface IOverlay extends BaseProps {
 
 export const StyledOverlayContainer = styled.View<IOverlay>`
     position: relative;
-    ${props => overlap[props.overlap]}
+    ${props => overlap[props.overlap] || overlap.circle}
 `;
 
 interface Props {
@@ -66,7 +66,9 @@ export const StyledBadge = styled.View<Props>`
     position: absolute;
     padding: 0 3px;
     background-color: ${props => variants[props.variant] || `${COLOR_ERROR}`};
-    ${props => positions[props.overlap][props.positionOverlay]}
+    ${props =>
+        positions[props.overlap][props.positionOverlay] ||
+        positions.circle['top-right']}
     ${props => props.isHidden && 'transform: scale(0)'}
 `;
 
