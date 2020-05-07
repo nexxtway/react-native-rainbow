@@ -73,7 +73,7 @@ storiesOf('BadgeOverlay', module)
                     <BadgeOverlay value="100">
                         <Bell style={iconStyles} />
                     </BadgeOverlay>
-                    <BadgeOverlay value="1k">
+                    <BadgeOverlay value="1000">
                         <Bell style={iconStyles} />
                     </BadgeOverlay>
                 </RowView>
