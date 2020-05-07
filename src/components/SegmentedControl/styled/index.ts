@@ -12,10 +12,8 @@ interface Props extends BaseProps {
     isActive?: boolean;
     variant?: string;
     isFullWidth?: boolean;
-    isDisabled?: boolean;
+    disabled?: boolean;
 }
-// border radius
-let br = 200;
 
 export const StyledSegmentedControlContainer = styled.View<Props>`
     display: flex;
@@ -36,11 +34,11 @@ export const StyledSegmentedControlLabel = styled.Text<{}>`
 export const StyledSegmentedControlOptionsWrapper = styled.View<Props>`
     display: flex;
     flex-direction: row;
-    border-radius: ${br};
+    border-radius: 200px;
     background: ${COLOR_GRAY_TRANSPARENT_2};
     justify-content: center;
     border: solid 1px ${COLOR_GRAY_TRANSPARENT_2};
-    opacity: ${props => (props.isDisabled ? '.4' : '1')};
+    opacity: ${props => (props.disabled ? '.4' : '1')};
 `;
 
 export const StyledOption = styled.TouchableOpacity<Props>`
@@ -48,7 +46,7 @@ export const StyledOption = styled.TouchableOpacity<Props>`
     flex: 1;
     align-items: center;
     justify-content: center;
-    border-radius: ${br};
+    border-radius: 200px;
     height: 42;
     ${props =>
         !props.disabled &&
@@ -69,7 +67,7 @@ export const StyledOptionText = styled.Text<Props>`
     line-height: 15px;
     color: ${COLOR_GRAY_TRANSPARENT_3};
     ${props =>
-        !props.isDisabled &&
+        !props.disabled &&
         props.isActive &&
         `
         color: ${props.variant === 'brand' ? 'white' : COLOR_DARK_1}

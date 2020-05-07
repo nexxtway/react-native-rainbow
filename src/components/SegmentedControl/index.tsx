@@ -7,21 +7,16 @@ import {
     StyledSegmentedControlLabel,
     StyledSegmentedControlOptionsWrapper,
 } from './styled';
-import SegmentedControlOption from './SegmentedControlOption';
-
-interface Option {
-    label: ReactNode;
-    value: string;
-    icon?: ReactNode;
-}
+import { OptionProps } from './types';
+import Option from './option';
 
 interface Props extends BaseProps {
-    label?: string;
+    label?: ReactNode;
     variant?: 'default' | 'brand';
     value?: string;
-    options?: Option[];
-    onChange?: (event: any) => void;
-    isDisabled?: boolean;
+    options?: OptionProps[];
+    onChange?: (event: OptionProps) => void;
+    disabled?: boolean;
     isFullWidth?: boolean;
 }
 
@@ -29,25 +24,19 @@ interface Props extends BaseProps {
  * SegmentedControl component controls user interacion with a particular process.
  */
 
-const SegmentedControl: React.FC<Props> = props => {
-    const {
-        style,
-        label,
-        variant = 'default',
-        value,
-        options = [],
-        onChange = () => {},
-        isDisabled,
-        isFullWidth,
-    } = props;
-    const [active, setActive] = React.useState(value);
+const SegmentedControl: React.FC<Props> = ({
+    style,
+    label,
+    variant = 'default',
+    value = '',
+    options = [],
+    onChange = () => {},
+    disabled,
+    isFullWidth,
+}: Props): JSX.Element => {
+    const hasLabel = !!label;
 
-    let handleOnChange = (value: string) => {
-        setActive(value);
-        onChange(value);
-    };
-
-    let hasLabel = !!label;
+    const isOptionActive = (option: OptionProps) => option.value === value;
     return (
         <StyledSegmentedControlContainer
             isFullWidth={isFullWidth}
@@ -58,16 +47,14 @@ const SegmentedControl: React.FC<Props> = props => {
                     {label}
                 </StyledSegmentedControlLabel>
             </RenderIf>
-            <StyledSegmentedControlOptionsWrapper isDisabled={isDisabled}>
+            <StyledSegmentedControlOptionsWrapper disabled={disabled}>
                 {options.map((option, index) => (
-                    <SegmentedControlOption
-                        key={index}
-                        label={option.label}
-                        value={option.value}
-                        icon={option.icon}
-                        handleSelect={handleOnChange}
-                        isDisabled={isDisabled}
-                        isActive={!!(option.value === active)}
+                    <Option
+                        key={`option-${index}`}
+                        option={option}
+                        onPress={onChange}
+                        disabled={disabled}
+                        isActive={!!isOptionActive(option)}
                         variant={variant}
                     />
                 ))}
@@ -84,7 +71,7 @@ SegmentedControl.propTypes = {
     /** defined the label over the segmentedControl.
      * default value is undefined
      */
-    label: PropTypes.string,
+    label: PropTypes.node,
     /**Variant defines the colors of the progress circular it could be one of 'brand' | 'default'
      * default value is default
      */
@@ -93,10 +80,16 @@ SegmentedControl.propTypes = {
      * default value undefined
      */
     value: PropTypes.string,
-    /** An array of object to render segmentedControl component options.
+    /** An array of objects to render segmentedControl component options.
      * default value is empty array
      */
-    options: PropTypes.array,
+    options: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.node,
+            value: PropTypes.string,
+            icon: PropTypes.node,
+        }).isRequired,
+    ),
     /** function triggered on on ever change on the segmentedControl component.
      * default value is () => {}
      */
@@ -104,7 +97,7 @@ SegmentedControl.propTypes = {
     /** a boolean option to disabled the segmentedControl component for interactions.
      * default value is false
      */
-    isDisabled: PropTypes.bool,
+    disabled: PropTypes.bool,
     /** a boolean option to control if the segmentedControl component should be full width.
      * default value is false
      */
@@ -117,7 +110,7 @@ SegmentedControl.defaultProps = {
     value: undefined,
     options: [],
     onChange: () => {},
-    isDisabled: false,
+    disabled: false,
     isFullWidth: false,
 };
 
