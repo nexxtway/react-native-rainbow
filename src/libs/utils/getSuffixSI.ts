@@ -1,5 +1,12 @@
-function abbreviateNumber(number: number | string): string {
-    if (!number || number < 0 || typeof number === 'string') {
+const regex = /^[0-9]*$/;
+
+function abbreviateNumber(text: number | string): string {
+    if (text && typeof text === 'string' && !regex.test(`${text}`)) {
+        return `${text}`;
+    }
+
+    const number = typeof text === 'string' ? parseInt(text, 10) : text;
+    if (!number || number < 0 || isNaN(number)) {
         return '';
     }
     const SI_POSTFIXES = ['', 'k', 'M', 'G'];

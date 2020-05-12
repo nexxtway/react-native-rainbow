@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
-import abbreviateNumber from '../AvatarGroup/helpers/AbbreviateNumber';
+import getSuffixSI from '../../libs/utils/getSuffixSI';
 import { BaseProps } from '../types';
 import { positionOverlay, variantOverlay, overlapOverlay } from './types';
 import {
@@ -34,13 +34,6 @@ const BadgeOverlay: React.FC<Props> = ({
     variant = 'error',
     overlap = 'rectangle',
 }) => {
-    const total =
-        typeof value === 'string'
-            ? isNaN(parseInt(value, 10))
-                ? value
-                : abbreviateNumber(parseInt(value, 10))
-            : value;
-
     return (
         <StyledOverlayContainer overlap={overlap}>
             {children}
@@ -51,7 +44,9 @@ const BadgeOverlay: React.FC<Props> = ({
                 isHidden={isHidden}
             >
                 <RenderIf isTrue={!!value}>
-                    <StyledBadgeOverlayText>{total}</StyledBadgeOverlayText>
+                    <StyledBadgeOverlayText>
+                        {getSuffixSI(value)}
+                    </StyledBadgeOverlayText>
                 </RenderIf>
             </StyledBadge>
         </StyledOverlayContainer>

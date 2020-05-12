@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { AvatarProps, AvatarSizes } from './types';
 import Avatar from '../Avatar';
 import { StyledCounter } from './styled';
-import abbreviateNumber from './helpers/AbbreviateNumber';
+import getSuffixSI from '../../libs/utils/getSuffixSI';
 
 interface Props {
     size?: AvatarSizes;
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Counter: React.FC<Props> = ({ avatars = [], size = 'medium' }: Props) => {
-    const total = abbreviateNumber(avatars.length);
+    const total = getSuffixSI(avatars.length);
 
     return (
         <StyledCounter size={size}>
