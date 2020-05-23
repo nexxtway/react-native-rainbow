@@ -1,8 +1,9 @@
 import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
+import getSuffixSI from '../../libs/utils/getSuffixSI';
 import { BaseProps } from '../types';
-import { positionOverlay, variantOverlay } from './types';
+import { positionOverlay, variantOverlay, overlapOverlay } from './types';
 import {
     StyledOverlayContainer,
     StyledBadge,
@@ -13,8 +14,9 @@ import RenderIf from '../RenderIf';
 interface Props extends BaseProps {
     children?: ReactNode;
     isHidden?: boolean;
+    overlap?: overlapOverlay;
     position?: positionOverlay;
-    value?: ReactNode;
+    value?: string | number;
     variant?: variantOverlay;
 }
 
@@ -26,23 +28,27 @@ interface Props extends BaseProps {
 
 const BadgeOverlay: React.FC<Props> = ({
     children,
-    isHidden,
-    position,
-    value,
-    variant,
+    isHidden = false,
+    position = 'top-right',
+    value = '',
+    variant = 'error',
+    overlap = 'rectangle',
 }) => {
-    const valueIsString = typeof value === 'string';
     return (
-        <StyledOverlayContainer>
+        <StyledOverlayContainer overlap={overlap}>
             {children}
-            <RenderIf isTrue={!isHidden}>
-                <StyledBadge positionOverlay={position} variant={variant}>
-                    <RenderIf isTrue={valueIsString}>
-                        <StyledBadgeOverlayText>{value}</StyledBadgeOverlayText>
-                    </RenderIf>
-                    <RenderIf isTrue={!valueIsString}>{value}</RenderIf>
-                </StyledBadge>
-            </RenderIf>
+            <StyledBadge
+                overlap={overlap}
+                positionOverlay={position}
+                variant={variant}
+                isHidden={isHidden}
+            >
+                <RenderIf isTrue={!!value}>
+                    <StyledBadgeOverlayText>
+                        {getSuffixSI(value)}
+                    </StyledBadgeOverlayText>
+                </RenderIf>
+            </StyledBadge>
         </StyledOverlayContainer>
     );
 };
@@ -52,6 +58,9 @@ BadgeOverlay.propTypes = {
     children: PropTypes.node,
     /** If true, the badge will be hidden.*/
     isHidden: PropTypes.bool,
+    /** Wrapped shape the badge should overlap. This property is used to place the badge relative to the corner of the wrapped element. */
+    overlap: PropTypes.oneOf(['rectangle', 'circle']),
+
     /** Describes the position of the badge respect to container. */
     position: PropTypes.oneOf([
         'top-left',
@@ -62,7 +71,7 @@ BadgeOverlay.propTypes = {
     /** The content rendered within the badge.
      * If the value is not passed a dot is rendered instead of the badge.
      */
-    value: PropTypes.node,
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     /** The variant changes the appearance of the badge. */
     variant: PropTypes.oneOf(['brand', 'success', 'error', 'warning']),
     /** An object with custom style applied to the outer element. */
