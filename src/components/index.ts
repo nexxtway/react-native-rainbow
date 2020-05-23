@@ -13,3 +13,4 @@ export { default as ProgressBar } from './ProgressBar';
 export { default as ProgressCircular } from './ProgressCircular';
 export { default as BadgeOverlay } from './BadgeOverlay';
 export { default as Switch } from './Switch';
+export { default as Spinner } from './Spinner';
