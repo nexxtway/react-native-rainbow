@@ -1,23 +1,50 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Animated } from 'react-native';
+import Svg, { Circle } from 'react-native-svg';
 
 import { SpinnerSize, SpinnerVariant } from './types';
-import { SpinnerContainer, SpinnerCircle } from './styled';
+import { SpinnerContainer, variants } from './styled';
+import useRotate from '../../hooks/useRotate';
 
 interface Props {
     isVisible?: boolean;
     size?: SpinnerSize;
     variant?: SpinnerVariant;
 }
+
 /**
  * Spinners should be shown when retrieving data or performing slow,
  * help to reassure the user that the system is actively retrieving data.
  */
-const Spinner: React.FC<Props> = () => {
+const Spinner: React.FC<Props> = ({
+    size = 'medium',
+    variant = 'brand',
+    isVisible,
+}) => {
+    const rotate = useRotate();
+
+    if (!isVisible) {
+        return null;
+    }
+
     return (
-        <SpinnerContainer>
-            <SpinnerCircle />
-        </SpinnerContainer>
+        <Animated.View style={{ transform: [{ rotate }] }}>
+            <SpinnerContainer size={size}>
+                <Svg viewBox="0 0 50 50" height="100%" width="100%">
+                    <Circle
+                        stroke={variants[variant] || variants.brand}
+                        cx="25"
+                        cy="25"
+                        r="20"
+                        fill="none"
+                        strokeWidth="2"
+                        strokeDasharray="90 150"
+                        strokeDashoffset={0}
+                    />
+                </Svg>
+            </SpinnerContainer>
+        </Animated.View>
     );
 };
 
