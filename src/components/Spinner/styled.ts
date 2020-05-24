@@ -19,7 +19,6 @@ export const variants = {
 };
 
 export const SpinnerContainer = styled.View<ISpinner>`
-    width: ${props => sizes[props.size] || sizes.medium}px
-    height: ${props => sizes[props.size] || sizes.medium}px
-    
+    width: ${props => sizes[props.size] || sizes.medium}px;
+    height: ${props => sizes[props.size] || sizes.medium}px;
 `;
