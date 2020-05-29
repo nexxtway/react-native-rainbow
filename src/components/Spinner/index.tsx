@@ -23,29 +23,30 @@ const Spinner: React.FC<Props> = ({
     isVisible,
 }) => {
     const rotate = useRotate();
+    const style = { transform: [{ rotate }] };
+    const stroke = variants[variant] || variants.brand;
 
-    if (!isVisible) {
-        return null;
+    if (isVisible) {
+        return (
+            <Animated.View style={style}>
+                <SpinnerContainer size={size}>
+                    <Svg viewBox="0 0 50 50" height="100%" width="100%">
+                        <Circle
+                            stroke={stroke}
+                            cx="25"
+                            cy="25"
+                            r="20"
+                            fill="none"
+                            strokeWidth="2"
+                            strokeDasharray="90 150"
+                            strokeDashoffset={0}
+                        />
+                    </Svg>
+                </SpinnerContainer>
+            </Animated.View>
+        );
     }
-
-    return (
-        <Animated.View style={{ transform: [{ rotate }] }}>
-            <SpinnerContainer size={size}>
-                <Svg viewBox="0 0 50 50" height="100%" width="100%">
-                    <Circle
-                        stroke={variants[variant] || variants.brand}
-                        cx="25"
-                        cy="25"
-                        r="20"
-                        fill="none"
-                        strokeWidth="2"
-                        strokeDasharray="90 150"
-                        strokeDashoffset={0}
-                    />
-                </Svg>
-            </SpinnerContainer>
-        </Animated.View>
-    );
+    return null;
 };
 
 Spinner.propTypes = {
