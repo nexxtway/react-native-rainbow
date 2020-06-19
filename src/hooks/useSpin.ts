@@ -1,7 +1,9 @@
 import { Animated, Easing } from 'react-native';
 import { useRef, useCallback, useEffect } from 'react';
 
-const useRotate = (startDelay: number = 500) => {
+const { PI } = Math;
+
+const useSpin = (startDelay: number = 500) => {
     const rotate = useRef(new Animated.Value(0)).current;
 
     const spin = useCallback(() => {
@@ -9,7 +11,13 @@ const useRotate = (startDelay: number = 500) => {
             Animated.sequence([
                 Animated.timing(rotate, {
                     toValue: 1,
-                    duration: 2000,
+                    duration: 1300,
+                    easing: Easing.linear,
+                    useNativeDriver: false,
+                }),
+                Animated.timing(rotate, {
+                    toValue: 2,
+                    duration: 1300,
                     easing: Easing.linear,
                     useNativeDriver: false,
                 }),
@@ -24,9 +32,9 @@ const useRotate = (startDelay: number = 500) => {
     }, [spin, startDelay]);
 
     return rotate.interpolate({
-        inputRange: [0, 1],
-        outputRange: ['0deg', '360deg'],
+        inputRange: [0, 1, 2],
+        outputRange: [125, PI * 2, -120],
     });
 };
 
-export default useRotate;
+export default useSpin;

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'react-native';
-import Svg, { Circle } from 'react-native-svg';
+import Svg from 'react-native-svg';
 
 import { SpinnerSize, SpinnerVariant } from './types';
 import { SpinnerContainer, variants } from './styled';
 import useRotate from '../../hooks/useRotate';
+import AnimatedCircle from './AnimatedCircle';
 
 interface Props {
     isVisible?: boolean;
@@ -31,16 +32,7 @@ const Spinner: React.FC<Props> = ({
             <Animated.View style={style}>
                 <SpinnerContainer size={size}>
                     <Svg viewBox="0 0 50 50" height="100%" width="100%">
-                        <Circle
-                            stroke={stroke}
-                            cx="25"
-                            cy="25"
-                            r="20"
-                            fill="none"
-                            strokeWidth="2"
-                            strokeDasharray="90 150"
-                            strokeDashoffset={0}
-                        />
+                        <AnimatedCircle stroke={stroke} />
                     </Svg>
                 </SpinnerContainer>
             </Animated.View>
