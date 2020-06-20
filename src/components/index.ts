@@ -12,4 +12,5 @@ export { default as Modal } from './Modal';
 export { default as SegmentedControl } from './SegmentedControl';
 export { default as ProgressBar } from './ProgressBar';
 export { default as ProgressCircular } from './ProgressCircular';
+export { default as BadgeOverlay } from './BadgeOverlay';
 export { default as Switch } from './Switch';
