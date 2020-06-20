@@ -6,6 +6,7 @@ import {
     StyledSegmentedControlContainer,
     StyledSegmentedControlLabel,
     StyledSegmentedControlOptionsWrapper,
+    StyledBg,
 } from './styled';
 import { OptionProps } from './types';
 import Option from './option';
@@ -37,6 +38,7 @@ const SegmentedControl: React.FC<Props> = ({
     const hasLabel = !!label;
 
     const isOptionActive = (option: OptionProps) => option.value === value;
+
     return (
         <StyledSegmentedControlContainer
             isFullWidth={isFullWidth}
@@ -48,16 +50,29 @@ const SegmentedControl: React.FC<Props> = ({
                 </StyledSegmentedControlLabel>
             </RenderIf>
             <StyledSegmentedControlOptionsWrapper disabled={disabled}>
-                {options.map((option, index) => (
-                    <Option
-                        key={`option-${index}`}
-                        option={option}
-                        onPress={onChange}
-                        disabled={disabled}
-                        isActive={!!isOptionActive(option)}
-                        variant={variant}
-                    />
-                ))}
+                {options.map((option, index) => {
+                    return (
+                        <>
+                            <Option
+                                key={`option-${index}`}
+                                option={option}
+                                onPress={onChange}
+                                disabled={disabled}
+                                isActive={!!isOptionActive(option)}
+                                variant={variant}
+                            />
+                            <RenderIf isTrue={!!isOptionActive(option)}>
+                                <StyledBg
+                                    variant={variant}
+                                    disabled={disabled}
+                                    isActive={!!isOptionActive}
+                                    optionsLength={options.length || 0}
+                                    activeIndex={index}
+                                />
+                            </RenderIf>
+                        </>
+                    );
+                })}
             </StyledSegmentedControlOptionsWrapper>
         </StyledSegmentedControlContainer>
     );
