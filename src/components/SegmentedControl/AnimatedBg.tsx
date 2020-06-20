@@ -36,7 +36,7 @@ const AnimatedBg: React.FC<Props> = ({
             easing: Easing.ease,
             duration: 250,
         }).start();
-    }, [activeIndex]);
+    }, [activeIndex, positionAnimationValue]);
 
     const interpolate = positionAnimationValue.interpolate({
         inputRange: inputRange,

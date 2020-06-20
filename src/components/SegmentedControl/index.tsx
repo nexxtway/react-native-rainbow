@@ -36,7 +36,10 @@ const SegmentedControl: React.FC<Props> = ({
     disabled,
     isFullWidth,
 }: Props) => {
-    const [activeIndex, setaAtiveIndex] = useState(0);
+    const [activeIndex, setaAtiveIndex] = useState(() => {
+        const index = options.findIndex(option => option.value === value);
+        return index > 0 ? index : 0;
+    });
     const hasLabel = !!label;
     const isOptionActive = (option: OptionProps) => option.value === value;
 
