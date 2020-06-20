@@ -9,10 +9,9 @@ interface Props {
 
 const AnimatedElement = Animated.createAnimatedComponent(Circle);
 const { PI } = Math;
-const r = 20;
 
 const AnimatedCircle: React.FC<Props> = ({ stroke }) => {
-    const circumference = r * 2 * PI;
+    const circumference = 20 * 2 * PI;
     const spin = useSpin();
 
     return (
