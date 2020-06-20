@@ -77,10 +77,6 @@ export const StyledOptionText = styled.Text<Props>`
 
 export const StyledBg = styled.View<Props>`
     position: absolute;
-    left: ${props =>
-        props.optionsLength &&
-        props.activeIndex &&
-        ` ${props.activeIndex * (100 / props.optionsLength)}% `};
     top: 0;
     height: 100%;
     ${props => props.optionsLength && ` width: ${100 / props.optionsLength}% `};

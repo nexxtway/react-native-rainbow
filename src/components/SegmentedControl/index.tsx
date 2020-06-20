@@ -1,15 +1,16 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import PropTypes from 'prop-types';
+
 import RenderIf from '../RenderIf';
 import { BaseProps } from '../types';
 import {
     StyledSegmentedControlContainer,
     StyledSegmentedControlLabel,
     StyledSegmentedControlOptionsWrapper,
-    StyledBg,
 } from './styled';
 import { OptionProps } from './types';
 import Option from './option';
+import AnimatedBg from './AnimatedBg';
 
 interface Props extends BaseProps {
     label?: ReactNode;
@@ -34,9 +35,9 @@ const SegmentedControl: React.FC<Props> = ({
     onChange = () => {},
     disabled,
     isFullWidth,
-}: Props): JSX.Element => {
+}: Props) => {
+    const [activeIndex, setaAtiveIndex] = useState(0);
     const hasLabel = !!label;
-
     const isOptionActive = (option: OptionProps) => option.value === value;
 
     return (
@@ -52,27 +53,26 @@ const SegmentedControl: React.FC<Props> = ({
             <StyledSegmentedControlOptionsWrapper disabled={disabled}>
                 {options.map((option, index) => {
                     return (
-                        <>
-                            <Option
-                                key={`option-${index}`}
-                                option={option}
-                                onPress={onChange}
-                                disabled={disabled}
-                                isActive={!!isOptionActive(option)}
-                                variant={variant}
-                            />
-                            <RenderIf isTrue={!!isOptionActive(option)}>
-                                <StyledBg
-                                    variant={variant}
-                                    disabled={disabled}
-                                    isActive={!!isOptionActive}
-                                    optionsLength={options.length || 0}
-                                    activeIndex={index}
-                                />
-                            </RenderIf>
-                        </>
+                        <Option
+                            key={`option-${index}`}
+                            option={option}
+                            onPress={evt => {
+                                setaAtiveIndex(index);
+                                onChange(evt);
+                            }}
+                            disabled={disabled}
+                            isActive={!!isOptionActive(option)}
+                            variant={variant}
+                        />
                     );
                 })}
+                <AnimatedBg
+                    variant={variant}
+                    disabled={!!disabled}
+                    isActive={!!isOptionActive}
+                    optionsLength={options.length || 0}
+                    activeIndex={activeIndex}
+                />
             </StyledSegmentedControlOptionsWrapper>
         </StyledSegmentedControlContainer>
     );
