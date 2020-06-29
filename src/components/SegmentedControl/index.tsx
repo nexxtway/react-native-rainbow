@@ -10,7 +10,7 @@ import {
 } from './styled';
 import { OptionProps } from './types';
 import Option from './option';
-import OptionActiveBackground from './OptionActiveBackground';
+import OptionActiveBackground from './optionActiveBackground';
 
 interface Props extends BaseProps {
     label?: ReactNode;
