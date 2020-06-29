@@ -36,3 +36,5 @@ export const COLOR_YELLOW_1 = '#fc0';
 
 // purple colors
 export const COLOR_PURPLE = '#663398';
+
+export const COLOR_NEUTRAL = '#a4a7b5';
