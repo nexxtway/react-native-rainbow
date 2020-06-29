@@ -55,7 +55,7 @@ const SegmentedControl: React.FC<Props> = ({
             </RenderIf>
             <StyledSegmentedControlOptionsWrapper disabled={disabled}>
                 {options.map((option, index) => {
-                    const isActive = !!isOptionActive(option);
+                    const isActive = isOptionActive(option);
                     return (
                         <Option
                             key={`option-${index}`}
@@ -73,7 +73,7 @@ const SegmentedControl: React.FC<Props> = ({
                 <OptionActiveBackground
                     variant={variant}
                     disabled={!!disabled}
-                    isActive={!!isOptionActive}
+                    isActive={isOptionActive}
                     optionsLength={options.length || 0}
                     activeIndex={activeIndex}
                 />
