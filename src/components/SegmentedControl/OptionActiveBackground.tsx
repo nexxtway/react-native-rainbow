@@ -12,7 +12,7 @@ interface Props {
 }
 const AnimatedElement = Animated.createAnimatedComponent(StyledBg);
 
-const AnimatedBg: React.FC<Props> = ({
+const OptionActiveBackground: React.FC<Props> = ({
     variant,
     disabled,
     isActive,
@@ -59,4 +59,4 @@ const AnimatedBg: React.FC<Props> = ({
     );
 };
 
-export default AnimatedBg;
+export default OptionActiveBackground;
