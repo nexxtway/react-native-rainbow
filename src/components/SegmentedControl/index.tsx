@@ -10,7 +10,7 @@ import {
 } from './styled';
 import { OptionProps } from './types';
 import Option from './option';
-import OptionActiveBackground from './OptionActiveBackground';
+import OptionActive from './optionActive';
 
 interface Props extends BaseProps {
     label?: ReactNode;
@@ -70,7 +70,7 @@ const SegmentedControl: React.FC<Props> = ({
                         />
                     );
                 })}
-                <OptionActiveBackground
+                <OptionActive
                     variant={variant}
                     disabled={!!disabled}
                     isActive={!!isOptionActive}
