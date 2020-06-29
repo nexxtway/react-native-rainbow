@@ -73,7 +73,7 @@ const SegmentedControl: React.FC<Props> = ({
                 <OptionActiveBackground
                     variant={variant}
                     disabled={!!disabled}
-                    isActive={isOptionActive}
+                    isActive={!!isOptionActive}
                     optionsLength={options.length || 0}
                     activeIndex={activeIndex}
                 />
