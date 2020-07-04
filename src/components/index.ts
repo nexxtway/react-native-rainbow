@@ -9,6 +9,7 @@ export { default as InputCode } from './InputCode';
 export { default as InputPhone } from './InputPhone';
 export { default as LikeButton } from './LikeButton';
 export { default as Modal } from './Modal';
+export { default as SegmentedControl } from './SegmentedControl';
 export { default as ProgressBar } from './ProgressBar';
 export { default as ProgressCircular } from './ProgressCircular';
 export { default as BadgeOverlay } from './BadgeOverlay';
