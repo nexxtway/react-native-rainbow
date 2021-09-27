@@ -78,7 +78,7 @@
         "metro-react-native-babel-preset": "^0.56.0",
         "pretty-quick": "^2.0.1",
         "react-dom": "16.9.0",
-        "react-native": "^0.61.5",
+        "react-native": "^0.62.3",
         "react-test-renderer": "16.9.0",
         "stylelint": "^11.1.1",
         "stylelint-config-react-native-styled-components": "^0.2.0",
@@ -87,7 +87,7 @@
         "typescript": "^3.7.2"
     },
     "peerDependencies": {
-        "react-native": "^0.61.5"
+        "react-native": "^0.62.3"
     },
     "husky": {
         "hooks": {
