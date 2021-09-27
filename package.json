@@ -1,6 +1,6 @@
 {
     "name": "react-native-rainbow",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "React Native Rainbow Components",
     "keywords": [
         "react",
@@ -87,7 +87,7 @@
         "typescript": "^3.7.2"
     },
     "peerDependencies": {
-        "react-native": "^0.61.5"
+        "react-native": ">=0.61.5"
     },
     "husky": {
         "hooks": {
