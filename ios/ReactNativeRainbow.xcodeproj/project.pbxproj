@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* ReactNativeRainbowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeRainbowTests.m */; };
+		0F1E1FEDF2BB7D76DF345608 /* libPods-ReactNativeRainbow-ReactNativeRainbowTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B5B5B6508E16684EF47C0B /* libPods-ReactNativeRainbow-ReactNativeRainbowTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -17,10 +17,8 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* ReactNativeRainbowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeRainbowTests.m */; };
 		3CD0B92DA3C01A5BF4F39D0C /* libPods-ReactNativeRainbow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFA47D99A79B6BE4BE13C8E /* libPods-ReactNativeRainbow.a */; };
+		B307CD032703BAAE00517986 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B307CD022703BAAE00517986 /* LaunchScreen.storyboard */; };
 		B3AE3B9F2392D4BA008B8447 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AE3B9E2392D4BA008B8447 /* libRNSVG.a */; };
-		D704F24F681F4BA963722535 /* libPods-ReactNativeRainbowTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D82B5F4C2182A686CF1D3CFF /* libPods-ReactNativeRainbowTests.a */; };
-		DFD04F6F71B39DF0FF53CB85 /* libPods-ReactNativeRainbow-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3A4ACD2A83366E9758745D /* libPods-ReactNativeRainbow-tvOSTests.a */; };
-		F8D0247053DE59B5DF0258A2 /* libPods-ReactNativeRainbow-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53FFCBCCF93B19FAC91C7F /* libPods-ReactNativeRainbow-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,26 +47,22 @@
 		13B07F961A680F5B00A75B9A /* ReactNativeRainbow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeRainbow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ReactNativeRainbow/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ReactNativeRainbow/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeRainbow/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ReactNativeRainbow/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactNativeRainbow/main.m; sourceTree = "<group>"; };
+		19544BB3EEA2EDEA0285C326 /* Pods-ReactNativeRainbow-ReactNativeRainbowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeRainbow-ReactNativeRainbowTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeRainbow-ReactNativeRainbowTests/Pods-ReactNativeRainbow-ReactNativeRainbowTests.release.xcconfig"; sourceTree = "<group>"; };
+		2CAFF1498E3685A9C1F8F01E /* Pods-ReactNativeRainbow-ReactNativeRainbowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeRainbow-ReactNativeRainbowTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeRainbow-ReactNativeRainbowTests/Pods-ReactNativeRainbow-ReactNativeRainbowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* ReactNativeRainbow-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReactNativeRainbow-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* ReactNativeRainbow-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReactNativeRainbow-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D53FFCBCCF93B19FAC91C7F /* libPods-ReactNativeRainbow-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeRainbow-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CFA47D99A79B6BE4BE13C8E /* libPods-ReactNativeRainbow.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeRainbow.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9617FF4DCD9D28C25CBCB1E5 /* Pods-ReactNativeRainbow-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeRainbow-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeRainbow-tvOSTests/Pods-ReactNativeRainbow-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		A12C850A9CABA350AA373B03 /* Pods-ReactNativeRainbow-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeRainbow-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeRainbow-tvOS/Pods-ReactNativeRainbow-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		A4B51DA674C34F285D4AE3D8 /* Pods-ReactNativeRainbow-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeRainbow-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeRainbow-tvOSTests/Pods-ReactNativeRainbow-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B097A755285AC275E3E2FF79 /* Pods-ReactNativeRainbow-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeRainbow-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeRainbow-tvOS/Pods-ReactNativeRainbow-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		B307CD022703BAAE00517986 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ReactNativeRainbow/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3AE3B9E2392D4BA008B8447 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNSVG.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5B5B5B6508E16684EF47C0B /* libPods-ReactNativeRainbow-ReactNativeRainbowTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeRainbow-ReactNativeRainbowTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3191AF89D18CCEBDAC50A13 /* Pods-ReactNativeRainbowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeRainbowTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeRainbowTests/Pods-ReactNativeRainbowTests.release.xcconfig"; sourceTree = "<group>"; };
 		C6140E128B005AEDE6CF5E83 /* Pods-ReactNativeRainbowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeRainbowTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeRainbowTests/Pods-ReactNativeRainbowTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D82B5F4C2182A686CF1D3CFF /* libPods-ReactNativeRainbowTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeRainbowTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1DF2A0F32C02BE4E329900 /* Pods-ReactNativeRainbow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeRainbow.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeRainbow/Pods-ReactNativeRainbow.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		FB3A4ACD2A83366E9758745D /* libPods-ReactNativeRainbow-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeRainbow-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D704F24F681F4BA963722535 /* libPods-ReactNativeRainbowTests.a in Frameworks */,
+				0F1E1FEDF2BB7D76DF345608 /* libPods-ReactNativeRainbow-ReactNativeRainbowTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8D0247053DE59B5DF0258A2 /* libPods-ReactNativeRainbow-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFD04F6F71B39DF0FF53CB85 /* libPods-ReactNativeRainbow-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +124,8 @@
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				B307CD022703BAAE00517986 /* LaunchScreen.storyboard */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = ReactNativeRainbow;
@@ -146,9 +138,7 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				5CFA47D99A79B6BE4BE13C8E /* libPods-ReactNativeRainbow.a */,
-				3D53FFCBCCF93B19FAC91C7F /* libPods-ReactNativeRainbow-tvOS.a */,
-				FB3A4ACD2A83366E9758745D /* libPods-ReactNativeRainbow-tvOSTests.a */,
-				D82B5F4C2182A686CF1D3CFF /* libPods-ReactNativeRainbowTests.a */,
+				B5B5B5B6508E16684EF47C0B /* libPods-ReactNativeRainbow-ReactNativeRainbowTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,12 +148,10 @@
 			children = (
 				EB1DF2A0F32C02BE4E329900 /* Pods-ReactNativeRainbow.debug.xcconfig */,
 				0AB2053794C45C982D6FFD15 /* Pods-ReactNativeRainbow.release.xcconfig */,
-				A12C850A9CABA350AA373B03 /* Pods-ReactNativeRainbow-tvOS.debug.xcconfig */,
-				B097A755285AC275E3E2FF79 /* Pods-ReactNativeRainbow-tvOS.release.xcconfig */,
-				A4B51DA674C34F285D4AE3D8 /* Pods-ReactNativeRainbow-tvOSTests.debug.xcconfig */,
-				9617FF4DCD9D28C25CBCB1E5 /* Pods-ReactNativeRainbow-tvOSTests.release.xcconfig */,
 				C6140E128B005AEDE6CF5E83 /* Pods-ReactNativeRainbowTests.debug.xcconfig */,
 				C3191AF89D18CCEBDAC50A13 /* Pods-ReactNativeRainbowTests.release.xcconfig */,
+				2CAFF1498E3685A9C1F8F01E /* Pods-ReactNativeRainbow-ReactNativeRainbowTests.debug.xcconfig */,
+				19544BB3EEA2EDEA0285C326 /* Pods-ReactNativeRainbow-ReactNativeRainbowTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -212,6 +200,8 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				23BB80EEE6F5EEB2EEAA5F2B /* [CP] Embed Pods Frameworks */,
+				DB1EFB61DF64B3FC83A7C412 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +223,8 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				D5B1C1BD91D683EF50F16E62 /* [CP] Embed Pods Frameworks */,
+				DD8B7B87364BC5080BF7799E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,7 +239,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ReactNativeRainbow-tvOS" */;
 			buildPhases = (
-				FFB7A9658D10EF058CA400F4 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -267,7 +258,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ReactNativeRainbow-tvOSTests" */;
 			buildPhases = (
-				009B2C781D28D4603F78D235 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -343,7 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				B307CD032703BAAE00517986 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,28 +355,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		009B2C781D28D4603F78D235 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReactNativeRainbow-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,7 +384,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReactNativeRainbowTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeRainbow-ReactNativeRainbowTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -445,6 +413,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		23BB80EEE6F5EEB2EEAA5F2B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeRainbow-ReactNativeRainbowTests/Pods-ReactNativeRainbow-ReactNativeRainbowTests-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL-Universal/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeRainbow-ReactNativeRainbowTests/Pods-ReactNativeRainbow-ReactNativeRainbowTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,6 +444,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		D5B1C1BD91D683EF50F16E62 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeRainbow/Pods-ReactNativeRainbow-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL-Universal/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeRainbow/Pods-ReactNativeRainbow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB1EFB61DF64B3FC83A7C412 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeRainbow-ReactNativeRainbowTests/Pods-ReactNativeRainbow-ReactNativeRainbowTests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeRainbow-ReactNativeRainbowTests/Pods-ReactNativeRainbow-ReactNativeRainbowTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD8B7B87364BC5080BF7799E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeRainbow/Pods-ReactNativeRainbow-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeRainbow/Pods-ReactNativeRainbow-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -495,28 +535,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FFB7A9658D10EF058CA400F4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReactNativeRainbow-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -571,22 +589,10 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13B07FB21A68108700A75B9A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = ReactNativeRainbow;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6140E128B005AEDE6CF5E83 /* Pods-ReactNativeRainbowTests.debug.xcconfig */;
+			baseConfigurationReference = 2CAFF1498E3685A9C1F8F01E /* Pods-ReactNativeRainbow-ReactNativeRainbowTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -609,7 +615,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3191AF89D18CCEBDAC50A13 /* Pods-ReactNativeRainbowTests.release.xcconfig */;
+			baseConfigurationReference = 19544BB3EEA2EDEA0285C326 /* Pods-ReactNativeRainbow-ReactNativeRainbowTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -639,7 +645,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ReactNativeRainbow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -661,7 +667,7 @@
 				DEVELOPMENT_TEAM = 56S4ULA5F2;
 				INFOPLIST_FILE = ReactNativeRainbow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -675,7 +681,6 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A12C850A9CABA350AA373B03 /* Pods-ReactNativeRainbow-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -703,7 +708,6 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B097A755285AC275E3E2FF79 /* Pods-ReactNativeRainbow-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -731,7 +735,6 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4B51DA674C34F285D4AE3D8 /* Pods-ReactNativeRainbow-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -758,7 +761,6 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9617FF4DCD9D28C25CBCB1E5 /* Pods-ReactNativeRainbow-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -815,6 +817,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 ";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -869,6 +872,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 ";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
