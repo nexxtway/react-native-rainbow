@@ -68,7 +68,7 @@ Button.propTypes = {
         'destructive',
         'success',
     ]),
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 Button.defaultProps = {
