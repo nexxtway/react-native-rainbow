@@ -15,9 +15,11 @@ export interface Props extends BaseProps {
     disabled?: boolean;
     error?: ReactNode;
     keyboardType?: KeyboardTypeOptions;
+    autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
     autoFocus?: boolean;
     icon?: ReactNode;
     iconPosition?: IconPosition;
+    secureTextEntry?: boolean;
 }
 
 const Input: React.FC<Props> = props => {
@@ -33,6 +35,8 @@ const Input: React.FC<Props> = props => {
         style,
         icon,
         iconPosition,
+        autoCapitalize,
+        secureTextEntry,
     } = props;
     const isEnabled = !disabled;
 
@@ -59,6 +63,8 @@ const Input: React.FC<Props> = props => {
                     autoFocus={autoFocus}
                     hasIcon={!!icon}
                     iconPosition={iconPosition}
+                    autoCapitalize={autoCapitalize}
+                    secureTextEntry={secureTextEntry}
                 />
                 <RenderIf isTrue={!!icon}>
                     <Icon iconPosition={iconPosition}>{icon}</Icon>
@@ -93,10 +99,12 @@ Input.propTypes = {
         'web-search',
         'visible-password',
     ]),
+    autoCapitalize: PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
     autoFocus: PropTypes.bool,
     style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     icon: PropTypes.node,
     iconPosition: PropTypes.oneOf(['left', 'right']),
+    secureTextEntry: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -107,10 +115,12 @@ Input.defaultProps = {
     disabled: false,
     error: undefined,
     keyboardType: 'default',
+    autoCapitalize: undefined,
     autoFocus: false,
     style: undefined,
     icon: null,
     iconPosition: 'left',
+    secureTextEntry: false,
 };
 
 export default withReduxForm(Input);
