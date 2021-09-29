@@ -15,11 +15,6 @@ export type ButtonVariant =
 export type ButtonIconVariant = 'base' | 'neutral' | 'brand' | 'success';
 export type IconPosition = 'left' | 'right';
 
-export type ButtonIconSize =
-    | 'xx-small'
-    | 'x-small'
-    | 'small'
-    | 'medium'
-    | 'large';
+export type ButtonIconSize = 'xx-small' | 'x-small' | 'small' | 'medium' | 'large';
 
 export type BadgeVariant = 'default' | 'lightest' | 'outline-brand' | 'brand';

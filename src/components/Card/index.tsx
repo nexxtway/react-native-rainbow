@@ -37,7 +37,7 @@ Card.propTypes = {
     footer: PropTypes.node,
     isLoading: PropTypes.bool,
     children: PropTypes.node,
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 Card.defaultProps = {

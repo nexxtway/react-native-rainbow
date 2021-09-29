@@ -22,8 +22,6 @@ export default function withReduxForm(
             return error;
         };
 
-        return (
-            <WrappedComponent {...rest} {...input} error={getErrorMessage()} />
-        );
+        return <WrappedComponent {...rest} {...input} error={getErrorMessage()} />;
     };
 }

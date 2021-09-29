@@ -1,19 +1,15 @@
 import 'react-native';
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import InputCode from '../../index';
+import InputCode from '../../';
 import handlePasteCode from '../getCodeFromClipboard';
 
 describe('<InputCode/>', () => {
     const numberOfDigits = 6;
     it('should create an input Code by the number of digits provided', () => {
-        const testRenderer = TestRenderer.create(
-            <InputCode digits={numberOfDigits} />,
-        );
+        const testRenderer = TestRenderer.create(<InputCode digits={numberOfDigits} />);
         const testInstance = testRenderer.root;
-        expect(testInstance.findAllByType('TextInput').length).toEqual(
-            numberOfDigits,
-        );
+        expect(testInstance.findAllByType('TextInput').length).toEqual(numberOfDigits);
     });
 
     const match = '131016';

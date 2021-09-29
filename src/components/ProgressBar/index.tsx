@@ -23,19 +23,8 @@ function getNormalizedValue(value: number, max: number, min: number) {
  * ProgressBar component communicates to the user the progress of a particular process.
  */
 const ProgressBar: React.FC<Props> = props => {
-    const {
-        style,
-        variant,
-        shape = 'linear',
-        value = 0,
-        min = 0,
-        max = 100,
-    } = props;
-    const normalizedValue = useMemo(() => getNormalizedValue(value, max, min), [
-        max,
-        min,
-        value,
-    ]);
+    const { style, variant, shape = 'linear', value = 0, min = 0, max = 100 } = props;
+    const normalizedValue = useMemo(() => getNormalizedValue(value, max, min), [max, min, value]);
 
     if (shape === 'semicircular') {
         return (
@@ -60,7 +49,7 @@ ProgressBar.propTypes = {
     /** An object with custom style applied to the outer element.
      * default value is undefined
      */
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     /** Variant defines the colors of the progress it could be one of 'brand' | 'success' | 'warning' | 'error'
      * default value is brand
      */

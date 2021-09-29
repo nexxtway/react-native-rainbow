@@ -17,16 +17,7 @@ interface Props extends BaseProps {
 }
 
 const Button: React.FC<Props> = props => {
-    const {
-        onPress,
-        label,
-        disabled,
-        isLoading,
-        variant,
-        style,
-        icon,
-        iconPosition,
-    } = props;
+    const { onPress, label, disabled, isLoading, variant, style, icon, iconPosition } = props;
     const isDisabled = disabled || isLoading;
     const hasLeftIcon = !!(icon && iconPosition === 'left');
     const hasRightIcon = !!(icon && iconPosition === 'right');
@@ -68,7 +59,7 @@ Button.propTypes = {
         'destructive',
         'success',
     ]),
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 Button.defaultProps = {

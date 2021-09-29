@@ -1,11 +1,6 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components/native';
-import {
-    COLOR_GRAY_2,
-    COLOR_DARK_1,
-    COLOR_BRAND,
-    COLOR_ERROR,
-} from '../../../styles/colors';
+import { COLOR_GRAY_2, COLOR_DARK_1, COLOR_BRAND, COLOR_ERROR } from '../../../styles/colors';
 
 interface Props {
     isFocused?: boolean;

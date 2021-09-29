@@ -36,7 +36,7 @@ ProgressCircular.propTypes = {
     /** An object with custom style applied to the outer element.
      * default value is undefined
      */
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     /**Variant defines the colors of the progress circular it could be one of 'brand' | 'success' | 'warning' | 'error'
      * default value is brand
      */

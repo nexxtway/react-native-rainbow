@@ -16,9 +16,7 @@ const List: React.FC<Props> = props => {
     return (
         <FlatList
             data={data}
-            renderItem={({ item }) => (
-                <ListItem item={item} onPress={onSelect} />
-            )}
+            renderItem={({ item }) => <ListItem item={item} onPress={onSelect} />}
             keyExtractor={item => item.country}
             // TODO: make a separator styled component
             ItemSeparatorComponent={() => <Divider />}

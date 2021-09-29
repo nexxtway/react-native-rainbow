@@ -5,12 +5,8 @@ import Button from '../index';
 
 describe('<Button />', () => {
     it('should render the label passed', () => {
-        const testRenderer = TestRenderer.create(
-            <Button label="Button Label" />,
-        );
+        const testRenderer = TestRenderer.create(<Button label="Button Label" />);
         const testInstance = testRenderer.root;
-        expect(testInstance.findByType('Text').children).toEqual([
-            'Button Label',
-        ]);
+        expect(testInstance.findByType('Text').children).toEqual(['Button Label']);
     });
 });

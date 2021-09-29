@@ -33,7 +33,7 @@ Badge.propTypes = {
      * This value defaults to default. */
     variant: PropTypes.oneOf(['default', 'lightest', 'outline-brand', 'brand']),
     /** An object with custom style applied to the outer element. */
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 Badge.defaultProps = {

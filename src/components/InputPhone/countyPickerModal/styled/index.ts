@@ -1,12 +1,7 @@
 import styled from 'styled-components/native';
 import Input from '../../../Input';
 import Magnifying from '../../../Icons/magnifying';
-import {
-    COLOR_GRAY_2,
-    COLOR_DARK_1,
-    COLOR_GRAY_3,
-    COLOR_BRAND,
-} from '../../../../styles/colors';
+import { COLOR_GRAY_2, COLOR_DARK_1, COLOR_GRAY_3, COLOR_BRAND } from '../../../../styles/colors';
 
 export const InputSearch = styled(Input)`
     margin: 0 16px 16px 24px;

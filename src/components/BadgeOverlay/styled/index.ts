@@ -27,10 +27,8 @@ const positionsRectangle = {
 const positionsCircle = {
     'top-left': 'top:11;left:11;transform: scale(1) translate(-10px,-10px)',
     'top-right': 'top:11;right:11;transform: scale(1) translate(10px,-10px)',
-    'bottom-left':
-        'bottom:11;left:11;transform: scale(1) translate(-10px,10px)',
-    'bottom-right':
-        'bottom:11;right:11;transform: scale(1) translate(10px,10px)',
+    'bottom-left': 'bottom:11;left:11;transform: scale(1) translate(-10px,10px)',
+    'bottom-right': 'bottom:11;right:11;transform: scale(1) translate(10px,10px)',
 };
 
 const positions = {
@@ -66,9 +64,7 @@ export const StyledBadge = styled.View<Props>`
     position: absolute;
     padding: 0 3px;
     background-color: ${props => variants[props.variant] || `${COLOR_ERROR}`};
-    ${props =>
-        positions[props.overlap][props.positionOverlay] ||
-        positions.circle['top-right']}
+    ${props => positions[props.overlap][props.positionOverlay] || positions.circle['top-right']}
     ${props => props.isHidden && 'transform: scale(0)'}
 `;
 

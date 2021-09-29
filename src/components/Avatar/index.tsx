@@ -30,10 +30,7 @@ const Avatar: React.FC<Props> = props => {
     return (
         <StyledAvatar size={size} style={style}>
             <RenderIf isTrue={isImage}>
-                <StyledImage
-                    source={{ uri: src }}
-                    onError={() => setIsImage(false)}
-                />
+                <StyledImage source={{ uri: src }} onError={() => setIsImage(false)} />
             </RenderIf>
             <RenderIf isTrue={isInitials}>
                 <StyledText size={size}>{initials}</StyledText>
@@ -58,7 +55,7 @@ Avatar.propTypes = {
      * This value defaults to medium. */
     size: PropTypes.oneOf(['large', 'medium', 'small', 'x-small']),
     /** An object with custom style applied to the outer element. */
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 Avatar.defaultProps = {

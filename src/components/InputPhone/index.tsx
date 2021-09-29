@@ -127,7 +127,7 @@ InputPhone.propTypes = {
     disabled: PropTypes.bool,
     error: PropTypes.node,
     autoFocus: PropTypes.bool,
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 InputPhone.defaultProps = {

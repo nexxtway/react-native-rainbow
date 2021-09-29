@@ -1,13 +1,5 @@
 import React from 'react';
-import Svg, {
-    Defs,
-    Path,
-    LinearGradient,
-    Stop,
-    G,
-    Mask,
-    Use,
-} from 'react-native-svg';
+import Svg, { Defs, Path, LinearGradient, Stop, G, Mask, Use } from 'react-native-svg';
 import { BaseProps } from '../types';
 
 const Sad: React.FC<BaseProps> = ({ style }) => {
@@ -22,13 +14,7 @@ const Sad: React.FC<BaseProps> = ({ style }) => {
                     d="M.124 9.03a3.575 3.575 0 107.15 0h.001C7.275 7.056 3.7.986 3.7.986S.124 7.056.124 9.03"
                     id="prefix__d"
                 />
-                <LinearGradient
-                    x1="49.999%"
-                    y1="-.422%"
-                    x2="49.999%"
-                    y2="99.57%"
-                    id="prefix__b"
-                >
+                <LinearGradient x1="49.999%" y1="-.422%" x2="49.999%" y2="99.57%" id="prefix__b">
                     <Stop stopColor="#502411" offset="0%" />
                     <Stop stopColor="#8C4B1A" offset="100%" />
                 </LinearGradient>

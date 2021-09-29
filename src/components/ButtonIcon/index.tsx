@@ -15,13 +15,7 @@ const ButtonIcon: React.FC<Props> = props => {
     const { onPress, icon, disabled, variant, size, style } = props;
 
     return (
-        <Button
-            onPress={onPress}
-            disabled={disabled}
-            variant={variant}
-            size={size}
-            style={style}
-        >
+        <Button onPress={onPress} disabled={disabled} variant={variant} size={size} style={style}>
             {icon}
         </Button>
     );
@@ -33,7 +27,7 @@ ButtonIcon.propTypes = {
     disabled: PropTypes.bool,
     variant: PropTypes.oneOf(['base', 'brand', 'success', 'neutral']),
     size: PropTypes.oneOf(['xx-small', 'x-small', 'small', 'medium', 'large']),
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 ButtonIcon.defaultProps = {

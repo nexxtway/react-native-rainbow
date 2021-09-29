@@ -44,14 +44,9 @@ const SegmentedControl: React.FC<Props> = ({
     const isOptionActive = (option: OptionProps) => option.value === value;
 
     return (
-        <StyledSegmentedControlContainer
-            isFullWidth={isFullWidth}
-            style={style}
-        >
+        <StyledSegmentedControlContainer isFullWidth={isFullWidth} style={style}>
             <RenderIf isTrue={hasLabel}>
-                <StyledSegmentedControlLabel>
-                    {label}
-                </StyledSegmentedControlLabel>
+                <StyledSegmentedControlLabel>{label}</StyledSegmentedControlLabel>
             </RenderIf>
             <StyledSegmentedControlOptionsWrapper disabled={disabled}>
                 {options.map((option, index) => {
@@ -86,7 +81,7 @@ SegmentedControl.propTypes = {
     /** An object with custom style applied to the outer element.
      * default value is undefined
      */
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     /** defined the label over the segmentedControl.
      * default value is undefined
      */

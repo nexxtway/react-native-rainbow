@@ -1,26 +1,12 @@
 import React from 'react';
-import Svg, {
-    Defs,
-    LinearGradient,
-    Stop,
-    Path,
-    G,
-    Mask,
-    Use,
-} from 'react-native-svg';
+import Svg, { Defs, LinearGradient, Stop, Path, G, Mask, Use } from 'react-native-svg';
 import { BaseProps } from '../types';
 
 const Wow: React.FC<BaseProps> = ({ style }) => {
     return (
         <Svg viewBox="0 0 35 35" fill="none" style={style}>
             <Defs>
-                <LinearGradient
-                    x1="49.996%"
-                    y1="-.429%"
-                    x2="49.996%"
-                    y2="99.577%"
-                    id="prefix__b"
-                >
+                <LinearGradient x1="49.996%" y1="-.429%" x2="49.996%" y2="99.577%" id="prefix__b">
                     <Stop stopColor="#502411" offset="0%" />
                     <Stop stopColor="#8C4B1A" offset="100%" />
                 </LinearGradient>
