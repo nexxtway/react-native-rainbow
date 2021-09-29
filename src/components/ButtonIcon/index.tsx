@@ -15,13 +15,7 @@ const ButtonIcon: React.FC<Props> = props => {
     const { onPress, icon, disabled, variant, size, style } = props;
 
     return (
-        <Button
-            onPress={onPress}
-            disabled={disabled}
-            variant={variant}
-            size={size}
-            style={style}
-        >
+        <Button onPress={onPress} disabled={disabled} variant={variant} size={size} style={style}>
             {icon}
         </Button>
     );

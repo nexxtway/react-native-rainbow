@@ -31,9 +31,7 @@ const CountryPickerModal: React.FC<Props> = props => {
     const { isOpen, onRequestClose, onSelect } = props;
 
     const [query, setQuery] = useState('');
-    const [filteredCountries, setFilteredCountries] = useState<CountryType[]>(
-        [],
-    );
+    const [filteredCountries, setFilteredCountries] = useState<CountryType[]>([]);
 
     useEffect(() => {
         // TODO: debounce filter

@@ -19,14 +19,7 @@ interface Props extends BaseProps {
 }
 
 const InputCode: React.FC<Props> = props => {
-    const {
-        digits = 6,
-        label,
-        onChange = () => {},
-        error,
-        autoFocus,
-        style,
-    } = props;
+    const { digits = 6, label, onChange = () => {}, error, autoFocus, style } = props;
 
     const [inputIndexFocused, setFocusInputIndex] = useState(-1);
     const [values, setValues] = useState<string[]>([]);

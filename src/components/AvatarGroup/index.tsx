@@ -55,7 +55,7 @@ AvatarGroup.propTypes = {
      * It is independent of the number of avatars displayed in the component. */
     showCounter: PropTypes.bool,
     /** An object with custom style applied to the outer element. */
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 AvatarGroup.defaultProps = {

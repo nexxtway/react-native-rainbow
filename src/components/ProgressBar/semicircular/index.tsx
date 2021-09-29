@@ -55,19 +55,7 @@ function getCirclePath(params: CirclePathParams) {
         angleInDegrees: startAngle,
     });
     const largeArcFlag = endAngle - startAngle <= 180 ? '0' : '1';
-    const d = [
-        'M',
-        start.x,
-        start.y,
-        'A',
-        radius,
-        radius,
-        0,
-        largeArcFlag,
-        0,
-        end.x,
-        end.y,
-    ];
+    const d = ['M', start.x, start.y, 'A', radius, radius, 0, largeArcFlag, 0, end.x, end.y];
     return d.join(' ');
 }
 

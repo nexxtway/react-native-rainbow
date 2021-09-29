@@ -55,8 +55,7 @@ export const StyledOption = styled.TouchableOpacity<Props>`
     z-index: 1;
     height: 42;
 
-    box-shadow: ${props =>
-        props.isActive ? '0px 0px 2px rgba(0,0,0, .2)' : 'none'};
+    box-shadow: ${props => (props.isActive ? '0px 0px 2px rgba(0,0,0, .2)' : 'none')};
 `;
 
 export const StyledOptionText = styled.Text<Props>`

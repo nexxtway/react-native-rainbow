@@ -1,10 +1,6 @@
 import styled from 'styled-components/native';
 import { IconPosition, ButtonVariant } from '../../types';
-import {
-    COLOR_WHITE,
-    COLOR_BRAND,
-    COLOR_GRAY_TRANSPARENT_3,
-} from '../../../styles/colors';
+import { COLOR_WHITE, COLOR_BRAND, COLOR_GRAY_TRANSPARENT_3 } from '../../../styles/colors';
 import { FONT_SIZE_HEADING_SMALL } from '../../../styles/fontSizes';
 
 interface Props {

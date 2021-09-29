@@ -1,10 +1,4 @@
-import {
-    COLOR_BRAND,
-    COLOR_ERROR,
-    COLOR_GRAY_3,
-    COLOR_GRAY_2,
-    COLOR_GRAY_1,
-} from './colors';
+import { COLOR_BRAND, COLOR_ERROR, COLOR_GRAY_3, COLOR_GRAY_2, COLOR_GRAY_1 } from './colors';
 
 export const SHADOW_OUTLINE = `0 0 1px ${COLOR_BRAND}`;
 export const SHADOW_OUTLINE_2 = `0 0 8px ${COLOR_BRAND}`;

@@ -15,11 +15,7 @@ const Header: React.FC<Props> = props => {
     return (
         <View>
             <Title>What’s your country?</Title>
-            <InputSearch
-                value={query}
-                onChange={onSearch}
-                icon={<MagnifyingIcon />}
-            />
+            <InputSearch value={query} onChange={onSearch} icon={<MagnifyingIcon />} />
         </View>
     );
 };

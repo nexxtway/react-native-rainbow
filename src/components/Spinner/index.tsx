@@ -18,11 +18,7 @@ interface Props {
  * Spinners should be shown when retrieving data or performing slow,
  * help to reassure the user that the system is actively retrieving data.
  */
-const Spinner: React.FC<Props> = ({
-    size = 'medium',
-    variant = 'brand',
-    isVisible,
-}) => {
+const Spinner: React.FC<Props> = ({ size = 'medium', variant = 'brand', isVisible }) => {
     const rotate = useRotate();
     const style = { transform: [{ rotate }] };
     const stroke = variants[variant] || variants.brand;

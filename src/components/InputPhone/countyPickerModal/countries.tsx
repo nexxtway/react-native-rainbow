@@ -27,9 +27,7 @@ export default [
         isoCode: 'dz',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/american-samoa.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/american-samoa.png')} />,
         countryCode: '+1',
         country: 'American Somoa',
         isoCode: 'as',
@@ -53,9 +51,7 @@ export default [
         isoCode: 'ai',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/antigua-and-barbuda.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/antigua-and-barbuda.png')} />,
         countryCode: '+1',
         country: 'Antigua and Barbuda',
         isoCode: 'ag',
@@ -79,9 +75,7 @@ export default [
         isoCode: 'aw',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/Ascension_Island.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/Ascension_Island.png')} />,
         countryCode: '+247',
         country: 'Ascension Island',
         isoCode: 'ac',
@@ -177,11 +171,7 @@ export default [
         isoCode: 'bq',
     },
     {
-        flagIcon: (
-            <Image
-                source={require('../flagImages/bosnia-and-herzegovina.png')}
-            />
-        ),
+        flagIcon: <Image source={require('../flagImages/bosnia-and-herzegovina.png')} />,
         countryCode: '+387',
         country: 'Bosnia and Herzegovina',
         isoCode: 'ba',
@@ -199,11 +189,7 @@ export default [
         isoCode: 'br',
     },
     {
-        flagIcon: (
-            <Image
-                source={require('../flagImages/british-virgin-islands.png')}
-            />
-        ),
+        flagIcon: <Image source={require('../flagImages/british-virgin-islands.png')} />,
         countryCode: '+1',
         country: 'British Virgin Islands',
         isoCode: 'vg',
@@ -257,19 +243,13 @@ export default [
         isoCode: 'cv',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/cayman-islands.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/cayman-islands.png')} />,
         countryCode: '+1',
         country: 'Cayman Islands',
         isoCode: 'ky',
     },
     {
-        flagIcon: (
-            <Image
-                source={require('../flagImages/central-african-republic.png')}
-            />
-        ),
+        flagIcon: <Image source={require('../flagImages/central-african-republic.png')} />,
         countryCode: '+236',
         country: 'Central African Republic',
         isoCode: 'cf',
@@ -293,9 +273,7 @@ export default [
         isoCode: 'cn',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/christmas-island.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/christmas-island.png')} />,
         countryCode: '+61',
         country: 'Christmas Island',
         isoCode: 'cx',
@@ -319,17 +297,13 @@ export default [
         isoCode: 'km',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/congo-brazzaville.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/congo-brazzaville.png')} />,
         countryCode: '+242',
         country: 'Congo - Brazzaville',
         isoCode: 'cg',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/congo-kinshasa.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/congo-kinshasa.png')} />,
         countryCode: '+243',
         country: 'Congo - Kinshasa',
         isoCode: 'cd',
@@ -377,9 +351,7 @@ export default [
         isoCode: 'cy',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/czech-republic.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/czech-republic.png')} />,
         countryCode: '+420',
         country: 'Czech Republic',
         isoCode: 'cz',
@@ -403,9 +375,7 @@ export default [
         isoCode: 'dm',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/dominican-republic.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/dominican-republic.png')} />,
         countryCode: '+1',
         country: 'Dominican Republic',
         isoCode: 'do',
@@ -429,9 +399,7 @@ export default [
         isoCode: 'sv',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/equatorial-guinea.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/equatorial-guinea.png')} />,
         countryCode: '+240',
         country: 'Equatorial Guinea',
         isoCode: 'gq',
@@ -455,9 +423,7 @@ export default [
         isoCode: 'et',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/falkland-islands.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/falkland-islands.png')} />,
         countryCode: '+500',
         country: 'Falkland Islands',
         isoCode: 'fk',
@@ -493,9 +459,7 @@ export default [
         isoCode: 'gf',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/french-polynesia.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/french-polynesia.png')} />,
         countryCode: '+689',
         country: 'French Polynesia',
         isoCode: 'pf',
@@ -609,9 +573,7 @@ export default [
         isoCode: 'hn',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/hong-kong-sar-china.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/hong-kong-sar-china.png')} />,
         countryCode: '+852',
         country: 'Hong Kong SAR China',
         isoCode: 'hk',
@@ -791,9 +753,7 @@ export default [
         isoCode: 'lu',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/macau-sar-china.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/macau-sar-china.png')} />,
         countryCode: '+853',
         country: 'Macau SAR China',
         isoCode: 'mo',
@@ -841,9 +801,7 @@ export default [
         isoCode: 'mt',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/marshall-island.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/marshall-island.png')} />,
         countryCode: '+692',
         country: 'Marshall Islands',
         isoCode: 'mh',
@@ -993,9 +951,7 @@ export default [
         isoCode: 'nu',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/norfolk-island.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/norfolk-island.png')} />,
         countryCode: '+672',
         country: 'Norfolk Island',
         isoCode: 'nf',
@@ -1007,11 +963,7 @@ export default [
         isoCode: 'kp',
     },
     {
-        flagIcon: (
-            <Image
-                source={require('../flagImages/northern-mariana-islands.png')}
-            />
-        ),
+        flagIcon: <Image source={require('../flagImages/northern-mariana-islands.png')} />,
         countryCode: '+1',
         country: 'Northern Mariana Islands',
         isoCode: 'mp',
@@ -1053,9 +1005,7 @@ export default [
         isoCode: 'pa',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/papua-new-guinea.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/papua-new-guinea.png')} />,
         countryCode: '+675',
         country: 'Papua New Guinea',
         isoCode: 'pg',
@@ -1127,9 +1077,7 @@ export default [
         isoCode: 'rw',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/Saint_Barthelemy.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/Saint_Barthelemy.png')} />,
         countryCode: '+590',
         country: 'Saint Barthélemy',
         isoCode: 'bl',
@@ -1141,11 +1089,7 @@ export default [
         isoCode: 'sh',
     },
     {
-        flagIcon: (
-            <Image
-                source={require('../flagImages/saint-kitts-and-nevis.png')}
-            />
-        ),
+        flagIcon: <Image source={require('../flagImages/saint-kitts-and-nevis.png')} />,
         countryCode: '+1',
         country: 'Saint Kitts and Nevis',
         isoCode: 'kn',
@@ -1163,21 +1107,13 @@ export default [
         isoCode: 'mf',
     },
     {
-        flagIcon: (
-            <Image
-                source={require('../flagImages/saint-pierre-and-miquelon.png')}
-            />
-        ),
+        flagIcon: <Image source={require('../flagImages/saint-pierre-and-miquelon.png')} />,
         countryCode: '+508',
         country: 'Saint Pierre and Miquelon',
         isoCode: 'pm',
     },
     {
-        flagIcon: (
-            <Image
-                source={require('../flagImages/saint-vincent-and-the-grenadines.png')}
-            />
-        ),
+        flagIcon: <Image source={require('../flagImages/saint-vincent-and-the-grenadines.png')} />,
         countryCode: '+1',
         country: 'Saint Vincent and the Grenadines',
         isoCode: 'vc',
@@ -1195,9 +1131,7 @@ export default [
         isoCode: 'sm',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/sao-tome-and-prince.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/sao-tome-and-prince.png')} />,
         countryCode: '+239',
         country: 'São Tomé and Príncipe',
         isoCode: 'st',
@@ -1257,9 +1191,7 @@ export default [
         isoCode: 'si',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/solomon-islands.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/solomon-islands.png')} />,
         countryCode: '+677',
         country: 'Solomon Islands',
         isoCode: 'sb',
@@ -1313,11 +1245,7 @@ export default [
         isoCode: 'sr',
     },
     {
-        flagIcon: (
-            <Image
-                source={require('../flagImages/Svalbard_and_Jan_Mayen.png')}
-            />
-        ),
+        flagIcon: <Image source={require('../flagImages/Svalbard_and_Jan_Mayen.png')} />,
         countryCode: '+47',
         country: 'Svalbard and Jan Mayen',
         isoCode: 'sj',
@@ -1395,9 +1323,7 @@ export default [
         isoCode: 'to',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/trinidad-and-tobago.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/trinidad-and-tobago.png')} />,
         countryCode: '+1',
         country: 'Trinidad and Tobago',
         isoCode: 'tt',
@@ -1421,9 +1347,7 @@ export default [
         isoCode: 'tm',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/turks-and-caicos.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/turks-and-caicos.png')} />,
         countryCode: '+1',
         country: 'Turks and Caicos Islands',
         isoCode: 'tc',
@@ -1435,9 +1359,7 @@ export default [
         isoCode: 'tv',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/us-virgin-islands.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/us-virgin-islands.png')} />,
         countryCode: '+1',
         country: 'U.S Virgin Islands',
         isoCode: 'vi',
@@ -1455,17 +1377,13 @@ export default [
         isoCode: 'ua',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/united-arab-emirates.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/united-arab-emirates.png')} />,
         countryCode: '+971',
         country: 'United Arab Emirates',
         isoCode: 'ae',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/united-kingdom.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/united-kingdom.png')} />,
         countryCode: '+44',
         country: 'United Kingdom',
         isoCode: 'gb',
@@ -1513,9 +1431,7 @@ export default [
         isoCode: 'vn',
     },
     {
-        flagIcon: (
-            <Image source={require('../flagImages/wallis-and-futuna.png')} />
-        ),
+        flagIcon: <Image source={require('../flagImages/wallis-and-futuna.png')} />,
         countryCode: '+681',
         country: 'Wallis and Futuna',
         isoCode: 'wf',

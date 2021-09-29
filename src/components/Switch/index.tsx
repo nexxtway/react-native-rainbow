@@ -17,12 +17,7 @@ interface Props extends BaseProps {
  * Switch toggle is a checkable input that communicates if an option is true or false
  */
 
-const SwitchComponent: React.FC<Props> = ({
-    label,
-    onChange,
-    disabled,
-    value,
-}) => {
+const SwitchComponent: React.FC<Props> = ({ label, onChange, disabled, value }) => {
     const trackColor = { false: COLOR_GRAY_2, true: COLOR_BRAND };
     return (
         <SwitchWrapper>

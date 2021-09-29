@@ -32,11 +32,7 @@ const Option: React.FC<Props> = ({
             disabled={disabled}
             onPress={handlePress}
         >
-            <StyledOptionText
-                variant={variant}
-                isActive={isActive}
-                disabled={disabled}
-            >
+            <StyledOptionText variant={variant} isActive={isActive} disabled={disabled}>
                 <RenderIf isTrue={hasIcon}>{option.icon} </RenderIf>
                 {option.label}
             </StyledOptionText>

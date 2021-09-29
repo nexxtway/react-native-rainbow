@@ -4,11 +4,7 @@ import PropTypes from 'prop-types';
 import getSuffixSI from '../../libs/utils/getSuffixSI';
 import { BaseProps } from '../types';
 import { positionOverlay, variantOverlay, overlapOverlay } from './types';
-import {
-    StyledOverlayContainer,
-    StyledBadge,
-    StyledBadgeOverlayText,
-} from './styled';
+import { StyledOverlayContainer, StyledBadge, StyledBadgeOverlayText } from './styled';
 import RenderIf from '../RenderIf';
 
 interface Props extends BaseProps {
@@ -44,9 +40,7 @@ const BadgeOverlay: React.FC<Props> = ({
                 isHidden={isHidden}
             >
                 <RenderIf isTrue={!!value}>
-                    <StyledBadgeOverlayText>
-                        {getSuffixSI(value)}
-                    </StyledBadgeOverlayText>
+                    <StyledBadgeOverlayText>{getSuffixSI(value)}</StyledBadgeOverlayText>
                 </RenderIf>
             </StyledBadge>
         </StyledOverlayContainer>
@@ -62,12 +56,7 @@ BadgeOverlay.propTypes = {
     overlap: PropTypes.oneOf(['rectangle', 'circle']),
 
     /** Describes the position of the badge respect to container. */
-    position: PropTypes.oneOf([
-        'top-left',
-        'top-right',
-        'bottom-left',
-        'bottom-right',
-    ]),
+    position: PropTypes.oneOf(['top-left', 'top-right', 'bottom-left', 'bottom-right']),
     /** The content rendered within the badge.
      * If the value is not passed a dot is rendered instead of the badge.
      */

@@ -44,14 +44,9 @@ const SegmentedControl: React.FC<Props> = ({
     const isOptionActive = (option: OptionProps) => option.value === value;
 
     return (
-        <StyledSegmentedControlContainer
-            isFullWidth={isFullWidth}
-            style={style}
-        >
+        <StyledSegmentedControlContainer isFullWidth={isFullWidth} style={style}>
             <RenderIf isTrue={hasLabel}>
-                <StyledSegmentedControlLabel>
-                    {label}
-                </StyledSegmentedControlLabel>
+                <StyledSegmentedControlLabel>{label}</StyledSegmentedControlLabel>
             </RenderIf>
             <StyledSegmentedControlOptionsWrapper disabled={disabled}>
                 {options.map((option, index) => {

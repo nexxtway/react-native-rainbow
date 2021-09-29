@@ -1,9 +1,5 @@
 import styled from 'styled-components/native';
-import {
-    COLOR_GRAY_2,
-    COLOR_GRAY_3,
-    COLOR_ERROR,
-} from '../../../styles/colors';
+import { COLOR_GRAY_2, COLOR_GRAY_3, COLOR_ERROR } from '../../../styles/colors';
 import { IconPosition } from '../../../components/types';
 
 export interface Props {
