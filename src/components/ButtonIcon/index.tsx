@@ -27,7 +27,7 @@ ButtonIcon.propTypes = {
     disabled: PropTypes.bool,
     variant: PropTypes.oneOf(['base', 'brand', 'success', 'neutral']),
     size: PropTypes.oneOf(['xx-small', 'x-small', 'small', 'medium', 'large']),
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 ButtonIcon.defaultProps = {

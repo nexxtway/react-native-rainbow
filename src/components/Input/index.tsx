@@ -94,7 +94,7 @@ Input.propTypes = {
         'visible-password',
     ]),
     autoFocus: PropTypes.bool,
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     icon: PropTypes.node,
     iconPosition: PropTypes.oneOf(['left', 'right']),
 };

@@ -43,7 +43,7 @@ Modal.propTypes = {
     onRequestClose: PropTypes.func,
     children: PropTypes.node,
     hideCloseButton: PropTypes.bool,
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 Modal.defaultProps = {

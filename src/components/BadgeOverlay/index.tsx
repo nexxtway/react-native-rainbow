@@ -64,7 +64,7 @@ BadgeOverlay.propTypes = {
     /** The variant changes the appearance of the badge. */
     variant: PropTypes.oneOf(['brand', 'success', 'error', 'warning']),
     /** An object with custom style applied to the outer element. */
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 BadgeOverlay.defaultProps = {

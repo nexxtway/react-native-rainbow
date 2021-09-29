@@ -81,7 +81,7 @@ SegmentedControl.propTypes = {
     /** An object with custom style applied to the outer element.
      * default value is undefined
      */
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     /** defined the label over the segmentedControl.
      * default value is undefined
      */

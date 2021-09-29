@@ -111,7 +111,7 @@ InputCode.propTypes = {
     onChange: PropTypes.func,
     error: PropTypes.node,
     autoFocus: PropTypes.bool,
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 InputCode.defaultProps = {
