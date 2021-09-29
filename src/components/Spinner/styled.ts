@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { COLOR_BRAND, COLOR_NEUTRAL } from '../../../src/styles/colors';
+import { COLOR_BRAND, COLOR_NEUTRAL } from '../../styles/colors';
 
 interface ISpinner {
     size: string;
