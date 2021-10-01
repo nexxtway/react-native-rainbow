@@ -46,6 +46,7 @@
         "prop-types": "^15.7.2",
         "react": "17.0.2",
         "react-native-modal": "^13.0.0",
+        "react-native-spinkit": "^1.5.1",
         "react-native-svg": "^12.1.1",
         "styled-components": "^5.3.1"
     },

@@ -1,7 +1,9 @@
 import 'react-native';
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Button from '../index';
+import Button from '../';
+
+jest.mock('react-native-spinkit', () => 'Spinner');
 
 describe('<Button />', () => {
     it('should render the label passed', () => {

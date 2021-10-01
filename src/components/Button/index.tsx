@@ -34,7 +34,7 @@ const Button: React.FC<Props> = props => {
             <RenderIf isTrue={hasLeftIcon}>
                 <StyledIcon iconPosition={iconPosition}>{icon}</StyledIcon>
             </RenderIf>
-            <ButtonContent variant={variant} disabled={isDisabled}>
+            <ButtonContent variant={variant} isLoading={isLoading} disabled={isDisabled}>
                 {label}
             </ButtonContent>
             <RenderIf isTrue={hasRightIcon}>
