@@ -51,6 +51,20 @@ export const Button = styled.TouchableOpacity<Props>`
             border: 1px solid transparent;
         `};
     ${props =>
+        props.disabled &&
+        props.variant === 'base' &&
+        `
+            background-color: transparent;
+            border: 1px solid transparent;
+        `};
+    ${props =>
+        props.disabled &&
+        props.variant === 'neutral' &&
+        `
+            background-color: transparent;
+            border: 1px solid transparent;
+        `};
+    ${props =>
         props.size === 'xx-small' &&
         `
             width: 20px;
