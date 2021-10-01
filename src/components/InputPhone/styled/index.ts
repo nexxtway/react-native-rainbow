@@ -10,13 +10,13 @@ export const InputContainer = styled.View`
 `;
 
 export const StyledInput = styled(Input)`
-    padding-left: 114;
+    padding-left: 114px;
 `;
 
 export const LeftElement = styled.View`
     flex-direction: row;
     position: absolute;
-    left: 8;
+    left: 8px;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -28,22 +28,22 @@ export const ButtonContent = styled.TouchableOpacity`
 `;
 
 export const ArrowDownIcon = styled(ArrowDown)`
-    width: 10;
-    height: 10;
-    margin-left: 6;
+    width: 10px;
+    height: 10px;
+    margin-left: 6px;
     color: ${COLOR_GRAY_2};
 `;
 
 export const Divider = styled.View`
     background-color: ${COLOR_GRAY_2};
-    width: 1;
+    width: 1px;
     height: 40%;
-    margin-left: 8;
+    margin-left: 8px;
 `;
 
 export const PrefixCode = styled.Text`
     color: ${COLOR_GRAY_3};
-    font-size: 16;
-    padding-left: 6;
+    font-size: 16px;
+    padding-left: 6px;
     font-style: italic;
 `;

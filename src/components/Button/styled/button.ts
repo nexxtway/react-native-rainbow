@@ -25,9 +25,8 @@ const StyledButton = styled.TouchableOpacity<Props>`
     border: 1px solid transparent;
     border-radius: 100px;
     text-decoration: none;
-    padding-vertical: 0;
-    padding-horizontal: 16;
-    height: 48;
+    padding: 0 16px;
+    height: 48px;
     position: relative;
 
     ${props =>
@@ -63,13 +62,13 @@ const StyledButton = styled.TouchableOpacity<Props>`
     ${props =>
         props.hasRightIcon &&
         `
-            padding-right: 44;
+            padding-right: 44px;
 
         `};
     ${props =>
         props.hasLeftIcon &&
         `
-            padding-left: 44;
+            padding-left: 44px;
 
         `};
     ${props =>

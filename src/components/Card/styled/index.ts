@@ -46,6 +46,5 @@ export const Footer = styled.View`
     border-style: solid;
     border-top-width: 1px;
     border-top-color: ${COLOR_GRAY_TRANSPARENT_2};
-    padding-vertical: ${PADDING_X_SMALL};
-    padding-horizontal: ${PADDING_X_SMALL};
+    padding: ${PADDING_X_SMALL} ${PADDING_X_SMALL};
 `;

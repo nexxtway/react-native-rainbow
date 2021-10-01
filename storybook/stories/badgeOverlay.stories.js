@@ -38,28 +38,16 @@ storiesOf('BadgeOverlay', module)
         return (
             <>
                 <RowView>
-                    <BadgeOverlay
-                        overlap="circle"
-                        position="top-left"
-                        value="1"
-                    >
+                    <BadgeOverlay overlap="circle" position="top-left" value="1">
                         <Bell style={iconStyles} />
                     </BadgeOverlay>
                     <BadgeOverlay overlap="circle" value="1">
                         <Bell style={iconStyles} />
                     </BadgeOverlay>
-                    <BadgeOverlay
-                        overlap="circle"
-                        position="bottom-left"
-                        value="1"
-                    >
+                    <BadgeOverlay overlap="circle" position="bottom-left" value="1">
                         <Bell style={iconStyles} />
                     </BadgeOverlay>
-                    <BadgeOverlay
-                        overlap="circle"
-                        position="bottom-right"
-                        value="1"
-                    >
+                    <BadgeOverlay overlap="circle" position="bottom-right" value="1">
                         <Bell style={iconStyles} />
                     </BadgeOverlay>
                 </RowView>
@@ -134,19 +122,13 @@ storiesOf('BadgeOverlay', module)
             const [isHidden, setIsHidden] = React.useState(false);
             return (
                 <ColView spaceTop={50}>
-                    {!isHidden && (
-                        <Text style={titleStyle}>Tap the avatar.</Text>
-                    )}
+                    {!isHidden && <Text style={titleStyle}>Tap the avatar.</Text>}
                     <TouchableOpacity
                         onPress={() => {
                             setIsOpen(!isOpen);
                         }}
                     >
-                        <BadgeOverlay
-                            isHidden={isHidden}
-                            value={3}
-                            overlap="circle"
-                        >
+                        <BadgeOverlay isHidden={isHidden} value={3} overlap="circle">
                             <Avatar size="large" src={PHOTO} />
                         </BadgeOverlay>
                     </TouchableOpacity>
@@ -160,15 +142,13 @@ storiesOf('BadgeOverlay', module)
                         }}
                     >
                         <Text style={styles}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore
-                            eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia
-                            deserunt mollit anim id est laborum.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                            mollit anim id est laborum.
                         </Text>
                     </Modal>
                     {isHidden && (

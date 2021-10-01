@@ -27,11 +27,7 @@ storiesOf('Button', module)
                 onPress={() => alert('button clicked')}
             />
             <Button style={styles} label="Button Neutral" variant="neutral" />
-            <Button
-                style={styles}
-                label="Button Outline Brand"
-                variant="outline-brand"
-            />
+            <Button style={styles} label="Button Outline Brand" variant="outline-brand" />
             <Button style={styles} label="Button Brand" variant="brand" />
             <Button
                 style={styles}
@@ -59,36 +55,11 @@ storiesOf('Button', module)
                 // eslint-disable-next-line no-alert
                 onPress={() => alert('button clicked')}
             />
-            <Button
-                disabled
-                style={styles}
-                label="Button Neutral"
-                variant="neutral"
-            />
-            <Button
-                disabled
-                style={styles}
-                label="Button Outline Brand"
-                variant="outline-brand"
-            />
-            <Button
-                disabled
-                style={styles}
-                label="Button Brand"
-                variant="brand"
-            />
-            <Button
-                disabled
-                style={styles}
-                label="Button Success"
-                variant="success"
-            />
-            <Button
-                disabled
-                style={styles}
-                label="Button Destructive"
-                variant="destructive"
-            />
+            <Button disabled style={styles} label="Button Neutral" variant="neutral" />
+            <Button disabled style={styles} label="Button Outline Brand" variant="outline-brand" />
+            <Button disabled style={styles} label="Button Brand" variant="brand" />
+            <Button disabled style={styles} label="Button Success" variant="success" />
+            <Button disabled style={styles} label="Button Destructive" variant="destructive" />
         </>
     ))
     .add('isLoading', () => (
@@ -101,35 +72,10 @@ storiesOf('Button', module)
                 // eslint-disable-next-line no-alert
                 onPress={() => alert('button clicked')}
             />
-            <Button
-                isLoading
-                style={styles}
-                label="Button Neutral"
-                variant="neutral"
-            />
-            <Button
-                isLoading
-                style={styles}
-                label="Button Outline Brand"
-                variant="outline-brand"
-            />
-            <Button
-                isLoading
-                style={styles}
-                label="Button Brand"
-                variant="brand"
-            />
-            <Button
-                isLoading
-                style={styles}
-                label="Button Success"
-                variant="success"
-            />
-            <Button
-                isLoading
-                style={styles}
-                label="Button Destructive"
-                variant="destructive"
-            />
+            <Button isLoading style={styles} label="Button Neutral" variant="neutral" />
+            <Button isLoading style={styles} label="Button Outline Brand" variant="outline-brand" />
+            <Button isLoading style={styles} label="Button Brand" variant="brand" />
+            <Button isLoading style={styles} label="Button Success" variant="success" />
+            <Button isLoading style={styles} label="Button Destructive" variant="destructive" />
         </>
     ));

@@ -14,15 +14,15 @@ export const StyledIcon = styled.View<Props>`
     ${props =>
         props.iconPosition === 'right' &&
         `
-            margin-left: 16;
-            right: 16;
+            margin-left: 16px;
+            right: 16px;
 
         `};
     ${props =>
         props.iconPosition === 'left' &&
         `
-            margin-right: 16;
-            left: 16;
+            margin-right: 16px;
+            left: 16px;
         `};
 `;
 

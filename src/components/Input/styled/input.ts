@@ -28,7 +28,7 @@ const Input = styled.TextInput<Props>`
     border-radius: ${BORDER_RADIUS_2};
     width: 100%;
     padding: 0 16px;
-    height: 48;
+    height: 48px;
     color: ${COLOR_DARK_1};
     font-size: ${FONT_SIZE_TEXT_LARGE};
 

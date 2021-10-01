@@ -37,7 +37,7 @@ const SwitchComponent: React.FC<Props> = ({ label, onChange, disabled, value }) 
 
 SwitchComponent.propTypes = {
     /** Text label for the Switch toggle. */
-    label: PropTypes.oneOf([PropTypes.string, PropTypes.element]),
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     /** The action triggered when a value attribute changes. */
     onChange: PropTypes.func,
     /** Specifies that the element should be disabled. This value defaults to false. */

@@ -58,7 +58,7 @@ interface ValueProps {
 }
 
 export const StyledValue = styled.Text<ValueProps>`
-    font-size: ${props => props.size / 4};
+    font-size: ${props => props.size / 4}px;
     font-weight: 600;
     text-align: center;
     color: #434464;
@@ -77,7 +77,7 @@ export const StyledIconContainer = styled.View`
 
 export const ValueContainer = styled.View`
     position: absolute;
-    top: 10;
+    top: 10px;
     width: 100%;
     height: 100%;
     justify-content: center;

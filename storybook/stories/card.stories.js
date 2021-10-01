@@ -40,26 +40,15 @@ storiesOf('Card', module)
                 style={styles}
                 // add icon here
                 title="Favorite"
-                actions={
-                    <ButtonIcon
-                        icon={<Heart style={iconStyles} />}
-                        size="xx-small"
-                    />
-                }
+                actions={<ButtonIcon icon={<Heart style={iconStyles} />} size="xx-small" />}
             />
             <Card style={styles} title="Contacts" isLoading />
             <Card
                 style={styles}
                 footer={
                     <View style={footerStyles}>
-                        <ButtonIcon
-                            icon={<Heart style={iconGrayStyles} />}
-                            size="x-small"
-                        />
-                        <ButtonIcon
-                            icon={<Share style={iconGrayStyles} />}
-                            size="x-small"
-                        />
+                        <ButtonIcon icon={<Heart style={iconGrayStyles} />} size="x-small" />
+                        <ButtonIcon icon={<Share style={iconGrayStyles} />} size="x-small" />
                     </View>
                 }
             >

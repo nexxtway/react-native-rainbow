@@ -14,7 +14,7 @@ const Close: React.FC<BaseProps> = ({ style }) => (
 );
 
 Close.propTypes = {
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 Close.defaultProps = {

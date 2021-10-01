@@ -53,7 +53,7 @@ export const StyledOption = styled.TouchableOpacity<Props>`
     justify-content: center;
     border-radius: 200px;
     z-index: 1;
-    height: 42;
+    height: 42px;
 
     box-shadow: ${props => (props.isActive ? '0px 0px 2px rgba(0,0,0, .2)' : 'none')};
 `;

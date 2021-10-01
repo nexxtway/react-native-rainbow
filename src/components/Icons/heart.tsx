@@ -14,7 +14,7 @@ const Heart: React.FC<BaseProps> = ({ style }) => (
 );
 
 Heart.propTypes = {
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 Heart.defaultProps = {

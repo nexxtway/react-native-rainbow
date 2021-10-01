@@ -28,17 +28,9 @@ function BasicUsage() {
                 onChange={setFirstValue}
             />
 
-            <InputPhone
-                label="Label"
-                value={secondValue}
-                onChange={setSecondValue}
-            />
+            <InputPhone label="Label" value={secondValue} onChange={setSecondValue} />
 
-            <InputPhone
-                label="Label"
-                value={thirdValue}
-                onChange={setThirdValue}
-            />
+            <InputPhone label="Label" value={thirdValue} onChange={setThirdValue} />
         </>
     );
 }

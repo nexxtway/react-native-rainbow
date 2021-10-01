@@ -12,42 +12,42 @@ interface Props {
 
 const Input = styled.TextInput<Props>`
     border-bottom-color: ${COLOR_GRAY_2};
-    border-bottom-width: 1;
-    width: 44;
+    border-bottom-width: 1px;
+    width: 44px;
     padding: 0;
     color: ${COLOR_DARK_1};
-    font-size: 40;
+    font-size: 40px;
     text-align: center;
 
     ${props =>
         !props.isLastInput &&
         `
-        margin-right: 10;
+        margin-right: 10px;
     `}
     ${props =>
         props.hasValue &&
         `
             border-bottom-color: ${COLOR_BRAND};
-            border-bottom-width: 1;
+            border-bottom-width: 1px;
     `}
     ${props =>
         props.isFocused &&
         `
             border-bottom-color: ${COLOR_BRAND};
-            border-bottom-width: 2;
+            border-bottom-width: 2px;
     `}
     ${props =>
         props.error &&
         `
             border-bottom-color: ${COLOR_ERROR};
-            border-bottom-width: 1;
+            border-bottom-width: 1px;
     `}
     ${props =>
         props.error &&
         props.isFocused &&
         `
             border-bottom-color: ${COLOR_ERROR};
-            border-bottom-width: 2;
+            border-bottom-width: 2px;
     `}
 `;
 
