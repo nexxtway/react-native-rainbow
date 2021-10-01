@@ -30,9 +30,10 @@ React Native Rainbow is a collection of components that will reliably help you b
 1. git clone https://github.com/nexxtway/react-native-rainbow.git
 2. cd react-native-rainbow
 3. yarn install
-4. cd ios && pod install
-5. open ios project in Xcode (open ReactNativeRainbow.xcworkspace file)
-6. build and run
+4. yarn loadStories
+5. cd ios && pod install
+6. open ios project in Xcode (open ReactNativeRainbow.xcworkspace file)
+7. build and run
 
 ## Linting on VS Code
 
