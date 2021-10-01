@@ -47,26 +47,26 @@ export const IconContainer = styled.View<ButtonProps>`
     ${props =>
         props.size === 'x-small' &&
         `
-            width: 20;
-            height: 20;
+            width: 20px;
+            height: 20px;
         `};
     ${props =>
         props.size === 'small' &&
         `
-            width: 24;
-            height: 24;
+            width: 24px;
+            height: 24px;
         `};
     ${props =>
         props.size === 'medium' &&
         `
-            width: 28;
-            height: 28;
+            width: 28px;
+            height: 28px;
         `};
     ${props =>
         props.size === 'large' &&
         `
-            width: 32;
-            height: 32;
+            width: 32px;
+            height: 32px;
         `};
 `;
 

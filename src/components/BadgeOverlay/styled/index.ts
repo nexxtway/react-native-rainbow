@@ -25,10 +25,10 @@ const positionsRectangle = {
 };
 
 const positionsCircle = {
-    'top-left': 'top:11;left:11;transform: scale(1) translate(-10px,-10px)',
-    'top-right': 'top:11;right:11;transform: scale(1) translate(10px,-10px)',
-    'bottom-left': 'bottom:11;left:11;transform: scale(1) translate(-10px,10px)',
-    'bottom-right': 'bottom:11;right:11;transform: scale(1) translate(10px,10px)',
+    'top-left': 'top:11px;left:11px;transform: scale(1) translate(-10px,-10px)',
+    'top-right': 'top:11px;right:11px;transform: scale(1) translate(10px,-10px)',
+    'bottom-left': 'bottom:11px;left:11px;transform: scale(1) translate(-10px,10px)',
+    'bottom-right': 'bottom:11px;right:11px;transform: scale(1) translate(10px,10px)',
 };
 
 const positions = {
@@ -38,7 +38,7 @@ const positions = {
 
 const overlap = {
     rectangle: 'border-radius: 0',
-    circle: 'border-radius: 999',
+    circle: 'border-radius: 999px',
 };
 
 interface IOverlay extends BaseProps {
@@ -60,7 +60,7 @@ export const StyledBadge = styled.View<Props>`
     min-width: 18px;
     height: 19px;
     width: auto;
-    border-radius: 999;
+    border-radius: 999px;
     position: absolute;
     padding: 0 3px;
     background-color: ${props => variants[props.variant] || `${COLOR_ERROR}`};

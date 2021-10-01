@@ -7,17 +7,17 @@ export interface Props {
 }
 
 export const Label = styled.Text`
-    font-size: 14;
+    font-size: 14px;
     text-align: center;
-    margin-bottom: 4;
+    margin-bottom: 4px;
     text-transform: uppercase;
     color: ${COLOR_GRAY_3};
 `;
 
 export const Error = styled.Text`
-    font-size: 14;
+    font-size: 14px;
     text-align: center;
-    margin-top: 4;
+    margin-top: 4px;
     color: ${COLOR_ERROR};
 `;
 

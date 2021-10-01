@@ -4,34 +4,24 @@ import RowView from './RowView';
 import CenterView from './CenterView';
 import LikeButton from '../../src/components/LikeButton';
 
-const BasicUse = function({ showLabel, variant }) {
+const BasicUse = function ({ showLabel, variant }) {
     const [value, setValue] = useState();
     return (
         <RowView spaceTop={50}>
-            <LikeButton
-                showLabel={showLabel}
-                value={value}
-                onChange={setValue}
-                variant={variant}
-            />
+            <LikeButton showLabel={showLabel} value={value} onChange={setValue} variant={variant} />
         </RowView>
     );
 };
 
-const DisabledUse = function({ showLabel, variant, value }) {
+const DisabledUse = function ({ showLabel, variant, value }) {
     return (
         <RowView spaceTop={50}>
-            <LikeButton
-                showLabel={showLabel}
-                value={value}
-                variant={variant}
-                readOnly={true}
-            />
+            <LikeButton showLabel={showLabel} value={value} variant={variant} readOnly={true} />
         </RowView>
     );
 };
 
-const SizeUse = function({ size }) {
+const SizeUse = function ({ size }) {
     const [value, setValue] = useState();
     return (
         <RowView spaceTop={50}>

@@ -37,8 +37,8 @@ export const StyledAvatar = styled.View<Props>`
     ${props =>
         props.size &&
         `
-        margin-left: -${sizes[props.size] / 1.8}
-        border-radius: ${sizes[props.size] / 1.8};
+        margin-left: -${sizes[props.size] / 1.8}px;
+        border-radius: ${sizes[props.size] / 1.8}px;
     `}
 
     ${props =>
@@ -58,7 +58,7 @@ export const StyledCounter = styled.View<SizeProps>`
     ${props =>
         props.size &&
         `
-        border-radius: ${sizes[props.size] / 1.8};
-        margin-right: -${sizes[props.size] / 1.8}
+        border-radius: ${sizes[props.size] / 1.8}px;
+        margin-right: -${sizes[props.size] / 1.8}px;
     `};
 `;

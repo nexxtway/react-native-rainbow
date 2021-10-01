@@ -10,7 +10,7 @@ const Share: React.FC<BaseProps> = ({ style }) => (
 );
 
 Share.propTypes = {
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 Share.defaultProps = {

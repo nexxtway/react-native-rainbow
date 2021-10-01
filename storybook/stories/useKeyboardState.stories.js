@@ -7,19 +7,14 @@ import Button from '../../src/components/Button';
 import RenderIf from '../../src/components/RenderIf';
 import useKeyboardState from './../../src/hooks/useKeyboardState';
 
-const BasicUse = function() {
+const BasicUse = function () {
     const keyboardState = useKeyboardState();
     return (
         <SafeAreaView>
-            <Text>
-                Is Keyboard open? {JSON.stringify(keyboardState.isOpen)}
-            </Text>
+            <Text>Is Keyboard open? {JSON.stringify(keyboardState.isOpen)}</Text>
             <Input />
             <RenderIf isTrue={keyboardState.isOpen}>
-                <Button
-                    label="Dismiss Keyboard"
-                    onPress={() => Keyboard.dismiss()}
-                />
+                <Button label="Dismiss Keyboard" onPress={() => Keyboard.dismiss()} />
             </RenderIf>
         </SafeAreaView>
     );

@@ -14,7 +14,7 @@ const Magnifying: React.FC<BaseProps> = ({ style }) => (
 );
 
 Magnifying.propTypes = {
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 Magnifying.defaultProps = {

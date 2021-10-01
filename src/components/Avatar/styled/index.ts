@@ -21,31 +21,30 @@ export const StyledAvatar = styled.View<Props>`
     ${props =>
         props.size === 'large' &&
         `
-            height: 48;
-            width: 48;
+            height: 48px;
+            width: 48px;
         `};
     ${props =>
         props.size === 'medium' &&
         `
-            height: 32;
-            width: 32;
+            height: 32px;
+            width: 32px;
         `};
     ${props =>
         props.size === 'small' &&
         `
-            height: 24;
-            width: 24;
+            height: 24px;
+            width: 24px;
         `};
     ${props =>
         props.size === 'x-small' &&
         `
-            height: 20;
-            width: 20;
+            height: 20px;
+            width: 20px;
         `};
 `;
 
 export const StyledImage = styled.Image<{}>`
-    border: none;
     border-radius: 24px;
     height: 100%;
     width: 100%;

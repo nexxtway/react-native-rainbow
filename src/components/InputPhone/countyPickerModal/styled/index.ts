@@ -23,7 +23,7 @@ export const ListItemContainer = styled.TouchableOpacity`
 
 export const Divider = styled.View`
     background-color: ${COLOR_GRAY_2};
-    height: 0.5;
+    height: 0.5px;
     width: 80%;
     align-self: flex-end;
 `;
@@ -34,13 +34,13 @@ export const RightContent = styled.View`
 `;
 
 export const Title = styled.Text`
-    font-size: 16;
+    font-size: 16px;
     color: ${COLOR_DARK_1};
-    margin-left: 12;
+    margin-left: 12px;
 `;
 
 export const Prefix = styled.Text`
-    font-size: 14;
+    font-size: 14px;
     color: ${COLOR_GRAY_3};
     font-style: italic;
 `;

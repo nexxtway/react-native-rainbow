@@ -16,7 +16,7 @@ interface Props extends BaseProps {
 export const Button = styled.TouchableOpacity<Props>`
     background: transparent;
     border: 0;
-    border-radius: 100;
+    border-radius: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,31 +53,31 @@ export const Button = styled.TouchableOpacity<Props>`
     ${props =>
         props.size === 'xx-small' &&
         `
-            width: 20;
-            height: 20;
+            width: 20px;
+            height: 20px;
         `};
     ${props =>
         props.size === 'x-small' &&
         `
-            width: 32;
-            height: 32;
+            width: 32px;
+            height: 32px;
         `};
     ${props =>
         props.size === 'small' &&
         `
-            width: 40;
-            height: 40;
+            width: 40px;
+            height: 40px;
         `};
     ${props =>
         props.size === 'medium' &&
         `
-            width: 48;
-            height: 48;
+            width: 48px;
+            height: 48px;
         `};
     ${props =>
         props.size === 'large' &&
         `
-            width: 64;
-            height: 64;
+            width: 64px;
+            height: 64px;
         `};
 `;

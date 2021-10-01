@@ -6,17 +6,13 @@ const ViewContainer = styled.View`
     display: flex;
     align-items: center;
     flex-direction: row;
-    padding-left: 10;
-    padding-right: 10;
+    padding-left: 10px;
+    padding-right: 10px;
     justify-content: space-around;
 `;
 
 export default function RowView({ children, spaceTop = 0 }) {
-    return (
-        <ViewContainer style={{ paddingTop: spaceTop }}>
-            {children}
-        </ViewContainer>
-    );
+    return <ViewContainer style={{ paddingTop: spaceTop }}>{children}</ViewContainer>;
 }
 
 RowView.propTypes = {

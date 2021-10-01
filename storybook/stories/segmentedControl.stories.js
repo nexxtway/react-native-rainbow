@@ -64,11 +64,7 @@ storiesOf('Segmented Control', module).add('Basic', () =>
                 </RowView>
                 <RowView spaceTop={20}>
                     <Box is="Disabled">
-                        <SegmentedControl
-                            label="Label"
-                            options={Options}
-                            disabled={true}
-                        />
+                        <SegmentedControl label="Label" options={Options} disabled={true} />
                     </Box>
                 </RowView>
             </>
