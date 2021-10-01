@@ -77,6 +77,29 @@ const StyledButton = styled.TouchableOpacity<Props>`
             background-color: ${COLOR_GRAY_TRANSPARENT_2};
             border: 1px solid transparent;
         `};
+
+    ${props =>
+        props.disabled &&
+        props.variant === 'base' &&
+        `
+            background-color: transparent;
+        `};
+
+    ${props =>
+        props.disabled &&
+        props.variant === 'outline-brand' &&
+        `
+            background-color: transparent;
+            border: 1px solid ${COLOR_GRAY_TRANSPARENT_2};
+        `};
+
+    ${props =>
+        props.disabled &&
+        props.variant === 'neutral' &&
+        `
+            background-color: transparent;
+            border: 1px solid ${COLOR_GRAY_TRANSPARENT_2};
+        `};
 `;
 
 export default StyledButton;
