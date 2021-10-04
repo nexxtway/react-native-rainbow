@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { storiesOf } from '@storybook/react-native';
 import CenterView from './CenterView';
 import Input from '../../src/components/Input';
@@ -16,12 +16,18 @@ const iconStyles = {
     height: '100%',
 };
 
-storiesOf('Input', module)
-    .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
-    .add('basic', () => (
+const Examples = () => {
+    const ref = useRef();
+    return (
         <>
-            <Input style={styles} icon={<User style={iconStyles} />} />
-            <Input style={styles} label="Label" placeholder="Type here" />
+            <Input
+                style={styles}
+                icon={<User style={iconStyles} />}
+                returnKeyType="next"
+                onSubmitEditing={() => ref.current.focus()}
+                blurOnSubmit={false}
+            />
+            <Input style={styles} label="Label" placeholder="Type here" ref={ref} />
             <Input style={styles} label="Disabled Input" disabled />
             <Input
                 icon={<Heart style={iconStyles} />}
@@ -31,4 +37,9 @@ storiesOf('Input', module)
                 error="This is a required field"
             />
         </>
-    ));
+    );
+};
+
+storiesOf('Input', module)
+    .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
+    .add('basic', () => <Examples />);

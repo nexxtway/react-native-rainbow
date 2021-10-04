@@ -15,7 +15,6 @@ import {
 import CountryPickerModal, { CountryType } from './countyPickerModal';
 import getCountryFromValue from './helpers/getCountryFromValue';
 import { BaseProps } from '../types';
-import withReduxForm from '../../hocs/withReduxForm';
 
 interface Value {
     countryCode?: string;
@@ -144,4 +143,4 @@ InputPhone.defaultProps = {
     style: undefined,
 };
 
-export default withReduxForm(InputPhone);
+export default InputPhone;
