@@ -1,12 +1,12 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ForwardRefExoticComponent } from 'react';
 
 export interface Props {
     [key: string]: any;
 }
 
 export default function withReduxForm(
-    WrappedComponent: FunctionComponent,
-): FunctionComponent<Props> {
+    WrappedComponent: FunctionComponent | ForwardRefExoticComponent<any>,
+) {
     return (props: Props) => {
         const { meta, error, input, ...rest } = props;
 

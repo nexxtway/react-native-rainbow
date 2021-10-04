@@ -40,7 +40,7 @@ const defaultCountry = {
     countryCode: '+1',
 };
 
-const InputPhone: React.FC<Props> = props => {
+const InputPhone = React.forwardRef<any, Props>((props, ref) => {
     const {
         label,
         onChange = () => {},
@@ -50,6 +50,7 @@ const InputPhone: React.FC<Props> = props => {
         error,
         autoFocus,
         style,
+        ...rest
     } = props;
     const isEnabled = !disabled;
     const { isoCode = '', phone = '' } = value;
@@ -81,6 +82,7 @@ const InputPhone: React.FC<Props> = props => {
             </RenderIf>
             <InputContainer>
                 <StyledInput
+                    {...rest}
                     onChangeText={handleChange}
                     value={phone}
                     placeholder={placeholder}
@@ -93,6 +95,7 @@ const InputPhone: React.FC<Props> = props => {
                     disabled={disabled}
                     keyboardType="number-pad"
                     autoFocus={autoFocus}
+                    ref={ref}
                 />
                 <LeftElement>
                     <ButtonContent onPress={() => setIsOpen(true)}>
@@ -113,7 +116,7 @@ const InputPhone: React.FC<Props> = props => {
             />
         </View>
     );
-};
+});
 
 InputPhone.propTypes = {
     label: PropTypes.node,

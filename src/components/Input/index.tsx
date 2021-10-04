@@ -22,7 +22,7 @@ export interface Props extends BaseProps {
     secureTextEntry?: boolean;
 }
 
-const Input: React.FC<Props> = props => {
+const Input = React.forwardRef<any, Props>((props, ref) => {
     const {
         label,
         onChange,
@@ -37,6 +37,7 @@ const Input: React.FC<Props> = props => {
         iconPosition,
         autoCapitalize,
         secureTextEntry,
+        ...rest
     } = props;
     const isEnabled = !disabled;
 
@@ -49,6 +50,7 @@ const Input: React.FC<Props> = props => {
             </RenderIf>
             <View>
                 <StyledInput
+                    {...rest}
                     onChangeText={onChange}
                     value={value}
                     placeholder={placeholder}
@@ -65,6 +67,7 @@ const Input: React.FC<Props> = props => {
                     iconPosition={iconPosition}
                     autoCapitalize={autoCapitalize}
                     secureTextEntry={secureTextEntry}
+                    ref={ref}
                 />
                 <RenderIf isTrue={!!icon}>
                     <Icon iconPosition={iconPosition}>{icon}</Icon>
@@ -75,7 +78,7 @@ const Input: React.FC<Props> = props => {
             </RenderIf>
         </View>
     );
-};
+});
 
 Input.propTypes = {
     label: PropTypes.node,
