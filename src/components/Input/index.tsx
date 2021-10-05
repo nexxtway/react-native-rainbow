@@ -8,7 +8,7 @@ import { BaseProps, IconPosition } from '../types';
 
 export interface Props extends BaseProps {
     label?: ReactNode;
-    onChange?: (value?: string) => void | undefined;
+    onChange?: (value: string) => void | undefined;
     onFocus?: (value?: string) => void | undefined;
     onBlur?: (value?: string) => void | undefined;
     value?: string;
