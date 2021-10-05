@@ -8,7 +8,9 @@ import { BaseProps, IconPosition } from '../types';
 
 export interface Props extends BaseProps {
     label?: ReactNode;
-    onChange?: (value: string) => void;
+    onChange?: (value?: string) => void | undefined;
+    onFocus?: (value?: string) => void | undefined;
+    onBlur?: (value?: string) => void | undefined;
     value?: string;
     placeholder?: string;
     disabled?: boolean;
@@ -25,6 +27,8 @@ const Input = React.forwardRef<any, Props>((props, ref) => {
     const {
         label,
         onChange,
+        onFocus = () => {},
+        onBlur = () => {},
         value,
         placeholder,
         disabled,
@@ -42,6 +46,16 @@ const Input = React.forwardRef<any, Props>((props, ref) => {
 
     const [isFocused, setFocusState] = useState(false);
 
+    const handleFocus = () => {
+        setFocusState(true);
+        onFocus(value);
+    };
+
+    const handleBlur = () => {
+        setFocusState(false);
+        onBlur(value);
+    };
+
     return (
         <View style={style}>
             <RenderIf isTrue={!!label}>
@@ -57,8 +71,8 @@ const Input = React.forwardRef<any, Props>((props, ref) => {
                     selectTextOnFocus={isEnabled}
                     error={error}
                     isFocused={isFocused}
-                    onBlur={() => setFocusState(false)}
-                    onFocus={() => setFocusState(true)}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                     disabled={disabled}
                     keyboardType={keyboardType}
                     autoFocus={autoFocus}
@@ -82,6 +96,8 @@ const Input = React.forwardRef<any, Props>((props, ref) => {
 Input.propTypes = {
     label: PropTypes.node,
     onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
     value: PropTypes.string,
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
@@ -112,6 +128,8 @@ Input.propTypes = {
 Input.defaultProps = {
     label: undefined,
     onChange: () => {},
+    onFocus: () => {},
+    onBlur: () => {},
     value: undefined,
     placeholder: undefined,
     disabled: false,

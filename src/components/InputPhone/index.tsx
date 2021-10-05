@@ -25,6 +25,8 @@ interface Value {
 interface Props extends BaseProps {
     label?: ReactNode;
     onChange?: (value: Value) => void;
+    onFocus?: (value: Value) => void | undefined;
+    onBlur?: (value: Value) => void | undefined;
     value?: Value;
     placeholder?: string;
     disabled?: boolean;
@@ -43,6 +45,8 @@ const InputPhone = React.forwardRef<any, Props>((props, ref) => {
     const {
         label,
         onChange = () => {},
+        onFocus = () => {},
+        onBlur = () => {},
         value = {},
         placeholder,
         disabled,
@@ -74,6 +78,16 @@ const InputPhone = React.forwardRef<any, Props>((props, ref) => {
         });
     };
 
+    const handleFocus = () => {
+        setFocusState(true);
+        onFocus(value);
+    };
+
+    const handleBlur = () => {
+        setFocusState(false);
+        onBlur(value);
+    };
+
     return (
         <View style={style}>
             <RenderIf isTrue={!!label}>
@@ -89,8 +103,8 @@ const InputPhone = React.forwardRef<any, Props>((props, ref) => {
                     selectTextOnFocus={isEnabled}
                     error={error}
                     isFocused={isFocused}
-                    onBlur={() => setFocusState(false)}
-                    onFocus={() => setFocusState(true)}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                     disabled={disabled}
                     keyboardType="number-pad"
                     autoFocus={autoFocus}
@@ -120,6 +134,8 @@ const InputPhone = React.forwardRef<any, Props>((props, ref) => {
 InputPhone.propTypes = {
     label: PropTypes.node,
     onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
     value: PropTypes.shape({
         countryCode: PropTypes.string,
         isoCode: PropTypes.string,
@@ -135,6 +151,8 @@ InputPhone.propTypes = {
 InputPhone.defaultProps = {
     label: undefined,
     onChange: () => {},
+    onFocus: () => {},
+    onBlur: () => {},
     value: {},
     placeholder: undefined,
     disabled: false,
