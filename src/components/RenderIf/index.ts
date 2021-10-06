@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 interface Props {
-    isTrue?: boolean;
+    isTrue?: any;
     children?: any;
 }
 
@@ -14,7 +14,7 @@ const RenderIf: React.FC<Props> = props => {
 };
 
 RenderIf.propTypes = {
-    isTrue: PropTypes.bool,
+    isTrue: PropTypes.any,
     children: PropTypes.node,
 };
 
