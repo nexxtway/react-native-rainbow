@@ -5,6 +5,11 @@ import {
     COLOR_GRAY_4,
     COLOR_BRAND,
     COLOR_WHITE,
+    COLOR_SUCCESS_LIGHT,
+    COLOR_SUCCESS_ACTIVE,
+    COLOR_WARNING_LIGHT,
+    COLOR_ERROR_ACTIVE,
+    COLOR_ERROR_LIGHT,
 } from '../../../styles/colors';
 
 interface Props extends BaseProps {
@@ -38,16 +43,33 @@ export const StyledBadge = styled.View<Props>`
     ${props =>
         props.variant === 'outline-brand' &&
         `
-        color: ${COLOR_BRAND};
         border-color: ${COLOR_BRAND};
     `}
 
     ${props =>
         props.variant === 'brand' &&
         `
-        color: ${COLOR_WHITE};
         background-color: ${COLOR_BRAND};
         border-color: ${COLOR_BRAND};
+    `}
+
+    ${props =>
+        props.variant === 'success' &&
+        `
+        background-color: ${COLOR_SUCCESS_LIGHT};
+        border-color: transparent;
+    `}
+    ${props =>
+        props.variant === 'warning' &&
+        `
+        background-color: ${COLOR_WARNING_LIGHT};
+        border-color: transparent;
+    `}
+    ${props =>
+        props.variant === 'error' &&
+        `
+        background-color: ${COLOR_ERROR_LIGHT};
+        border-color: transparent;
     `}
 `;
 
@@ -71,5 +93,20 @@ export const StyledTextBadge = styled.Text<Props>`
         props.variant === 'brand' &&
         `
         color: ${COLOR_WHITE};
+    `}
+    ${props =>
+        props.variant === 'success' &&
+        `
+        color: ${COLOR_SUCCESS_ACTIVE};
+    `}
+    ${props =>
+        props.variant === 'warning' &&
+        `
+        color: ${COLOR_ERROR_ACTIVE};
+    `}
+    ${props =>
+        props.variant === 'error' &&
+        `
+        color: ${COLOR_ERROR_ACTIVE};
     `}
 `;
