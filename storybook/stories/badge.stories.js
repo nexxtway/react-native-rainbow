@@ -19,6 +19,9 @@ storiesOf('Badge', module)
                 <Badge style={styles} label="BADGE LIGTHTEST" variant="lightest" />
                 <Badge style={styles} label="BADGE BRAND" variant="brand" />
                 <Badge style={styles} label="BADGE OUTLINE BRAND" variant="outline-brand" />
+                <Badge style={styles} label="Success" variant="success" />
+                <Badge style={styles} label="Warning" variant="warning" />
+                <Badge style={styles} label="Error" variant="error" />
                 <Badge style={styles} label={<BadgeNode />} />
             </>
         );

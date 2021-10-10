@@ -31,7 +31,15 @@ Badge.propTypes = {
     /** The variant changes the appearance of the badge.
      * Accepted variants include default, lightest, brand and outline-brand.
      * This value defaults to default. */
-    variant: PropTypes.oneOf(['default', 'lightest', 'outline-brand', 'brand']),
+    variant: PropTypes.oneOf([
+        'default',
+        'lightest',
+        'outline-brand',
+        'brand',
+        'success',
+        'warning',
+        'error',
+    ]),
     /** An object with custom style applied to the outer element. */
     style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };

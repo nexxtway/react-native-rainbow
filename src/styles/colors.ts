@@ -14,10 +14,13 @@ export const COLOR_SUCCESS_LIGHT = 'rgba(29, 233, 182, 0.2)';
 
 // warning colors
 export const COLOR_WARNING = 'rgb(255,204, 0)';
+export const COLOR_WARNING_ACTIVE = 'rgb(210,168, 0)';
+export const COLOR_WARNING_LIGHT = 'rgb(255,239, 178)';
 
 // error colors
 export const COLOR_ERROR = '#fe4849';
 export const COLOR_ERROR_ACTIVE = '#ea4243';
+export const COLOR_ERROR_LIGHT = '#fec8c8';
 
 // gray colors
 export const COLOR_GRAY_1 = 'rgb(252, 253, 253)';

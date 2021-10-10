@@ -31,9 +31,10 @@ React Native Rainbow is a collection of components that will reliably help you b
 2. cd react-native-rainbow
 3. yarn install
 4. yarn loadStories
-5. cd ios && pod install
-6. open ios project in Xcode (open ReactNativeRainbow.xcworkspace file)
-7. build and run
+5. pod repo update
+6. cd ios && pod install
+7. open ios project in Xcode (open ReactNativeRainbow.xcworkspace file)
+8. build and run
 
 ## Linting on VS Code
 
@@ -57,3 +58,21 @@ In order to right linting in vs code you need to follow this steps:
     }
 ]
 ```
+
+## Update CocoaPods (requires >= 1.9)
+
+1. check version `pod --version`
+2. brew install cocoapods
+3. brew link --overwrite cocoapods
+
+## brew update
+
+1. To `brew update`, first run:
+   git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core fetch --unshallow
+   git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask fetch --unshallow
+2. brew update
+
+## fix "xcrun: error: SDK "iphoneos" cannot be located"
+
+1. sudo xcode-select --print-path
+2. sudo xcode-select --switch /Applications/Xcode.app
