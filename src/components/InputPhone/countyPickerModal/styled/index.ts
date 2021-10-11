@@ -1,16 +1,16 @@
 import styled from 'styled-components/native';
 import Input from '../../../Input';
 import Magnifying from '../../../Icons/magnifying';
-import { COLOR_GRAY_2, COLOR_DARK_1, COLOR_GRAY_3, COLOR_BRAND } from '../../../../styles/colors';
+import attachThemeAttrs from '../../../../styles/helpers/attachThemeAttrs';
 
 export const InputSearch = styled(Input)`
     margin: 0 16px 16px 24px;
 `;
 
-export const MagnifyingIcon = styled(Magnifying)`
+export const MagnifyingIcon = attachThemeAttrs(styled(Magnifying))`
     width: 20px;
     height: 20px;
-    color: ${COLOR_BRAND};
+    color: ${props => props.palette.brand.main};
 `;
 
 export const ListItemContainer = styled.TouchableOpacity`
@@ -21,8 +21,8 @@ export const ListItemContainer = styled.TouchableOpacity`
     padding: 16px 16px 16px 24px;
 `;
 
-export const Divider = styled.View`
-    background-color: ${COLOR_GRAY_2};
+export const Divider = attachThemeAttrs(styled.View)`
+    background-color: ${props => props.palette.border.divider};
     height: 0.5px;
     width: 80%;
     align-self: flex-end;
@@ -33,14 +33,14 @@ export const RightContent = styled.View`
     align-items: center;
 `;
 
-export const Title = styled.Text`
+export const Title = attachThemeAttrs(styled.Text)`
     font-size: 16px;
-    color: ${COLOR_DARK_1};
+    color: ${props => props.palette.text.main};
     margin-left: 12px;
 `;
 
-export const Prefix = styled.Text`
+export const Prefix = attachThemeAttrs(styled.Text)`
     font-size: 14px;
-    color: ${COLOR_GRAY_3};
+    color: ${props => props.palette.text.header};
     font-style: italic;
 `;
