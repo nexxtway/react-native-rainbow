@@ -1,6 +1,5 @@
 import React, { ReactNode, useState } from 'react';
 import PropTypes from 'prop-types';
-
 import RenderIf from '../RenderIf';
 import { BaseProps } from '../types';
 import {

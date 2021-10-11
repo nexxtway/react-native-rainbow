@@ -28,6 +28,7 @@ const Button: React.FC<Props> = props => {
             variant={variant}
             onPress={onPress}
             disabled={isDisabled}
+            isLoading={isLoading}
             hasLeftIcon={hasLeftIcon}
             hasRightIcon={hasRightIcon}
         >
