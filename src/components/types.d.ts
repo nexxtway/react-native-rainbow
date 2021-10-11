@@ -25,3 +25,15 @@ export type BadgeVariant =
     | 'success'
     | 'warning'
     | 'error';
+
+export interface ThemeProp {
+    rainbow?: {
+        palette?: {
+            brand?: string;
+            success?: string;
+            error?: string;
+            warning?: string;
+            mainBackground?: string;
+        };
+    };
+}

@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Spinner from 'react-native-spinkit';
+import { Palette } from 'styled-components';
 import { StyledText } from './styled';
 import { ButtonVariant } from '../types';
-import { COLOR_BRAND } from '../../styles/colors';
+import useTheme from '../../hooks/useTheme';
 
 interface Props {
     variant?: ButtonVariant;
@@ -12,11 +13,24 @@ interface Props {
     isLoading?: boolean;
 }
 
+const getSpinnerColor = (palette: Palette, variant?: ButtonVariant): string => {
+    if (variant === 'brand' || variant === 'destructive' || variant === 'success') {
+        return palette.getContrastText(palette.text.main);
+    }
+    if (variant === 'neutral') {
+        return palette.background.highlight;
+    }
+    return palette.brand.main;
+};
+
 const ButtonContent: React.FC<Props> = props => {
     const { variant, children, disabled, isLoading } = props;
+    const {
+        rainbow: { palette },
+    } = useTheme();
 
     if (isLoading) {
-        return <Spinner type="Arc" size={30} color={COLOR_BRAND} />;
+        return <Spinner type="Arc" size={30} color={getSpinnerColor(palette, variant)} />;
     }
 
     if (typeof children === 'string' || typeof children === 'number') {

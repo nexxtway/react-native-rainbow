@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
+import attachThemeAttrs from '../../../src/styles/helpers/attachThemeAttrs';
 
-const ViewContainer = styled.ScrollView`
-    background-color: #f5fcff;
+const ViewContainer = attachThemeAttrs(styled.ScrollView)`
+    background-color: ${props => props.palette.background.secondary || '#f5fcff'};
     padding: 0px 40px;
 `;
 

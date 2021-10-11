@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { IconPosition, ButtonVariant } from '../../types';
-import { COLOR_WHITE, COLOR_BRAND, COLOR_GRAY_TRANSPARENT_3 } from '../../../styles/colors';
 import { FONT_SIZE_HEADING_SMALL } from '../../../styles/fontSizes';
+import attachThemeAttrs from '../../../styles/helpers/attachThemeAttrs';
 
 interface Props {
     iconPosition?: IconPosition;
@@ -26,16 +26,40 @@ export const StyledIcon = styled.View<Props>`
         `};
 `;
 
-export const StyledText = styled.Text<Props>`
-    color: ${COLOR_BRAND};
+export const StyledText = attachThemeAttrs(styled.Text)<Props>`
+    color: ${props => props.palette.brand.main};
     font-size: ${FONT_SIZE_HEADING_SMALL};
     text-align: center;
 
-    ${props =>
-        (props.variant === 'brand' ||
-            props.variant === 'destructive' ||
-            props.variant === 'success') &&
-        `color: ${COLOR_WHITE};`};
+    ${props => {
+        const brandMainContrastText = props.palette.getContrastText(props.palette.brand.main);
+        return (
+            (props.variant === 'brand' ||
+                props.variant === 'destructive' ||
+                props.variant === 'success') &&
+            `color: ${brandMainContrastText};`
+        );
+    }};
 
-    ${props => props.disabled && `color: ${COLOR_GRAY_TRANSPARENT_3};`}
+    ${props => {
+        const errorMainContrastText = props.palette.getContrastText(props.palette.error.main);
+        return (
+            props.variant === 'destructive' &&
+            `
+                color: ${errorMainContrastText};
+        `
+        );
+    }}
+
+    ${props => {
+        const successMainContrastText = props.palette.getContrastText(props.palette.success.main);
+        return (
+            props.variant === 'success' &&
+            `
+                color: ${successMainContrastText};
+        `
+        );
+    }}
+
+    ${props => props.disabled && `color: ${props.palette.text.disabled};`}
 `;

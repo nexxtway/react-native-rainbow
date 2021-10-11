@@ -13,9 +13,9 @@ export const COLOR_SUCCESS_ACTIVE = '#1ad1a3';
 export const COLOR_SUCCESS_LIGHT = 'rgba(29, 233, 182, 0.2)';
 
 // warning colors
-export const COLOR_WARNING = 'rgb(255,204, 0)';
-export const COLOR_WARNING_ACTIVE = 'rgb(210,168, 0)';
-export const COLOR_WARNING_LIGHT = 'rgb(255,239, 178)';
+export const COLOR_WARNING = '#fc0';
+export const COLOR_WARNING_DARK = '#FFB900';
+export const COLOR_WARNING_LIGHT = '#FFDC7F';
 
 // error colors
 export const COLOR_ERROR = '#fe4849';
@@ -30,12 +30,10 @@ export const COLOR_GRAY_4 = 'rgb(87,101,116)';
 export const COLOR_GRAY_TRANSPARENT_1 = 'rgba(244, 246, 249, 0.4)';
 export const COLOR_GRAY_TRANSPARENT_2 = 'rgba(82, 95, 127, 0.1)';
 export const COLOR_GRAY_TRANSPARENT_3 = 'rgba(82, 95, 127, 0.3)';
+export const COLOR_GRAY_DARK_TRANSPARENT = 'rgba(42, 48, 57, 0.2)';
 
 // text colors
 export const COLOR_DARK_1 = 'rgb(8, 28, 63)';
-
-// yellow colors
-export const COLOR_YELLOW_1 = '#fc0';
 
 // purple colors
 export const COLOR_PURPLE = '#663398';
