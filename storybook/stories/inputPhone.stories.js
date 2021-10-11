@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react-native';
+import ThemeWrapper from './ThemeWrapper';
 import CenterView from './CenterView';
 import InputPhone from '../../src/components/InputPhone';
 
@@ -36,5 +37,9 @@ function BasicUsage() {
 }
 
 storiesOf('InputPhone', module)
-    .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
+    .addDecorator(getStory => (
+        <ThemeWrapper>
+            <CenterView>{getStory()}</CenterView>
+        </ThemeWrapper>
+    ))
     .add('basic', () => <BasicUsage />);

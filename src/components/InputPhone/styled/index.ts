@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
-import { COLOR_GRAY_3, COLOR_GRAY_2 } from '../../../styles/colors';
 import Input from '../../Input/styled/input';
 import ArrowDown from '../../Icons/arrowDown';
+import attachThemeAttrs from '../../../styles/helpers/attachThemeAttrs';
 
 export const InputContainer = styled.View`
     display: flex;
@@ -27,22 +27,22 @@ export const ButtonContent = styled.TouchableOpacity`
     align-items: center;
 `;
 
-export const ArrowDownIcon = styled(ArrowDown)`
+export const ArrowDownIcon = attachThemeAttrs(styled(ArrowDown))`
     width: 10px;
     height: 10px;
     margin-left: 6px;
-    color: ${COLOR_GRAY_2};
+    color: ${props => props.palette.text.disabled};
 `;
 
-export const Divider = styled.View`
-    background-color: ${COLOR_GRAY_2};
+export const Divider = attachThemeAttrs(styled.View)`
+    background-color: ${props => props.palette.border.divider};
     width: 1px;
     height: 40%;
     margin-left: 8px;
 `;
 
-export const PrefixCode = styled.Text`
-    color: ${COLOR_GRAY_3};
+export const PrefixCode = attachThemeAttrs(styled.Text)`
+    color: ${props => props.palette.text.header};
     font-size: 16px;
     padding-left: 6px;
     font-style: italic;
