@@ -1,12 +1,6 @@
 import styled from 'styled-components/native';
-import {
-    COLOR_WHITE,
-    COLOR_GRAY_TRANSPARENT_2,
-    COLOR_DARK_1,
-    COLOR_GRAY_3,
-} from '../../../styles/colors';
+import { COLOR_GRAY_TRANSPARENT_2 } from '../../../styles/colors';
 import attachThemeAttrs from '../../../styles/helpers/attachThemeAttrs';
-import { lighten } from '../../../styles/helpers/color';
 import { ButtonVariant, BaseProps } from '../../types';
 
 interface Props extends BaseProps {
@@ -17,26 +11,7 @@ interface Props extends BaseProps {
     isLoading?: boolean;
 }
 
-const StyledButton = attachThemeAttrs(styled.TouchableOpacity).attrs(props => {
-    if (props.palette.isDark) {
-        return {
-            inverse: {
-                text: COLOR_DARK_1,
-                active: lighten(COLOR_DARK_1, 0.6),
-                border: COLOR_DARK_1,
-                disabled: lighten(COLOR_DARK_1, 0.6),
-            },
-        };
-    }
-    return {
-        inverse: {
-            text: COLOR_WHITE,
-            active: COLOR_GRAY_3,
-            border: COLOR_WHITE,
-            disabled: COLOR_GRAY_3,
-        },
-    };
-})<Props>`
+const StyledButton = attachThemeAttrs(styled.TouchableOpacity)<Props>`
     align-items: center;
     display: flex;
     flex-direction: row;

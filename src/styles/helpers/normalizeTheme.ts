@@ -82,13 +82,13 @@ function resolveCustomBackground(background: string) {
 function resolveCustomShadows(colors: Palette, background: string) {
     let shadows: Record<string, string> = {};
     if (colors.brand) {
-        shadows.brand = `0 0 2px ${colors.brand.main}`;
+        shadows.brand = `0 0 1px ${colors.brand.main}`;
     }
     if (colors.success) {
-        shadows.success = `0 0 2px ${colors.success.main}`;
+        shadows.success = `0 0 1px ${colors.success.main}`;
     }
     if (colors.error) {
-        shadows.error = `0 0 2px ${colors.error.main}`;
+        shadows.error = `0 0 1px ${colors.error.main}`;
     }
     if (background) {
         const gray1 = darken(background, 0.1);

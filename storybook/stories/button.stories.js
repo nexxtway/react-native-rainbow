@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import CenterView from './CenterView';
 import ThemeWrapper from './ThemeWrapper';
+import CenterView from './CenterView';
 import Button from '../../src/components/Button';
 import ArrowRight from '../../src/components/Icons/arrowRight';
 import ArrowLeft from '../../src/components/Icons/arrowLeft';
