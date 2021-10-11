@@ -9,6 +9,7 @@ import {
     COLOR_GRAY_2,
     COLOR_GRAY_3,
     COLOR_GRAY_4,
+    COLOR_GRAY_TRANSPARENT_2,
     COLOR_GRAY_TRANSPARENT_3,
     COLOR_GRAY_DARK_TRANSPARENT,
 } from './colors';
@@ -41,7 +42,7 @@ const defaultTheme = {
             main: COLOR_WHITE,
             highlight: '#eff1f5',
             secondary: '#f9fafc',
-            disabled: COLOR_GRAY_1,
+            disabled: COLOR_GRAY_TRANSPARENT_2,
         },
         text: {
             main: COLOR_DARK_1,
@@ -51,7 +52,7 @@ const defaultTheme = {
             disabled: COLOR_GRAY_2,
         },
         border: {
-            main: COLOR_GRAY_3,
+            main: COLOR_GRAY_2,
             divider: COLOR_GRAY_2,
             disabled: COLOR_GRAY_TRANSPARENT_3,
         },
@@ -63,9 +64,9 @@ const defaultTheme = {
         isDark: false,
     },
     shadows: {
-        brand: `0 0 2px ${COLOR_BRAND}`,
-        success: `0 0 2px ${COLOR_SUCCESS}`,
-        error: `0 0 2px ${COLOR_ERROR}`,
+        brand: `0 0 1px ${COLOR_BRAND}`,
+        success: `0 0 1px ${COLOR_SUCCESS}`,
+        error: `0 0 1px ${COLOR_ERROR}`,
         shadow_1: `0 0 2px 0 ${COLOR_GRAY_3}`,
         shadow_2: `0 2px 4px 0 ${COLOR_GRAY_2}`,
         shadow_3: `0 0 1px 0 ${COLOR_GRAY_3}`,
