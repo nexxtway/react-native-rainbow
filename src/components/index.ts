@@ -1,4 +1,4 @@
-export { default as Avatar } from './Avatar';
+export { default as Application } from './Application';
 export { default as AvatarGroup } from './AvatarGroup';
 export { default as Badge } from './Badge';
 export { default as Button } from './Button';

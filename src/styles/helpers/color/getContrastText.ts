@@ -15,7 +15,7 @@ const dark = {
     },
 };
 
-const contrastThreshold = 3;
+const contrastThreshold = 2.5;
 
 export default function getContrastText(background: string) {
     const isDefaultBackground =
