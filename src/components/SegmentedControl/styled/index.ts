@@ -1,12 +1,7 @@
 import styled from 'styled-components/native';
 import { BaseProps } from '../../types';
-import {
-    COLOR_BRAND,
-    COLOR_GRAY_3,
-    COLOR_GRAY_TRANSPARENT_2,
-    COLOR_GRAY_TRANSPARENT_3,
-    COLOR_DARK_1,
-} from '../../../styles/colors';
+import { COLOR_GRAY_TRANSPARENT_3, COLOR_DARK_1 } from '../../../styles/colors';
+import attachThemeAttrs from '../../../styles/helpers/attachThemeAttrs';
 
 interface Props extends BaseProps {
     isActive?: boolean;
@@ -26,21 +21,21 @@ export const StyledSegmentedControlContainer = styled.View<Props>`
     width: ${props => (props.isFullWidth ? '100%' : '60%')};
 `;
 
-export const StyledSegmentedControlLabel = styled.Text<{}>`
-    color: ${COLOR_GRAY_3};
+export const StyledSegmentedControlLabel = attachThemeAttrs(styled.Text)`
+    color: ${props => props.palette.text.label};
     text-align: center;
     margin-bottom: 8px;
     text-transform: uppercase;
 `;
 
-export const StyledSegmentedControlOptionsWrapper = styled.View<Props>`
+export const StyledSegmentedControlOptionsWrapper = attachThemeAttrs(styled.View)<Props>`
     display: flex;
     position: relative;
     flex-direction: row;
     border-radius: 200px;
-    background: ${COLOR_GRAY_TRANSPARENT_2};
+    background: ${props => props.palette.background.disabled};
     justify-content: center;
-    border: solid 1px ${COLOR_GRAY_TRANSPARENT_2};
+    border: solid 1px ${props => props.palette.background.disabled};
     opacity: ${props => (props.disabled ? '.4' : '1')};
     overflow: hidden;
 `;
@@ -54,7 +49,6 @@ export const StyledOption = styled.TouchableOpacity<Props>`
     border-radius: 200px;
     z-index: 1;
     height: 42px;
-
     box-shadow: ${props => (props.isActive ? '0px 0px 2px rgba(0,0,0, .2)' : 'none')};
 `;
 
@@ -74,7 +68,7 @@ export const StyledOptionText = styled.Text<Props>`
     `};
 `;
 
-export const StyledBg = styled.View<Props>`
+export const StyledBg = attachThemeAttrs(styled.View)<Props>`
     position: absolute;
     top: 0;
     height: 100%;
@@ -84,7 +78,7 @@ export const StyledBg = styled.View<Props>`
         !props.disabled &&
         props.isActive &&
         `
-        background: ${props.variant === 'brand' ? COLOR_BRAND : 'white'};
+        background: ${props.variant === 'brand' ? props.palette.brand.main : 'white'};
     `}
     ${props =>
         props.disabled &&

@@ -1,16 +1,6 @@
 import styled from 'styled-components/native';
 import { BaseProps } from '../../types';
-import {
-    COLOR_GRAY_TRANSPARENT_2,
-    COLOR_GRAY_4,
-    COLOR_BRAND,
-    COLOR_WHITE,
-    COLOR_SUCCESS_LIGHT,
-    COLOR_SUCCESS_ACTIVE,
-    COLOR_WARNING_LIGHT,
-    COLOR_ERROR_ACTIVE,
-    COLOR_ERROR_LIGHT,
-} from '../../../styles/colors';
+import attachThemeAttrs from '../../../styles/helpers/attachThemeAttrs';
 
 interface Props extends BaseProps {
     variant?: string;
@@ -20,93 +10,94 @@ export const StyledBadgeContainer = styled.View<BaseProps>`
     align-self: center;
 `;
 
-export const StyledBadge = styled.View<Props>`
+export const StyledBadge = attachThemeAttrs(styled.View)<Props>`
     border-width: 1px;
     padding: 2px 10px;
     text-align: center;
     border-radius: 16px;
     overflow: hidden;
+
     ${props =>
         props.variant === 'default' &&
         `
-        background-color: ${COLOR_GRAY_TRANSPARENT_2};
+        background-color: ${props.palette.background.disabled};
         border-color: transparent;
     `};
 
     ${props =>
         props.variant === 'lightest' &&
         `
-        background-color: ${COLOR_WHITE};
-        border-color: ${COLOR_GRAY_TRANSPARENT_2};
+        background-color: ${props.palette.background.main};
+        border-color: ${props.palette.background.disabled};
     `}
 
     ${props =>
         props.variant === 'outline-brand' &&
         `
-        border-color: ${COLOR_BRAND};
+        border-color: ${props.palette.brand.main};
     `}
 
     ${props =>
         props.variant === 'brand' &&
         `
-        background-color: ${COLOR_BRAND};
-        border-color: ${COLOR_BRAND};
+        background-color: ${props.palette.brand.main}
+        border-color: ${props.palette.brand.main}
     `}
 
     ${props =>
         props.variant === 'success' &&
         `
-        background-color: ${COLOR_SUCCESS_LIGHT};
+        background-color: ${props.palette.success.light};
         border-color: transparent;
     `}
     ${props =>
         props.variant === 'warning' &&
         `
-        background-color: ${COLOR_WARNING_LIGHT};
+        background-color: ${props.palette.warning.light};
         border-color: transparent;
     `}
     ${props =>
         props.variant === 'error' &&
         `
-        background-color: ${COLOR_ERROR_LIGHT};
+        background-color: ${props.palette.error.light};
         border-color: transparent;
     `}
 `;
 
-export const StyledTextBadge = styled.Text<Props>`
+export const StyledTextBadge = attachThemeAttrs(styled.Text)<Props>`
     ${props =>
         props.variant === 'default' &&
         `
-        color: ${COLOR_GRAY_4};
+        color: ${props.palette.text.label};
     `}
     ${props =>
         props.variant === 'lightest' &&
         `
-        color: ${COLOR_GRAY_4};
+        color: ${props.palette.text.label};
     `}
     ${props =>
         props.variant === 'outline-brand' &&
         `
-        color: ${COLOR_BRAND};
+        color: ${props.palette.brand.main};
     `}
     ${props =>
         props.variant === 'brand' &&
         `
-        color: ${COLOR_WHITE};
+        color: ${props.palette.getContrastText(props.palette.brand.main)};
     `}
     ${props =>
         props.variant === 'success' &&
         `
-        color: ${COLOR_SUCCESS_ACTIVE};
+        color: ${props.palette.success.dark};
     `}
     ${props =>
         props.variant === 'warning' &&
         `
-        color: ${COLOR_ERROR_ACTIVE};
+        color: ${props.palette.warning.dark};
     `}
     ${props =>
         props.variant === 'error' &&
         `
-        color: ${COLOR_ERROR_ACTIVE};
+        color: ${props.palette.error.dark};
     `}
 `;

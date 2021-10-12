@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
+import ThemeWrapper from './ThemeWrapper';
 import CenterView from './CenterView';
 import Badge from '../../src/components/Badge';
 
@@ -11,7 +12,11 @@ const styles = {
 const BadgeNode = () => <Text>Custom React Node</Text>;
 
 storiesOf('Badge', module)
-    .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
+    .addDecorator(getStory => (
+        <ThemeWrapper>
+            <CenterView>{getStory()}</CenterView>
+        </ThemeWrapper>
+    ))
     .add('Basic', () => {
         return (
             <>
