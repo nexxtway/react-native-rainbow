@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
+import ThemeWrapper from './ThemeWrapper';
 import CenterView from './CenterView';
 import ButtonIcon from '../../src/components/ButtonIcon';
 import ArrowRight from '../../src/components/Icons/arrowRight';
@@ -28,7 +29,11 @@ const iconDisabledStyles = {
 };
 
 storiesOf('ButtonIcon', module)
-    .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
+    .addDecorator(getStory => (
+        <ThemeWrapper>
+            <CenterView>{getStory()}</CenterView>
+        </ThemeWrapper>
+    ))
     .add('basic', () => (
         <>
             <ButtonIcon

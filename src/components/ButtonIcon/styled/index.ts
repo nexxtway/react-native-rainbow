@@ -1,10 +1,5 @@
 import styled from 'styled-components/native';
-import {
-    COLOR_BRAND,
-    COLOR_SUCCESS,
-    COLOR_GRAY_TRANSPARENT_2,
-    COLOR_WHITE,
-} from '../../../styles/colors';
+import attachThemeAttrs from '../../../styles/helpers/attachThemeAttrs';
 import { ButtonIconVariant, ButtonIconSize, BaseProps } from '../../types';
 
 interface Props extends BaseProps {
@@ -13,7 +8,7 @@ interface Props extends BaseProps {
     size?: ButtonIconSize;
 }
 
-export const Button = styled.TouchableOpacity<Props>`
+export const Button = attachThemeAttrs(styled.TouchableOpacity)<Props>`
     background: transparent;
     border: 0;
     border-radius: 100px;
@@ -29,25 +24,25 @@ export const Button = styled.TouchableOpacity<Props>`
     ${props =>
         props.variant === 'neutral' &&
         `
-            background-color: ${COLOR_WHITE};
-            border: 1px solid ${COLOR_GRAY_TRANSPARENT_2};
+            background-color: ${props.palette.background.main};
+            border: 1px solid ${props.palette.background.disabled};
         `};
     ${props =>
         props.variant === 'brand' &&
         `
-            background-color: ${COLOR_BRAND};
-            border: 1px solid ${COLOR_BRAND};
+            background-color: ${props.palette.brand.main};
+            border: 1px solid ${props.palette.brand.main};
         `};
     ${props =>
         props.variant === 'success' &&
         `
-            background-color: ${COLOR_SUCCESS};
-            border: 1px solid ${COLOR_SUCCESS};
+            background-color: ${props.palette.success.main};
+            border: 1px solid ${props.palette.success.main};
         `};
     ${props =>
         props.disabled &&
         `
-            background-color: ${COLOR_GRAY_TRANSPARENT_2};
+            background-color: ${props.palette.background.disabled};
             border: 1px solid transparent;
         `};
     ${props =>
