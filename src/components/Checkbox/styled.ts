@@ -4,6 +4,7 @@ import attachThemeAttrs from '../../styles/helpers/attachThemeAttrs';
 export const Container = styled.View`
     display: flex;
     flex-direction: row;
+    align-items: center;
 `;
 
 export const Label = attachThemeAttrs(styled.Text)`

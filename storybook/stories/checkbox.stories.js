@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import ThemeWrapper from './ThemeWrapper';
 import CenterView from './CenterView';
@@ -6,6 +7,11 @@ import Checkbox from '../../src/components/Checkbox';
 
 const styles = {
     marginBottom: 16,
+};
+
+const textStyle = {
+    fontSize: 12,
+    color: '#000',
 };
 
 const ControlledCheckbox = props => {
@@ -25,5 +31,9 @@ storiesOf('Checkbox', module)
             <ControlledCheckbox style={styles} label="Label" error="This is a required field" />
             <ControlledCheckbox style={styles} label="Disabled Checkbox" disabled />
             <ControlledCheckbox style={styles} label="Disabled Checkbox" value disabled />
+            <ControlledCheckbox
+                style={styles}
+                label={<Text style={textStyle}>Custom Label</Text>}
+            />
         </>
     ));
