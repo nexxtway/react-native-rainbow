@@ -3,7 +3,7 @@ import { View, KeyboardTypeOptions } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
 import StyledInput from './styled/input';
-import { Label, Error, Icon } from './styled/index';
+import { Label, Error, Icon } from './styled';
 import { BaseProps, IconPosition } from '../types';
 
 export interface Props extends BaseProps {

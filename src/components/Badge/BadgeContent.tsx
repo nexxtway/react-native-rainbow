@@ -25,7 +25,7 @@ BadgetContent.propTypes = {
     /** The variant changes the appearance of the badge.
      * Accepted variants include default, lightest, brand and outline-brand.
      * This value defaults to default. */
-    variant: PropTypes.oneOf(['default', 'lightest', 'outline-brand', 'brand']),
+    variant: PropTypes.string,
 };
 
 BadgetContent.defaultProps = {
