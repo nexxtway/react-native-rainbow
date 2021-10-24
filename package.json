@@ -43,6 +43,7 @@
         "prepare:canary": "node scripts/prepare-canary.js"
     },
     "dependencies": {
+        "@react-native-community/checkbox": "^0.5.8",
         "prop-types": "^15.7.2",
         "react": "17.0.2",
         "react-native-modal": "^13.0.0",
