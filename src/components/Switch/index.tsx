@@ -1,23 +1,25 @@
 import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
-
-import { BaseProps } from '../types';
-import { SwitchWrapper, StyledSwitch, SwitchText } from './styled';
-import { COLOR_BRAND, COLOR_GRAY_2, COLOR_WHITE } from '../../styles/colors';
 import RenderIf from '../RenderIf';
+import useReactHookForm from '../../hooks/useReactHookForm';
+import { COLOR_BRAND, COLOR_GRAY_2, COLOR_WHITE } from '../../styles/colors';
+import { SwitchWrapper, StyledSwitch, SwitchText } from './styled';
+import { BaseProps } from '../types';
 
 interface Props extends BaseProps {
     label?: ReactNode;
     onChange?: (value: boolean) => void;
     disabled?: boolean;
     value?: boolean;
+    [key: string]: unknown;
 }
 
 /**
  * Switch toggle is a checkable input that communicates if an option is true or false
  */
 
-const SwitchComponent: React.FC<Props> = ({ label, onChange, disabled, value }) => {
+const SwitchComponent: React.FC<Props> = props => {
+    const { label, onChange, disabled, value } = useReactHookForm(props);
     const trackColor = { false: COLOR_GRAY_2, true: COLOR_BRAND };
     return (
         <SwitchWrapper>

@@ -2,6 +2,7 @@ import React, { ReactNode, useState } from 'react';
 import { View, KeyboardTypeOptions } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
+import useReactHookForm from '../../hooks/useReactHookForm';
 import StyledInput from './styled/input';
 import { Label, Error, Icon } from './styled';
 import { BaseProps, IconPosition } from '../types';
@@ -21,6 +22,7 @@ export interface Props extends BaseProps {
     icon?: ReactNode;
     iconPosition?: IconPosition;
     secureTextEntry?: boolean;
+    [key: string]: unknown;
 }
 
 const Input = React.forwardRef<any, Props>((props, ref) => {
@@ -41,7 +43,7 @@ const Input = React.forwardRef<any, Props>((props, ref) => {
         autoCapitalize,
         secureTextEntry,
         ...rest
-    } = props;
+    } = useReactHookForm(props);
     const isEnabled = !disabled;
 
     const [isFocused, setFocusState] = useState(false);

@@ -2,7 +2,8 @@ import React, { ReactNode, useState } from 'react';
 import { View, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
-import { Label, Error } from '../Input/styled/index';
+import { Label, Error } from '../Input/styled';
+import useReactHookForm from '../../hooks/useReactHookForm';
 import {
     LeftElement,
     InputContainer,
@@ -32,6 +33,7 @@ interface Props extends BaseProps {
     disabled?: boolean;
     error?: ReactNode;
     autoFocus?: boolean;
+    [key: string]: unknown;
 }
 
 const defaultCountry = {
@@ -54,7 +56,7 @@ const InputPhone = React.forwardRef<any, Props>((props, ref) => {
         autoFocus,
         style,
         ...rest
-    } = props;
+    } = useReactHookForm(props);
     const isEnabled = !disabled;
     const { isoCode = '', phone = '' } = value;
 
