@@ -7,6 +7,7 @@ import { Error } from '../Input/styled';
 import StyledInput from './styled/input';
 import getNextIndex from './helpers/getNextIndex';
 import getPrevIndex from './helpers/getPrevIndex';
+import useReactHookForm from '../../hooks/useReactHookForm';
 import { BaseProps } from '../types';
 import getCodeFromClipboard from './helpers/getCodeFromClipboard';
 
@@ -16,10 +17,18 @@ interface Props extends BaseProps {
     onChange?: (value: string) => void;
     error?: ReactNode;
     autoFocus?: boolean;
+    [key: string]: unknown;
 }
 
 const InputCode: React.FC<Props> = props => {
-    const { digits = 6, label, onChange = () => {}, error, autoFocus, style } = props;
+    const {
+        digits = 6,
+        label,
+        onChange = () => {},
+        error,
+        autoFocus,
+        style,
+    } = useReactHookForm(props);
 
     const [inputIndexFocused, setFocusInputIndex] = useState(-1);
     const [values, setValues] = useState<string[]>([]);
