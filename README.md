@@ -25,6 +25,11 @@ React Native Rainbow is a collection of components that will reliably help you b
 
 <br/>
 
+## Install
+
+1. `yarn add react-native-rainbow` or `npm install react-native-rainbow`
+2. `cd ios && pod install`
+
 ## ⌨️ Running in iOS simulator
 
 1. git clone https://github.com/nexxtway/react-native-rainbow.git
