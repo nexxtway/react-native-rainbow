@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
-import { Picker } from '@react-native-picker/picker';
+import { SafeAreaView } from 'react-native';
+import Select from '../../../src/components/Select';
 import Application from '../../../src/components/Application';
+
+const styles = {
+    flex: 1,
+};
+
+const selectStyles = {
+    marginVertical: 24,
+    marginHorizontal: 40,
+};
 
 const orangeTheme = {
     rainbow: {
@@ -49,21 +59,30 @@ const themeMap = {
     'cyan-dark': cyanDarkTheme,
 };
 
+const options = [
+    { label: 'Default', value: 'default' },
+    { label: 'Orange', value: 'orange' },
+    { label: 'Yellow', value: 'yellow' },
+    { label: 'Deep Purple', value: 'deep-purple' },
+    { label: 'Cyan Dark', value: 'cyan-dark' },
+];
+
 const ThemeWrapper = ({ children }) => {
     const [selectedTheme, setTheme] = useState();
     const theme = themeMap[selectedTheme];
 
     return (
-        <Application theme={theme}>
-            <Picker selectedValue={selectedTheme} onValueChange={value => setTheme(value)}>
-                <Picker.Item label="Default" value="default" />
-                <Picker.Item label="Orange" value="orange" />
-                <Picker.Item label="Yellow" value="yellow" />
-                <Picker.Item label="Deep Purple" value="deep-purple" />
-                <Picker.Item label="Cyan Dark" value="cyan-dark" />
-            </Picker>
-            {children}
-        </Application>
+        <SafeAreaView style={styles}>
+            <Application theme={theme}>
+                <Select
+                    options={options}
+                    style={selectStyles}
+                    placeholder="Select a theme"
+                    onChange={value => setTheme(value)}
+                />
+                {children}
+            </Application>
+        </SafeAreaView>
     );
 };
 
