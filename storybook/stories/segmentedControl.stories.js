@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 import ThemeWrapper from './ThemeWrapper';
 import RowView from './RowView';
-import { View } from 'react-native';
 import SegmentedControl from '../../src/components/SegmentedControl';
 import Person from '../../src/components/Icons/person';
 import Shoe from '../../src/components/Icons/shoe';
@@ -13,9 +12,10 @@ const Container = attachThemeAttrs(styled.ScrollView)`
     background-color: ${props => props.palette.background.secondary || '#f5fcff'};
 `;
 
-const Box = ({ children }) => (
-    <View style={{ width: '100%', alignItems: 'center' }}>{children}</View>
-);
+const Box = styled.View`
+    width: 100%;
+    align-items: center;
+`;
 
 const iconStyles = {
     width: 15,
@@ -55,17 +55,18 @@ storiesOf('Segmented Control', module)
             return (
                 <>
                     <RowView spaceTop={150}>
-                        <Box is="Brand">
+                        <Box>
                             <SegmentedControl
                                 label="label"
                                 options={Options}
                                 value={active1}
                                 onChange={onChange1}
+                                size="small"
                             />
                         </Box>
                     </RowView>
                     <RowView spaceTop={20}>
-                        <Box is="Default">
+                        <Box>
                             <SegmentedControl
                                 label="Label"
                                 options={OptionsWithIcons}

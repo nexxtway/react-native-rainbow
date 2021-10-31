@@ -5,3 +5,5 @@ export type OptionProps = {
     value?: string;
     icon?: ReactNode;
 };
+
+export type Size = 'medium' | 'small';

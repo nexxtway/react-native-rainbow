@@ -7,7 +7,7 @@ import {
     StyledSegmentedControlLabel,
     StyledSegmentedControlOptionsWrapper,
 } from './styled';
-import { OptionProps } from './types';
+import { OptionProps, Size } from './types';
 import Option from './option';
 import OptionActive from './optionActive';
 
@@ -19,12 +19,12 @@ interface Props extends BaseProps {
     onChange?: (event: OptionProps) => void;
     disabled?: boolean;
     isFullWidth?: boolean;
+    size?: Size;
 }
 
 /**
  * SegmentedControl component controls user interacion with a particular process.
  */
-
 const SegmentedControl: React.FC<Props> = ({
     style,
     label,
@@ -34,6 +34,7 @@ const SegmentedControl: React.FC<Props> = ({
     onChange = () => {},
     disabled,
     isFullWidth,
+    size = 'medium',
 }: Props) => {
     const [activeIndex, setaAtiveIndex] = useState(() => {
         const index = options.findIndex(option => option.value === value);
@@ -61,6 +62,7 @@ const SegmentedControl: React.FC<Props> = ({
                             disabled={disabled}
                             isActive={isActive}
                             variant={variant}
+                            size={size}
                         />
                     );
                 })}
@@ -77,25 +79,15 @@ const SegmentedControl: React.FC<Props> = ({
 };
 
 SegmentedControl.propTypes = {
-    /** An object with custom style applied to the outer element.
-     * default value is undefined
-     */
+    /** An object with custom style applied to the outer element. */
     style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-    /** defined the label over the segmentedControl.
-     * default value is undefined
-     */
+    /** The label of the SegmentedControl. */
     label: PropTypes.node,
-    /**Variant defines the colors of the progress circular it could be one of 'brand' | 'default'
-     * default value is default
-     */
+    /** Variant defines the colors of the SegmentedControl. It can be one of 'brand' | 'default'. */
     variant: PropTypes.oneOf(['default', 'brand']),
-    /**The value of the segmentedControl.
-     * default value undefined
-     */
+    /** The value of the SegmentedControl. */
     value: PropTypes.string,
-    /** An array of objects to render segmentedControl component options.
-     * default value is empty array
-     */
+    /** An array of objects to render SegmentedControl options. */
     options: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.node,
@@ -103,18 +95,14 @@ SegmentedControl.propTypes = {
             icon: PropTypes.node,
         }).isRequired,
     ),
-    /** function triggered on on ever change on the segmentedControl component.
-     * default value is () => {}
-     */
+    /** Function triggered on each change on the SegmentedControl. */
     onChange: PropTypes.func,
-    /** a boolean option to disabled the segmentedControl component for interactions.
-     * default value is false
-     */
+    /** A boolean option to disabled the SegmentedControl. */
     disabled: PropTypes.bool,
-    /** a boolean option to control if the segmentedControl component should be full width.
-     * default value is false
-     */
+    /** A boolean option to control if the SegmentedControl should be full width. */
     isFullWidth: PropTypes.bool,
+    /** Defines the height of the SegmentedControl. */
+    size: PropTypes.oneOf(['medium', 'small']),
 };
 
 SegmentedControl.defaultProps = {
@@ -125,6 +113,7 @@ SegmentedControl.defaultProps = {
     onChange: () => {},
     disabled: false,
     isFullWidth: false,
+    size: 'medium',
 };
 
 export default SegmentedControl;

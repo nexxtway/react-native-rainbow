@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
 import { BaseProps } from '../types';
 import { StyledOption, StyledOptionText } from './styled';
-import { OptionProps } from './types';
+import { OptionProps, Size } from './types';
 
 interface Props extends BaseProps {
     option?: OptionProps;
@@ -11,6 +11,7 @@ interface Props extends BaseProps {
     disabled?: boolean;
     isActive: boolean;
     variant?: string;
+    size: Size;
 }
 
 const Option: React.FC<Props> = ({
@@ -19,6 +20,7 @@ const Option: React.FC<Props> = ({
     disabled,
     isActive,
     variant,
+    size,
 }: Props): JSX.Element => {
     const hasIcon = !!option.icon;
 
@@ -31,6 +33,7 @@ const Option: React.FC<Props> = ({
             variant={variant}
             disabled={disabled}
             onPress={handlePress}
+            size={size}
         >
             <StyledOptionText variant={variant} isActive={isActive} disabled={disabled}>
                 <RenderIf isTrue={hasIcon}>{option.icon} </RenderIf>
