@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 import { BaseProps } from '../../types';
 import { COLOR_GRAY_TRANSPARENT_3, COLOR_DARK_1 } from '../../../styles/colors';
 import attachThemeAttrs from '../../../styles/helpers/attachThemeAttrs';
+import { Size } from '../types';
 
 interface Props extends BaseProps {
     isActive?: boolean;
@@ -40,7 +41,15 @@ export const StyledSegmentedControlOptionsWrapper = attachThemeAttrs(styled.View
     overflow: hidden;
 `;
 
-export const StyledOption = styled.TouchableOpacity<Props>`
+const heightMap = {
+    medium: '42px',
+    small: '28px',
+};
+
+interface OptionProps extends Props {
+    size: Size;
+}
+export const StyledOption = styled.TouchableOpacity<OptionProps>`
     display: flex;
     flex: 1;
     position: relative;
@@ -48,7 +57,7 @@ export const StyledOption = styled.TouchableOpacity<Props>`
     justify-content: center;
     border-radius: 200px;
     z-index: 1;
-    height: 42px;
+    height: ${props => heightMap[props.size] || heightMap.medium};
     box-shadow: ${props => (props.isActive ? '0px 0px 2px rgba(0,0,0, .2)' : 'none')};
 `;
 
