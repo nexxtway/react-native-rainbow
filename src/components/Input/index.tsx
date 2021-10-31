@@ -1,13 +1,40 @@
 import React, { ReactNode, useState } from 'react';
-import { View, KeyboardTypeOptions } from 'react-native';
+import { View, TextInputProps, StyleProp, ViewStyle } from 'react-native';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
 import useReactHookForm from '../../hooks/useReactHookForm';
 import StyledInput from './styled/input';
 import { Label, Error, Icon } from './styled';
-import { BaseProps, IconPosition } from '../types';
+import { IconPosition } from '../types';
 
-export interface Props extends BaseProps {
+const inputTypePropsMap = {
+    text: {},
+    username: {
+        autoCapitalize: 'words',
+        autoCorrect: false,
+        textContentType: 'name',
+        autoComplete: 'name',
+    },
+    email: {
+        keyboardType: 'email-address',
+        autoCapitalize: 'none',
+        autoCorrect: false,
+        textContentType: 'emailAddress',
+        autoComplete: 'email',
+    },
+    password: {
+        secureTextEntry: true,
+        textContentType: 'password',
+        autoComplete: 'password',
+    },
+};
+
+type BaseInputProps = Pick<
+    TextInputProps,
+    Exclude<keyof TextInputProps, 'onChange' | 'onFocus' | 'onBlur'>
+>;
+
+export interface Props extends BaseInputProps {
     label?: ReactNode;
     onChange?: (value: string) => void | undefined;
     onFocus?: (value?: string) => void | undefined;
@@ -16,12 +43,10 @@ export interface Props extends BaseProps {
     placeholder?: string;
     disabled?: boolean;
     error?: ReactNode;
-    keyboardType?: KeyboardTypeOptions;
-    autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
-    autoFocus?: boolean;
+    type?: 'text' | 'username' | 'email' | 'password';
     icon?: ReactNode;
     iconPosition?: IconPosition;
-    secureTextEntry?: boolean;
+    style?: StyleProp<ViewStyle>;
     [key: string]: unknown;
 }
 
@@ -35,16 +60,14 @@ const Input = React.forwardRef<any, Props>((props, ref) => {
         placeholder,
         disabled,
         error,
-        keyboardType,
-        autoFocus,
+        type,
         style,
         icon,
         iconPosition,
-        autoCapitalize,
-        secureTextEntry,
         ...rest
     } = useReactHookForm(props);
     const isEnabled = !disabled;
+    const inputProps = inputTypePropsMap[type] || inputTypePropsMap.text;
 
     const [isFocused, setFocusState] = useState(false);
 
@@ -65,6 +88,8 @@ const Input = React.forwardRef<any, Props>((props, ref) => {
             </RenderIf>
             <View>
                 <StyledInput
+                    blurOnSubmit={false}
+                    {...inputProps}
                     {...rest}
                     onChangeText={onChange}
                     value={value}
@@ -76,12 +101,8 @@ const Input = React.forwardRef<any, Props>((props, ref) => {
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     disabled={disabled}
-                    keyboardType={keyboardType}
-                    autoFocus={autoFocus}
                     hasIcon={!!icon}
                     iconPosition={iconPosition}
-                    autoCapitalize={autoCapitalize}
-                    secureTextEntry={secureTextEntry}
                     ref={ref}
                 />
                 <RenderIf isTrue={!!icon}>
@@ -104,27 +125,10 @@ Input.propTypes = {
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
     error: PropTypes.node,
-    keyboardType: PropTypes.oneOf([
-        'default',
-        'number-pad',
-        'decimal-pad',
-        'numeric',
-        'email-address',
-        'phone-pad',
-        'ascii-capable',
-        'numbers-and-punctuation',
-        'url',
-        'name-phone-pad',
-        'twitter',
-        'web-search',
-        'visible-password',
-    ]),
-    autoCapitalize: PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
-    autoFocus: PropTypes.bool,
+    type: PropTypes.oneOf(['text', 'username', 'email', 'password']),
     style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     icon: PropTypes.node,
     iconPosition: PropTypes.oneOf(['left', 'right']),
-    secureTextEntry: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -136,13 +140,10 @@ Input.defaultProps = {
     placeholder: undefined,
     disabled: false,
     error: undefined,
-    keyboardType: 'default',
-    autoCapitalize: undefined,
-    autoFocus: false,
+    type: 'text',
     style: undefined,
     icon: null,
     iconPosition: 'left',
-    secureTextEntry: false,
 };
 
 export default Input;
