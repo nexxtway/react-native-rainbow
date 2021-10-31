@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
-import { CountryType, CountryPropTypes } from './index';
+import { CountryType, CountryPropTypes } from './';
 import ListItem from './listItem';
 import { Divider } from './styled';
 
@@ -19,7 +19,7 @@ const List: React.FC<Props> = props => {
             renderItem={({ item }) => <ListItem item={item} onPress={onSelect} />}
             keyExtractor={item => item.country}
             // TODO: make a separator styled component
-            ItemSeparatorComponent={() => <Divider />}
+            ItemSeparatorComponent={Divider}
             // TODO: add optimizations
             // initialNumToRender={20}
             // initialScrollIndex={findCountryIndex(countries, selectedCountry.country)}

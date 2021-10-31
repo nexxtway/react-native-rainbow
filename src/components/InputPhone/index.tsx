@@ -97,6 +97,7 @@ const InputPhone = React.forwardRef<any, Props>((props, ref) => {
             </RenderIf>
             <InputContainer>
                 <StyledInput
+                    blurOnSubmit={false}
                     {...rest}
                     onChangeText={handleChange}
                     value={phone}

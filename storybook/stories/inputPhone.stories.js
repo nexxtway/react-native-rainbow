@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { storiesOf } from '@storybook/react-native';
 import ThemeWrapper from './ThemeWrapper';
 import CenterView from './CenterView';
@@ -14,10 +14,10 @@ function BasicUsage() {
         phone: '12345678',
         isoCode: 'mx',
     });
-
     const [thirdValue, setThirdValue] = useState({
         isoCode: 'invalid',
     });
+    const ref = useRef();
 
     return (
         <>
@@ -27,10 +27,10 @@ function BasicUsage() {
                 placeholder="Enter Phone Number"
                 value={firstValue}
                 onChange={setFirstValue}
+                onSubmitEditing={() => ref.current.focus()}
+                returnKeyType="done"
             />
-
-            <InputPhone label="Label" value={secondValue} onChange={setSecondValue} />
-
+            <InputPhone label="Label" value={secondValue} onChange={setSecondValue} ref={ref} />
             <InputPhone label="Label" value={thirdValue} onChange={setThirdValue} />
         </>
     );
