@@ -18,4 +18,5 @@ export { default as RenderIf } from './RenderIf';
 export { default as SegmentedControl } from './SegmentedControl';
 export { default as Select } from './Select';
 export { default as Spinner } from './Spinner';
+export { default as SwipeButton } from './SwipeButton';
 export { default as Switch } from './Switch';
