@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Platform } from 'react-native';
 import Spinner from 'react-native-spinkit';
 import { Palette } from 'styled-components';
 import { StyledText } from './styled';
@@ -30,7 +31,8 @@ const ButtonContent: React.FC<Props> = props => {
     } = useTheme();
 
     if (isLoading) {
-        return <Spinner type="Arc" size={30} color={getSpinnerColor(palette, variant)} />;
+        const type = Platform.OS === 'ios' ? 'Arc' : 'FadingCircleAlt';
+        return <Spinner type={type} size={30} color={getSpinnerColor(palette, variant)} />;
     }
 
     if (typeof children === 'string' || typeof children === 'number') {
