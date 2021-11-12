@@ -1,7 +1,9 @@
 import styled from 'styled-components/native';
-import { IconPosition, ButtonVariant } from '../../types';
+import { Palette } from 'styled-components';
+import Spinner from '../../Spinner';
 import { FONT_SIZE_HEADING_SMALL } from '../../../styles/fontSizes';
 import attachThemeAttrs from '../../../styles/helpers/attachThemeAttrs';
+import { IconPosition, ButtonVariant } from '../../types';
 
 interface Props {
     iconPosition?: IconPosition;
@@ -62,4 +64,24 @@ export const StyledText = attachThemeAttrs(styled.Text)<Props>`
     }}
 
     ${props => props.disabled && `color: ${props.palette.text.disabled};`}
+`;
+
+interface SpinnerProps {
+    variant?: ButtonVariant;
+    palette: Palette;
+}
+
+const getSpinnerColor = (props: SpinnerProps): string => {
+    const { variant, palette } = props;
+    if (variant === 'brand' || variant === 'destructive' || variant === 'success') {
+        return palette.getContrastText(palette.text.main);
+    }
+    if (variant === 'neutral') {
+        return palette.background.highlight;
+    }
+    return palette.brand.main;
+};
+
+export const StyledSpinner = attachThemeAttrs(styled(Spinner))<SpinnerProps>`
+    color: ${getSpinnerColor}
 `;

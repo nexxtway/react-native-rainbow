@@ -5,7 +5,15 @@ import { Spinner } from '../../src/components';
 import ColView from './ColView';
 import { Text } from 'react-native';
 
-const styleText = { color: '#a4a7b5', margin: 10, fontSize: 16 };
+const styleText = {
+    color: '#a4a7b5',
+    margin: 10,
+    fontSize: 16,
+};
+
+const customColor = {
+    color: 'purple',
+};
 
 storiesOf('Spinner', module)
     .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
@@ -48,4 +56,9 @@ storiesOf('Spinner', module)
                 </ColView>
             </ColView>
         );
-    });
+    })
+    .add('Custom color', () => (
+        <ColView>
+            <Spinner size="large" style={customColor} />
+        </ColView>
+    ));
