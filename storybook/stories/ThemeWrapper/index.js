@@ -12,6 +12,14 @@ const selectStyles = {
     marginHorizontal: 40,
 };
 
+const greenTheme = {
+    rainbow: {
+        palette: {
+            brand: 'rgb(0, 171, 142)',
+        },
+    },
+};
+
 const orangeTheme = {
     rainbow: {
         palette: {
@@ -53,6 +61,7 @@ const cyanDarkTheme = {
 };
 
 const themeMap = {
+    green: greenTheme,
     orange: orangeTheme,
     yellow: yellowTheme,
     'deep-purple': deepPurpleTheme,
@@ -61,6 +70,7 @@ const themeMap = {
 
 const options = [
     { label: 'Default', value: 'default' },
+    { label: 'Green', value: 'green' },
     { label: 'Orange', value: 'orange' },
     { label: 'Yellow', value: 'yellow' },
     { label: 'Deep Purple', value: 'deep-purple' },
