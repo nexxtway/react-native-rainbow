@@ -1,31 +1,10 @@
 import React, { useRef } from 'react';
 import { Animated, PanResponder } from 'react-native';
-import styled from 'styled-components/native';
 import Icon from './icon';
+import { ThumbContainer, ThumbIcon } from './styled';
 
 const THUMB_WIDTH = 60;
 
-const Container = styled(Animated.View)`
-    width: ${THUMB_WIDTH}px;
-    height: 56px;
-    background-color: rgba(0, 0, 0, 0.4);
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 20px;
-`;
-
-const ThumbIcon = styled.View`
-    width: 60px;
-    height: 56px;
-    background-color: rgb(0, 171, 142);
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-`;
 interface Props {
     maxWidth: number;
     onSuccess: () => void;
@@ -49,8 +28,12 @@ const Thumb = (props: Props) => {
             },
             onPanResponderEnd: (_event, gestureState) => {
                 if (gestureState.dx > maxWidth / 2) {
-                    Animated.spring(offset, { toValue: maxWidth, useNativeDriver: false }).start();
-                    onSuccess();
+                    Animated.spring(offset, {
+                        toValue: maxWidth,
+                        useNativeDriver: false,
+                        restSpeedThreshold: 100,
+                        restDisplacementThreshold: 40,
+                    }).start(() => onSuccess());
                 } else {
                     Animated.spring(offset, {
                         toValue: THUMB_WIDTH,
@@ -62,11 +45,15 @@ const Thumb = (props: Props) => {
     ).current;
     if (maxWidth > 0) {
         return (
-            <Container style={{ width: offset }} {...panResponder.panHandlers}>
+            <ThumbContainer
+                width={THUMB_WIDTH}
+                style={{ width: offset }}
+                {...panResponder.panHandlers}
+            >
                 <ThumbIcon>
                     <Icon />
                 </ThumbIcon>
-            </Container>
+            </ThumbContainer>
         );
     }
     return null;

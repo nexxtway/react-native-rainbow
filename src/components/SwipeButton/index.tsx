@@ -1,24 +1,9 @@
 import React, { useState } from 'react';
 import { LayoutChangeEvent } from 'react-native';
-import styled from 'styled-components/native';
-import { RenderIf } from '..';
-import { BaseProps } from '../types';
+import RenderIf from '../RenderIf';
 import Thumb from './thumb';
-
-const Container = styled.View`
-    border-radius: 20px;
-    background-color: rgb(123, 194, 183);
-    padding: 14px 24px;
-    height: 56px;
-    justify-content: center;
-    align-items: center;
-`;
-
-const Label = styled.Text`
-    color: white;
-    font-size: 20px;
-    letter-spacing: 0.36px;
-`;
+import { Container, SpinnerContainer, Label, StyledSpinner } from './styled';
+import { BaseProps } from '../types';
 
 const shadowStyles = {
     shadowColor: 'rgba(0, 0, 0, 0.22)',
@@ -31,21 +16,29 @@ const shadowStyles = {
 };
 
 interface Props extends BaseProps {
-    label: string;
-    onSuccess: () => void;
+    label?: string;
+    onSuccess?: () => void;
+    isLoading?: boolean;
 }
 
 const SwipeButton = (props: Props) => {
-    const { label, onSuccess, style } = props;
+    const { label, onSuccess = () => {}, isLoading = false, style } = props;
     const [width, setWidth] = useState(0);
     const onLayout = (event: LayoutChangeEvent) => {
         setWidth(event.nativeEvent.layout.width);
     };
     return (
-        <Container onLayout={onLayout} style={[shadowStyles, style]}>
-            <Label>{label}</Label>
-            <RenderIf isTrue={width > 0}>
-                <Thumb maxWidth={width} onSuccess={onSuccess} />
+        <Container onLayout={onLayout} isLoading={isLoading} style={[shadowStyles, style]}>
+            <RenderIf isTrue={isLoading}>
+                <SpinnerContainer>
+                    <StyledSpinner />
+                </SpinnerContainer>
+            </RenderIf>
+            <RenderIf isTrue={!isLoading}>
+                <Label>{label}</Label>
+                <RenderIf isTrue={width > 0}>
+                    <Thumb maxWidth={width} onSuccess={onSuccess} />
+                </RenderIf>
             </RenderIf>
         </Container>
     );
@@ -54,6 +47,7 @@ const SwipeButton = (props: Props) => {
 SwipeButton.defaultProps = {
     label: 'Swipe to Submit',
     onSuccess: () => {},
+    isLoading: false,
 };
 
 export default SwipeButton;
