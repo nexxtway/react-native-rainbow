@@ -37,5 +37,3 @@ export const COLOR_DARK_1 = 'rgb(8, 28, 63)';
 
 // purple colors
 export const COLOR_PURPLE = '#663398';
-
-export const COLOR_NEUTRAL = '#a4a7b5';

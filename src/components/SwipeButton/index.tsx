@@ -17,7 +17,7 @@ const Container = styled.View`
 const Label = styled.Text`
     color: white;
     font-size: 20px;
-    letter-spacing: 0.36;
+    letter-spacing: 0.36px;
 `;
 
 const shadowStyles = {
