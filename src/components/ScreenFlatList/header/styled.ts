@@ -9,10 +9,10 @@ export const HeaderAreaView = styled.SafeAreaView`
 
 export const HeaderContainer = styled.View`
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: ${COLOR_WHITE};
-    padding: 24px 12px 20px 12px;
+    padding: 24px 16px 20px 12px;
 `;
 
 export const StyledButton = styled(Button)`
@@ -21,7 +21,7 @@ export const StyledButton = styled(Button)`
     color: ${COLOR_BRAND};
     height: 30px;
     line-height: 24px;
-    padding: 0 20px;
+    padding: 0 10px;
 `;
 
 export const ArrowBackIcon = styled(ChevronBack)`
@@ -30,14 +30,15 @@ export const ArrowBackIcon = styled(ChevronBack)`
     color: ${COLOR_BRAND};
 `;
 
-export const TitleContainer = styled.View`
-    padding: 0 14px 0 42px;
-    flex: 1;
-    justify-content: center;
-`;
-
 export const Title = styled.Text`
     font-size: 24px;
+    padding: 0 0 0 48px;
     font-weight: 800;
     color: ${COLOR_DARK_1};
+`;
+
+export const StyledButtonLabel = styled.Text`
+    color: ${COLOR_BRAND};
+    font-size: 16px;
+    margin-left: 24px;
 `;

@@ -6,7 +6,7 @@ import RenderIf from '../RenderIf';
 import { BaseProps, ButtonVariant, IconPosition } from '../types';
 import ButtonContent from './buttonContent';
 
-interface Props extends BaseProps {
+export interface Props extends BaseProps {
     onPress?: (event?: any) => void;
     label?: ReactNode;
     disabled?: boolean;

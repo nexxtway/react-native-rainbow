@@ -7,7 +7,7 @@ import {
     StyledButton,
     ArrowBackIcon,
     Title,
-    TitleContainer,
+    StyledButtonLabel,
 } from './styled';
 
 interface Props {
@@ -25,12 +25,11 @@ const Header = ({ title }: Props) => {
                     <StyledButton
                         icon={<ArrowBackIcon />}
                         iconPosition="left"
+                        label={<StyledButtonLabel>Back</StyledButtonLabel>}
                         variant="base"
                         onPress={goBack}
                     />
-                    <TitleContainer>
-                        <Title numberOfLines={1}>{title}</Title>
-                    </TitleContainer>
+                    <Title numberOfLines={1}>{title}</Title>
                 </HeaderContainer>
             </HeaderAreaView>
         </>
