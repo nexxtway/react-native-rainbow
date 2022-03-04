@@ -16,6 +16,7 @@ export { default as Modal } from './Modal';
 export { default as ProgressBar } from './ProgressBar';
 export { default as ProgressCircular } from './ProgressCircular';
 export { default as RenderIf } from './RenderIf';
+export { default as ScreenFlatList } from './ScreenFlatList';
 export { default as SegmentedControl } from './SegmentedControl';
 export { default as Select } from './Select';
 export { default as Spinner } from './Spinner';

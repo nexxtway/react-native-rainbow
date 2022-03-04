@@ -3,8 +3,13 @@ import { FlatList as RnFlatList } from 'react-native';
 import Footer from './footer';
 import { Data, FlatListProps } from './types';
 
-const FlatList = <ItemT extends object>({ itemComponent, dataSource }: FlatListProps<ItemT>) => {
+const FlatList = <ItemT extends object>({
+    itemComponent,
+    headerComponent: HeaderComponent,
+    dataSource,
+}: FlatListProps<ItemT>) => {
     const [isLoadingMore, setIsLoadingMore] = useState(false);
+    const [isRefreshing, setIsRefreshing] = useState(false);
     const [items, setItems] = useState<ItemT[]>([]);
 
     const previousResponse = useRef<Data<ItemT> | undefined>(undefined);
@@ -24,18 +29,40 @@ const FlatList = <ItemT extends object>({ itemComponent, dataSource }: FlatListP
         setIsLoadingMore(false);
     };
 
+    const refresh = async () => {
+        setIsRefreshing(true);
+        try {
+            const response = await dataSource({
+                previousResponse: undefined,
+                items: [],
+            });
+            previousResponse.current = response;
+            setItems([...response.items]);
+        } catch (e) {
+            console.log(e);
+        }
+        setIsRefreshing(false);
+    };
+
     useEffect(() => {
         loadMore();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const header = HeaderComponent ? <HeaderComponent data={previousResponse.current} /> : null;
+
     return (
-        <RnFlatList
-            renderItem={itemComponent}
-            data={items}
-            onEndReached={loadMore}
-            ListFooterComponent={<Footer showIf={isLoadingMore} />}
-        />
+        <>
+            {header}
+            <RnFlatList
+                renderItem={itemComponent}
+                data={items}
+                onEndReached={loadMore}
+                ListFooterComponent={<Footer showIf={isLoadingMore} />}
+                onRefresh={refresh}
+                refreshing={isRefreshing}
+            />
+        </>
     );
 };
 
