@@ -57,10 +57,7 @@ const FlatList = <ItemT extends object>({
             <RnFlatList
                 renderItem={itemComponent}
                 data={items}
-                onEndReached={() => {
-                    console.log('end');
-                    loadMore();
-                }}
+                onEndReached={loadMore}
                 ListFooterComponent={<Footer showIf={isLoadingMore} />}
                 onRefresh={refresh}
                 refreshing={isRefreshing}
