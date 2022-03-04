@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
 import Button from '../../Button';
-import { COLOR_BRAND, COLOR_DARK_1, COLOR_WHITE } from '../../../styles/colors';
+import { COLOR_DARK_1, COLOR_WHITE } from '../../../styles/colors';
 import ChevronBack from '../../Icons/chevronBack';
+import attachThemeAttrs from '../../../styles/helpers/attachThemeAttrs';
 
 export const HeaderAreaView = styled.SafeAreaView`
     background-color: ${COLOR_WHITE};
@@ -15,19 +16,19 @@ export const HeaderContainer = styled.View`
     padding: 24px 16px 20px 12px;
 `;
 
-export const StyledButton = styled(Button)`
+export const StyledButton = attachThemeAttrs(styled(Button))`
     position: absolute;
     left: 0;
-    color: ${COLOR_BRAND};
+    color: ${props => props.palette.brand.main};
     height: 30px;
     line-height: 24px;
     padding: 0 10px;
 `;
 
-export const ArrowBackIcon = styled(ChevronBack)`
+export const ArrowBackIcon = attachThemeAttrs(styled(ChevronBack))`
     width: 10px;
     height: 18px;
-    color: ${COLOR_BRAND};
+    color: ${props => props.palette.brand.main};
 `;
 
 export const Title = styled.Text`
@@ -37,8 +38,8 @@ export const Title = styled.Text`
     color: ${COLOR_DARK_1};
 `;
 
-export const StyledButtonLabel = styled.Text`
-    color: ${COLOR_BRAND};
+export const StyledButtonLabel = attachThemeAttrs(styled.Text)`
+    color: ${props => props.palette.brand.main};
     font-size: 16px;
     margin-left: 24px;
 `;

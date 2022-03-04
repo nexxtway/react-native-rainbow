@@ -1,9 +1,9 @@
 import styled from 'styled-components/native';
-import { COLOR_GRAY_TRANSPARENT_1 } from '../../styles/colors';
+import attachThemeAttrs from '../../styles/helpers/attachThemeAttrs';
 
-export const Divider = styled.View`
+export const Divider = attachThemeAttrs(styled.View)`
     height: 1px;
     margin-left: 20px;
     width: 100%;
-    background-color: ${COLOR_GRAY_TRANSPARENT_1};
+    background-color: ${props => props.palette.background.main};
 `;
