@@ -7,17 +7,19 @@ const ScreenFlatList = ({
     title,
     itemComponent,
     headerComponent: HeaderComponent,
-    subHeaderComponent: SubHeaderComponent,
+    subHeaderComponent,
     dataSource,
 }: ScreenFlatListProps) => {
     const header = HeaderComponent ? <HeaderComponent title={title} /> : <Header title={title} />;
-    const subHeader = SubHeaderComponent ? <SubHeaderComponent title={title} /> : null;
 
     return (
         <>
             {header}
-            {subHeader}
-            <FlatList itemComponent={itemComponent} dataSource={dataSource} />
+            <FlatList
+                itemComponent={itemComponent}
+                headerComponent={subHeaderComponent}
+                dataSource={dataSource}
+            />
         </>
     );
 };

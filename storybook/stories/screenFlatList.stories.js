@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { Text } from 'react-native';
 import styled from 'styled-components/native';
-import { ScreenFlatList } from '../../src/components';
+import { RenderIf, ScreenFlatList } from '../../src/components';
 import attachThemeAttrs from '../../src/styles/helpers/attachThemeAttrs';
 
 const StyledItemView = styled.View`
@@ -41,11 +41,18 @@ const dataSource = ({ previousResponse, items }) => {
     });
 };
 
-const SubHeader = () => (
-    <StyledSubheaderView>
-        <Text>Scroll down to load more items.</Text>
-    </StyledSubheaderView>
-);
+const SubHeader = ({ data }) => {
+    if (data) {
+        return (
+            <StyledSubheaderView>
+                <RenderIf isTrue={data}>
+                    <Text>Loaded {data.startIndex - 1} items.</Text>
+                </RenderIf>
+            </StyledSubheaderView>
+        );
+    }
+    return null;
+};
 
 storiesOf('ScreenFlatList', module).add('Basic', () => (
     <NavigationContainer>
