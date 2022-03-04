@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Text } from 'react-native';
 import styled from 'styled-components/native';
 import { ScreenFlatList } from '../../src/components';
+import attachThemeAttrs from '../../src/styles/helpers/attachThemeAttrs';
 
 const StyledItemView = styled.View`
     padding: 16px;
@@ -11,11 +12,11 @@ const StyledItemView = styled.View`
     align-items: flex-start;
 `;
 
-const StyledSubheaderView = styled.View`
+const StyledSubheaderView = attachThemeAttrs(styled.View)`
     justify-content: center;
     align-items: center;
     padding: 12px;
-    background-color: #ccc;
+    background-color: ${props => props.palette.background.highlight};
 `;
 
 const Item = ({ item }) => {
