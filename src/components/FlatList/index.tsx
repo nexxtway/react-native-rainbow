@@ -5,6 +5,7 @@ import { Data, FlatListProps } from './types';
 
 const FlatList = <ItemT extends object>({ itemComponent, dataSource }: FlatListProps<ItemT>) => {
     const [isLoadingMore, setIsLoadingMore] = useState(false);
+    const [isRefreshing, setIsRefreshing] = useState(false);
     const [items, setItems] = useState<ItemT[]>([]);
 
     const previousResponse = useRef<Data<ItemT> | undefined>(undefined);
@@ -24,6 +25,21 @@ const FlatList = <ItemT extends object>({ itemComponent, dataSource }: FlatListP
         setIsLoadingMore(false);
     };
 
+    const refresh = async () => {
+        setIsRefreshing(true);
+        try {
+            const response = await dataSource({
+                previousResponse: undefined,
+                items: [],
+            });
+            previousResponse.current = response;
+            setItems([...response.items]);
+        } catch (e) {
+            console.log(e);
+        }
+        setIsRefreshing(false);
+    };
+
     useEffect(() => {
         loadMore();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,6 +51,8 @@ const FlatList = <ItemT extends object>({ itemComponent, dataSource }: FlatListP
             data={items}
             onEndReached={loadMore}
             ListFooterComponent={<Footer showIf={isLoadingMore} />}
+            onRefresh={refresh}
+            refreshing={isRefreshing}
         />
     );
 };
