@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { StyledAvatar, StyledImage, StyledText } from './styled';
 import RenderIf from '../RenderIf';
 import { Props, RefType } from './types';
+import { ImageErrorEventData, NativeSyntheticEvent } from 'react-native';
 
 /**
  * An avatar component represents an object or entity
@@ -26,10 +27,10 @@ const Avatar = React.forwardRef<RefType, Props>((props, ref) => {
         setIsImage(!!(source.uri && typeof source.uri === 'string'));
     }, [source]);
 
-    const handleError = () => {
+    const handleError = (error: NativeSyntheticEvent<ImageErrorEventData>) => {
         setIsImage(false);
         if (onError) {
-            onError();
+            onError(error);
         }
     };
 
