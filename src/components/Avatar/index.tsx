@@ -1,36 +1,42 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledAvatar, StyledImage, StyledText } from './styled';
 import RenderIf from '../RenderIf';
-import { BaseProps } from '../types';
+import { Props, RefType } from './types';
 
 /**
  * An avatar component represents an object or entity
  */
-
-type AvatarSizes = 'large' | 'medium' | 'small' | 'x-small';
-
-interface Props extends BaseProps {
-    src?: string;
-    initials?: string;
-    icon?: ReactNode;
-    size?: AvatarSizes;
-}
-
-const Avatar: React.FC<Props> = props => {
-    const { src, initials, icon, size, style } = props;
+const Avatar = React.forwardRef<RefType, Props>((props, ref) => {
+    const { src, initials, icon, size, style, onError } = props;
     const [isImage, setIsImage] = React.useState(false);
+    const [source, setSource] = React.useState({ uri: src });
     const isInitials = !!(initials && typeof initials === 'string' && !isImage);
     const isIcon = !!(icon !== null && !initials && !isImage);
 
+    React.useImperativeHandle(ref, () => ({
+        refresh: () => setSource({ ...source }),
+    }));
+
     React.useEffect(() => {
-        setIsImage(!!(src && typeof src === 'string'));
+        setSource({ uri: src });
     }, [src]);
+
+    React.useEffect(() => {
+        setIsImage(!!(source.uri && typeof source.uri === 'string'));
+    }, [source]);
+
+    const handleError = () => {
+        setIsImage(false);
+        if (onError) {
+            onError();
+        }
+    };
 
     return (
         <StyledAvatar size={size} style={style}>
             <RenderIf isTrue={isImage}>
-                <StyledImage source={{ uri: src }} onError={() => setIsImage(false)} />
+                <StyledImage source={source} onError={handleError} />
             </RenderIf>
             <RenderIf isTrue={isInitials}>
                 <StyledText size={size}>{initials}</StyledText>
@@ -38,7 +44,7 @@ const Avatar: React.FC<Props> = props => {
             <RenderIf isTrue={isIcon}>{icon}</RenderIf>
         </StyledAvatar>
     );
-};
+});
 
 Avatar.propTypes = {
     /** The URL for the image.
