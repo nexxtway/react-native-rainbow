@@ -35,7 +35,9 @@ const SwipeButton = (props: Props) => {
                 </SpinnerContainer>
             </RenderIf>
             <RenderIf isTrue={!isLoading}>
-                <Label>{label}</Label>
+                <Label numberOfLines={1} ellipsizeMode="tail">
+                    {label}
+                </Label>
                 <RenderIf isTrue={width > 0}>
                     <Thumb maxWidth={width} onSuccess={onSuccess} />
                 </RenderIf>
