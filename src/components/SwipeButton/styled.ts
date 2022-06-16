@@ -15,7 +15,7 @@ export const Container = attachThemeAttrs(styled.View)<{ isLoading: boolean }>`
     ${props =>
         !props.isLoading &&
         `
-        padding: 14px 62px;
+        padding: 0px 10px 0px 65px;
     `}
 `;
 
