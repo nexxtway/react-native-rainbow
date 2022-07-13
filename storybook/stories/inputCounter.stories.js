@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react-native';
 import ThemeWrapper from './ThemeWrapper';
 import CenterView from './CenterView';
@@ -12,7 +12,6 @@ function BasicUsage() {
     const [firstValue, setFirstValue] = useState();
     const [secondValue, setSecondValue] = useState(10);
     const [thirdValue, setThirdValue] = useState(3);
-    const ref = useRef();
 
     return (
         <>
@@ -21,8 +20,6 @@ function BasicUsage() {
                 label="Counter"
                 value={firstValue}
                 onChange={setFirstValue}
-                onSubmitEditing={() => ref.current.focus()}
-                returnKeyType="done"
             />
             <InputCounter
                 style={styles}
@@ -32,7 +29,6 @@ function BasicUsage() {
                 step={5}
                 min={0}
                 max={50}
-                ref={ref}
             />
             <InputCounter style={styles} label="Disabled counter" disabled />
             <InputCounter
