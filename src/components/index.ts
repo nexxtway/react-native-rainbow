@@ -10,6 +10,7 @@ export { default as Checkbox } from './Checkbox';
 export { default as FlatList } from './FlatList';
 export { default as Input } from './Input';
 export { default as InputCode } from './InputCode';
+export { default as InputCounter } from './InputCounter';
 export { default as InputPhone } from './InputPhone';
 export { default as LikeButton } from './LikeButton';
 export { default as Modal } from './Modal';
