@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 import { BaseProps } from '../../types';
-import { COLOR_GRAY_TRANSPARENT_3, COLOR_DARK_1 } from '../../../styles/colors';
 import attachThemeAttrs from '../../../styles/helpers/attachThemeAttrs';
 import { Size } from '../types';
+import { replaceAlpha } from '../../..//styles/helpers/color';
 
 interface Props extends BaseProps {
     isActive?: boolean;
@@ -61,19 +61,23 @@ export const StyledOption = styled.TouchableOpacity<OptionProps>`
     box-shadow: ${props => (props.isActive ? '0px 0px 2px rgba(0,0,0, .2)' : 'none')};
 `;
 
-export const StyledOptionText = styled.Text<Props>`
+export const StyledOptionText = attachThemeAttrs(styled.Text)<Props>`
     display: flex;
     position: relative;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     font-size: 15px;
-    color: ${COLOR_GRAY_TRANSPARENT_3};
+    color: ${props => replaceAlpha(props.palette.text.label, props.palette.isDark ? 0.5 : 0.3)};
     ${props =>
         !props.disabled &&
         props.isActive &&
         `
-        color: ${props.variant === 'brand' ? 'white' : COLOR_DARK_1}
+        color: ${
+            props.variant === 'brand'
+                ? props.palette.getContrastText(props.palette.brand.main)
+                : props.palette.text.main
+        };
     `};
 `;
 
@@ -87,7 +91,9 @@ export const StyledBg = attachThemeAttrs(styled.View)<Props>`
         !props.disabled &&
         props.isActive &&
         `
-        background: ${props.variant === 'brand' ? props.palette.brand.main : 'white'};
+        background: ${
+            props.variant === 'brand' ? props.palette.brand.main : props.palette.background.main
+        };
     `}
     ${props =>
         props.disabled &&

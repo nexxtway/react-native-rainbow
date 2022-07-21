@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import RenderIf from '../RenderIf';
 import { BaseProps } from '../types';
@@ -36,12 +36,10 @@ const SegmentedControl: React.FC<Props> = ({
     isFullWidth,
     size = 'medium',
 }: Props) => {
-    const [activeIndex, setaAtiveIndex] = useState(() => {
-        const index = options.findIndex(option => option.value === value);
-        return index > 0 ? index : 0;
-    });
+    const currentIndex = options.findIndex(option => option.value === value);
+    const activeIndex = currentIndex > 0 ? currentIndex : 0;
     const hasLabel = !!label;
-    const isOptionActive = (option: OptionProps) => option.value === value;
+    const isOptionActive = (index: number) => activeIndex === index;
 
     return (
         <StyledSegmentedControlContainer isFullWidth={isFullWidth} style={style}>
@@ -50,15 +48,12 @@ const SegmentedControl: React.FC<Props> = ({
             </RenderIf>
             <StyledSegmentedControlOptionsWrapper disabled={disabled}>
                 {options.map((option, index) => {
-                    const isActive = isOptionActive(option);
+                    const isActive = isOptionActive(index);
                     return (
                         <Option
                             key={`option-${index}`}
                             option={option}
-                            onPress={evt => {
-                                setaAtiveIndex(index);
-                                onChange(evt);
-                            }}
+                            onPress={onChange}
                             disabled={disabled}
                             isActive={isActive}
                             variant={variant}
