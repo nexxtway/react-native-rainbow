@@ -57,5 +57,6 @@ declare module 'styled-components' {
     }
     export interface DefaultTheme {
         rainbow: RainbowTheme;
+        [key: string]: unknown;
     }
 }
