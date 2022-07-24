@@ -1,4 +1,5 @@
 import { DefaultTheme, Palette } from 'styled-components';
+import { ThemeProp } from './../../components/types';
 import defaultTheme from '../defaultTheme';
 import { darken, lighten, isDark, getContrastText } from './color';
 import { normalizePaletteColors } from './normalizeThemeColors';
@@ -112,14 +113,12 @@ function resolveCustomShadows(colors: Palette, background: string) {
     return shadows;
 }
 
-export default function normalizeTheme(theme = {}): DefaultTheme {
+export default function normalizeTheme(theme: ThemeProp): DefaultTheme {
+    const { rainbow = {}, ...rest } = theme;
     const colors = normalizeColors(
-        pickColors(
-            ['brand', 'success', 'error', 'warning'],
-            get(theme, 'rainbow.palette') as Palette,
-        ),
+        pickColors(['brand', 'success', 'error', 'warning'], get(rainbow, 'palette') as Palette),
     );
-    const mainBackground = get(theme, 'rainbow.palette.mainBackground');
+    const mainBackground = get(rainbow, 'palette.mainBackground');
     return {
         rainbow: {
             palette: normalizePaletteColors({
@@ -132,5 +131,6 @@ export default function normalizeTheme(theme = {}): DefaultTheme {
                 ...resolveCustomShadows(colors as Palette, mainBackground as string),
             },
         },
+        ...rest,
     };
 }

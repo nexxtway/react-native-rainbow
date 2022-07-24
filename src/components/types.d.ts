@@ -36,4 +36,5 @@ export interface ThemeProp {
             mainBackground?: string;
         };
     };
+    [key: string]: unknown;
 }
