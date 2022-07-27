@@ -16,6 +16,7 @@ import {
 import CountryPickerModal, { CountryType } from './countyPickerModal';
 import getCountryFromValue from './helpers/getCountryFromValue';
 import { BaseProps } from '../types';
+import useTheme from '../../hooks/useTheme';
 
 interface Value {
     countryCode?: string;
@@ -65,6 +66,7 @@ const InputPhone = React.forwardRef<any, Props>((props, ref) => {
     const [selectedCountry, setCountry] = useState<CountryType>(
         () => getCountryFromValue(isoCode) || defaultCountry,
     );
+    const theme = useTheme();
 
     const selectCountry = (country: CountryType) => {
         setCountry(country);
@@ -111,6 +113,7 @@ const InputPhone = React.forwardRef<any, Props>((props, ref) => {
                     disabled={disabled}
                     keyboardType="number-pad"
                     autoFocus={autoFocus}
+                    placeholderTextColor={theme.rainbow.palette.text.header}
                     ref={ref}
                 />
                 <LeftElement>
