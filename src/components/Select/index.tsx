@@ -94,6 +94,9 @@ const Select = (props: Props) => {
         };
     }, [disabled, error, palette]);
     const selectPlaceholder = placeholder ? { label: placeholder, value: null } : {};
+    const textInputProps = {
+        placeholderTextColor: palette.text.header,
+    };
 
     return (
         <View style={style}>
@@ -112,6 +115,7 @@ const Select = (props: Props) => {
                     Icon={() => <ArrowIcon disabled={disabled} error={error} />}
                     style={styles}
                     useNativeAndroidPickerStyle={false}
+                    textInputProps={textInputProps}
                 />
             </View>
             <RenderIf isTrue={!!error}>

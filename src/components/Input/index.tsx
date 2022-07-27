@@ -6,6 +6,7 @@ import useReactHookForm from '../../hooks/useReactHookForm';
 import StyledInput from './styled/input';
 import { Label, Error, Icon } from './styled';
 import { IconPosition } from '../types';
+import useTheme from '../../hooks/useTheme';
 
 const inputTypePropsMap = {
     text: {},
@@ -70,6 +71,7 @@ const Input = React.forwardRef<any, Props>((props, ref) => {
     const inputProps = inputTypePropsMap[type] || inputTypePropsMap.text;
 
     const [isFocused, setFocusState] = useState(false);
+    const theme = useTheme();
 
     const handleFocus = () => {
         setFocusState(true);
@@ -103,6 +105,7 @@ const Input = React.forwardRef<any, Props>((props, ref) => {
                     disabled={disabled}
                     hasIcon={!!icon}
                     iconPosition={iconPosition}
+                    placeholderTextColor={theme.rainbow.palette.text.header}
                     ref={ref}
                 />
                 <RenderIf isTrue={!!icon}>
