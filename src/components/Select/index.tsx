@@ -72,6 +72,7 @@ const Select = (props: Props) => {
         placeholder,
         disabled,
         options,
+        textInputProps: textInputPropsProp,
         ...rest
     } = useReactHookForm(props);
     const {
@@ -96,6 +97,7 @@ const Select = (props: Props) => {
     const selectPlaceholder = placeholder ? { label: placeholder, value: null } : {};
     const textInputProps = {
         placeholderTextColor: palette.text.header,
+        ...textInputPropsProp,
     };
 
     return (
