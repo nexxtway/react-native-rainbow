@@ -72,7 +72,7 @@ const Select = (props: Props) => {
         placeholder,
         disabled,
         options,
-        textInputProps: textInputPropsProp,
+        pickerProps: pickerPropsProp,
         ...rest
     } = useReactHookForm(props);
     const {
@@ -90,14 +90,27 @@ const Select = (props: Props) => {
             placeholder: {
                 paddingLeft: 16,
                 paddingRight: 16,
+                color: palette.text.header,
             },
             iconContainer,
+            modalViewMiddle: {
+                backgroundColor: palette.background.secondary,
+                borderTopColor: palette.border.main,
+            },
+            modalViewBottom: {
+                backgroundColor: palette.background.main,
+                pading: 16,
+            },
+            done: { color: palette.brand.main },
         };
     }, [disabled, error, palette]);
     const selectPlaceholder = placeholder ? { label: placeholder, value: null } : {};
-    const textInputProps = {
-        placeholderTextColor: palette.text.header,
-        ...textInputPropsProp,
+
+    const pickerProps = {
+        itemStyle: {
+            color: palette.text.main,
+        },
+        ...pickerPropsProp,
     };
 
     return (
@@ -117,7 +130,7 @@ const Select = (props: Props) => {
                     Icon={() => <ArrowIcon disabled={disabled} error={error} />}
                     style={styles}
                     useNativeAndroidPickerStyle={false}
-                    textInputProps={textInputProps}
+                    pickerProps={pickerProps}
                 />
             </View>
             <RenderIf isTrue={!!error}>
