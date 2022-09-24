@@ -58,6 +58,7 @@
         "@babel/core": "^7.15.5",
         "@babel/runtime": "^7.15.4",
         "@react-native-community/eslint-config": "^3.0.1",
+        "@react-navigation/native": "^6.0.13",
         "@storybook/addon-actions": "^5.2.5",
         "@storybook/addon-links": "^5.2.5",
         "@storybook/addons": "^5.2.5",
