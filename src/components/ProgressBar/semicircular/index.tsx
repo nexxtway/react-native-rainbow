@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { View, ViewPropTypes } from 'react-native';
+import { View } from 'react-native';
 import { Svg, Path, G, Circle } from 'react-native-svg';
 import {
     COLOR_BRAND,
@@ -164,7 +164,7 @@ const CircularProgress: React.FC<Props> = props => {
 CircularProgress.propTypes = {
     value: PropTypes.number,
     variant: PropTypes.oneOf(['brand', 'success', 'warning', 'error']),
-    style: ViewPropTypes.style,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     min: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired,
 };
