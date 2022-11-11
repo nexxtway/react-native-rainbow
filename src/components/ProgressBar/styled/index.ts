@@ -1,11 +1,5 @@
 import styled from 'styled-components/native';
-import {
-    COLOR_ERROR,
-    COLOR_SUCCESS,
-    COLOR_WARNING,
-    COLOR_GRAY_TRANSPARENT_2,
-    COLOR_GRAY_3,
-} from '../../../styles/colors';
+import { COLOR_GRAY_TRANSPARENT_2, COLOR_GRAY_3 } from '../../../styles/colors';
 import { BaseProps } from '../../types';
 import attachThemeAttrs from '../../../styles/helpers/attachThemeAttrs';
 
@@ -37,19 +31,19 @@ export const StyledBar = attachThemeAttrs(styled.View)<Props>`
     ${props =>
         props.variant === 'success' &&
         `
-            background-color: ${COLOR_SUCCESS};
+            background-color: ${props.palette.success.main};
         `};
 
     ${props =>
         props.variant === 'warning' &&
         `
-            background-color: ${COLOR_WARNING};
+            background-color: ${props.palette.warning.main};
         `};
 
     ${props =>
         props.variant === 'error' &&
         `
-            background-color: ${COLOR_ERROR};
+            background-color: ${props.palette.error.main};
         `};
 `;
 
