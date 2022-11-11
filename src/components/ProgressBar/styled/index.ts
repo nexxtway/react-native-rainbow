@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 import {
-    COLOR_BRAND,
     COLOR_ERROR,
     COLOR_SUCCESS,
     COLOR_WARNING,
@@ -8,6 +7,7 @@ import {
     COLOR_GRAY_3,
 } from '../../../styles/colors';
 import { BaseProps } from '../../types';
+import attachThemeAttrs from '../../../styles/helpers/attachThemeAttrs';
 
 export type Variants = 'brand' | 'success' | 'warning' | 'error';
 
@@ -25,11 +25,11 @@ export const StyledContainer = styled.View<BaseProps>`
     align-items: center;
 `;
 
-export const StyledBar = styled.View<Props>`
+export const StyledBar = attachThemeAttrs(styled.View)<Props>`
     position: absolute;
     top: 0;
     left: 0;
-    background-color: ${COLOR_BRAND};
+    background-color: ${props => props.palette.brand.main};
     height: 100%;
     width: ${props => (props.value / props.max) * 100}%;
     border-radius: 100px;
