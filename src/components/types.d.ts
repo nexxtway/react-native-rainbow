@@ -12,7 +12,7 @@ export type ButtonVariant =
     | 'destructive'
     | 'success';
 
-export type ButtonIconVariant = 'base' | 'neutral' | 'brand' | 'success';
+export type ButtonIconVariant = 'base' | 'neutral' | 'brand' | 'success' | 'destructive';
 export type IconPosition = 'left' | 'right';
 
 export type ButtonIconSize = 'xx-small' | 'x-small' | 'small' | 'medium' | 'large';
