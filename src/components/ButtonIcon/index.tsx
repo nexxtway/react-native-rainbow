@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from './styled/index';
 import { BaseProps, ButtonIconVariant, ButtonIconSize } from '../types';
+import RenderIf from '../RenderIf';
+import { StyledSpinner } from '../Button/styled';
 
 export interface Props extends BaseProps {
     onPress?: (event?: any) => void;
@@ -9,14 +11,18 @@ export interface Props extends BaseProps {
     disabled?: boolean;
     variant?: ButtonIconVariant;
     size?: ButtonIconSize;
+    isLoading?: boolean;
 }
 
 const ButtonIcon: React.FC<Props> = props => {
-    const { onPress, icon, disabled, variant, size, style } = props;
+    const { onPress, icon, disabled, variant, size, style, isLoading } = props;
 
     return (
         <Button onPress={onPress} disabled={disabled} variant={variant} size={size} style={style}>
-            {icon}
+            <RenderIf isTrue={isLoading}>
+                <StyledSpinner variant={variant} />
+            </RenderIf>
+            <RenderIf isTrue={!isLoading}>{icon}</RenderIf>
         </Button>
     );
 };
