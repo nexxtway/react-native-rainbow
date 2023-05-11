@@ -34,6 +34,12 @@ export const Button = attachThemeAttrs(styled.TouchableOpacity)<Props>`
             border: 1px solid ${props.palette.brand.main};
         `};
     ${props =>
+        props.variant === 'destructive' &&
+        `
+            background-color: ${props.palette.error.main};
+            border: 1px solid ${props.palette.error.main};
+        `};
+    ${props =>
         props.variant === 'success' &&
         `
             background-color: ${props.palette.success.main};
@@ -58,6 +64,17 @@ export const Button = attachThemeAttrs(styled.TouchableOpacity)<Props>`
         `
             background-color: transparent;
             border: 1px solid transparent;
+        `};
+    ${props =>
+        props.disabled &&
+        props.variant === 'destructive' &&
+        `
+            background-color: ${
+                props.isLoading ? props.palette.error.main : props.palette.background.disabled
+            };
+            border-color: ${
+                props.isLoading ? props.palette.error.main : props.palette.background.disabled
+            };
         `};
     ${props =>
         props.size === 'xx-small' &&

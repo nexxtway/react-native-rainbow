@@ -59,7 +59,7 @@ storiesOf('ButtonIcon', module)
             <ButtonIcon
                 style={styles}
                 icon={<ArrowRight style={iconStyles} />}
-                variant="brand"
+                variant="destructive"
                 size="small"
             />
             <ButtonIcon
