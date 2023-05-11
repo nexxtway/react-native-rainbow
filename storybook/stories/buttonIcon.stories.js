@@ -97,4 +97,36 @@ storiesOf('ButtonIcon', module)
                 variant="success"
             />
         </>
+    ))
+    .add('isLoading', () => (
+        <>
+            <ButtonIcon
+                style={styles}
+                icon={<ArrowRight style={iconStyles} />}
+                variant="base"
+                size="medium"
+                isLoading
+            />
+            <ButtonIcon
+                style={styles}
+                icon={<ArrowRight style={iconStyles} />}
+                variant="brand"
+                size="medium"
+                isLoading
+            />
+            <ButtonIcon
+                style={styles}
+                icon={<ArrowRight style={iconStyles} />}
+                variant="success"
+                size="medium"
+                isLoading
+            />
+            <ButtonIcon
+                style={styles}
+                icon={<ArrowRight style={iconStyles} />}
+                variant="destructive"
+                size="medium"
+                isLoading
+            />
+        </>
     ));
